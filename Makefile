@@ -15,7 +15,6 @@ srctree := $(CURDIR)
 
 obj-y := main.o FlightController.o PID.o
 
-
 BUILD_DIR := build
 
 INCLUDES := -I. -I$(KERNEL_SOURCE) -I./$(KERNEL_SOURCE)/include/
@@ -31,23 +30,21 @@ else
 	APPNAME := firmware
 endif
 
+
+LD := g++
+	
 CXXFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -std=c++11 
 CFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -std=c99 
 LDFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) 
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
+
 firmware: simulator/simulator
+	if [ ! -d "build" ]; then mkdir -p build; fi
 	make -C $(KERNEL_SOURCE) build
 	$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS)
 	 
-simulator/simulator: simulator/libquadcopter.a $(obj-y) 
-	make -C $(KERNEL_SOURCE) build
-	$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
-
-simulator/libquadcopter.a: 
-	make -C simulator
-	
 flash: $(APPNAME)
 	avr-objcopy -j .text -j .data -O ihex $(APPNAME) $(APPNAME).hex 
 	avr-size -C -x $(APPNAME) 
@@ -73,3 +70,15 @@ $(BUILD_DIR)/%.o: %.cpp
 
 $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
+
+
+simulator/simulator: simulator/libquadcopter.a $(obj-y)
+ifdef CONFIG_SIMULATOR
+		make -C $(KERNEL_SOURCE) build
+		$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
+endif
+	
+simulator/libquadcopter.a: 
+ifdef CONFIG_SIMULATOR
+		make -C simulator
+endif

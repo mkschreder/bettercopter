@@ -4,8 +4,11 @@
 
 #define MINCOMMAND 800
 
+#define PWM_MIN MINCOMMAND
+#define PWM_MAX 2000
+
 void get_accelerometer(int16_t *x, int16_t *y, int16_t *z); 
-void get_gyroscope(int16_t *x, int16_t *y, int16_t *z); 
+void get_gyroscope(float *x, float *y, float *z); 
 void get_magnetometer(int16_t *x, int16_t *y, int16_t *z); 
 void get_altitude(int16_t *alt);
 void get_pressure(int16_t *pres);

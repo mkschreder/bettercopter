@@ -3,6 +3,10 @@
 
 #include <kernel.h>
 
+#ifdef CONFIG_NATIVE
+#include "simulator/sim_kernel.h"
+#endif
+
 #include "FlightController.hpp"
 
 // Globals
@@ -54,9 +58,6 @@ void FlightController::update(
 		int16_t rc_pitch, 
 		int16_t rc_roll, 
 		int16_t mode, timeout_t udt){
-			
-	DDRC |= _BV(2); 
-	PORTC |= _BV(2); 
 	
 	float dt = 0.01f;
 	
@@ -96,8 +97,6 @@ void FlightController::update(
 		constrain(rc_thr + rr					 + ry, PWM_MIN, PWM_MAX), 
 		constrain(rc_thr - rr					 + ry, PWM_MIN, PWM_MAX) 
 	); 
-	
-	PORTC &= ~_BV(2); 
 	
 	kdebug("GP: %d, GR: %d, GY: %d\n", 
 		(int16_t)(gp), (int16_t)(gr), (int16_t)(gy)); 

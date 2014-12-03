@@ -42,10 +42,10 @@ void get_accelerometer(int16_t *x, int16_t *y, int16_t *z){
 	//mpu6050_getRawData(x, y, z, &gx, &gy, &gz); 
 }
 
-void get_gyroscope(int16_t *x, int16_t *y, int16_t *z){
+void get_gyroscope(float *x, float *y, float *z){
 	glm::vec3 v; 
 	App->getActiveQuad()->getSensorData(0, &v, 0, 0, 0, 0); 
-	v = v * 100.0f; //glm::normalize(v); 
+	//v = v * 100.0f; //glm::normalize(v); 
 	*x = v.x; 
 	*y = v.y; 
 	*z = v.z; 
