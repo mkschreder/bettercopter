@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/intranet/software/avr-fortmax-boards/bettercopter/simulator
+CMAKE_SOURCE_DIR = /data/intranet/software/avr-bettercopter/simulator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/intranet/software/avr-fortmax-boards/bettercopter/simulator
+CMAKE_BINARY_DIR = /data/intranet/software/avr-bettercopter/simulator
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-fortmax-boards/bettercopter/simulator/CMakeFiles /data/intranet/software/avr-fortmax-boards/bettercopter/simulator/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-bettercopter/simulator/CMakeFiles /data/intranet/software/avr-bettercopter/simulator/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-fortmax-boards/bettercopter/simulator/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-bettercopter/simulator/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

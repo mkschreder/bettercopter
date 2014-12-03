@@ -1,0 +1,1 @@
+/data/intranet/software/avr-bettercopter/simulator/irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir

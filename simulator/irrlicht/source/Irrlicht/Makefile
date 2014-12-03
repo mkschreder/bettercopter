@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/intranet/software/avr-fortmax-boards/bettercopter/simulator
+CMAKE_SOURCE_DIR = /data/intranet/software/avr-bettercopter/simulator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/intranet/software/avr-fortmax-boards/bettercopter/simulator
+CMAKE_BINARY_DIR = /data/intranet/software/avr-bettercopter/simulator
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,14 +69,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-fortmax-boards/bettercopter/simulator/CMakeFiles /data/intranet/software/avr-fortmax-boards/bettercopter/simulator/irrlicht/source/Irrlicht/CMakeFiles/progress.marks
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-fortmax-boards/bettercopter/simulator/CMakeFiles 0
+	cd /data/intranet/software/avr-bettercopter/simulator && $(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-bettercopter/simulator/CMakeFiles /data/intranet/software/avr-bettercopter/simulator/irrlicht/source/Irrlicht/CMakeFiles/progress.marks
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/intranet/software/avr-bettercopter/simulator/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/clean
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/clean
 .PHONY : clean
 
 # The main clean target
@@ -85,22 +85,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/preinstall
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/preinstall
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /data/intranet/software/avr-bettercopter/simulator && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/rule:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/rule
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f CMakeFiles/Makefile2 irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/rule
 .PHONY : irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/rule
 
 # Convenience name for target.
@@ -109,7 +109,7 @@ irrlicht: irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/rule
 
 # fast build rule for target.
 irrlicht/fast:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build
 .PHONY : irrlicht/fast
 
 C3DSMeshFileLoader.o: C3DSMeshFileLoader.cpp.o
@@ -117,7 +117,7 @@ C3DSMeshFileLoader.o: C3DSMeshFileLoader.cpp.o
 
 # target to build an object file
 C3DSMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/C3DSMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/C3DSMeshFileLoader.cpp.o
 .PHONY : C3DSMeshFileLoader.cpp.o
 
 C3DSMeshFileLoader.i: C3DSMeshFileLoader.cpp.i
@@ -125,7 +125,7 @@ C3DSMeshFileLoader.i: C3DSMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 C3DSMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/C3DSMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/C3DSMeshFileLoader.cpp.i
 .PHONY : C3DSMeshFileLoader.cpp.i
 
 C3DSMeshFileLoader.s: C3DSMeshFileLoader.cpp.s
@@ -133,7 +133,7 @@ C3DSMeshFileLoader.s: C3DSMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 C3DSMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/C3DSMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/C3DSMeshFileLoader.cpp.s
 .PHONY : C3DSMeshFileLoader.cpp.s
 
 CAnimatedMeshHalfLife.o: CAnimatedMeshHalfLife.cpp.o
@@ -141,7 +141,7 @@ CAnimatedMeshHalfLife.o: CAnimatedMeshHalfLife.cpp.o
 
 # target to build an object file
 CAnimatedMeshHalfLife.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshHalfLife.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshHalfLife.cpp.o
 .PHONY : CAnimatedMeshHalfLife.cpp.o
 
 CAnimatedMeshHalfLife.i: CAnimatedMeshHalfLife.cpp.i
@@ -149,7 +149,7 @@ CAnimatedMeshHalfLife.i: CAnimatedMeshHalfLife.cpp.i
 
 # target to preprocess a source file
 CAnimatedMeshHalfLife.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshHalfLife.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshHalfLife.cpp.i
 .PHONY : CAnimatedMeshHalfLife.cpp.i
 
 CAnimatedMeshHalfLife.s: CAnimatedMeshHalfLife.cpp.s
@@ -157,7 +157,7 @@ CAnimatedMeshHalfLife.s: CAnimatedMeshHalfLife.cpp.s
 
 # target to generate assembly for a file
 CAnimatedMeshHalfLife.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshHalfLife.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshHalfLife.cpp.s
 .PHONY : CAnimatedMeshHalfLife.cpp.s
 
 CAnimatedMeshMD2.o: CAnimatedMeshMD2.cpp.o
@@ -165,7 +165,7 @@ CAnimatedMeshMD2.o: CAnimatedMeshMD2.cpp.o
 
 # target to build an object file
 CAnimatedMeshMD2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD2.cpp.o
 .PHONY : CAnimatedMeshMD2.cpp.o
 
 CAnimatedMeshMD2.i: CAnimatedMeshMD2.cpp.i
@@ -173,7 +173,7 @@ CAnimatedMeshMD2.i: CAnimatedMeshMD2.cpp.i
 
 # target to preprocess a source file
 CAnimatedMeshMD2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD2.cpp.i
 .PHONY : CAnimatedMeshMD2.cpp.i
 
 CAnimatedMeshMD2.s: CAnimatedMeshMD2.cpp.s
@@ -181,7 +181,7 @@ CAnimatedMeshMD2.s: CAnimatedMeshMD2.cpp.s
 
 # target to generate assembly for a file
 CAnimatedMeshMD2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD2.cpp.s
 .PHONY : CAnimatedMeshMD2.cpp.s
 
 CAnimatedMeshMD3.o: CAnimatedMeshMD3.cpp.o
@@ -189,7 +189,7 @@ CAnimatedMeshMD3.o: CAnimatedMeshMD3.cpp.o
 
 # target to build an object file
 CAnimatedMeshMD3.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD3.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD3.cpp.o
 .PHONY : CAnimatedMeshMD3.cpp.o
 
 CAnimatedMeshMD3.i: CAnimatedMeshMD3.cpp.i
@@ -197,7 +197,7 @@ CAnimatedMeshMD3.i: CAnimatedMeshMD3.cpp.i
 
 # target to preprocess a source file
 CAnimatedMeshMD3.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD3.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD3.cpp.i
 .PHONY : CAnimatedMeshMD3.cpp.i
 
 CAnimatedMeshMD3.s: CAnimatedMeshMD3.cpp.s
@@ -205,7 +205,7 @@ CAnimatedMeshMD3.s: CAnimatedMeshMD3.cpp.s
 
 # target to generate assembly for a file
 CAnimatedMeshMD3.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD3.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshMD3.cpp.s
 .PHONY : CAnimatedMeshMD3.cpp.s
 
 CAnimatedMeshSceneNode.o: CAnimatedMeshSceneNode.cpp.o
@@ -213,7 +213,7 @@ CAnimatedMeshSceneNode.o: CAnimatedMeshSceneNode.cpp.o
 
 # target to build an object file
 CAnimatedMeshSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshSceneNode.cpp.o
 .PHONY : CAnimatedMeshSceneNode.cpp.o
 
 CAnimatedMeshSceneNode.i: CAnimatedMeshSceneNode.cpp.i
@@ -221,7 +221,7 @@ CAnimatedMeshSceneNode.i: CAnimatedMeshSceneNode.cpp.i
 
 # target to preprocess a source file
 CAnimatedMeshSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshSceneNode.cpp.i
 .PHONY : CAnimatedMeshSceneNode.cpp.i
 
 CAnimatedMeshSceneNode.s: CAnimatedMeshSceneNode.cpp.s
@@ -229,7 +229,7 @@ CAnimatedMeshSceneNode.s: CAnimatedMeshSceneNode.cpp.s
 
 # target to generate assembly for a file
 CAnimatedMeshSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAnimatedMeshSceneNode.cpp.s
 .PHONY : CAnimatedMeshSceneNode.cpp.s
 
 CAttributes.o: CAttributes.cpp.o
@@ -237,7 +237,7 @@ CAttributes.o: CAttributes.cpp.o
 
 # target to build an object file
 CAttributes.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAttributes.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAttributes.cpp.o
 .PHONY : CAttributes.cpp.o
 
 CAttributes.i: CAttributes.cpp.i
@@ -245,7 +245,7 @@ CAttributes.i: CAttributes.cpp.i
 
 # target to preprocess a source file
 CAttributes.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAttributes.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAttributes.cpp.i
 .PHONY : CAttributes.cpp.i
 
 CAttributes.s: CAttributes.cpp.s
@@ -253,7 +253,7 @@ CAttributes.s: CAttributes.cpp.s
 
 # target to generate assembly for a file
 CAttributes.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAttributes.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CAttributes.cpp.s
 .PHONY : CAttributes.cpp.s
 
 CB3DMeshFileLoader.o: CB3DMeshFileLoader.cpp.o
@@ -261,7 +261,7 @@ CB3DMeshFileLoader.o: CB3DMeshFileLoader.cpp.o
 
 # target to build an object file
 CB3DMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CB3DMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CB3DMeshFileLoader.cpp.o
 .PHONY : CB3DMeshFileLoader.cpp.o
 
 CB3DMeshFileLoader.i: CB3DMeshFileLoader.cpp.i
@@ -269,7 +269,7 @@ CB3DMeshFileLoader.i: CB3DMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CB3DMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CB3DMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CB3DMeshFileLoader.cpp.i
 .PHONY : CB3DMeshFileLoader.cpp.i
 
 CB3DMeshFileLoader.s: CB3DMeshFileLoader.cpp.s
@@ -277,7 +277,7 @@ CB3DMeshFileLoader.s: CB3DMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CB3DMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CB3DMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CB3DMeshFileLoader.cpp.s
 .PHONY : CB3DMeshFileLoader.cpp.s
 
 CBSPMeshFileLoader.o: CBSPMeshFileLoader.cpp.o
@@ -285,7 +285,7 @@ CBSPMeshFileLoader.o: CBSPMeshFileLoader.cpp.o
 
 # target to build an object file
 CBSPMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBSPMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBSPMeshFileLoader.cpp.o
 .PHONY : CBSPMeshFileLoader.cpp.o
 
 CBSPMeshFileLoader.i: CBSPMeshFileLoader.cpp.i
@@ -293,7 +293,7 @@ CBSPMeshFileLoader.i: CBSPMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CBSPMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBSPMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBSPMeshFileLoader.cpp.i
 .PHONY : CBSPMeshFileLoader.cpp.i
 
 CBSPMeshFileLoader.s: CBSPMeshFileLoader.cpp.s
@@ -301,7 +301,7 @@ CBSPMeshFileLoader.s: CBSPMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CBSPMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBSPMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBSPMeshFileLoader.cpp.s
 .PHONY : CBSPMeshFileLoader.cpp.s
 
 CBillboardSceneNode.o: CBillboardSceneNode.cpp.o
@@ -309,7 +309,7 @@ CBillboardSceneNode.o: CBillboardSceneNode.cpp.o
 
 # target to build an object file
 CBillboardSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBillboardSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBillboardSceneNode.cpp.o
 .PHONY : CBillboardSceneNode.cpp.o
 
 CBillboardSceneNode.i: CBillboardSceneNode.cpp.i
@@ -317,7 +317,7 @@ CBillboardSceneNode.i: CBillboardSceneNode.cpp.i
 
 # target to preprocess a source file
 CBillboardSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBillboardSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBillboardSceneNode.cpp.i
 .PHONY : CBillboardSceneNode.cpp.i
 
 CBillboardSceneNode.s: CBillboardSceneNode.cpp.s
@@ -325,7 +325,7 @@ CBillboardSceneNode.s: CBillboardSceneNode.cpp.s
 
 # target to generate assembly for a file
 CBillboardSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBillboardSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBillboardSceneNode.cpp.s
 .PHONY : CBillboardSceneNode.cpp.s
 
 CBoneSceneNode.o: CBoneSceneNode.cpp.o
@@ -333,7 +333,7 @@ CBoneSceneNode.o: CBoneSceneNode.cpp.o
 
 # target to build an object file
 CBoneSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBoneSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBoneSceneNode.cpp.o
 .PHONY : CBoneSceneNode.cpp.o
 
 CBoneSceneNode.i: CBoneSceneNode.cpp.i
@@ -341,7 +341,7 @@ CBoneSceneNode.i: CBoneSceneNode.cpp.i
 
 # target to preprocess a source file
 CBoneSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBoneSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBoneSceneNode.cpp.i
 .PHONY : CBoneSceneNode.cpp.i
 
 CBoneSceneNode.s: CBoneSceneNode.cpp.s
@@ -349,7 +349,7 @@ CBoneSceneNode.s: CBoneSceneNode.cpp.s
 
 # target to generate assembly for a file
 CBoneSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBoneSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBoneSceneNode.cpp.s
 .PHONY : CBoneSceneNode.cpp.s
 
 CBurningShader_Raster_Reference.o: CBurningShader_Raster_Reference.cpp.o
@@ -357,7 +357,7 @@ CBurningShader_Raster_Reference.o: CBurningShader_Raster_Reference.cpp.o
 
 # target to build an object file
 CBurningShader_Raster_Reference.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBurningShader_Raster_Reference.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBurningShader_Raster_Reference.cpp.o
 .PHONY : CBurningShader_Raster_Reference.cpp.o
 
 CBurningShader_Raster_Reference.i: CBurningShader_Raster_Reference.cpp.i
@@ -365,7 +365,7 @@ CBurningShader_Raster_Reference.i: CBurningShader_Raster_Reference.cpp.i
 
 # target to preprocess a source file
 CBurningShader_Raster_Reference.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBurningShader_Raster_Reference.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBurningShader_Raster_Reference.cpp.i
 .PHONY : CBurningShader_Raster_Reference.cpp.i
 
 CBurningShader_Raster_Reference.s: CBurningShader_Raster_Reference.cpp.s
@@ -373,7 +373,7 @@ CBurningShader_Raster_Reference.s: CBurningShader_Raster_Reference.cpp.s
 
 # target to generate assembly for a file
 CBurningShader_Raster_Reference.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBurningShader_Raster_Reference.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CBurningShader_Raster_Reference.cpp.s
 .PHONY : CBurningShader_Raster_Reference.cpp.s
 
 CCSMLoader.o: CCSMLoader.cpp.o
@@ -381,7 +381,7 @@ CCSMLoader.o: CCSMLoader.cpp.o
 
 # target to build an object file
 CCSMLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCSMLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCSMLoader.cpp.o
 .PHONY : CCSMLoader.cpp.o
 
 CCSMLoader.i: CCSMLoader.cpp.i
@@ -389,7 +389,7 @@ CCSMLoader.i: CCSMLoader.cpp.i
 
 # target to preprocess a source file
 CCSMLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCSMLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCSMLoader.cpp.i
 .PHONY : CCSMLoader.cpp.i
 
 CCSMLoader.s: CCSMLoader.cpp.s
@@ -397,7 +397,7 @@ CCSMLoader.s: CCSMLoader.cpp.s
 
 # target to generate assembly for a file
 CCSMLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCSMLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCSMLoader.cpp.s
 .PHONY : CCSMLoader.cpp.s
 
 CCameraSceneNode.o: CCameraSceneNode.cpp.o
@@ -405,7 +405,7 @@ CCameraSceneNode.o: CCameraSceneNode.cpp.o
 
 # target to build an object file
 CCameraSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCameraSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCameraSceneNode.cpp.o
 .PHONY : CCameraSceneNode.cpp.o
 
 CCameraSceneNode.i: CCameraSceneNode.cpp.i
@@ -413,7 +413,7 @@ CCameraSceneNode.i: CCameraSceneNode.cpp.i
 
 # target to preprocess a source file
 CCameraSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCameraSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCameraSceneNode.cpp.i
 .PHONY : CCameraSceneNode.cpp.i
 
 CCameraSceneNode.s: CCameraSceneNode.cpp.s
@@ -421,7 +421,7 @@ CCameraSceneNode.s: CCameraSceneNode.cpp.s
 
 # target to generate assembly for a file
 CCameraSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCameraSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCameraSceneNode.cpp.s
 .PHONY : CCameraSceneNode.cpp.s
 
 CCgMaterialRenderer.o: CCgMaterialRenderer.cpp.o
@@ -429,7 +429,7 @@ CCgMaterialRenderer.o: CCgMaterialRenderer.cpp.o
 
 # target to build an object file
 CCgMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCgMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCgMaterialRenderer.cpp.o
 .PHONY : CCgMaterialRenderer.cpp.o
 
 CCgMaterialRenderer.i: CCgMaterialRenderer.cpp.i
@@ -437,7 +437,7 @@ CCgMaterialRenderer.i: CCgMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 CCgMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCgMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCgMaterialRenderer.cpp.i
 .PHONY : CCgMaterialRenderer.cpp.i
 
 CCgMaterialRenderer.s: CCgMaterialRenderer.cpp.s
@@ -445,7 +445,7 @@ CCgMaterialRenderer.s: CCgMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 CCgMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCgMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCgMaterialRenderer.cpp.s
 .PHONY : CCgMaterialRenderer.cpp.s
 
 CColladaFileLoader.o: CColladaFileLoader.cpp.o
@@ -453,7 +453,7 @@ CColladaFileLoader.o: CColladaFileLoader.cpp.o
 
 # target to build an object file
 CColladaFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaFileLoader.cpp.o
 .PHONY : CColladaFileLoader.cpp.o
 
 CColladaFileLoader.i: CColladaFileLoader.cpp.i
@@ -461,7 +461,7 @@ CColladaFileLoader.i: CColladaFileLoader.cpp.i
 
 # target to preprocess a source file
 CColladaFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaFileLoader.cpp.i
 .PHONY : CColladaFileLoader.cpp.i
 
 CColladaFileLoader.s: CColladaFileLoader.cpp.s
@@ -469,7 +469,7 @@ CColladaFileLoader.s: CColladaFileLoader.cpp.s
 
 # target to generate assembly for a file
 CColladaFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaFileLoader.cpp.s
 .PHONY : CColladaFileLoader.cpp.s
 
 CColladaMeshWriter.o: CColladaMeshWriter.cpp.o
@@ -477,7 +477,7 @@ CColladaMeshWriter.o: CColladaMeshWriter.cpp.o
 
 # target to build an object file
 CColladaMeshWriter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaMeshWriter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaMeshWriter.cpp.o
 .PHONY : CColladaMeshWriter.cpp.o
 
 CColladaMeshWriter.i: CColladaMeshWriter.cpp.i
@@ -485,7 +485,7 @@ CColladaMeshWriter.i: CColladaMeshWriter.cpp.i
 
 # target to preprocess a source file
 CColladaMeshWriter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaMeshWriter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaMeshWriter.cpp.i
 .PHONY : CColladaMeshWriter.cpp.i
 
 CColladaMeshWriter.s: CColladaMeshWriter.cpp.s
@@ -493,7 +493,7 @@ CColladaMeshWriter.s: CColladaMeshWriter.cpp.s
 
 # target to generate assembly for a file
 CColladaMeshWriter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaMeshWriter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColladaMeshWriter.cpp.s
 .PHONY : CColladaMeshWriter.cpp.s
 
 CColorConverter.o: CColorConverter.cpp.o
@@ -501,7 +501,7 @@ CColorConverter.o: CColorConverter.cpp.o
 
 # target to build an object file
 CColorConverter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColorConverter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColorConverter.cpp.o
 .PHONY : CColorConverter.cpp.o
 
 CColorConverter.i: CColorConverter.cpp.i
@@ -509,7 +509,7 @@ CColorConverter.i: CColorConverter.cpp.i
 
 # target to preprocess a source file
 CColorConverter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColorConverter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColorConverter.cpp.i
 .PHONY : CColorConverter.cpp.i
 
 CColorConverter.s: CColorConverter.cpp.s
@@ -517,7 +517,7 @@ CColorConverter.s: CColorConverter.cpp.s
 
 # target to generate assembly for a file
 CColorConverter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColorConverter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CColorConverter.cpp.s
 .PHONY : CColorConverter.cpp.s
 
 CCubeSceneNode.o: CCubeSceneNode.cpp.o
@@ -525,7 +525,7 @@ CCubeSceneNode.o: CCubeSceneNode.cpp.o
 
 # target to build an object file
 CCubeSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCubeSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCubeSceneNode.cpp.o
 .PHONY : CCubeSceneNode.cpp.o
 
 CCubeSceneNode.i: CCubeSceneNode.cpp.i
@@ -533,7 +533,7 @@ CCubeSceneNode.i: CCubeSceneNode.cpp.i
 
 # target to preprocess a source file
 CCubeSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCubeSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCubeSceneNode.cpp.i
 .PHONY : CCubeSceneNode.cpp.i
 
 CCubeSceneNode.s: CCubeSceneNode.cpp.s
@@ -541,7 +541,7 @@ CCubeSceneNode.s: CCubeSceneNode.cpp.s
 
 # target to generate assembly for a file
 CCubeSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCubeSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CCubeSceneNode.cpp.s
 .PHONY : CCubeSceneNode.cpp.s
 
 CD3D8Driver.o: CD3D8Driver.cpp.o
@@ -549,7 +549,7 @@ CD3D8Driver.o: CD3D8Driver.cpp.o
 
 # target to build an object file
 CD3D8Driver.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Driver.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Driver.cpp.o
 .PHONY : CD3D8Driver.cpp.o
 
 CD3D8Driver.i: CD3D8Driver.cpp.i
@@ -557,7 +557,7 @@ CD3D8Driver.i: CD3D8Driver.cpp.i
 
 # target to preprocess a source file
 CD3D8Driver.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Driver.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Driver.cpp.i
 .PHONY : CD3D8Driver.cpp.i
 
 CD3D8Driver.s: CD3D8Driver.cpp.s
@@ -565,7 +565,7 @@ CD3D8Driver.s: CD3D8Driver.cpp.s
 
 # target to generate assembly for a file
 CD3D8Driver.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Driver.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Driver.cpp.s
 .PHONY : CD3D8Driver.cpp.s
 
 CD3D8NormalMapRenderer.o: CD3D8NormalMapRenderer.cpp.o
@@ -573,7 +573,7 @@ CD3D8NormalMapRenderer.o: CD3D8NormalMapRenderer.cpp.o
 
 # target to build an object file
 CD3D8NormalMapRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8NormalMapRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8NormalMapRenderer.cpp.o
 .PHONY : CD3D8NormalMapRenderer.cpp.o
 
 CD3D8NormalMapRenderer.i: CD3D8NormalMapRenderer.cpp.i
@@ -581,7 +581,7 @@ CD3D8NormalMapRenderer.i: CD3D8NormalMapRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D8NormalMapRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8NormalMapRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8NormalMapRenderer.cpp.i
 .PHONY : CD3D8NormalMapRenderer.cpp.i
 
 CD3D8NormalMapRenderer.s: CD3D8NormalMapRenderer.cpp.s
@@ -589,7 +589,7 @@ CD3D8NormalMapRenderer.s: CD3D8NormalMapRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D8NormalMapRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8NormalMapRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8NormalMapRenderer.cpp.s
 .PHONY : CD3D8NormalMapRenderer.cpp.s
 
 CD3D8ParallaxMapRenderer.o: CD3D8ParallaxMapRenderer.cpp.o
@@ -597,7 +597,7 @@ CD3D8ParallaxMapRenderer.o: CD3D8ParallaxMapRenderer.cpp.o
 
 # target to build an object file
 CD3D8ParallaxMapRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ParallaxMapRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ParallaxMapRenderer.cpp.o
 .PHONY : CD3D8ParallaxMapRenderer.cpp.o
 
 CD3D8ParallaxMapRenderer.i: CD3D8ParallaxMapRenderer.cpp.i
@@ -605,7 +605,7 @@ CD3D8ParallaxMapRenderer.i: CD3D8ParallaxMapRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D8ParallaxMapRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ParallaxMapRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ParallaxMapRenderer.cpp.i
 .PHONY : CD3D8ParallaxMapRenderer.cpp.i
 
 CD3D8ParallaxMapRenderer.s: CD3D8ParallaxMapRenderer.cpp.s
@@ -613,7 +613,7 @@ CD3D8ParallaxMapRenderer.s: CD3D8ParallaxMapRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D8ParallaxMapRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ParallaxMapRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ParallaxMapRenderer.cpp.s
 .PHONY : CD3D8ParallaxMapRenderer.cpp.s
 
 CD3D8ShaderMaterialRenderer.o: CD3D8ShaderMaterialRenderer.cpp.o
@@ -621,7 +621,7 @@ CD3D8ShaderMaterialRenderer.o: CD3D8ShaderMaterialRenderer.cpp.o
 
 # target to build an object file
 CD3D8ShaderMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ShaderMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ShaderMaterialRenderer.cpp.o
 .PHONY : CD3D8ShaderMaterialRenderer.cpp.o
 
 CD3D8ShaderMaterialRenderer.i: CD3D8ShaderMaterialRenderer.cpp.i
@@ -629,7 +629,7 @@ CD3D8ShaderMaterialRenderer.i: CD3D8ShaderMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D8ShaderMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ShaderMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ShaderMaterialRenderer.cpp.i
 .PHONY : CD3D8ShaderMaterialRenderer.cpp.i
 
 CD3D8ShaderMaterialRenderer.s: CD3D8ShaderMaterialRenderer.cpp.s
@@ -637,7 +637,7 @@ CD3D8ShaderMaterialRenderer.s: CD3D8ShaderMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D8ShaderMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ShaderMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8ShaderMaterialRenderer.cpp.s
 .PHONY : CD3D8ShaderMaterialRenderer.cpp.s
 
 CD3D8Texture.o: CD3D8Texture.cpp.o
@@ -645,7 +645,7 @@ CD3D8Texture.o: CD3D8Texture.cpp.o
 
 # target to build an object file
 CD3D8Texture.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Texture.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Texture.cpp.o
 .PHONY : CD3D8Texture.cpp.o
 
 CD3D8Texture.i: CD3D8Texture.cpp.i
@@ -653,7 +653,7 @@ CD3D8Texture.i: CD3D8Texture.cpp.i
 
 # target to preprocess a source file
 CD3D8Texture.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Texture.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Texture.cpp.i
 .PHONY : CD3D8Texture.cpp.i
 
 CD3D8Texture.s: CD3D8Texture.cpp.s
@@ -661,7 +661,7 @@ CD3D8Texture.s: CD3D8Texture.cpp.s
 
 # target to generate assembly for a file
 CD3D8Texture.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Texture.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D8Texture.cpp.s
 .PHONY : CD3D8Texture.cpp.s
 
 CD3D9CgMaterialRenderer.o: CD3D9CgMaterialRenderer.cpp.o
@@ -669,7 +669,7 @@ CD3D9CgMaterialRenderer.o: CD3D9CgMaterialRenderer.cpp.o
 
 # target to build an object file
 CD3D9CgMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9CgMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9CgMaterialRenderer.cpp.o
 .PHONY : CD3D9CgMaterialRenderer.cpp.o
 
 CD3D9CgMaterialRenderer.i: CD3D9CgMaterialRenderer.cpp.i
@@ -677,7 +677,7 @@ CD3D9CgMaterialRenderer.i: CD3D9CgMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D9CgMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9CgMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9CgMaterialRenderer.cpp.i
 .PHONY : CD3D9CgMaterialRenderer.cpp.i
 
 CD3D9CgMaterialRenderer.s: CD3D9CgMaterialRenderer.cpp.s
@@ -685,7 +685,7 @@ CD3D9CgMaterialRenderer.s: CD3D9CgMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D9CgMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9CgMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9CgMaterialRenderer.cpp.s
 .PHONY : CD3D9CgMaterialRenderer.cpp.s
 
 CD3D9Driver.o: CD3D9Driver.cpp.o
@@ -693,7 +693,7 @@ CD3D9Driver.o: CD3D9Driver.cpp.o
 
 # target to build an object file
 CD3D9Driver.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Driver.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Driver.cpp.o
 .PHONY : CD3D9Driver.cpp.o
 
 CD3D9Driver.i: CD3D9Driver.cpp.i
@@ -701,7 +701,7 @@ CD3D9Driver.i: CD3D9Driver.cpp.i
 
 # target to preprocess a source file
 CD3D9Driver.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Driver.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Driver.cpp.i
 .PHONY : CD3D9Driver.cpp.i
 
 CD3D9Driver.s: CD3D9Driver.cpp.s
@@ -709,7 +709,7 @@ CD3D9Driver.s: CD3D9Driver.cpp.s
 
 # target to generate assembly for a file
 CD3D9Driver.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Driver.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Driver.cpp.s
 .PHONY : CD3D9Driver.cpp.s
 
 CD3D9HLSLMaterialRenderer.o: CD3D9HLSLMaterialRenderer.cpp.o
@@ -717,7 +717,7 @@ CD3D9HLSLMaterialRenderer.o: CD3D9HLSLMaterialRenderer.cpp.o
 
 # target to build an object file
 CD3D9HLSLMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9HLSLMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9HLSLMaterialRenderer.cpp.o
 .PHONY : CD3D9HLSLMaterialRenderer.cpp.o
 
 CD3D9HLSLMaterialRenderer.i: CD3D9HLSLMaterialRenderer.cpp.i
@@ -725,7 +725,7 @@ CD3D9HLSLMaterialRenderer.i: CD3D9HLSLMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D9HLSLMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9HLSLMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9HLSLMaterialRenderer.cpp.i
 .PHONY : CD3D9HLSLMaterialRenderer.cpp.i
 
 CD3D9HLSLMaterialRenderer.s: CD3D9HLSLMaterialRenderer.cpp.s
@@ -733,7 +733,7 @@ CD3D9HLSLMaterialRenderer.s: CD3D9HLSLMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D9HLSLMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9HLSLMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9HLSLMaterialRenderer.cpp.s
 .PHONY : CD3D9HLSLMaterialRenderer.cpp.s
 
 CD3D9NormalMapRenderer.o: CD3D9NormalMapRenderer.cpp.o
@@ -741,7 +741,7 @@ CD3D9NormalMapRenderer.o: CD3D9NormalMapRenderer.cpp.o
 
 # target to build an object file
 CD3D9NormalMapRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9NormalMapRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9NormalMapRenderer.cpp.o
 .PHONY : CD3D9NormalMapRenderer.cpp.o
 
 CD3D9NormalMapRenderer.i: CD3D9NormalMapRenderer.cpp.i
@@ -749,7 +749,7 @@ CD3D9NormalMapRenderer.i: CD3D9NormalMapRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D9NormalMapRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9NormalMapRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9NormalMapRenderer.cpp.i
 .PHONY : CD3D9NormalMapRenderer.cpp.i
 
 CD3D9NormalMapRenderer.s: CD3D9NormalMapRenderer.cpp.s
@@ -757,7 +757,7 @@ CD3D9NormalMapRenderer.s: CD3D9NormalMapRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D9NormalMapRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9NormalMapRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9NormalMapRenderer.cpp.s
 .PHONY : CD3D9NormalMapRenderer.cpp.s
 
 CD3D9ParallaxMapRenderer.o: CD3D9ParallaxMapRenderer.cpp.o
@@ -765,7 +765,7 @@ CD3D9ParallaxMapRenderer.o: CD3D9ParallaxMapRenderer.cpp.o
 
 # target to build an object file
 CD3D9ParallaxMapRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ParallaxMapRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ParallaxMapRenderer.cpp.o
 .PHONY : CD3D9ParallaxMapRenderer.cpp.o
 
 CD3D9ParallaxMapRenderer.i: CD3D9ParallaxMapRenderer.cpp.i
@@ -773,7 +773,7 @@ CD3D9ParallaxMapRenderer.i: CD3D9ParallaxMapRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D9ParallaxMapRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ParallaxMapRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ParallaxMapRenderer.cpp.i
 .PHONY : CD3D9ParallaxMapRenderer.cpp.i
 
 CD3D9ParallaxMapRenderer.s: CD3D9ParallaxMapRenderer.cpp.s
@@ -781,7 +781,7 @@ CD3D9ParallaxMapRenderer.s: CD3D9ParallaxMapRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D9ParallaxMapRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ParallaxMapRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ParallaxMapRenderer.cpp.s
 .PHONY : CD3D9ParallaxMapRenderer.cpp.s
 
 CD3D9ShaderMaterialRenderer.o: CD3D9ShaderMaterialRenderer.cpp.o
@@ -789,7 +789,7 @@ CD3D9ShaderMaterialRenderer.o: CD3D9ShaderMaterialRenderer.cpp.o
 
 # target to build an object file
 CD3D9ShaderMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ShaderMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ShaderMaterialRenderer.cpp.o
 .PHONY : CD3D9ShaderMaterialRenderer.cpp.o
 
 CD3D9ShaderMaterialRenderer.i: CD3D9ShaderMaterialRenderer.cpp.i
@@ -797,7 +797,7 @@ CD3D9ShaderMaterialRenderer.i: CD3D9ShaderMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 CD3D9ShaderMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ShaderMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ShaderMaterialRenderer.cpp.i
 .PHONY : CD3D9ShaderMaterialRenderer.cpp.i
 
 CD3D9ShaderMaterialRenderer.s: CD3D9ShaderMaterialRenderer.cpp.s
@@ -805,7 +805,7 @@ CD3D9ShaderMaterialRenderer.s: CD3D9ShaderMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 CD3D9ShaderMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ShaderMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9ShaderMaterialRenderer.cpp.s
 .PHONY : CD3D9ShaderMaterialRenderer.cpp.s
 
 CD3D9Texture.o: CD3D9Texture.cpp.o
@@ -813,7 +813,7 @@ CD3D9Texture.o: CD3D9Texture.cpp.o
 
 # target to build an object file
 CD3D9Texture.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Texture.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Texture.cpp.o
 .PHONY : CD3D9Texture.cpp.o
 
 CD3D9Texture.i: CD3D9Texture.cpp.i
@@ -821,7 +821,7 @@ CD3D9Texture.i: CD3D9Texture.cpp.i
 
 # target to preprocess a source file
 CD3D9Texture.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Texture.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Texture.cpp.i
 .PHONY : CD3D9Texture.cpp.i
 
 CD3D9Texture.s: CD3D9Texture.cpp.s
@@ -829,7 +829,7 @@ CD3D9Texture.s: CD3D9Texture.cpp.s
 
 # target to generate assembly for a file
 CD3D9Texture.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Texture.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CD3D9Texture.cpp.s
 .PHONY : CD3D9Texture.cpp.s
 
 CDMFLoader.o: CDMFLoader.cpp.o
@@ -837,7 +837,7 @@ CDMFLoader.o: CDMFLoader.cpp.o
 
 # target to build an object file
 CDMFLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDMFLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDMFLoader.cpp.o
 .PHONY : CDMFLoader.cpp.o
 
 CDMFLoader.i: CDMFLoader.cpp.i
@@ -845,7 +845,7 @@ CDMFLoader.i: CDMFLoader.cpp.i
 
 # target to preprocess a source file
 CDMFLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDMFLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDMFLoader.cpp.i
 .PHONY : CDMFLoader.cpp.i
 
 CDMFLoader.s: CDMFLoader.cpp.s
@@ -853,7 +853,7 @@ CDMFLoader.s: CDMFLoader.cpp.s
 
 # target to generate assembly for a file
 CDMFLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDMFLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDMFLoader.cpp.s
 .PHONY : CDMFLoader.cpp.s
 
 CDefaultGUIElementFactory.o: CDefaultGUIElementFactory.cpp.o
@@ -861,7 +861,7 @@ CDefaultGUIElementFactory.o: CDefaultGUIElementFactory.cpp.o
 
 # target to build an object file
 CDefaultGUIElementFactory.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultGUIElementFactory.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultGUIElementFactory.cpp.o
 .PHONY : CDefaultGUIElementFactory.cpp.o
 
 CDefaultGUIElementFactory.i: CDefaultGUIElementFactory.cpp.i
@@ -869,7 +869,7 @@ CDefaultGUIElementFactory.i: CDefaultGUIElementFactory.cpp.i
 
 # target to preprocess a source file
 CDefaultGUIElementFactory.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultGUIElementFactory.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultGUIElementFactory.cpp.i
 .PHONY : CDefaultGUIElementFactory.cpp.i
 
 CDefaultGUIElementFactory.s: CDefaultGUIElementFactory.cpp.s
@@ -877,7 +877,7 @@ CDefaultGUIElementFactory.s: CDefaultGUIElementFactory.cpp.s
 
 # target to generate assembly for a file
 CDefaultGUIElementFactory.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultGUIElementFactory.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultGUIElementFactory.cpp.s
 .PHONY : CDefaultGUIElementFactory.cpp.s
 
 CDefaultSceneNodeAnimatorFactory.o: CDefaultSceneNodeAnimatorFactory.cpp.o
@@ -885,7 +885,7 @@ CDefaultSceneNodeAnimatorFactory.o: CDefaultSceneNodeAnimatorFactory.cpp.o
 
 # target to build an object file
 CDefaultSceneNodeAnimatorFactory.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeAnimatorFactory.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeAnimatorFactory.cpp.o
 .PHONY : CDefaultSceneNodeAnimatorFactory.cpp.o
 
 CDefaultSceneNodeAnimatorFactory.i: CDefaultSceneNodeAnimatorFactory.cpp.i
@@ -893,7 +893,7 @@ CDefaultSceneNodeAnimatorFactory.i: CDefaultSceneNodeAnimatorFactory.cpp.i
 
 # target to preprocess a source file
 CDefaultSceneNodeAnimatorFactory.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeAnimatorFactory.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeAnimatorFactory.cpp.i
 .PHONY : CDefaultSceneNodeAnimatorFactory.cpp.i
 
 CDefaultSceneNodeAnimatorFactory.s: CDefaultSceneNodeAnimatorFactory.cpp.s
@@ -901,7 +901,7 @@ CDefaultSceneNodeAnimatorFactory.s: CDefaultSceneNodeAnimatorFactory.cpp.s
 
 # target to generate assembly for a file
 CDefaultSceneNodeAnimatorFactory.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeAnimatorFactory.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeAnimatorFactory.cpp.s
 .PHONY : CDefaultSceneNodeAnimatorFactory.cpp.s
 
 CDefaultSceneNodeFactory.o: CDefaultSceneNodeFactory.cpp.o
@@ -909,7 +909,7 @@ CDefaultSceneNodeFactory.o: CDefaultSceneNodeFactory.cpp.o
 
 # target to build an object file
 CDefaultSceneNodeFactory.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeFactory.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeFactory.cpp.o
 .PHONY : CDefaultSceneNodeFactory.cpp.o
 
 CDefaultSceneNodeFactory.i: CDefaultSceneNodeFactory.cpp.i
@@ -917,7 +917,7 @@ CDefaultSceneNodeFactory.i: CDefaultSceneNodeFactory.cpp.i
 
 # target to preprocess a source file
 CDefaultSceneNodeFactory.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeFactory.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeFactory.cpp.i
 .PHONY : CDefaultSceneNodeFactory.cpp.i
 
 CDefaultSceneNodeFactory.s: CDefaultSceneNodeFactory.cpp.s
@@ -925,7 +925,7 @@ CDefaultSceneNodeFactory.s: CDefaultSceneNodeFactory.cpp.s
 
 # target to generate assembly for a file
 CDefaultSceneNodeFactory.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeFactory.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDefaultSceneNodeFactory.cpp.s
 .PHONY : CDefaultSceneNodeFactory.cpp.s
 
 CDepthBuffer.o: CDepthBuffer.cpp.o
@@ -933,7 +933,7 @@ CDepthBuffer.o: CDepthBuffer.cpp.o
 
 # target to build an object file
 CDepthBuffer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDepthBuffer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDepthBuffer.cpp.o
 .PHONY : CDepthBuffer.cpp.o
 
 CDepthBuffer.i: CDepthBuffer.cpp.i
@@ -941,7 +941,7 @@ CDepthBuffer.i: CDepthBuffer.cpp.i
 
 # target to preprocess a source file
 CDepthBuffer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDepthBuffer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDepthBuffer.cpp.i
 .PHONY : CDepthBuffer.cpp.i
 
 CDepthBuffer.s: CDepthBuffer.cpp.s
@@ -949,7 +949,7 @@ CDepthBuffer.s: CDepthBuffer.cpp.s
 
 # target to generate assembly for a file
 CDepthBuffer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDepthBuffer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDepthBuffer.cpp.s
 .PHONY : CDepthBuffer.cpp.s
 
 CDummyTransformationSceneNode.o: CDummyTransformationSceneNode.cpp.o
@@ -957,7 +957,7 @@ CDummyTransformationSceneNode.o: CDummyTransformationSceneNode.cpp.o
 
 # target to build an object file
 CDummyTransformationSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDummyTransformationSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDummyTransformationSceneNode.cpp.o
 .PHONY : CDummyTransformationSceneNode.cpp.o
 
 CDummyTransformationSceneNode.i: CDummyTransformationSceneNode.cpp.i
@@ -965,7 +965,7 @@ CDummyTransformationSceneNode.i: CDummyTransformationSceneNode.cpp.i
 
 # target to preprocess a source file
 CDummyTransformationSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDummyTransformationSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDummyTransformationSceneNode.cpp.i
 .PHONY : CDummyTransformationSceneNode.cpp.i
 
 CDummyTransformationSceneNode.s: CDummyTransformationSceneNode.cpp.s
@@ -973,7 +973,7 @@ CDummyTransformationSceneNode.s: CDummyTransformationSceneNode.cpp.s
 
 # target to generate assembly for a file
 CDummyTransformationSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDummyTransformationSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CDummyTransformationSceneNode.cpp.s
 .PHONY : CDummyTransformationSceneNode.cpp.s
 
 CEmptySceneNode.o: CEmptySceneNode.cpp.o
@@ -981,7 +981,7 @@ CEmptySceneNode.o: CEmptySceneNode.cpp.o
 
 # target to build an object file
 CEmptySceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CEmptySceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CEmptySceneNode.cpp.o
 .PHONY : CEmptySceneNode.cpp.o
 
 CEmptySceneNode.i: CEmptySceneNode.cpp.i
@@ -989,7 +989,7 @@ CEmptySceneNode.i: CEmptySceneNode.cpp.i
 
 # target to preprocess a source file
 CEmptySceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CEmptySceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CEmptySceneNode.cpp.i
 .PHONY : CEmptySceneNode.cpp.i
 
 CEmptySceneNode.s: CEmptySceneNode.cpp.s
@@ -997,7 +997,7 @@ CEmptySceneNode.s: CEmptySceneNode.cpp.s
 
 # target to generate assembly for a file
 CEmptySceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CEmptySceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CEmptySceneNode.cpp.s
 .PHONY : CEmptySceneNode.cpp.s
 
 CFPSCounter.o: CFPSCounter.cpp.o
@@ -1005,7 +1005,7 @@ CFPSCounter.o: CFPSCounter.cpp.o
 
 # target to build an object file
 CFPSCounter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFPSCounter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFPSCounter.cpp.o
 .PHONY : CFPSCounter.cpp.o
 
 CFPSCounter.i: CFPSCounter.cpp.i
@@ -1013,7 +1013,7 @@ CFPSCounter.i: CFPSCounter.cpp.i
 
 # target to preprocess a source file
 CFPSCounter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFPSCounter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFPSCounter.cpp.i
 .PHONY : CFPSCounter.cpp.i
 
 CFPSCounter.s: CFPSCounter.cpp.s
@@ -1021,7 +1021,7 @@ CFPSCounter.s: CFPSCounter.cpp.s
 
 # target to generate assembly for a file
 CFPSCounter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFPSCounter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFPSCounter.cpp.s
 .PHONY : CFPSCounter.cpp.s
 
 CFileList.o: CFileList.cpp.o
@@ -1029,7 +1029,7 @@ CFileList.o: CFileList.cpp.o
 
 # target to build an object file
 CFileList.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileList.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileList.cpp.o
 .PHONY : CFileList.cpp.o
 
 CFileList.i: CFileList.cpp.i
@@ -1037,7 +1037,7 @@ CFileList.i: CFileList.cpp.i
 
 # target to preprocess a source file
 CFileList.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileList.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileList.cpp.i
 .PHONY : CFileList.cpp.i
 
 CFileList.s: CFileList.cpp.s
@@ -1045,7 +1045,7 @@ CFileList.s: CFileList.cpp.s
 
 # target to generate assembly for a file
 CFileList.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileList.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileList.cpp.s
 .PHONY : CFileList.cpp.s
 
 CFileSystem.o: CFileSystem.cpp.o
@@ -1053,7 +1053,7 @@ CFileSystem.o: CFileSystem.cpp.o
 
 # target to build an object file
 CFileSystem.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileSystem.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileSystem.cpp.o
 .PHONY : CFileSystem.cpp.o
 
 CFileSystem.i: CFileSystem.cpp.i
@@ -1061,7 +1061,7 @@ CFileSystem.i: CFileSystem.cpp.i
 
 # target to preprocess a source file
 CFileSystem.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileSystem.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileSystem.cpp.i
 .PHONY : CFileSystem.cpp.i
 
 CFileSystem.s: CFileSystem.cpp.s
@@ -1069,7 +1069,7 @@ CFileSystem.s: CFileSystem.cpp.s
 
 # target to generate assembly for a file
 CFileSystem.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileSystem.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CFileSystem.cpp.s
 .PHONY : CFileSystem.cpp.s
 
 CGUIButton.o: CGUIButton.cpp.o
@@ -1077,7 +1077,7 @@ CGUIButton.o: CGUIButton.cpp.o
 
 # target to build an object file
 CGUIButton.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIButton.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIButton.cpp.o
 .PHONY : CGUIButton.cpp.o
 
 CGUIButton.i: CGUIButton.cpp.i
@@ -1085,7 +1085,7 @@ CGUIButton.i: CGUIButton.cpp.i
 
 # target to preprocess a source file
 CGUIButton.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIButton.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIButton.cpp.i
 .PHONY : CGUIButton.cpp.i
 
 CGUIButton.s: CGUIButton.cpp.s
@@ -1093,7 +1093,7 @@ CGUIButton.s: CGUIButton.cpp.s
 
 # target to generate assembly for a file
 CGUIButton.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIButton.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIButton.cpp.s
 .PHONY : CGUIButton.cpp.s
 
 CGUICheckBox.o: CGUICheckBox.cpp.o
@@ -1101,7 +1101,7 @@ CGUICheckBox.o: CGUICheckBox.cpp.o
 
 # target to build an object file
 CGUICheckBox.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUICheckBox.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUICheckBox.cpp.o
 .PHONY : CGUICheckBox.cpp.o
 
 CGUICheckBox.i: CGUICheckBox.cpp.i
@@ -1109,7 +1109,7 @@ CGUICheckBox.i: CGUICheckBox.cpp.i
 
 # target to preprocess a source file
 CGUICheckBox.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUICheckBox.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUICheckBox.cpp.i
 .PHONY : CGUICheckBox.cpp.i
 
 CGUICheckBox.s: CGUICheckBox.cpp.s
@@ -1117,7 +1117,7 @@ CGUICheckBox.s: CGUICheckBox.cpp.s
 
 # target to generate assembly for a file
 CGUICheckBox.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUICheckBox.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUICheckBox.cpp.s
 .PHONY : CGUICheckBox.cpp.s
 
 CGUIColorSelectDialog.o: CGUIColorSelectDialog.cpp.o
@@ -1125,7 +1125,7 @@ CGUIColorSelectDialog.o: CGUIColorSelectDialog.cpp.o
 
 # target to build an object file
 CGUIColorSelectDialog.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIColorSelectDialog.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIColorSelectDialog.cpp.o
 .PHONY : CGUIColorSelectDialog.cpp.o
 
 CGUIColorSelectDialog.i: CGUIColorSelectDialog.cpp.i
@@ -1133,7 +1133,7 @@ CGUIColorSelectDialog.i: CGUIColorSelectDialog.cpp.i
 
 # target to preprocess a source file
 CGUIColorSelectDialog.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIColorSelectDialog.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIColorSelectDialog.cpp.i
 .PHONY : CGUIColorSelectDialog.cpp.i
 
 CGUIColorSelectDialog.s: CGUIColorSelectDialog.cpp.s
@@ -1141,7 +1141,7 @@ CGUIColorSelectDialog.s: CGUIColorSelectDialog.cpp.s
 
 # target to generate assembly for a file
 CGUIColorSelectDialog.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIColorSelectDialog.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIColorSelectDialog.cpp.s
 .PHONY : CGUIColorSelectDialog.cpp.s
 
 CGUIComboBox.o: CGUIComboBox.cpp.o
@@ -1149,7 +1149,7 @@ CGUIComboBox.o: CGUIComboBox.cpp.o
 
 # target to build an object file
 CGUIComboBox.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIComboBox.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIComboBox.cpp.o
 .PHONY : CGUIComboBox.cpp.o
 
 CGUIComboBox.i: CGUIComboBox.cpp.i
@@ -1157,7 +1157,7 @@ CGUIComboBox.i: CGUIComboBox.cpp.i
 
 # target to preprocess a source file
 CGUIComboBox.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIComboBox.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIComboBox.cpp.i
 .PHONY : CGUIComboBox.cpp.i
 
 CGUIComboBox.s: CGUIComboBox.cpp.s
@@ -1165,7 +1165,7 @@ CGUIComboBox.s: CGUIComboBox.cpp.s
 
 # target to generate assembly for a file
 CGUIComboBox.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIComboBox.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIComboBox.cpp.s
 .PHONY : CGUIComboBox.cpp.s
 
 CGUIContextMenu.o: CGUIContextMenu.cpp.o
@@ -1173,7 +1173,7 @@ CGUIContextMenu.o: CGUIContextMenu.cpp.o
 
 # target to build an object file
 CGUIContextMenu.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIContextMenu.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIContextMenu.cpp.o
 .PHONY : CGUIContextMenu.cpp.o
 
 CGUIContextMenu.i: CGUIContextMenu.cpp.i
@@ -1181,7 +1181,7 @@ CGUIContextMenu.i: CGUIContextMenu.cpp.i
 
 # target to preprocess a source file
 CGUIContextMenu.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIContextMenu.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIContextMenu.cpp.i
 .PHONY : CGUIContextMenu.cpp.i
 
 CGUIContextMenu.s: CGUIContextMenu.cpp.s
@@ -1189,7 +1189,7 @@ CGUIContextMenu.s: CGUIContextMenu.cpp.s
 
 # target to generate assembly for a file
 CGUIContextMenu.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIContextMenu.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIContextMenu.cpp.s
 .PHONY : CGUIContextMenu.cpp.s
 
 CGUIEditBox.o: CGUIEditBox.cpp.o
@@ -1197,7 +1197,7 @@ CGUIEditBox.o: CGUIEditBox.cpp.o
 
 # target to build an object file
 CGUIEditBox.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEditBox.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEditBox.cpp.o
 .PHONY : CGUIEditBox.cpp.o
 
 CGUIEditBox.i: CGUIEditBox.cpp.i
@@ -1205,7 +1205,7 @@ CGUIEditBox.i: CGUIEditBox.cpp.i
 
 # target to preprocess a source file
 CGUIEditBox.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEditBox.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEditBox.cpp.i
 .PHONY : CGUIEditBox.cpp.i
 
 CGUIEditBox.s: CGUIEditBox.cpp.s
@@ -1213,7 +1213,7 @@ CGUIEditBox.s: CGUIEditBox.cpp.s
 
 # target to generate assembly for a file
 CGUIEditBox.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEditBox.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEditBox.cpp.s
 .PHONY : CGUIEditBox.cpp.s
 
 CGUIEnvironment.o: CGUIEnvironment.cpp.o
@@ -1221,7 +1221,7 @@ CGUIEnvironment.o: CGUIEnvironment.cpp.o
 
 # target to build an object file
 CGUIEnvironment.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEnvironment.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEnvironment.cpp.o
 .PHONY : CGUIEnvironment.cpp.o
 
 CGUIEnvironment.i: CGUIEnvironment.cpp.i
@@ -1229,7 +1229,7 @@ CGUIEnvironment.i: CGUIEnvironment.cpp.i
 
 # target to preprocess a source file
 CGUIEnvironment.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEnvironment.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEnvironment.cpp.i
 .PHONY : CGUIEnvironment.cpp.i
 
 CGUIEnvironment.s: CGUIEnvironment.cpp.s
@@ -1237,7 +1237,7 @@ CGUIEnvironment.s: CGUIEnvironment.cpp.s
 
 # target to generate assembly for a file
 CGUIEnvironment.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEnvironment.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIEnvironment.cpp.s
 .PHONY : CGUIEnvironment.cpp.s
 
 CGUIFileOpenDialog.o: CGUIFileOpenDialog.cpp.o
@@ -1245,7 +1245,7 @@ CGUIFileOpenDialog.o: CGUIFileOpenDialog.cpp.o
 
 # target to build an object file
 CGUIFileOpenDialog.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFileOpenDialog.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFileOpenDialog.cpp.o
 .PHONY : CGUIFileOpenDialog.cpp.o
 
 CGUIFileOpenDialog.i: CGUIFileOpenDialog.cpp.i
@@ -1253,7 +1253,7 @@ CGUIFileOpenDialog.i: CGUIFileOpenDialog.cpp.i
 
 # target to preprocess a source file
 CGUIFileOpenDialog.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFileOpenDialog.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFileOpenDialog.cpp.i
 .PHONY : CGUIFileOpenDialog.cpp.i
 
 CGUIFileOpenDialog.s: CGUIFileOpenDialog.cpp.s
@@ -1261,7 +1261,7 @@ CGUIFileOpenDialog.s: CGUIFileOpenDialog.cpp.s
 
 # target to generate assembly for a file
 CGUIFileOpenDialog.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFileOpenDialog.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFileOpenDialog.cpp.s
 .PHONY : CGUIFileOpenDialog.cpp.s
 
 CGUIFont.o: CGUIFont.cpp.o
@@ -1269,7 +1269,7 @@ CGUIFont.o: CGUIFont.cpp.o
 
 # target to build an object file
 CGUIFont.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFont.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFont.cpp.o
 .PHONY : CGUIFont.cpp.o
 
 CGUIFont.i: CGUIFont.cpp.i
@@ -1277,7 +1277,7 @@ CGUIFont.i: CGUIFont.cpp.i
 
 # target to preprocess a source file
 CGUIFont.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFont.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFont.cpp.i
 .PHONY : CGUIFont.cpp.i
 
 CGUIFont.s: CGUIFont.cpp.s
@@ -1285,7 +1285,7 @@ CGUIFont.s: CGUIFont.cpp.s
 
 # target to generate assembly for a file
 CGUIFont.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFont.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIFont.cpp.s
 .PHONY : CGUIFont.cpp.s
 
 CGUIImage.o: CGUIImage.cpp.o
@@ -1293,7 +1293,7 @@ CGUIImage.o: CGUIImage.cpp.o
 
 # target to build an object file
 CGUIImage.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImage.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImage.cpp.o
 .PHONY : CGUIImage.cpp.o
 
 CGUIImage.i: CGUIImage.cpp.i
@@ -1301,7 +1301,7 @@ CGUIImage.i: CGUIImage.cpp.i
 
 # target to preprocess a source file
 CGUIImage.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImage.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImage.cpp.i
 .PHONY : CGUIImage.cpp.i
 
 CGUIImage.s: CGUIImage.cpp.s
@@ -1309,7 +1309,7 @@ CGUIImage.s: CGUIImage.cpp.s
 
 # target to generate assembly for a file
 CGUIImage.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImage.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImage.cpp.s
 .PHONY : CGUIImage.cpp.s
 
 CGUIImageList.o: CGUIImageList.cpp.o
@@ -1317,7 +1317,7 @@ CGUIImageList.o: CGUIImageList.cpp.o
 
 # target to build an object file
 CGUIImageList.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImageList.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImageList.cpp.o
 .PHONY : CGUIImageList.cpp.o
 
 CGUIImageList.i: CGUIImageList.cpp.i
@@ -1325,7 +1325,7 @@ CGUIImageList.i: CGUIImageList.cpp.i
 
 # target to preprocess a source file
 CGUIImageList.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImageList.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImageList.cpp.i
 .PHONY : CGUIImageList.cpp.i
 
 CGUIImageList.s: CGUIImageList.cpp.s
@@ -1333,7 +1333,7 @@ CGUIImageList.s: CGUIImageList.cpp.s
 
 # target to generate assembly for a file
 CGUIImageList.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImageList.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIImageList.cpp.s
 .PHONY : CGUIImageList.cpp.s
 
 CGUIInOutFader.o: CGUIInOutFader.cpp.o
@@ -1341,7 +1341,7 @@ CGUIInOutFader.o: CGUIInOutFader.cpp.o
 
 # target to build an object file
 CGUIInOutFader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIInOutFader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIInOutFader.cpp.o
 .PHONY : CGUIInOutFader.cpp.o
 
 CGUIInOutFader.i: CGUIInOutFader.cpp.i
@@ -1349,7 +1349,7 @@ CGUIInOutFader.i: CGUIInOutFader.cpp.i
 
 # target to preprocess a source file
 CGUIInOutFader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIInOutFader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIInOutFader.cpp.i
 .PHONY : CGUIInOutFader.cpp.i
 
 CGUIInOutFader.s: CGUIInOutFader.cpp.s
@@ -1357,7 +1357,7 @@ CGUIInOutFader.s: CGUIInOutFader.cpp.s
 
 # target to generate assembly for a file
 CGUIInOutFader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIInOutFader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIInOutFader.cpp.s
 .PHONY : CGUIInOutFader.cpp.s
 
 CGUIListBox.o: CGUIListBox.cpp.o
@@ -1365,7 +1365,7 @@ CGUIListBox.o: CGUIListBox.cpp.o
 
 # target to build an object file
 CGUIListBox.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIListBox.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIListBox.cpp.o
 .PHONY : CGUIListBox.cpp.o
 
 CGUIListBox.i: CGUIListBox.cpp.i
@@ -1373,7 +1373,7 @@ CGUIListBox.i: CGUIListBox.cpp.i
 
 # target to preprocess a source file
 CGUIListBox.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIListBox.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIListBox.cpp.i
 .PHONY : CGUIListBox.cpp.i
 
 CGUIListBox.s: CGUIListBox.cpp.s
@@ -1381,7 +1381,7 @@ CGUIListBox.s: CGUIListBox.cpp.s
 
 # target to generate assembly for a file
 CGUIListBox.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIListBox.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIListBox.cpp.s
 .PHONY : CGUIListBox.cpp.s
 
 CGUIMenu.o: CGUIMenu.cpp.o
@@ -1389,7 +1389,7 @@ CGUIMenu.o: CGUIMenu.cpp.o
 
 # target to build an object file
 CGUIMenu.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMenu.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMenu.cpp.o
 .PHONY : CGUIMenu.cpp.o
 
 CGUIMenu.i: CGUIMenu.cpp.i
@@ -1397,7 +1397,7 @@ CGUIMenu.i: CGUIMenu.cpp.i
 
 # target to preprocess a source file
 CGUIMenu.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMenu.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMenu.cpp.i
 .PHONY : CGUIMenu.cpp.i
 
 CGUIMenu.s: CGUIMenu.cpp.s
@@ -1405,7 +1405,7 @@ CGUIMenu.s: CGUIMenu.cpp.s
 
 # target to generate assembly for a file
 CGUIMenu.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMenu.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMenu.cpp.s
 .PHONY : CGUIMenu.cpp.s
 
 CGUIMeshViewer.o: CGUIMeshViewer.cpp.o
@@ -1413,7 +1413,7 @@ CGUIMeshViewer.o: CGUIMeshViewer.cpp.o
 
 # target to build an object file
 CGUIMeshViewer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMeshViewer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMeshViewer.cpp.o
 .PHONY : CGUIMeshViewer.cpp.o
 
 CGUIMeshViewer.i: CGUIMeshViewer.cpp.i
@@ -1421,7 +1421,7 @@ CGUIMeshViewer.i: CGUIMeshViewer.cpp.i
 
 # target to preprocess a source file
 CGUIMeshViewer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMeshViewer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMeshViewer.cpp.i
 .PHONY : CGUIMeshViewer.cpp.i
 
 CGUIMeshViewer.s: CGUIMeshViewer.cpp.s
@@ -1429,7 +1429,7 @@ CGUIMeshViewer.s: CGUIMeshViewer.cpp.s
 
 # target to generate assembly for a file
 CGUIMeshViewer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMeshViewer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMeshViewer.cpp.s
 .PHONY : CGUIMeshViewer.cpp.s
 
 CGUIMessageBox.o: CGUIMessageBox.cpp.o
@@ -1437,7 +1437,7 @@ CGUIMessageBox.o: CGUIMessageBox.cpp.o
 
 # target to build an object file
 CGUIMessageBox.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMessageBox.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMessageBox.cpp.o
 .PHONY : CGUIMessageBox.cpp.o
 
 CGUIMessageBox.i: CGUIMessageBox.cpp.i
@@ -1445,7 +1445,7 @@ CGUIMessageBox.i: CGUIMessageBox.cpp.i
 
 # target to preprocess a source file
 CGUIMessageBox.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMessageBox.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMessageBox.cpp.i
 .PHONY : CGUIMessageBox.cpp.i
 
 CGUIMessageBox.s: CGUIMessageBox.cpp.s
@@ -1453,7 +1453,7 @@ CGUIMessageBox.s: CGUIMessageBox.cpp.s
 
 # target to generate assembly for a file
 CGUIMessageBox.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMessageBox.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIMessageBox.cpp.s
 .PHONY : CGUIMessageBox.cpp.s
 
 CGUIModalScreen.o: CGUIModalScreen.cpp.o
@@ -1461,7 +1461,7 @@ CGUIModalScreen.o: CGUIModalScreen.cpp.o
 
 # target to build an object file
 CGUIModalScreen.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIModalScreen.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIModalScreen.cpp.o
 .PHONY : CGUIModalScreen.cpp.o
 
 CGUIModalScreen.i: CGUIModalScreen.cpp.i
@@ -1469,7 +1469,7 @@ CGUIModalScreen.i: CGUIModalScreen.cpp.i
 
 # target to preprocess a source file
 CGUIModalScreen.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIModalScreen.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIModalScreen.cpp.i
 .PHONY : CGUIModalScreen.cpp.i
 
 CGUIModalScreen.s: CGUIModalScreen.cpp.s
@@ -1477,7 +1477,7 @@ CGUIModalScreen.s: CGUIModalScreen.cpp.s
 
 # target to generate assembly for a file
 CGUIModalScreen.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIModalScreen.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIModalScreen.cpp.s
 .PHONY : CGUIModalScreen.cpp.s
 
 CGUIScrollBar.o: CGUIScrollBar.cpp.o
@@ -1485,7 +1485,7 @@ CGUIScrollBar.o: CGUIScrollBar.cpp.o
 
 # target to build an object file
 CGUIScrollBar.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIScrollBar.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIScrollBar.cpp.o
 .PHONY : CGUIScrollBar.cpp.o
 
 CGUIScrollBar.i: CGUIScrollBar.cpp.i
@@ -1493,7 +1493,7 @@ CGUIScrollBar.i: CGUIScrollBar.cpp.i
 
 # target to preprocess a source file
 CGUIScrollBar.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIScrollBar.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIScrollBar.cpp.i
 .PHONY : CGUIScrollBar.cpp.i
 
 CGUIScrollBar.s: CGUIScrollBar.cpp.s
@@ -1501,7 +1501,7 @@ CGUIScrollBar.s: CGUIScrollBar.cpp.s
 
 # target to generate assembly for a file
 CGUIScrollBar.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIScrollBar.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIScrollBar.cpp.s
 .PHONY : CGUIScrollBar.cpp.s
 
 CGUISkin.o: CGUISkin.cpp.o
@@ -1509,7 +1509,7 @@ CGUISkin.o: CGUISkin.cpp.o
 
 # target to build an object file
 CGUISkin.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISkin.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISkin.cpp.o
 .PHONY : CGUISkin.cpp.o
 
 CGUISkin.i: CGUISkin.cpp.i
@@ -1517,7 +1517,7 @@ CGUISkin.i: CGUISkin.cpp.i
 
 # target to preprocess a source file
 CGUISkin.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISkin.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISkin.cpp.i
 .PHONY : CGUISkin.cpp.i
 
 CGUISkin.s: CGUISkin.cpp.s
@@ -1525,7 +1525,7 @@ CGUISkin.s: CGUISkin.cpp.s
 
 # target to generate assembly for a file
 CGUISkin.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISkin.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISkin.cpp.s
 .PHONY : CGUISkin.cpp.s
 
 CGUISpinBox.o: CGUISpinBox.cpp.o
@@ -1533,7 +1533,7 @@ CGUISpinBox.o: CGUISpinBox.cpp.o
 
 # target to build an object file
 CGUISpinBox.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpinBox.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpinBox.cpp.o
 .PHONY : CGUISpinBox.cpp.o
 
 CGUISpinBox.i: CGUISpinBox.cpp.i
@@ -1541,7 +1541,7 @@ CGUISpinBox.i: CGUISpinBox.cpp.i
 
 # target to preprocess a source file
 CGUISpinBox.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpinBox.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpinBox.cpp.i
 .PHONY : CGUISpinBox.cpp.i
 
 CGUISpinBox.s: CGUISpinBox.cpp.s
@@ -1549,7 +1549,7 @@ CGUISpinBox.s: CGUISpinBox.cpp.s
 
 # target to generate assembly for a file
 CGUISpinBox.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpinBox.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpinBox.cpp.s
 .PHONY : CGUISpinBox.cpp.s
 
 CGUISpriteBank.o: CGUISpriteBank.cpp.o
@@ -1557,7 +1557,7 @@ CGUISpriteBank.o: CGUISpriteBank.cpp.o
 
 # target to build an object file
 CGUISpriteBank.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpriteBank.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpriteBank.cpp.o
 .PHONY : CGUISpriteBank.cpp.o
 
 CGUISpriteBank.i: CGUISpriteBank.cpp.i
@@ -1565,7 +1565,7 @@ CGUISpriteBank.i: CGUISpriteBank.cpp.i
 
 # target to preprocess a source file
 CGUISpriteBank.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpriteBank.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpriteBank.cpp.i
 .PHONY : CGUISpriteBank.cpp.i
 
 CGUISpriteBank.s: CGUISpriteBank.cpp.s
@@ -1573,7 +1573,7 @@ CGUISpriteBank.s: CGUISpriteBank.cpp.s
 
 # target to generate assembly for a file
 CGUISpriteBank.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpriteBank.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUISpriteBank.cpp.s
 .PHONY : CGUISpriteBank.cpp.s
 
 CGUIStaticText.o: CGUIStaticText.cpp.o
@@ -1581,7 +1581,7 @@ CGUIStaticText.o: CGUIStaticText.cpp.o
 
 # target to build an object file
 CGUIStaticText.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIStaticText.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIStaticText.cpp.o
 .PHONY : CGUIStaticText.cpp.o
 
 CGUIStaticText.i: CGUIStaticText.cpp.i
@@ -1589,7 +1589,7 @@ CGUIStaticText.i: CGUIStaticText.cpp.i
 
 # target to preprocess a source file
 CGUIStaticText.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIStaticText.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIStaticText.cpp.i
 .PHONY : CGUIStaticText.cpp.i
 
 CGUIStaticText.s: CGUIStaticText.cpp.s
@@ -1597,7 +1597,7 @@ CGUIStaticText.s: CGUIStaticText.cpp.s
 
 # target to generate assembly for a file
 CGUIStaticText.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIStaticText.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIStaticText.cpp.s
 .PHONY : CGUIStaticText.cpp.s
 
 CGUITabControl.o: CGUITabControl.cpp.o
@@ -1605,7 +1605,7 @@ CGUITabControl.o: CGUITabControl.cpp.o
 
 # target to build an object file
 CGUITabControl.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITabControl.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITabControl.cpp.o
 .PHONY : CGUITabControl.cpp.o
 
 CGUITabControl.i: CGUITabControl.cpp.i
@@ -1613,7 +1613,7 @@ CGUITabControl.i: CGUITabControl.cpp.i
 
 # target to preprocess a source file
 CGUITabControl.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITabControl.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITabControl.cpp.i
 .PHONY : CGUITabControl.cpp.i
 
 CGUITabControl.s: CGUITabControl.cpp.s
@@ -1621,7 +1621,7 @@ CGUITabControl.s: CGUITabControl.cpp.s
 
 # target to generate assembly for a file
 CGUITabControl.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITabControl.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITabControl.cpp.s
 .PHONY : CGUITabControl.cpp.s
 
 CGUITable.o: CGUITable.cpp.o
@@ -1629,7 +1629,7 @@ CGUITable.o: CGUITable.cpp.o
 
 # target to build an object file
 CGUITable.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITable.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITable.cpp.o
 .PHONY : CGUITable.cpp.o
 
 CGUITable.i: CGUITable.cpp.i
@@ -1637,7 +1637,7 @@ CGUITable.i: CGUITable.cpp.i
 
 # target to preprocess a source file
 CGUITable.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITable.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITable.cpp.i
 .PHONY : CGUITable.cpp.i
 
 CGUITable.s: CGUITable.cpp.s
@@ -1645,7 +1645,7 @@ CGUITable.s: CGUITable.cpp.s
 
 # target to generate assembly for a file
 CGUITable.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITable.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITable.cpp.s
 .PHONY : CGUITable.cpp.s
 
 CGUIToolBar.o: CGUIToolBar.cpp.o
@@ -1653,7 +1653,7 @@ CGUIToolBar.o: CGUIToolBar.cpp.o
 
 # target to build an object file
 CGUIToolBar.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIToolBar.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIToolBar.cpp.o
 .PHONY : CGUIToolBar.cpp.o
 
 CGUIToolBar.i: CGUIToolBar.cpp.i
@@ -1661,7 +1661,7 @@ CGUIToolBar.i: CGUIToolBar.cpp.i
 
 # target to preprocess a source file
 CGUIToolBar.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIToolBar.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIToolBar.cpp.i
 .PHONY : CGUIToolBar.cpp.i
 
 CGUIToolBar.s: CGUIToolBar.cpp.s
@@ -1669,7 +1669,7 @@ CGUIToolBar.s: CGUIToolBar.cpp.s
 
 # target to generate assembly for a file
 CGUIToolBar.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIToolBar.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIToolBar.cpp.s
 .PHONY : CGUIToolBar.cpp.s
 
 CGUITreeView.o: CGUITreeView.cpp.o
@@ -1677,7 +1677,7 @@ CGUITreeView.o: CGUITreeView.cpp.o
 
 # target to build an object file
 CGUITreeView.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITreeView.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITreeView.cpp.o
 .PHONY : CGUITreeView.cpp.o
 
 CGUITreeView.i: CGUITreeView.cpp.i
@@ -1685,7 +1685,7 @@ CGUITreeView.i: CGUITreeView.cpp.i
 
 # target to preprocess a source file
 CGUITreeView.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITreeView.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITreeView.cpp.i
 .PHONY : CGUITreeView.cpp.i
 
 CGUITreeView.s: CGUITreeView.cpp.s
@@ -1693,7 +1693,7 @@ CGUITreeView.s: CGUITreeView.cpp.s
 
 # target to generate assembly for a file
 CGUITreeView.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITreeView.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUITreeView.cpp.s
 .PHONY : CGUITreeView.cpp.s
 
 CGUIWindow.o: CGUIWindow.cpp.o
@@ -1701,7 +1701,7 @@ CGUIWindow.o: CGUIWindow.cpp.o
 
 # target to build an object file
 CGUIWindow.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIWindow.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIWindow.cpp.o
 .PHONY : CGUIWindow.cpp.o
 
 CGUIWindow.i: CGUIWindow.cpp.i
@@ -1709,7 +1709,7 @@ CGUIWindow.i: CGUIWindow.cpp.i
 
 # target to preprocess a source file
 CGUIWindow.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIWindow.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIWindow.cpp.i
 .PHONY : CGUIWindow.cpp.i
 
 CGUIWindow.s: CGUIWindow.cpp.s
@@ -1717,7 +1717,7 @@ CGUIWindow.s: CGUIWindow.cpp.s
 
 # target to generate assembly for a file
 CGUIWindow.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIWindow.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGUIWindow.cpp.s
 .PHONY : CGUIWindow.cpp.s
 
 CGeometryCreator.o: CGeometryCreator.cpp.o
@@ -1725,7 +1725,7 @@ CGeometryCreator.o: CGeometryCreator.cpp.o
 
 # target to build an object file
 CGeometryCreator.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGeometryCreator.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGeometryCreator.cpp.o
 .PHONY : CGeometryCreator.cpp.o
 
 CGeometryCreator.i: CGeometryCreator.cpp.i
@@ -1733,7 +1733,7 @@ CGeometryCreator.i: CGeometryCreator.cpp.i
 
 # target to preprocess a source file
 CGeometryCreator.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGeometryCreator.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGeometryCreator.cpp.i
 .PHONY : CGeometryCreator.cpp.i
 
 CGeometryCreator.s: CGeometryCreator.cpp.s
@@ -1741,7 +1741,7 @@ CGeometryCreator.s: CGeometryCreator.cpp.s
 
 # target to generate assembly for a file
 CGeometryCreator.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGeometryCreator.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CGeometryCreator.cpp.s
 .PHONY : CGeometryCreator.cpp.s
 
 CImage.o: CImage.cpp.o
@@ -1749,7 +1749,7 @@ CImage.o: CImage.cpp.o
 
 # target to build an object file
 CImage.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImage.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImage.cpp.o
 .PHONY : CImage.cpp.o
 
 CImage.i: CImage.cpp.i
@@ -1757,7 +1757,7 @@ CImage.i: CImage.cpp.i
 
 # target to preprocess a source file
 CImage.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImage.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImage.cpp.i
 .PHONY : CImage.cpp.i
 
 CImage.s: CImage.cpp.s
@@ -1765,7 +1765,7 @@ CImage.s: CImage.cpp.s
 
 # target to generate assembly for a file
 CImage.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImage.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImage.cpp.s
 .PHONY : CImage.cpp.s
 
 CImageLoaderBMP.o: CImageLoaderBMP.cpp.o
@@ -1773,7 +1773,7 @@ CImageLoaderBMP.o: CImageLoaderBMP.cpp.o
 
 # target to build an object file
 CImageLoaderBMP.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderBMP.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderBMP.cpp.o
 .PHONY : CImageLoaderBMP.cpp.o
 
 CImageLoaderBMP.i: CImageLoaderBMP.cpp.i
@@ -1781,7 +1781,7 @@ CImageLoaderBMP.i: CImageLoaderBMP.cpp.i
 
 # target to preprocess a source file
 CImageLoaderBMP.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderBMP.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderBMP.cpp.i
 .PHONY : CImageLoaderBMP.cpp.i
 
 CImageLoaderBMP.s: CImageLoaderBMP.cpp.s
@@ -1789,7 +1789,7 @@ CImageLoaderBMP.s: CImageLoaderBMP.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderBMP.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderBMP.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderBMP.cpp.s
 .PHONY : CImageLoaderBMP.cpp.s
 
 CImageLoaderDDS.o: CImageLoaderDDS.cpp.o
@@ -1797,7 +1797,7 @@ CImageLoaderDDS.o: CImageLoaderDDS.cpp.o
 
 # target to build an object file
 CImageLoaderDDS.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderDDS.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderDDS.cpp.o
 .PHONY : CImageLoaderDDS.cpp.o
 
 CImageLoaderDDS.i: CImageLoaderDDS.cpp.i
@@ -1805,7 +1805,7 @@ CImageLoaderDDS.i: CImageLoaderDDS.cpp.i
 
 # target to preprocess a source file
 CImageLoaderDDS.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderDDS.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderDDS.cpp.i
 .PHONY : CImageLoaderDDS.cpp.i
 
 CImageLoaderDDS.s: CImageLoaderDDS.cpp.s
@@ -1813,7 +1813,7 @@ CImageLoaderDDS.s: CImageLoaderDDS.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderDDS.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderDDS.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderDDS.cpp.s
 .PHONY : CImageLoaderDDS.cpp.s
 
 CImageLoaderJPG.o: CImageLoaderJPG.cpp.o
@@ -1821,7 +1821,7 @@ CImageLoaderJPG.o: CImageLoaderJPG.cpp.o
 
 # target to build an object file
 CImageLoaderJPG.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderJPG.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderJPG.cpp.o
 .PHONY : CImageLoaderJPG.cpp.o
 
 CImageLoaderJPG.i: CImageLoaderJPG.cpp.i
@@ -1829,7 +1829,7 @@ CImageLoaderJPG.i: CImageLoaderJPG.cpp.i
 
 # target to preprocess a source file
 CImageLoaderJPG.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderJPG.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderJPG.cpp.i
 .PHONY : CImageLoaderJPG.cpp.i
 
 CImageLoaderJPG.s: CImageLoaderJPG.cpp.s
@@ -1837,7 +1837,7 @@ CImageLoaderJPG.s: CImageLoaderJPG.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderJPG.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderJPG.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderJPG.cpp.s
 .PHONY : CImageLoaderJPG.cpp.s
 
 CImageLoaderPCX.o: CImageLoaderPCX.cpp.o
@@ -1845,7 +1845,7 @@ CImageLoaderPCX.o: CImageLoaderPCX.cpp.o
 
 # target to build an object file
 CImageLoaderPCX.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPCX.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPCX.cpp.o
 .PHONY : CImageLoaderPCX.cpp.o
 
 CImageLoaderPCX.i: CImageLoaderPCX.cpp.i
@@ -1853,7 +1853,7 @@ CImageLoaderPCX.i: CImageLoaderPCX.cpp.i
 
 # target to preprocess a source file
 CImageLoaderPCX.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPCX.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPCX.cpp.i
 .PHONY : CImageLoaderPCX.cpp.i
 
 CImageLoaderPCX.s: CImageLoaderPCX.cpp.s
@@ -1861,7 +1861,7 @@ CImageLoaderPCX.s: CImageLoaderPCX.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderPCX.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPCX.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPCX.cpp.s
 .PHONY : CImageLoaderPCX.cpp.s
 
 CImageLoaderPNG.o: CImageLoaderPNG.cpp.o
@@ -1869,7 +1869,7 @@ CImageLoaderPNG.o: CImageLoaderPNG.cpp.o
 
 # target to build an object file
 CImageLoaderPNG.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPNG.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPNG.cpp.o
 .PHONY : CImageLoaderPNG.cpp.o
 
 CImageLoaderPNG.i: CImageLoaderPNG.cpp.i
@@ -1877,7 +1877,7 @@ CImageLoaderPNG.i: CImageLoaderPNG.cpp.i
 
 # target to preprocess a source file
 CImageLoaderPNG.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPNG.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPNG.cpp.i
 .PHONY : CImageLoaderPNG.cpp.i
 
 CImageLoaderPNG.s: CImageLoaderPNG.cpp.s
@@ -1885,7 +1885,7 @@ CImageLoaderPNG.s: CImageLoaderPNG.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderPNG.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPNG.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPNG.cpp.s
 .PHONY : CImageLoaderPNG.cpp.s
 
 CImageLoaderPPM.o: CImageLoaderPPM.cpp.o
@@ -1893,7 +1893,7 @@ CImageLoaderPPM.o: CImageLoaderPPM.cpp.o
 
 # target to build an object file
 CImageLoaderPPM.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPPM.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPPM.cpp.o
 .PHONY : CImageLoaderPPM.cpp.o
 
 CImageLoaderPPM.i: CImageLoaderPPM.cpp.i
@@ -1901,7 +1901,7 @@ CImageLoaderPPM.i: CImageLoaderPPM.cpp.i
 
 # target to preprocess a source file
 CImageLoaderPPM.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPPM.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPPM.cpp.i
 .PHONY : CImageLoaderPPM.cpp.i
 
 CImageLoaderPPM.s: CImageLoaderPPM.cpp.s
@@ -1909,7 +1909,7 @@ CImageLoaderPPM.s: CImageLoaderPPM.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderPPM.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPPM.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPPM.cpp.s
 .PHONY : CImageLoaderPPM.cpp.s
 
 CImageLoaderPSD.o: CImageLoaderPSD.cpp.o
@@ -1917,7 +1917,7 @@ CImageLoaderPSD.o: CImageLoaderPSD.cpp.o
 
 # target to build an object file
 CImageLoaderPSD.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPSD.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPSD.cpp.o
 .PHONY : CImageLoaderPSD.cpp.o
 
 CImageLoaderPSD.i: CImageLoaderPSD.cpp.i
@@ -1925,7 +1925,7 @@ CImageLoaderPSD.i: CImageLoaderPSD.cpp.i
 
 # target to preprocess a source file
 CImageLoaderPSD.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPSD.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPSD.cpp.i
 .PHONY : CImageLoaderPSD.cpp.i
 
 CImageLoaderPSD.s: CImageLoaderPSD.cpp.s
@@ -1933,7 +1933,7 @@ CImageLoaderPSD.s: CImageLoaderPSD.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderPSD.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPSD.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderPSD.cpp.s
 .PHONY : CImageLoaderPSD.cpp.s
 
 CImageLoaderRGB.o: CImageLoaderRGB.cpp.o
@@ -1941,7 +1941,7 @@ CImageLoaderRGB.o: CImageLoaderRGB.cpp.o
 
 # target to build an object file
 CImageLoaderRGB.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderRGB.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderRGB.cpp.o
 .PHONY : CImageLoaderRGB.cpp.o
 
 CImageLoaderRGB.i: CImageLoaderRGB.cpp.i
@@ -1949,7 +1949,7 @@ CImageLoaderRGB.i: CImageLoaderRGB.cpp.i
 
 # target to preprocess a source file
 CImageLoaderRGB.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderRGB.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderRGB.cpp.i
 .PHONY : CImageLoaderRGB.cpp.i
 
 CImageLoaderRGB.s: CImageLoaderRGB.cpp.s
@@ -1957,7 +1957,7 @@ CImageLoaderRGB.s: CImageLoaderRGB.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderRGB.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderRGB.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderRGB.cpp.s
 .PHONY : CImageLoaderRGB.cpp.s
 
 CImageLoaderTGA.o: CImageLoaderTGA.cpp.o
@@ -1965,7 +1965,7 @@ CImageLoaderTGA.o: CImageLoaderTGA.cpp.o
 
 # target to build an object file
 CImageLoaderTGA.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderTGA.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderTGA.cpp.o
 .PHONY : CImageLoaderTGA.cpp.o
 
 CImageLoaderTGA.i: CImageLoaderTGA.cpp.i
@@ -1973,7 +1973,7 @@ CImageLoaderTGA.i: CImageLoaderTGA.cpp.i
 
 # target to preprocess a source file
 CImageLoaderTGA.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderTGA.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderTGA.cpp.i
 .PHONY : CImageLoaderTGA.cpp.i
 
 CImageLoaderTGA.s: CImageLoaderTGA.cpp.s
@@ -1981,7 +1981,7 @@ CImageLoaderTGA.s: CImageLoaderTGA.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderTGA.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderTGA.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderTGA.cpp.s
 .PHONY : CImageLoaderTGA.cpp.s
 
 CImageLoaderWAL.o: CImageLoaderWAL.cpp.o
@@ -1989,7 +1989,7 @@ CImageLoaderWAL.o: CImageLoaderWAL.cpp.o
 
 # target to build an object file
 CImageLoaderWAL.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderWAL.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderWAL.cpp.o
 .PHONY : CImageLoaderWAL.cpp.o
 
 CImageLoaderWAL.i: CImageLoaderWAL.cpp.i
@@ -1997,7 +1997,7 @@ CImageLoaderWAL.i: CImageLoaderWAL.cpp.i
 
 # target to preprocess a source file
 CImageLoaderWAL.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderWAL.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderWAL.cpp.i
 .PHONY : CImageLoaderWAL.cpp.i
 
 CImageLoaderWAL.s: CImageLoaderWAL.cpp.s
@@ -2005,7 +2005,7 @@ CImageLoaderWAL.s: CImageLoaderWAL.cpp.s
 
 # target to generate assembly for a file
 CImageLoaderWAL.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderWAL.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageLoaderWAL.cpp.s
 .PHONY : CImageLoaderWAL.cpp.s
 
 CImageWriterBMP.o: CImageWriterBMP.cpp.o
@@ -2013,7 +2013,7 @@ CImageWriterBMP.o: CImageWriterBMP.cpp.o
 
 # target to build an object file
 CImageWriterBMP.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterBMP.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterBMP.cpp.o
 .PHONY : CImageWriterBMP.cpp.o
 
 CImageWriterBMP.i: CImageWriterBMP.cpp.i
@@ -2021,7 +2021,7 @@ CImageWriterBMP.i: CImageWriterBMP.cpp.i
 
 # target to preprocess a source file
 CImageWriterBMP.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterBMP.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterBMP.cpp.i
 .PHONY : CImageWriterBMP.cpp.i
 
 CImageWriterBMP.s: CImageWriterBMP.cpp.s
@@ -2029,7 +2029,7 @@ CImageWriterBMP.s: CImageWriterBMP.cpp.s
 
 # target to generate assembly for a file
 CImageWriterBMP.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterBMP.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterBMP.cpp.s
 .PHONY : CImageWriterBMP.cpp.s
 
 CImageWriterJPG.o: CImageWriterJPG.cpp.o
@@ -2037,7 +2037,7 @@ CImageWriterJPG.o: CImageWriterJPG.cpp.o
 
 # target to build an object file
 CImageWriterJPG.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterJPG.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterJPG.cpp.o
 .PHONY : CImageWriterJPG.cpp.o
 
 CImageWriterJPG.i: CImageWriterJPG.cpp.i
@@ -2045,7 +2045,7 @@ CImageWriterJPG.i: CImageWriterJPG.cpp.i
 
 # target to preprocess a source file
 CImageWriterJPG.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterJPG.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterJPG.cpp.i
 .PHONY : CImageWriterJPG.cpp.i
 
 CImageWriterJPG.s: CImageWriterJPG.cpp.s
@@ -2053,7 +2053,7 @@ CImageWriterJPG.s: CImageWriterJPG.cpp.s
 
 # target to generate assembly for a file
 CImageWriterJPG.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterJPG.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterJPG.cpp.s
 .PHONY : CImageWriterJPG.cpp.s
 
 CImageWriterPCX.o: CImageWriterPCX.cpp.o
@@ -2061,7 +2061,7 @@ CImageWriterPCX.o: CImageWriterPCX.cpp.o
 
 # target to build an object file
 CImageWriterPCX.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPCX.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPCX.cpp.o
 .PHONY : CImageWriterPCX.cpp.o
 
 CImageWriterPCX.i: CImageWriterPCX.cpp.i
@@ -2069,7 +2069,7 @@ CImageWriterPCX.i: CImageWriterPCX.cpp.i
 
 # target to preprocess a source file
 CImageWriterPCX.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPCX.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPCX.cpp.i
 .PHONY : CImageWriterPCX.cpp.i
 
 CImageWriterPCX.s: CImageWriterPCX.cpp.s
@@ -2077,7 +2077,7 @@ CImageWriterPCX.s: CImageWriterPCX.cpp.s
 
 # target to generate assembly for a file
 CImageWriterPCX.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPCX.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPCX.cpp.s
 .PHONY : CImageWriterPCX.cpp.s
 
 CImageWriterPNG.o: CImageWriterPNG.cpp.o
@@ -2085,7 +2085,7 @@ CImageWriterPNG.o: CImageWriterPNG.cpp.o
 
 # target to build an object file
 CImageWriterPNG.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPNG.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPNG.cpp.o
 .PHONY : CImageWriterPNG.cpp.o
 
 CImageWriterPNG.i: CImageWriterPNG.cpp.i
@@ -2093,7 +2093,7 @@ CImageWriterPNG.i: CImageWriterPNG.cpp.i
 
 # target to preprocess a source file
 CImageWriterPNG.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPNG.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPNG.cpp.i
 .PHONY : CImageWriterPNG.cpp.i
 
 CImageWriterPNG.s: CImageWriterPNG.cpp.s
@@ -2101,7 +2101,7 @@ CImageWriterPNG.s: CImageWriterPNG.cpp.s
 
 # target to generate assembly for a file
 CImageWriterPNG.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPNG.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPNG.cpp.s
 .PHONY : CImageWriterPNG.cpp.s
 
 CImageWriterPPM.o: CImageWriterPPM.cpp.o
@@ -2109,7 +2109,7 @@ CImageWriterPPM.o: CImageWriterPPM.cpp.o
 
 # target to build an object file
 CImageWriterPPM.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPPM.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPPM.cpp.o
 .PHONY : CImageWriterPPM.cpp.o
 
 CImageWriterPPM.i: CImageWriterPPM.cpp.i
@@ -2117,7 +2117,7 @@ CImageWriterPPM.i: CImageWriterPPM.cpp.i
 
 # target to preprocess a source file
 CImageWriterPPM.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPPM.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPPM.cpp.i
 .PHONY : CImageWriterPPM.cpp.i
 
 CImageWriterPPM.s: CImageWriterPPM.cpp.s
@@ -2125,7 +2125,7 @@ CImageWriterPPM.s: CImageWriterPPM.cpp.s
 
 # target to generate assembly for a file
 CImageWriterPPM.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPPM.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPPM.cpp.s
 .PHONY : CImageWriterPPM.cpp.s
 
 CImageWriterPSD.o: CImageWriterPSD.cpp.o
@@ -2133,7 +2133,7 @@ CImageWriterPSD.o: CImageWriterPSD.cpp.o
 
 # target to build an object file
 CImageWriterPSD.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPSD.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPSD.cpp.o
 .PHONY : CImageWriterPSD.cpp.o
 
 CImageWriterPSD.i: CImageWriterPSD.cpp.i
@@ -2141,7 +2141,7 @@ CImageWriterPSD.i: CImageWriterPSD.cpp.i
 
 # target to preprocess a source file
 CImageWriterPSD.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPSD.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPSD.cpp.i
 .PHONY : CImageWriterPSD.cpp.i
 
 CImageWriterPSD.s: CImageWriterPSD.cpp.s
@@ -2149,7 +2149,7 @@ CImageWriterPSD.s: CImageWriterPSD.cpp.s
 
 # target to generate assembly for a file
 CImageWriterPSD.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPSD.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterPSD.cpp.s
 .PHONY : CImageWriterPSD.cpp.s
 
 CImageWriterTGA.o: CImageWriterTGA.cpp.o
@@ -2157,7 +2157,7 @@ CImageWriterTGA.o: CImageWriterTGA.cpp.o
 
 # target to build an object file
 CImageWriterTGA.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterTGA.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterTGA.cpp.o
 .PHONY : CImageWriterTGA.cpp.o
 
 CImageWriterTGA.i: CImageWriterTGA.cpp.i
@@ -2165,7 +2165,7 @@ CImageWriterTGA.i: CImageWriterTGA.cpp.i
 
 # target to preprocess a source file
 CImageWriterTGA.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterTGA.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterTGA.cpp.i
 .PHONY : CImageWriterTGA.cpp.i
 
 CImageWriterTGA.s: CImageWriterTGA.cpp.s
@@ -2173,7 +2173,7 @@ CImageWriterTGA.s: CImageWriterTGA.cpp.s
 
 # target to generate assembly for a file
 CImageWriterTGA.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterTGA.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CImageWriterTGA.cpp.s
 .PHONY : CImageWriterTGA.cpp.s
 
 CIrrDeviceConsole.o: CIrrDeviceConsole.cpp.o
@@ -2181,7 +2181,7 @@ CIrrDeviceConsole.o: CIrrDeviceConsole.cpp.o
 
 # target to build an object file
 CIrrDeviceConsole.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceConsole.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceConsole.cpp.o
 .PHONY : CIrrDeviceConsole.cpp.o
 
 CIrrDeviceConsole.i: CIrrDeviceConsole.cpp.i
@@ -2189,7 +2189,7 @@ CIrrDeviceConsole.i: CIrrDeviceConsole.cpp.i
 
 # target to preprocess a source file
 CIrrDeviceConsole.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceConsole.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceConsole.cpp.i
 .PHONY : CIrrDeviceConsole.cpp.i
 
 CIrrDeviceConsole.s: CIrrDeviceConsole.cpp.s
@@ -2197,7 +2197,7 @@ CIrrDeviceConsole.s: CIrrDeviceConsole.cpp.s
 
 # target to generate assembly for a file
 CIrrDeviceConsole.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceConsole.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceConsole.cpp.s
 .PHONY : CIrrDeviceConsole.cpp.s
 
 CIrrDeviceFB.o: CIrrDeviceFB.cpp.o
@@ -2205,7 +2205,7 @@ CIrrDeviceFB.o: CIrrDeviceFB.cpp.o
 
 # target to build an object file
 CIrrDeviceFB.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceFB.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceFB.cpp.o
 .PHONY : CIrrDeviceFB.cpp.o
 
 CIrrDeviceFB.i: CIrrDeviceFB.cpp.i
@@ -2213,7 +2213,7 @@ CIrrDeviceFB.i: CIrrDeviceFB.cpp.i
 
 # target to preprocess a source file
 CIrrDeviceFB.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceFB.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceFB.cpp.i
 .PHONY : CIrrDeviceFB.cpp.i
 
 CIrrDeviceFB.s: CIrrDeviceFB.cpp.s
@@ -2221,7 +2221,7 @@ CIrrDeviceFB.s: CIrrDeviceFB.cpp.s
 
 # target to generate assembly for a file
 CIrrDeviceFB.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceFB.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceFB.cpp.s
 .PHONY : CIrrDeviceFB.cpp.s
 
 CIrrDeviceLinux.o: CIrrDeviceLinux.cpp.o
@@ -2229,7 +2229,7 @@ CIrrDeviceLinux.o: CIrrDeviceLinux.cpp.o
 
 # target to build an object file
 CIrrDeviceLinux.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceLinux.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceLinux.cpp.o
 .PHONY : CIrrDeviceLinux.cpp.o
 
 CIrrDeviceLinux.i: CIrrDeviceLinux.cpp.i
@@ -2237,7 +2237,7 @@ CIrrDeviceLinux.i: CIrrDeviceLinux.cpp.i
 
 # target to preprocess a source file
 CIrrDeviceLinux.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceLinux.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceLinux.cpp.i
 .PHONY : CIrrDeviceLinux.cpp.i
 
 CIrrDeviceLinux.s: CIrrDeviceLinux.cpp.s
@@ -2245,7 +2245,7 @@ CIrrDeviceLinux.s: CIrrDeviceLinux.cpp.s
 
 # target to generate assembly for a file
 CIrrDeviceLinux.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceLinux.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceLinux.cpp.s
 .PHONY : CIrrDeviceLinux.cpp.s
 
 CIrrDeviceSDL.o: CIrrDeviceSDL.cpp.o
@@ -2253,7 +2253,7 @@ CIrrDeviceSDL.o: CIrrDeviceSDL.cpp.o
 
 # target to build an object file
 CIrrDeviceSDL.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceSDL.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceSDL.cpp.o
 .PHONY : CIrrDeviceSDL.cpp.o
 
 CIrrDeviceSDL.i: CIrrDeviceSDL.cpp.i
@@ -2261,7 +2261,7 @@ CIrrDeviceSDL.i: CIrrDeviceSDL.cpp.i
 
 # target to preprocess a source file
 CIrrDeviceSDL.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceSDL.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceSDL.cpp.i
 .PHONY : CIrrDeviceSDL.cpp.i
 
 CIrrDeviceSDL.s: CIrrDeviceSDL.cpp.s
@@ -2269,7 +2269,7 @@ CIrrDeviceSDL.s: CIrrDeviceSDL.cpp.s
 
 # target to generate assembly for a file
 CIrrDeviceSDL.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceSDL.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceSDL.cpp.s
 .PHONY : CIrrDeviceSDL.cpp.s
 
 CIrrDeviceStub.o: CIrrDeviceStub.cpp.o
@@ -2277,7 +2277,7 @@ CIrrDeviceStub.o: CIrrDeviceStub.cpp.o
 
 # target to build an object file
 CIrrDeviceStub.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceStub.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceStub.cpp.o
 .PHONY : CIrrDeviceStub.cpp.o
 
 CIrrDeviceStub.i: CIrrDeviceStub.cpp.i
@@ -2285,7 +2285,7 @@ CIrrDeviceStub.i: CIrrDeviceStub.cpp.i
 
 # target to preprocess a source file
 CIrrDeviceStub.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceStub.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceStub.cpp.i
 .PHONY : CIrrDeviceStub.cpp.i
 
 CIrrDeviceStub.s: CIrrDeviceStub.cpp.s
@@ -2293,7 +2293,7 @@ CIrrDeviceStub.s: CIrrDeviceStub.cpp.s
 
 # target to generate assembly for a file
 CIrrDeviceStub.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceStub.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceStub.cpp.s
 .PHONY : CIrrDeviceStub.cpp.s
 
 CIrrDeviceWin32.o: CIrrDeviceWin32.cpp.o
@@ -2301,7 +2301,7 @@ CIrrDeviceWin32.o: CIrrDeviceWin32.cpp.o
 
 # target to build an object file
 CIrrDeviceWin32.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWin32.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWin32.cpp.o
 .PHONY : CIrrDeviceWin32.cpp.o
 
 CIrrDeviceWin32.i: CIrrDeviceWin32.cpp.i
@@ -2309,7 +2309,7 @@ CIrrDeviceWin32.i: CIrrDeviceWin32.cpp.i
 
 # target to preprocess a source file
 CIrrDeviceWin32.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWin32.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWin32.cpp.i
 .PHONY : CIrrDeviceWin32.cpp.i
 
 CIrrDeviceWin32.s: CIrrDeviceWin32.cpp.s
@@ -2317,7 +2317,7 @@ CIrrDeviceWin32.s: CIrrDeviceWin32.cpp.s
 
 # target to generate assembly for a file
 CIrrDeviceWin32.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWin32.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWin32.cpp.s
 .PHONY : CIrrDeviceWin32.cpp.s
 
 CIrrDeviceWinCE.o: CIrrDeviceWinCE.cpp.o
@@ -2325,7 +2325,7 @@ CIrrDeviceWinCE.o: CIrrDeviceWinCE.cpp.o
 
 # target to build an object file
 CIrrDeviceWinCE.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWinCE.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWinCE.cpp.o
 .PHONY : CIrrDeviceWinCE.cpp.o
 
 CIrrDeviceWinCE.i: CIrrDeviceWinCE.cpp.i
@@ -2333,7 +2333,7 @@ CIrrDeviceWinCE.i: CIrrDeviceWinCE.cpp.i
 
 # target to preprocess a source file
 CIrrDeviceWinCE.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWinCE.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWinCE.cpp.i
 .PHONY : CIrrDeviceWinCE.cpp.i
 
 CIrrDeviceWinCE.s: CIrrDeviceWinCE.cpp.s
@@ -2341,7 +2341,7 @@ CIrrDeviceWinCE.s: CIrrDeviceWinCE.cpp.s
 
 # target to generate assembly for a file
 CIrrDeviceWinCE.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWinCE.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrDeviceWinCE.cpp.s
 .PHONY : CIrrDeviceWinCE.cpp.s
 
 CIrrMeshFileLoader.o: CIrrMeshFileLoader.cpp.o
@@ -2349,7 +2349,7 @@ CIrrMeshFileLoader.o: CIrrMeshFileLoader.cpp.o
 
 # target to build an object file
 CIrrMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshFileLoader.cpp.o
 .PHONY : CIrrMeshFileLoader.cpp.o
 
 CIrrMeshFileLoader.i: CIrrMeshFileLoader.cpp.i
@@ -2357,7 +2357,7 @@ CIrrMeshFileLoader.i: CIrrMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CIrrMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshFileLoader.cpp.i
 .PHONY : CIrrMeshFileLoader.cpp.i
 
 CIrrMeshFileLoader.s: CIrrMeshFileLoader.cpp.s
@@ -2365,7 +2365,7 @@ CIrrMeshFileLoader.s: CIrrMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CIrrMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshFileLoader.cpp.s
 .PHONY : CIrrMeshFileLoader.cpp.s
 
 CIrrMeshWriter.o: CIrrMeshWriter.cpp.o
@@ -2373,7 +2373,7 @@ CIrrMeshWriter.o: CIrrMeshWriter.cpp.o
 
 # target to build an object file
 CIrrMeshWriter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshWriter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshWriter.cpp.o
 .PHONY : CIrrMeshWriter.cpp.o
 
 CIrrMeshWriter.i: CIrrMeshWriter.cpp.i
@@ -2381,7 +2381,7 @@ CIrrMeshWriter.i: CIrrMeshWriter.cpp.i
 
 # target to preprocess a source file
 CIrrMeshWriter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshWriter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshWriter.cpp.i
 .PHONY : CIrrMeshWriter.cpp.i
 
 CIrrMeshWriter.s: CIrrMeshWriter.cpp.s
@@ -2389,7 +2389,7 @@ CIrrMeshWriter.s: CIrrMeshWriter.cpp.s
 
 # target to generate assembly for a file
 CIrrMeshWriter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshWriter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CIrrMeshWriter.cpp.s
 .PHONY : CIrrMeshWriter.cpp.s
 
 CLMTSMeshFileLoader.o: CLMTSMeshFileLoader.cpp.o
@@ -2397,7 +2397,7 @@ CLMTSMeshFileLoader.o: CLMTSMeshFileLoader.cpp.o
 
 # target to build an object file
 CLMTSMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLMTSMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLMTSMeshFileLoader.cpp.o
 .PHONY : CLMTSMeshFileLoader.cpp.o
 
 CLMTSMeshFileLoader.i: CLMTSMeshFileLoader.cpp.i
@@ -2405,7 +2405,7 @@ CLMTSMeshFileLoader.i: CLMTSMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CLMTSMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLMTSMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLMTSMeshFileLoader.cpp.i
 .PHONY : CLMTSMeshFileLoader.cpp.i
 
 CLMTSMeshFileLoader.s: CLMTSMeshFileLoader.cpp.s
@@ -2413,7 +2413,7 @@ CLMTSMeshFileLoader.s: CLMTSMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CLMTSMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLMTSMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLMTSMeshFileLoader.cpp.s
 .PHONY : CLMTSMeshFileLoader.cpp.s
 
 CLWOMeshFileLoader.o: CLWOMeshFileLoader.cpp.o
@@ -2421,7 +2421,7 @@ CLWOMeshFileLoader.o: CLWOMeshFileLoader.cpp.o
 
 # target to build an object file
 CLWOMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLWOMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLWOMeshFileLoader.cpp.o
 .PHONY : CLWOMeshFileLoader.cpp.o
 
 CLWOMeshFileLoader.i: CLWOMeshFileLoader.cpp.i
@@ -2429,7 +2429,7 @@ CLWOMeshFileLoader.i: CLWOMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CLWOMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLWOMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLWOMeshFileLoader.cpp.i
 .PHONY : CLWOMeshFileLoader.cpp.i
 
 CLWOMeshFileLoader.s: CLWOMeshFileLoader.cpp.s
@@ -2437,7 +2437,7 @@ CLWOMeshFileLoader.s: CLWOMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CLWOMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLWOMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLWOMeshFileLoader.cpp.s
 .PHONY : CLWOMeshFileLoader.cpp.s
 
 CLightSceneNode.o: CLightSceneNode.cpp.o
@@ -2445,7 +2445,7 @@ CLightSceneNode.o: CLightSceneNode.cpp.o
 
 # target to build an object file
 CLightSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLightSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLightSceneNode.cpp.o
 .PHONY : CLightSceneNode.cpp.o
 
 CLightSceneNode.i: CLightSceneNode.cpp.i
@@ -2453,7 +2453,7 @@ CLightSceneNode.i: CLightSceneNode.cpp.i
 
 # target to preprocess a source file
 CLightSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLightSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLightSceneNode.cpp.i
 .PHONY : CLightSceneNode.cpp.i
 
 CLightSceneNode.s: CLightSceneNode.cpp.s
@@ -2461,7 +2461,7 @@ CLightSceneNode.s: CLightSceneNode.cpp.s
 
 # target to generate assembly for a file
 CLightSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLightSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLightSceneNode.cpp.s
 .PHONY : CLightSceneNode.cpp.s
 
 CLimitReadFile.o: CLimitReadFile.cpp.o
@@ -2469,7 +2469,7 @@ CLimitReadFile.o: CLimitReadFile.cpp.o
 
 # target to build an object file
 CLimitReadFile.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLimitReadFile.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLimitReadFile.cpp.o
 .PHONY : CLimitReadFile.cpp.o
 
 CLimitReadFile.i: CLimitReadFile.cpp.i
@@ -2477,7 +2477,7 @@ CLimitReadFile.i: CLimitReadFile.cpp.i
 
 # target to preprocess a source file
 CLimitReadFile.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLimitReadFile.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLimitReadFile.cpp.i
 .PHONY : CLimitReadFile.cpp.i
 
 CLimitReadFile.s: CLimitReadFile.cpp.s
@@ -2485,7 +2485,7 @@ CLimitReadFile.s: CLimitReadFile.cpp.s
 
 # target to generate assembly for a file
 CLimitReadFile.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLimitReadFile.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLimitReadFile.cpp.s
 .PHONY : CLimitReadFile.cpp.s
 
 CLogger.o: CLogger.cpp.o
@@ -2493,7 +2493,7 @@ CLogger.o: CLogger.cpp.o
 
 # target to build an object file
 CLogger.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLogger.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLogger.cpp.o
 .PHONY : CLogger.cpp.o
 
 CLogger.i: CLogger.cpp.i
@@ -2501,7 +2501,7 @@ CLogger.i: CLogger.cpp.i
 
 # target to preprocess a source file
 CLogger.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLogger.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLogger.cpp.i
 .PHONY : CLogger.cpp.i
 
 CLogger.s: CLogger.cpp.s
@@ -2509,7 +2509,7 @@ CLogger.s: CLogger.cpp.s
 
 # target to generate assembly for a file
 CLogger.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLogger.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CLogger.cpp.s
 .PHONY : CLogger.cpp.s
 
 CMD2MeshFileLoader.o: CMD2MeshFileLoader.cpp.o
@@ -2517,7 +2517,7 @@ CMD2MeshFileLoader.o: CMD2MeshFileLoader.cpp.o
 
 # target to build an object file
 CMD2MeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD2MeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD2MeshFileLoader.cpp.o
 .PHONY : CMD2MeshFileLoader.cpp.o
 
 CMD2MeshFileLoader.i: CMD2MeshFileLoader.cpp.i
@@ -2525,7 +2525,7 @@ CMD2MeshFileLoader.i: CMD2MeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CMD2MeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD2MeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD2MeshFileLoader.cpp.i
 .PHONY : CMD2MeshFileLoader.cpp.i
 
 CMD2MeshFileLoader.s: CMD2MeshFileLoader.cpp.s
@@ -2533,7 +2533,7 @@ CMD2MeshFileLoader.s: CMD2MeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CMD2MeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD2MeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD2MeshFileLoader.cpp.s
 .PHONY : CMD2MeshFileLoader.cpp.s
 
 CMD3MeshFileLoader.o: CMD3MeshFileLoader.cpp.o
@@ -2541,7 +2541,7 @@ CMD3MeshFileLoader.o: CMD3MeshFileLoader.cpp.o
 
 # target to build an object file
 CMD3MeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD3MeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD3MeshFileLoader.cpp.o
 .PHONY : CMD3MeshFileLoader.cpp.o
 
 CMD3MeshFileLoader.i: CMD3MeshFileLoader.cpp.i
@@ -2549,7 +2549,7 @@ CMD3MeshFileLoader.i: CMD3MeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CMD3MeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD3MeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD3MeshFileLoader.cpp.i
 .PHONY : CMD3MeshFileLoader.cpp.i
 
 CMD3MeshFileLoader.s: CMD3MeshFileLoader.cpp.s
@@ -2557,7 +2557,7 @@ CMD3MeshFileLoader.s: CMD3MeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CMD3MeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD3MeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMD3MeshFileLoader.cpp.s
 .PHONY : CMD3MeshFileLoader.cpp.s
 
 CMS3DMeshFileLoader.o: CMS3DMeshFileLoader.cpp.o
@@ -2565,7 +2565,7 @@ CMS3DMeshFileLoader.o: CMS3DMeshFileLoader.cpp.o
 
 # target to build an object file
 CMS3DMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMS3DMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMS3DMeshFileLoader.cpp.o
 .PHONY : CMS3DMeshFileLoader.cpp.o
 
 CMS3DMeshFileLoader.i: CMS3DMeshFileLoader.cpp.i
@@ -2573,7 +2573,7 @@ CMS3DMeshFileLoader.i: CMS3DMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CMS3DMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMS3DMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMS3DMeshFileLoader.cpp.i
 .PHONY : CMS3DMeshFileLoader.cpp.i
 
 CMS3DMeshFileLoader.s: CMS3DMeshFileLoader.cpp.s
@@ -2581,7 +2581,7 @@ CMS3DMeshFileLoader.s: CMS3DMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CMS3DMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMS3DMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMS3DMeshFileLoader.cpp.s
 .PHONY : CMS3DMeshFileLoader.cpp.s
 
 CMY3DMeshFileLoader.o: CMY3DMeshFileLoader.cpp.o
@@ -2589,7 +2589,7 @@ CMY3DMeshFileLoader.o: CMY3DMeshFileLoader.cpp.o
 
 # target to build an object file
 CMY3DMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMY3DMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMY3DMeshFileLoader.cpp.o
 .PHONY : CMY3DMeshFileLoader.cpp.o
 
 CMY3DMeshFileLoader.i: CMY3DMeshFileLoader.cpp.i
@@ -2597,7 +2597,7 @@ CMY3DMeshFileLoader.i: CMY3DMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CMY3DMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMY3DMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMY3DMeshFileLoader.cpp.i
 .PHONY : CMY3DMeshFileLoader.cpp.i
 
 CMY3DMeshFileLoader.s: CMY3DMeshFileLoader.cpp.s
@@ -2605,7 +2605,7 @@ CMY3DMeshFileLoader.s: CMY3DMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CMY3DMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMY3DMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMY3DMeshFileLoader.cpp.s
 .PHONY : CMY3DMeshFileLoader.cpp.s
 
 CMemoryFile.o: CMemoryFile.cpp.o
@@ -2613,7 +2613,7 @@ CMemoryFile.o: CMemoryFile.cpp.o
 
 # target to build an object file
 CMemoryFile.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMemoryFile.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMemoryFile.cpp.o
 .PHONY : CMemoryFile.cpp.o
 
 CMemoryFile.i: CMemoryFile.cpp.i
@@ -2621,7 +2621,7 @@ CMemoryFile.i: CMemoryFile.cpp.i
 
 # target to preprocess a source file
 CMemoryFile.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMemoryFile.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMemoryFile.cpp.i
 .PHONY : CMemoryFile.cpp.i
 
 CMemoryFile.s: CMemoryFile.cpp.s
@@ -2629,7 +2629,7 @@ CMemoryFile.s: CMemoryFile.cpp.s
 
 # target to generate assembly for a file
 CMemoryFile.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMemoryFile.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMemoryFile.cpp.s
 .PHONY : CMemoryFile.cpp.s
 
 CMeshCache.o: CMeshCache.cpp.o
@@ -2637,7 +2637,7 @@ CMeshCache.o: CMeshCache.cpp.o
 
 # target to build an object file
 CMeshCache.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshCache.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshCache.cpp.o
 .PHONY : CMeshCache.cpp.o
 
 CMeshCache.i: CMeshCache.cpp.i
@@ -2645,7 +2645,7 @@ CMeshCache.i: CMeshCache.cpp.i
 
 # target to preprocess a source file
 CMeshCache.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshCache.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshCache.cpp.i
 .PHONY : CMeshCache.cpp.i
 
 CMeshCache.s: CMeshCache.cpp.s
@@ -2653,7 +2653,7 @@ CMeshCache.s: CMeshCache.cpp.s
 
 # target to generate assembly for a file
 CMeshCache.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshCache.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshCache.cpp.s
 .PHONY : CMeshCache.cpp.s
 
 CMeshManipulator.o: CMeshManipulator.cpp.o
@@ -2661,7 +2661,7 @@ CMeshManipulator.o: CMeshManipulator.cpp.o
 
 # target to build an object file
 CMeshManipulator.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshManipulator.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshManipulator.cpp.o
 .PHONY : CMeshManipulator.cpp.o
 
 CMeshManipulator.i: CMeshManipulator.cpp.i
@@ -2669,7 +2669,7 @@ CMeshManipulator.i: CMeshManipulator.cpp.i
 
 # target to preprocess a source file
 CMeshManipulator.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshManipulator.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshManipulator.cpp.i
 .PHONY : CMeshManipulator.cpp.i
 
 CMeshManipulator.s: CMeshManipulator.cpp.s
@@ -2677,7 +2677,7 @@ CMeshManipulator.s: CMeshManipulator.cpp.s
 
 # target to generate assembly for a file
 CMeshManipulator.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshManipulator.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshManipulator.cpp.s
 .PHONY : CMeshManipulator.cpp.s
 
 CMeshSceneNode.o: CMeshSceneNode.cpp.o
@@ -2685,7 +2685,7 @@ CMeshSceneNode.o: CMeshSceneNode.cpp.o
 
 # target to build an object file
 CMeshSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshSceneNode.cpp.o
 .PHONY : CMeshSceneNode.cpp.o
 
 CMeshSceneNode.i: CMeshSceneNode.cpp.i
@@ -2693,7 +2693,7 @@ CMeshSceneNode.i: CMeshSceneNode.cpp.i
 
 # target to preprocess a source file
 CMeshSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshSceneNode.cpp.i
 .PHONY : CMeshSceneNode.cpp.i
 
 CMeshSceneNode.s: CMeshSceneNode.cpp.s
@@ -2701,7 +2701,7 @@ CMeshSceneNode.s: CMeshSceneNode.cpp.s
 
 # target to generate assembly for a file
 CMeshSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMeshSceneNode.cpp.s
 .PHONY : CMeshSceneNode.cpp.s
 
 CMetaTriangleSelector.o: CMetaTriangleSelector.cpp.o
@@ -2709,7 +2709,7 @@ CMetaTriangleSelector.o: CMetaTriangleSelector.cpp.o
 
 # target to build an object file
 CMetaTriangleSelector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMetaTriangleSelector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMetaTriangleSelector.cpp.o
 .PHONY : CMetaTriangleSelector.cpp.o
 
 CMetaTriangleSelector.i: CMetaTriangleSelector.cpp.i
@@ -2717,7 +2717,7 @@ CMetaTriangleSelector.i: CMetaTriangleSelector.cpp.i
 
 # target to preprocess a source file
 CMetaTriangleSelector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMetaTriangleSelector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMetaTriangleSelector.cpp.i
 .PHONY : CMetaTriangleSelector.cpp.i
 
 CMetaTriangleSelector.s: CMetaTriangleSelector.cpp.s
@@ -2725,7 +2725,7 @@ CMetaTriangleSelector.s: CMetaTriangleSelector.cpp.s
 
 # target to generate assembly for a file
 CMetaTriangleSelector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMetaTriangleSelector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMetaTriangleSelector.cpp.s
 .PHONY : CMetaTriangleSelector.cpp.s
 
 CMountPointReader.o: CMountPointReader.cpp.o
@@ -2733,7 +2733,7 @@ CMountPointReader.o: CMountPointReader.cpp.o
 
 # target to build an object file
 CMountPointReader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMountPointReader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMountPointReader.cpp.o
 .PHONY : CMountPointReader.cpp.o
 
 CMountPointReader.i: CMountPointReader.cpp.i
@@ -2741,7 +2741,7 @@ CMountPointReader.i: CMountPointReader.cpp.i
 
 # target to preprocess a source file
 CMountPointReader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMountPointReader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMountPointReader.cpp.i
 .PHONY : CMountPointReader.cpp.i
 
 CMountPointReader.s: CMountPointReader.cpp.s
@@ -2749,7 +2749,7 @@ CMountPointReader.s: CMountPointReader.cpp.s
 
 # target to generate assembly for a file
 CMountPointReader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMountPointReader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CMountPointReader.cpp.s
 .PHONY : CMountPointReader.cpp.s
 
 CNPKReader.o: CNPKReader.cpp.o
@@ -2757,7 +2757,7 @@ CNPKReader.o: CNPKReader.cpp.o
 
 # target to build an object file
 CNPKReader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNPKReader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNPKReader.cpp.o
 .PHONY : CNPKReader.cpp.o
 
 CNPKReader.i: CNPKReader.cpp.i
@@ -2765,7 +2765,7 @@ CNPKReader.i: CNPKReader.cpp.i
 
 # target to preprocess a source file
 CNPKReader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNPKReader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNPKReader.cpp.i
 .PHONY : CNPKReader.cpp.i
 
 CNPKReader.s: CNPKReader.cpp.s
@@ -2773,7 +2773,7 @@ CNPKReader.s: CNPKReader.cpp.s
 
 # target to generate assembly for a file
 CNPKReader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNPKReader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNPKReader.cpp.s
 .PHONY : CNPKReader.cpp.s
 
 CNullDriver.o: CNullDriver.cpp.o
@@ -2781,7 +2781,7 @@ CNullDriver.o: CNullDriver.cpp.o
 
 # target to build an object file
 CNullDriver.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNullDriver.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNullDriver.cpp.o
 .PHONY : CNullDriver.cpp.o
 
 CNullDriver.i: CNullDriver.cpp.i
@@ -2789,7 +2789,7 @@ CNullDriver.i: CNullDriver.cpp.i
 
 # target to preprocess a source file
 CNullDriver.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNullDriver.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNullDriver.cpp.i
 .PHONY : CNullDriver.cpp.i
 
 CNullDriver.s: CNullDriver.cpp.s
@@ -2797,7 +2797,7 @@ CNullDriver.s: CNullDriver.cpp.s
 
 # target to generate assembly for a file
 CNullDriver.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNullDriver.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CNullDriver.cpp.s
 .PHONY : CNullDriver.cpp.s
 
 COBJMeshFileLoader.o: COBJMeshFileLoader.cpp.o
@@ -2805,7 +2805,7 @@ COBJMeshFileLoader.o: COBJMeshFileLoader.cpp.o
 
 # target to build an object file
 COBJMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshFileLoader.cpp.o
 .PHONY : COBJMeshFileLoader.cpp.o
 
 COBJMeshFileLoader.i: COBJMeshFileLoader.cpp.i
@@ -2813,7 +2813,7 @@ COBJMeshFileLoader.i: COBJMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 COBJMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshFileLoader.cpp.i
 .PHONY : COBJMeshFileLoader.cpp.i
 
 COBJMeshFileLoader.s: COBJMeshFileLoader.cpp.s
@@ -2821,7 +2821,7 @@ COBJMeshFileLoader.s: COBJMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 COBJMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshFileLoader.cpp.s
 .PHONY : COBJMeshFileLoader.cpp.s
 
 COBJMeshWriter.o: COBJMeshWriter.cpp.o
@@ -2829,7 +2829,7 @@ COBJMeshWriter.o: COBJMeshWriter.cpp.o
 
 # target to build an object file
 COBJMeshWriter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshWriter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshWriter.cpp.o
 .PHONY : COBJMeshWriter.cpp.o
 
 COBJMeshWriter.i: COBJMeshWriter.cpp.i
@@ -2837,7 +2837,7 @@ COBJMeshWriter.i: COBJMeshWriter.cpp.i
 
 # target to preprocess a source file
 COBJMeshWriter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshWriter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshWriter.cpp.i
 .PHONY : COBJMeshWriter.cpp.i
 
 COBJMeshWriter.s: COBJMeshWriter.cpp.s
@@ -2845,7 +2845,7 @@ COBJMeshWriter.s: COBJMeshWriter.cpp.s
 
 # target to generate assembly for a file
 COBJMeshWriter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshWriter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COBJMeshWriter.cpp.s
 .PHONY : COBJMeshWriter.cpp.s
 
 COCTLoader.o: COCTLoader.cpp.o
@@ -2853,7 +2853,7 @@ COCTLoader.o: COCTLoader.cpp.o
 
 # target to build an object file
 COCTLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COCTLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COCTLoader.cpp.o
 .PHONY : COCTLoader.cpp.o
 
 COCTLoader.i: COCTLoader.cpp.i
@@ -2861,7 +2861,7 @@ COCTLoader.i: COCTLoader.cpp.i
 
 # target to preprocess a source file
 COCTLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COCTLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COCTLoader.cpp.i
 .PHONY : COCTLoader.cpp.i
 
 COCTLoader.s: COCTLoader.cpp.s
@@ -2869,7 +2869,7 @@ COCTLoader.s: COCTLoader.cpp.s
 
 # target to generate assembly for a file
 COCTLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COCTLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COCTLoader.cpp.s
 .PHONY : COCTLoader.cpp.s
 
 COSOperator.o: COSOperator.cpp.o
@@ -2877,7 +2877,7 @@ COSOperator.o: COSOperator.cpp.o
 
 # target to build an object file
 COSOperator.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COSOperator.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COSOperator.cpp.o
 .PHONY : COSOperator.cpp.o
 
 COSOperator.i: COSOperator.cpp.i
@@ -2885,7 +2885,7 @@ COSOperator.i: COSOperator.cpp.i
 
 # target to preprocess a source file
 COSOperator.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COSOperator.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COSOperator.cpp.i
 .PHONY : COSOperator.cpp.i
 
 COSOperator.s: COSOperator.cpp.s
@@ -2893,7 +2893,7 @@ COSOperator.s: COSOperator.cpp.s
 
 # target to generate assembly for a file
 COSOperator.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COSOperator.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COSOperator.cpp.s
 .PHONY : COSOperator.cpp.s
 
 COctreeSceneNode.o: COctreeSceneNode.cpp.o
@@ -2901,7 +2901,7 @@ COctreeSceneNode.o: COctreeSceneNode.cpp.o
 
 # target to build an object file
 COctreeSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeSceneNode.cpp.o
 .PHONY : COctreeSceneNode.cpp.o
 
 COctreeSceneNode.i: COctreeSceneNode.cpp.i
@@ -2909,7 +2909,7 @@ COctreeSceneNode.i: COctreeSceneNode.cpp.i
 
 # target to preprocess a source file
 COctreeSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeSceneNode.cpp.i
 .PHONY : COctreeSceneNode.cpp.i
 
 COctreeSceneNode.s: COctreeSceneNode.cpp.s
@@ -2917,7 +2917,7 @@ COctreeSceneNode.s: COctreeSceneNode.cpp.s
 
 # target to generate assembly for a file
 COctreeSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeSceneNode.cpp.s
 .PHONY : COctreeSceneNode.cpp.s
 
 COctreeTriangleSelector.o: COctreeTriangleSelector.cpp.o
@@ -2925,7 +2925,7 @@ COctreeTriangleSelector.o: COctreeTriangleSelector.cpp.o
 
 # target to build an object file
 COctreeTriangleSelector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeTriangleSelector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeTriangleSelector.cpp.o
 .PHONY : COctreeTriangleSelector.cpp.o
 
 COctreeTriangleSelector.i: COctreeTriangleSelector.cpp.i
@@ -2933,7 +2933,7 @@ COctreeTriangleSelector.i: COctreeTriangleSelector.cpp.i
 
 # target to preprocess a source file
 COctreeTriangleSelector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeTriangleSelector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeTriangleSelector.cpp.i
 .PHONY : COctreeTriangleSelector.cpp.i
 
 COctreeTriangleSelector.s: COctreeTriangleSelector.cpp.s
@@ -2941,7 +2941,7 @@ COctreeTriangleSelector.s: COctreeTriangleSelector.cpp.s
 
 # target to generate assembly for a file
 COctreeTriangleSelector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeTriangleSelector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COctreeTriangleSelector.cpp.s
 .PHONY : COctreeTriangleSelector.cpp.s
 
 COgreMeshFileLoader.o: COgreMeshFileLoader.cpp.o
@@ -2949,7 +2949,7 @@ COgreMeshFileLoader.o: COgreMeshFileLoader.cpp.o
 
 # target to build an object file
 COgreMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COgreMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COgreMeshFileLoader.cpp.o
 .PHONY : COgreMeshFileLoader.cpp.o
 
 COgreMeshFileLoader.i: COgreMeshFileLoader.cpp.i
@@ -2957,7 +2957,7 @@ COgreMeshFileLoader.i: COgreMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 COgreMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COgreMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COgreMeshFileLoader.cpp.i
 .PHONY : COgreMeshFileLoader.cpp.i
 
 COgreMeshFileLoader.s: COgreMeshFileLoader.cpp.s
@@ -2965,7 +2965,7 @@ COgreMeshFileLoader.s: COgreMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 COgreMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COgreMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COgreMeshFileLoader.cpp.s
 .PHONY : COgreMeshFileLoader.cpp.s
 
 COpenGLCgMaterialRenderer.o: COpenGLCgMaterialRenderer.cpp.o
@@ -2973,7 +2973,7 @@ COpenGLCgMaterialRenderer.o: COpenGLCgMaterialRenderer.cpp.o
 
 # target to build an object file
 COpenGLCgMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLCgMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLCgMaterialRenderer.cpp.o
 .PHONY : COpenGLCgMaterialRenderer.cpp.o
 
 COpenGLCgMaterialRenderer.i: COpenGLCgMaterialRenderer.cpp.i
@@ -2981,7 +2981,7 @@ COpenGLCgMaterialRenderer.i: COpenGLCgMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 COpenGLCgMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLCgMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLCgMaterialRenderer.cpp.i
 .PHONY : COpenGLCgMaterialRenderer.cpp.i
 
 COpenGLCgMaterialRenderer.s: COpenGLCgMaterialRenderer.cpp.s
@@ -2989,7 +2989,7 @@ COpenGLCgMaterialRenderer.s: COpenGLCgMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 COpenGLCgMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLCgMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLCgMaterialRenderer.cpp.s
 .PHONY : COpenGLCgMaterialRenderer.cpp.s
 
 COpenGLDriver.o: COpenGLDriver.cpp.o
@@ -2997,7 +2997,7 @@ COpenGLDriver.o: COpenGLDriver.cpp.o
 
 # target to build an object file
 COpenGLDriver.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLDriver.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLDriver.cpp.o
 .PHONY : COpenGLDriver.cpp.o
 
 COpenGLDriver.i: COpenGLDriver.cpp.i
@@ -3005,7 +3005,7 @@ COpenGLDriver.i: COpenGLDriver.cpp.i
 
 # target to preprocess a source file
 COpenGLDriver.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLDriver.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLDriver.cpp.i
 .PHONY : COpenGLDriver.cpp.i
 
 COpenGLDriver.s: COpenGLDriver.cpp.s
@@ -3013,7 +3013,7 @@ COpenGLDriver.s: COpenGLDriver.cpp.s
 
 # target to generate assembly for a file
 COpenGLDriver.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLDriver.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLDriver.cpp.s
 .PHONY : COpenGLDriver.cpp.s
 
 COpenGLExtensionHandler.o: COpenGLExtensionHandler.cpp.o
@@ -3021,7 +3021,7 @@ COpenGLExtensionHandler.o: COpenGLExtensionHandler.cpp.o
 
 # target to build an object file
 COpenGLExtensionHandler.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLExtensionHandler.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLExtensionHandler.cpp.o
 .PHONY : COpenGLExtensionHandler.cpp.o
 
 COpenGLExtensionHandler.i: COpenGLExtensionHandler.cpp.i
@@ -3029,7 +3029,7 @@ COpenGLExtensionHandler.i: COpenGLExtensionHandler.cpp.i
 
 # target to preprocess a source file
 COpenGLExtensionHandler.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLExtensionHandler.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLExtensionHandler.cpp.i
 .PHONY : COpenGLExtensionHandler.cpp.i
 
 COpenGLExtensionHandler.s: COpenGLExtensionHandler.cpp.s
@@ -3037,7 +3037,7 @@ COpenGLExtensionHandler.s: COpenGLExtensionHandler.cpp.s
 
 # target to generate assembly for a file
 COpenGLExtensionHandler.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLExtensionHandler.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLExtensionHandler.cpp.s
 .PHONY : COpenGLExtensionHandler.cpp.s
 
 COpenGLNormalMapRenderer.o: COpenGLNormalMapRenderer.cpp.o
@@ -3045,7 +3045,7 @@ COpenGLNormalMapRenderer.o: COpenGLNormalMapRenderer.cpp.o
 
 # target to build an object file
 COpenGLNormalMapRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLNormalMapRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLNormalMapRenderer.cpp.o
 .PHONY : COpenGLNormalMapRenderer.cpp.o
 
 COpenGLNormalMapRenderer.i: COpenGLNormalMapRenderer.cpp.i
@@ -3053,7 +3053,7 @@ COpenGLNormalMapRenderer.i: COpenGLNormalMapRenderer.cpp.i
 
 # target to preprocess a source file
 COpenGLNormalMapRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLNormalMapRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLNormalMapRenderer.cpp.i
 .PHONY : COpenGLNormalMapRenderer.cpp.i
 
 COpenGLNormalMapRenderer.s: COpenGLNormalMapRenderer.cpp.s
@@ -3061,7 +3061,7 @@ COpenGLNormalMapRenderer.s: COpenGLNormalMapRenderer.cpp.s
 
 # target to generate assembly for a file
 COpenGLNormalMapRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLNormalMapRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLNormalMapRenderer.cpp.s
 .PHONY : COpenGLNormalMapRenderer.cpp.s
 
 COpenGLParallaxMapRenderer.o: COpenGLParallaxMapRenderer.cpp.o
@@ -3069,7 +3069,7 @@ COpenGLParallaxMapRenderer.o: COpenGLParallaxMapRenderer.cpp.o
 
 # target to build an object file
 COpenGLParallaxMapRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLParallaxMapRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLParallaxMapRenderer.cpp.o
 .PHONY : COpenGLParallaxMapRenderer.cpp.o
 
 COpenGLParallaxMapRenderer.i: COpenGLParallaxMapRenderer.cpp.i
@@ -3077,7 +3077,7 @@ COpenGLParallaxMapRenderer.i: COpenGLParallaxMapRenderer.cpp.i
 
 # target to preprocess a source file
 COpenGLParallaxMapRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLParallaxMapRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLParallaxMapRenderer.cpp.i
 .PHONY : COpenGLParallaxMapRenderer.cpp.i
 
 COpenGLParallaxMapRenderer.s: COpenGLParallaxMapRenderer.cpp.s
@@ -3085,7 +3085,7 @@ COpenGLParallaxMapRenderer.s: COpenGLParallaxMapRenderer.cpp.s
 
 # target to generate assembly for a file
 COpenGLParallaxMapRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLParallaxMapRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLParallaxMapRenderer.cpp.s
 .PHONY : COpenGLParallaxMapRenderer.cpp.s
 
 COpenGLSLMaterialRenderer.o: COpenGLSLMaterialRenderer.cpp.o
@@ -3093,7 +3093,7 @@ COpenGLSLMaterialRenderer.o: COpenGLSLMaterialRenderer.cpp.o
 
 # target to build an object file
 COpenGLSLMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLSLMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLSLMaterialRenderer.cpp.o
 .PHONY : COpenGLSLMaterialRenderer.cpp.o
 
 COpenGLSLMaterialRenderer.i: COpenGLSLMaterialRenderer.cpp.i
@@ -3101,7 +3101,7 @@ COpenGLSLMaterialRenderer.i: COpenGLSLMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 COpenGLSLMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLSLMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLSLMaterialRenderer.cpp.i
 .PHONY : COpenGLSLMaterialRenderer.cpp.i
 
 COpenGLSLMaterialRenderer.s: COpenGLSLMaterialRenderer.cpp.s
@@ -3109,7 +3109,7 @@ COpenGLSLMaterialRenderer.s: COpenGLSLMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 COpenGLSLMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLSLMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLSLMaterialRenderer.cpp.s
 .PHONY : COpenGLSLMaterialRenderer.cpp.s
 
 COpenGLShaderMaterialRenderer.o: COpenGLShaderMaterialRenderer.cpp.o
@@ -3117,7 +3117,7 @@ COpenGLShaderMaterialRenderer.o: COpenGLShaderMaterialRenderer.cpp.o
 
 # target to build an object file
 COpenGLShaderMaterialRenderer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLShaderMaterialRenderer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLShaderMaterialRenderer.cpp.o
 .PHONY : COpenGLShaderMaterialRenderer.cpp.o
 
 COpenGLShaderMaterialRenderer.i: COpenGLShaderMaterialRenderer.cpp.i
@@ -3125,7 +3125,7 @@ COpenGLShaderMaterialRenderer.i: COpenGLShaderMaterialRenderer.cpp.i
 
 # target to preprocess a source file
 COpenGLShaderMaterialRenderer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLShaderMaterialRenderer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLShaderMaterialRenderer.cpp.i
 .PHONY : COpenGLShaderMaterialRenderer.cpp.i
 
 COpenGLShaderMaterialRenderer.s: COpenGLShaderMaterialRenderer.cpp.s
@@ -3133,7 +3133,7 @@ COpenGLShaderMaterialRenderer.s: COpenGLShaderMaterialRenderer.cpp.s
 
 # target to generate assembly for a file
 COpenGLShaderMaterialRenderer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLShaderMaterialRenderer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLShaderMaterialRenderer.cpp.s
 .PHONY : COpenGLShaderMaterialRenderer.cpp.s
 
 COpenGLTexture.o: COpenGLTexture.cpp.o
@@ -3141,7 +3141,7 @@ COpenGLTexture.o: COpenGLTexture.cpp.o
 
 # target to build an object file
 COpenGLTexture.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLTexture.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLTexture.cpp.o
 .PHONY : COpenGLTexture.cpp.o
 
 COpenGLTexture.i: COpenGLTexture.cpp.i
@@ -3149,7 +3149,7 @@ COpenGLTexture.i: COpenGLTexture.cpp.i
 
 # target to preprocess a source file
 COpenGLTexture.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLTexture.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLTexture.cpp.i
 .PHONY : COpenGLTexture.cpp.i
 
 COpenGLTexture.s: COpenGLTexture.cpp.s
@@ -3157,7 +3157,7 @@ COpenGLTexture.s: COpenGLTexture.cpp.s
 
 # target to generate assembly for a file
 COpenGLTexture.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLTexture.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/COpenGLTexture.cpp.s
 .PHONY : COpenGLTexture.cpp.s
 
 CPLYMeshFileLoader.o: CPLYMeshFileLoader.cpp.o
@@ -3165,7 +3165,7 @@ CPLYMeshFileLoader.o: CPLYMeshFileLoader.cpp.o
 
 # target to build an object file
 CPLYMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshFileLoader.cpp.o
 .PHONY : CPLYMeshFileLoader.cpp.o
 
 CPLYMeshFileLoader.i: CPLYMeshFileLoader.cpp.i
@@ -3173,7 +3173,7 @@ CPLYMeshFileLoader.i: CPLYMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CPLYMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshFileLoader.cpp.i
 .PHONY : CPLYMeshFileLoader.cpp.i
 
 CPLYMeshFileLoader.s: CPLYMeshFileLoader.cpp.s
@@ -3181,7 +3181,7 @@ CPLYMeshFileLoader.s: CPLYMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CPLYMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshFileLoader.cpp.s
 .PHONY : CPLYMeshFileLoader.cpp.s
 
 CPLYMeshWriter.o: CPLYMeshWriter.cpp.o
@@ -3189,7 +3189,7 @@ CPLYMeshWriter.o: CPLYMeshWriter.cpp.o
 
 # target to build an object file
 CPLYMeshWriter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshWriter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshWriter.cpp.o
 .PHONY : CPLYMeshWriter.cpp.o
 
 CPLYMeshWriter.i: CPLYMeshWriter.cpp.i
@@ -3197,7 +3197,7 @@ CPLYMeshWriter.i: CPLYMeshWriter.cpp.i
 
 # target to preprocess a source file
 CPLYMeshWriter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshWriter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshWriter.cpp.i
 .PHONY : CPLYMeshWriter.cpp.i
 
 CPLYMeshWriter.s: CPLYMeshWriter.cpp.s
@@ -3205,7 +3205,7 @@ CPLYMeshWriter.s: CPLYMeshWriter.cpp.s
 
 # target to generate assembly for a file
 CPLYMeshWriter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshWriter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPLYMeshWriter.cpp.s
 .PHONY : CPLYMeshWriter.cpp.s
 
 CPakReader.o: CPakReader.cpp.o
@@ -3213,7 +3213,7 @@ CPakReader.o: CPakReader.cpp.o
 
 # target to build an object file
 CPakReader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPakReader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPakReader.cpp.o
 .PHONY : CPakReader.cpp.o
 
 CPakReader.i: CPakReader.cpp.i
@@ -3221,7 +3221,7 @@ CPakReader.i: CPakReader.cpp.i
 
 # target to preprocess a source file
 CPakReader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPakReader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPakReader.cpp.i
 .PHONY : CPakReader.cpp.i
 
 CPakReader.s: CPakReader.cpp.s
@@ -3229,7 +3229,7 @@ CPakReader.s: CPakReader.cpp.s
 
 # target to generate assembly for a file
 CPakReader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPakReader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CPakReader.cpp.s
 .PHONY : CPakReader.cpp.s
 
 CParticleAnimatedMeshSceneNodeEmitter.o: CParticleAnimatedMeshSceneNodeEmitter.cpp.o
@@ -3237,7 +3237,7 @@ CParticleAnimatedMeshSceneNodeEmitter.o: CParticleAnimatedMeshSceneNodeEmitter.c
 
 # target to build an object file
 CParticleAnimatedMeshSceneNodeEmitter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAnimatedMeshSceneNodeEmitter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAnimatedMeshSceneNodeEmitter.cpp.o
 .PHONY : CParticleAnimatedMeshSceneNodeEmitter.cpp.o
 
 CParticleAnimatedMeshSceneNodeEmitter.i: CParticleAnimatedMeshSceneNodeEmitter.cpp.i
@@ -3245,7 +3245,7 @@ CParticleAnimatedMeshSceneNodeEmitter.i: CParticleAnimatedMeshSceneNodeEmitter.c
 
 # target to preprocess a source file
 CParticleAnimatedMeshSceneNodeEmitter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAnimatedMeshSceneNodeEmitter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAnimatedMeshSceneNodeEmitter.cpp.i
 .PHONY : CParticleAnimatedMeshSceneNodeEmitter.cpp.i
 
 CParticleAnimatedMeshSceneNodeEmitter.s: CParticleAnimatedMeshSceneNodeEmitter.cpp.s
@@ -3253,7 +3253,7 @@ CParticleAnimatedMeshSceneNodeEmitter.s: CParticleAnimatedMeshSceneNodeEmitter.c
 
 # target to generate assembly for a file
 CParticleAnimatedMeshSceneNodeEmitter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAnimatedMeshSceneNodeEmitter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAnimatedMeshSceneNodeEmitter.cpp.s
 .PHONY : CParticleAnimatedMeshSceneNodeEmitter.cpp.s
 
 CParticleAttractionAffector.o: CParticleAttractionAffector.cpp.o
@@ -3261,7 +3261,7 @@ CParticleAttractionAffector.o: CParticleAttractionAffector.cpp.o
 
 # target to build an object file
 CParticleAttractionAffector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAttractionAffector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAttractionAffector.cpp.o
 .PHONY : CParticleAttractionAffector.cpp.o
 
 CParticleAttractionAffector.i: CParticleAttractionAffector.cpp.i
@@ -3269,7 +3269,7 @@ CParticleAttractionAffector.i: CParticleAttractionAffector.cpp.i
 
 # target to preprocess a source file
 CParticleAttractionAffector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAttractionAffector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAttractionAffector.cpp.i
 .PHONY : CParticleAttractionAffector.cpp.i
 
 CParticleAttractionAffector.s: CParticleAttractionAffector.cpp.s
@@ -3277,7 +3277,7 @@ CParticleAttractionAffector.s: CParticleAttractionAffector.cpp.s
 
 # target to generate assembly for a file
 CParticleAttractionAffector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAttractionAffector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleAttractionAffector.cpp.s
 .PHONY : CParticleAttractionAffector.cpp.s
 
 CParticleBoxEmitter.o: CParticleBoxEmitter.cpp.o
@@ -3285,7 +3285,7 @@ CParticleBoxEmitter.o: CParticleBoxEmitter.cpp.o
 
 # target to build an object file
 CParticleBoxEmitter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleBoxEmitter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleBoxEmitter.cpp.o
 .PHONY : CParticleBoxEmitter.cpp.o
 
 CParticleBoxEmitter.i: CParticleBoxEmitter.cpp.i
@@ -3293,7 +3293,7 @@ CParticleBoxEmitter.i: CParticleBoxEmitter.cpp.i
 
 # target to preprocess a source file
 CParticleBoxEmitter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleBoxEmitter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleBoxEmitter.cpp.i
 .PHONY : CParticleBoxEmitter.cpp.i
 
 CParticleBoxEmitter.s: CParticleBoxEmitter.cpp.s
@@ -3301,7 +3301,7 @@ CParticleBoxEmitter.s: CParticleBoxEmitter.cpp.s
 
 # target to generate assembly for a file
 CParticleBoxEmitter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleBoxEmitter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleBoxEmitter.cpp.s
 .PHONY : CParticleBoxEmitter.cpp.s
 
 CParticleCylinderEmitter.o: CParticleCylinderEmitter.cpp.o
@@ -3309,7 +3309,7 @@ CParticleCylinderEmitter.o: CParticleCylinderEmitter.cpp.o
 
 # target to build an object file
 CParticleCylinderEmitter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleCylinderEmitter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleCylinderEmitter.cpp.o
 .PHONY : CParticleCylinderEmitter.cpp.o
 
 CParticleCylinderEmitter.i: CParticleCylinderEmitter.cpp.i
@@ -3317,7 +3317,7 @@ CParticleCylinderEmitter.i: CParticleCylinderEmitter.cpp.i
 
 # target to preprocess a source file
 CParticleCylinderEmitter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleCylinderEmitter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleCylinderEmitter.cpp.i
 .PHONY : CParticleCylinderEmitter.cpp.i
 
 CParticleCylinderEmitter.s: CParticleCylinderEmitter.cpp.s
@@ -3325,7 +3325,7 @@ CParticleCylinderEmitter.s: CParticleCylinderEmitter.cpp.s
 
 # target to generate assembly for a file
 CParticleCylinderEmitter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleCylinderEmitter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleCylinderEmitter.cpp.s
 .PHONY : CParticleCylinderEmitter.cpp.s
 
 CParticleFadeOutAffector.o: CParticleFadeOutAffector.cpp.o
@@ -3333,7 +3333,7 @@ CParticleFadeOutAffector.o: CParticleFadeOutAffector.cpp.o
 
 # target to build an object file
 CParticleFadeOutAffector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleFadeOutAffector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleFadeOutAffector.cpp.o
 .PHONY : CParticleFadeOutAffector.cpp.o
 
 CParticleFadeOutAffector.i: CParticleFadeOutAffector.cpp.i
@@ -3341,7 +3341,7 @@ CParticleFadeOutAffector.i: CParticleFadeOutAffector.cpp.i
 
 # target to preprocess a source file
 CParticleFadeOutAffector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleFadeOutAffector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleFadeOutAffector.cpp.i
 .PHONY : CParticleFadeOutAffector.cpp.i
 
 CParticleFadeOutAffector.s: CParticleFadeOutAffector.cpp.s
@@ -3349,7 +3349,7 @@ CParticleFadeOutAffector.s: CParticleFadeOutAffector.cpp.s
 
 # target to generate assembly for a file
 CParticleFadeOutAffector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleFadeOutAffector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleFadeOutAffector.cpp.s
 .PHONY : CParticleFadeOutAffector.cpp.s
 
 CParticleGravityAffector.o: CParticleGravityAffector.cpp.o
@@ -3357,7 +3357,7 @@ CParticleGravityAffector.o: CParticleGravityAffector.cpp.o
 
 # target to build an object file
 CParticleGravityAffector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleGravityAffector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleGravityAffector.cpp.o
 .PHONY : CParticleGravityAffector.cpp.o
 
 CParticleGravityAffector.i: CParticleGravityAffector.cpp.i
@@ -3365,7 +3365,7 @@ CParticleGravityAffector.i: CParticleGravityAffector.cpp.i
 
 # target to preprocess a source file
 CParticleGravityAffector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleGravityAffector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleGravityAffector.cpp.i
 .PHONY : CParticleGravityAffector.cpp.i
 
 CParticleGravityAffector.s: CParticleGravityAffector.cpp.s
@@ -3373,7 +3373,7 @@ CParticleGravityAffector.s: CParticleGravityAffector.cpp.s
 
 # target to generate assembly for a file
 CParticleGravityAffector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleGravityAffector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleGravityAffector.cpp.s
 .PHONY : CParticleGravityAffector.cpp.s
 
 CParticleMeshEmitter.o: CParticleMeshEmitter.cpp.o
@@ -3381,7 +3381,7 @@ CParticleMeshEmitter.o: CParticleMeshEmitter.cpp.o
 
 # target to build an object file
 CParticleMeshEmitter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleMeshEmitter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleMeshEmitter.cpp.o
 .PHONY : CParticleMeshEmitter.cpp.o
 
 CParticleMeshEmitter.i: CParticleMeshEmitter.cpp.i
@@ -3389,7 +3389,7 @@ CParticleMeshEmitter.i: CParticleMeshEmitter.cpp.i
 
 # target to preprocess a source file
 CParticleMeshEmitter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleMeshEmitter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleMeshEmitter.cpp.i
 .PHONY : CParticleMeshEmitter.cpp.i
 
 CParticleMeshEmitter.s: CParticleMeshEmitter.cpp.s
@@ -3397,7 +3397,7 @@ CParticleMeshEmitter.s: CParticleMeshEmitter.cpp.s
 
 # target to generate assembly for a file
 CParticleMeshEmitter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleMeshEmitter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleMeshEmitter.cpp.s
 .PHONY : CParticleMeshEmitter.cpp.s
 
 CParticlePointEmitter.o: CParticlePointEmitter.cpp.o
@@ -3405,7 +3405,7 @@ CParticlePointEmitter.o: CParticlePointEmitter.cpp.o
 
 # target to build an object file
 CParticlePointEmitter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticlePointEmitter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticlePointEmitter.cpp.o
 .PHONY : CParticlePointEmitter.cpp.o
 
 CParticlePointEmitter.i: CParticlePointEmitter.cpp.i
@@ -3413,7 +3413,7 @@ CParticlePointEmitter.i: CParticlePointEmitter.cpp.i
 
 # target to preprocess a source file
 CParticlePointEmitter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticlePointEmitter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticlePointEmitter.cpp.i
 .PHONY : CParticlePointEmitter.cpp.i
 
 CParticlePointEmitter.s: CParticlePointEmitter.cpp.s
@@ -3421,7 +3421,7 @@ CParticlePointEmitter.s: CParticlePointEmitter.cpp.s
 
 # target to generate assembly for a file
 CParticlePointEmitter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticlePointEmitter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticlePointEmitter.cpp.s
 .PHONY : CParticlePointEmitter.cpp.s
 
 CParticleRingEmitter.o: CParticleRingEmitter.cpp.o
@@ -3429,7 +3429,7 @@ CParticleRingEmitter.o: CParticleRingEmitter.cpp.o
 
 # target to build an object file
 CParticleRingEmitter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRingEmitter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRingEmitter.cpp.o
 .PHONY : CParticleRingEmitter.cpp.o
 
 CParticleRingEmitter.i: CParticleRingEmitter.cpp.i
@@ -3437,7 +3437,7 @@ CParticleRingEmitter.i: CParticleRingEmitter.cpp.i
 
 # target to preprocess a source file
 CParticleRingEmitter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRingEmitter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRingEmitter.cpp.i
 .PHONY : CParticleRingEmitter.cpp.i
 
 CParticleRingEmitter.s: CParticleRingEmitter.cpp.s
@@ -3445,7 +3445,7 @@ CParticleRingEmitter.s: CParticleRingEmitter.cpp.s
 
 # target to generate assembly for a file
 CParticleRingEmitter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRingEmitter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRingEmitter.cpp.s
 .PHONY : CParticleRingEmitter.cpp.s
 
 CParticleRotationAffector.o: CParticleRotationAffector.cpp.o
@@ -3453,7 +3453,7 @@ CParticleRotationAffector.o: CParticleRotationAffector.cpp.o
 
 # target to build an object file
 CParticleRotationAffector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRotationAffector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRotationAffector.cpp.o
 .PHONY : CParticleRotationAffector.cpp.o
 
 CParticleRotationAffector.i: CParticleRotationAffector.cpp.i
@@ -3461,7 +3461,7 @@ CParticleRotationAffector.i: CParticleRotationAffector.cpp.i
 
 # target to preprocess a source file
 CParticleRotationAffector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRotationAffector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRotationAffector.cpp.i
 .PHONY : CParticleRotationAffector.cpp.i
 
 CParticleRotationAffector.s: CParticleRotationAffector.cpp.s
@@ -3469,7 +3469,7 @@ CParticleRotationAffector.s: CParticleRotationAffector.cpp.s
 
 # target to generate assembly for a file
 CParticleRotationAffector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRotationAffector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleRotationAffector.cpp.s
 .PHONY : CParticleRotationAffector.cpp.s
 
 CParticleScaleAffector.o: CParticleScaleAffector.cpp.o
@@ -3477,7 +3477,7 @@ CParticleScaleAffector.o: CParticleScaleAffector.cpp.o
 
 # target to build an object file
 CParticleScaleAffector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleScaleAffector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleScaleAffector.cpp.o
 .PHONY : CParticleScaleAffector.cpp.o
 
 CParticleScaleAffector.i: CParticleScaleAffector.cpp.i
@@ -3485,7 +3485,7 @@ CParticleScaleAffector.i: CParticleScaleAffector.cpp.i
 
 # target to preprocess a source file
 CParticleScaleAffector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleScaleAffector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleScaleAffector.cpp.i
 .PHONY : CParticleScaleAffector.cpp.i
 
 CParticleScaleAffector.s: CParticleScaleAffector.cpp.s
@@ -3493,7 +3493,7 @@ CParticleScaleAffector.s: CParticleScaleAffector.cpp.s
 
 # target to generate assembly for a file
 CParticleScaleAffector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleScaleAffector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleScaleAffector.cpp.s
 .PHONY : CParticleScaleAffector.cpp.s
 
 CParticleSphereEmitter.o: CParticleSphereEmitter.cpp.o
@@ -3501,7 +3501,7 @@ CParticleSphereEmitter.o: CParticleSphereEmitter.cpp.o
 
 # target to build an object file
 CParticleSphereEmitter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSphereEmitter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSphereEmitter.cpp.o
 .PHONY : CParticleSphereEmitter.cpp.o
 
 CParticleSphereEmitter.i: CParticleSphereEmitter.cpp.i
@@ -3509,7 +3509,7 @@ CParticleSphereEmitter.i: CParticleSphereEmitter.cpp.i
 
 # target to preprocess a source file
 CParticleSphereEmitter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSphereEmitter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSphereEmitter.cpp.i
 .PHONY : CParticleSphereEmitter.cpp.i
 
 CParticleSphereEmitter.s: CParticleSphereEmitter.cpp.s
@@ -3517,7 +3517,7 @@ CParticleSphereEmitter.s: CParticleSphereEmitter.cpp.s
 
 # target to generate assembly for a file
 CParticleSphereEmitter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSphereEmitter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSphereEmitter.cpp.s
 .PHONY : CParticleSphereEmitter.cpp.s
 
 CParticleSystemSceneNode.o: CParticleSystemSceneNode.cpp.o
@@ -3525,7 +3525,7 @@ CParticleSystemSceneNode.o: CParticleSystemSceneNode.cpp.o
 
 # target to build an object file
 CParticleSystemSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSystemSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSystemSceneNode.cpp.o
 .PHONY : CParticleSystemSceneNode.cpp.o
 
 CParticleSystemSceneNode.i: CParticleSystemSceneNode.cpp.i
@@ -3533,7 +3533,7 @@ CParticleSystemSceneNode.i: CParticleSystemSceneNode.cpp.i
 
 # target to preprocess a source file
 CParticleSystemSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSystemSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSystemSceneNode.cpp.i
 .PHONY : CParticleSystemSceneNode.cpp.i
 
 CParticleSystemSceneNode.s: CParticleSystemSceneNode.cpp.s
@@ -3541,7 +3541,7 @@ CParticleSystemSceneNode.s: CParticleSystemSceneNode.cpp.s
 
 # target to generate assembly for a file
 CParticleSystemSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSystemSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CParticleSystemSceneNode.cpp.s
 .PHONY : CParticleSystemSceneNode.cpp.s
 
 CQ3LevelMesh.o: CQ3LevelMesh.cpp.o
@@ -3549,7 +3549,7 @@ CQ3LevelMesh.o: CQ3LevelMesh.cpp.o
 
 # target to build an object file
 CQ3LevelMesh.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQ3LevelMesh.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQ3LevelMesh.cpp.o
 .PHONY : CQ3LevelMesh.cpp.o
 
 CQ3LevelMesh.i: CQ3LevelMesh.cpp.i
@@ -3557,7 +3557,7 @@ CQ3LevelMesh.i: CQ3LevelMesh.cpp.i
 
 # target to preprocess a source file
 CQ3LevelMesh.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQ3LevelMesh.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQ3LevelMesh.cpp.i
 .PHONY : CQ3LevelMesh.cpp.i
 
 CQ3LevelMesh.s: CQ3LevelMesh.cpp.s
@@ -3565,7 +3565,7 @@ CQ3LevelMesh.s: CQ3LevelMesh.cpp.s
 
 # target to generate assembly for a file
 CQ3LevelMesh.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQ3LevelMesh.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQ3LevelMesh.cpp.s
 .PHONY : CQ3LevelMesh.cpp.s
 
 CQuake3ShaderSceneNode.o: CQuake3ShaderSceneNode.cpp.o
@@ -3573,7 +3573,7 @@ CQuake3ShaderSceneNode.o: CQuake3ShaderSceneNode.cpp.o
 
 # target to build an object file
 CQuake3ShaderSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQuake3ShaderSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQuake3ShaderSceneNode.cpp.o
 .PHONY : CQuake3ShaderSceneNode.cpp.o
 
 CQuake3ShaderSceneNode.i: CQuake3ShaderSceneNode.cpp.i
@@ -3581,7 +3581,7 @@ CQuake3ShaderSceneNode.i: CQuake3ShaderSceneNode.cpp.i
 
 # target to preprocess a source file
 CQuake3ShaderSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQuake3ShaderSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQuake3ShaderSceneNode.cpp.i
 .PHONY : CQuake3ShaderSceneNode.cpp.i
 
 CQuake3ShaderSceneNode.s: CQuake3ShaderSceneNode.cpp.s
@@ -3589,7 +3589,7 @@ CQuake3ShaderSceneNode.s: CQuake3ShaderSceneNode.cpp.s
 
 # target to generate assembly for a file
 CQuake3ShaderSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQuake3ShaderSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CQuake3ShaderSceneNode.cpp.s
 .PHONY : CQuake3ShaderSceneNode.cpp.s
 
 CReadFile.o: CReadFile.cpp.o
@@ -3597,7 +3597,7 @@ CReadFile.o: CReadFile.cpp.o
 
 # target to build an object file
 CReadFile.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CReadFile.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CReadFile.cpp.o
 .PHONY : CReadFile.cpp.o
 
 CReadFile.i: CReadFile.cpp.i
@@ -3605,7 +3605,7 @@ CReadFile.i: CReadFile.cpp.i
 
 # target to preprocess a source file
 CReadFile.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CReadFile.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CReadFile.cpp.i
 .PHONY : CReadFile.cpp.i
 
 CReadFile.s: CReadFile.cpp.s
@@ -3613,7 +3613,7 @@ CReadFile.s: CReadFile.cpp.s
 
 # target to generate assembly for a file
 CReadFile.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CReadFile.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CReadFile.cpp.s
 .PHONY : CReadFile.cpp.s
 
 CSMFMeshFileLoader.o: CSMFMeshFileLoader.cpp.o
@@ -3621,7 +3621,7 @@ CSMFMeshFileLoader.o: CSMFMeshFileLoader.cpp.o
 
 # target to build an object file
 CSMFMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSMFMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSMFMeshFileLoader.cpp.o
 .PHONY : CSMFMeshFileLoader.cpp.o
 
 CSMFMeshFileLoader.i: CSMFMeshFileLoader.cpp.i
@@ -3629,7 +3629,7 @@ CSMFMeshFileLoader.i: CSMFMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CSMFMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSMFMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSMFMeshFileLoader.cpp.i
 .PHONY : CSMFMeshFileLoader.cpp.i
 
 CSMFMeshFileLoader.s: CSMFMeshFileLoader.cpp.s
@@ -3637,7 +3637,7 @@ CSMFMeshFileLoader.s: CSMFMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CSMFMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSMFMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSMFMeshFileLoader.cpp.s
 .PHONY : CSMFMeshFileLoader.cpp.s
 
 CSTLMeshFileLoader.o: CSTLMeshFileLoader.cpp.o
@@ -3645,7 +3645,7 @@ CSTLMeshFileLoader.o: CSTLMeshFileLoader.cpp.o
 
 # target to build an object file
 CSTLMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshFileLoader.cpp.o
 .PHONY : CSTLMeshFileLoader.cpp.o
 
 CSTLMeshFileLoader.i: CSTLMeshFileLoader.cpp.i
@@ -3653,7 +3653,7 @@ CSTLMeshFileLoader.i: CSTLMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CSTLMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshFileLoader.cpp.i
 .PHONY : CSTLMeshFileLoader.cpp.i
 
 CSTLMeshFileLoader.s: CSTLMeshFileLoader.cpp.s
@@ -3661,7 +3661,7 @@ CSTLMeshFileLoader.s: CSTLMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CSTLMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshFileLoader.cpp.s
 .PHONY : CSTLMeshFileLoader.cpp.s
 
 CSTLMeshWriter.o: CSTLMeshWriter.cpp.o
@@ -3669,7 +3669,7 @@ CSTLMeshWriter.o: CSTLMeshWriter.cpp.o
 
 # target to build an object file
 CSTLMeshWriter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshWriter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshWriter.cpp.o
 .PHONY : CSTLMeshWriter.cpp.o
 
 CSTLMeshWriter.i: CSTLMeshWriter.cpp.i
@@ -3677,7 +3677,7 @@ CSTLMeshWriter.i: CSTLMeshWriter.cpp.i
 
 # target to preprocess a source file
 CSTLMeshWriter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshWriter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshWriter.cpp.i
 .PHONY : CSTLMeshWriter.cpp.i
 
 CSTLMeshWriter.s: CSTLMeshWriter.cpp.s
@@ -3685,7 +3685,7 @@ CSTLMeshWriter.s: CSTLMeshWriter.cpp.s
 
 # target to generate assembly for a file
 CSTLMeshWriter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshWriter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSTLMeshWriter.cpp.s
 .PHONY : CSTLMeshWriter.cpp.s
 
 CSceneCollisionManager.o: CSceneCollisionManager.cpp.o
@@ -3693,7 +3693,7 @@ CSceneCollisionManager.o: CSceneCollisionManager.cpp.o
 
 # target to build an object file
 CSceneCollisionManager.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneCollisionManager.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneCollisionManager.cpp.o
 .PHONY : CSceneCollisionManager.cpp.o
 
 CSceneCollisionManager.i: CSceneCollisionManager.cpp.i
@@ -3701,7 +3701,7 @@ CSceneCollisionManager.i: CSceneCollisionManager.cpp.i
 
 # target to preprocess a source file
 CSceneCollisionManager.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneCollisionManager.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneCollisionManager.cpp.i
 .PHONY : CSceneCollisionManager.cpp.i
 
 CSceneCollisionManager.s: CSceneCollisionManager.cpp.s
@@ -3709,7 +3709,7 @@ CSceneCollisionManager.s: CSceneCollisionManager.cpp.s
 
 # target to generate assembly for a file
 CSceneCollisionManager.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneCollisionManager.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneCollisionManager.cpp.s
 .PHONY : CSceneCollisionManager.cpp.s
 
 CSceneLoaderIrr.o: CSceneLoaderIrr.cpp.o
@@ -3717,7 +3717,7 @@ CSceneLoaderIrr.o: CSceneLoaderIrr.cpp.o
 
 # target to build an object file
 CSceneLoaderIrr.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneLoaderIrr.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneLoaderIrr.cpp.o
 .PHONY : CSceneLoaderIrr.cpp.o
 
 CSceneLoaderIrr.i: CSceneLoaderIrr.cpp.i
@@ -3725,7 +3725,7 @@ CSceneLoaderIrr.i: CSceneLoaderIrr.cpp.i
 
 # target to preprocess a source file
 CSceneLoaderIrr.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneLoaderIrr.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneLoaderIrr.cpp.i
 .PHONY : CSceneLoaderIrr.cpp.i
 
 CSceneLoaderIrr.s: CSceneLoaderIrr.cpp.s
@@ -3733,7 +3733,7 @@ CSceneLoaderIrr.s: CSceneLoaderIrr.cpp.s
 
 # target to generate assembly for a file
 CSceneLoaderIrr.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneLoaderIrr.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneLoaderIrr.cpp.s
 .PHONY : CSceneLoaderIrr.cpp.s
 
 CSceneManager.o: CSceneManager.cpp.o
@@ -3741,7 +3741,7 @@ CSceneManager.o: CSceneManager.cpp.o
 
 # target to build an object file
 CSceneManager.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneManager.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneManager.cpp.o
 .PHONY : CSceneManager.cpp.o
 
 CSceneManager.i: CSceneManager.cpp.i
@@ -3749,7 +3749,7 @@ CSceneManager.i: CSceneManager.cpp.i
 
 # target to preprocess a source file
 CSceneManager.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneManager.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneManager.cpp.i
 .PHONY : CSceneManager.cpp.i
 
 CSceneManager.s: CSceneManager.cpp.s
@@ -3757,7 +3757,7 @@ CSceneManager.s: CSceneManager.cpp.s
 
 # target to generate assembly for a file
 CSceneManager.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneManager.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneManager.cpp.s
 .PHONY : CSceneManager.cpp.s
 
 CSceneNodeAnimatorCameraFPS.o: CSceneNodeAnimatorCameraFPS.cpp.o
@@ -3765,7 +3765,7 @@ CSceneNodeAnimatorCameraFPS.o: CSceneNodeAnimatorCameraFPS.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorCameraFPS.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraFPS.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraFPS.cpp.o
 .PHONY : CSceneNodeAnimatorCameraFPS.cpp.o
 
 CSceneNodeAnimatorCameraFPS.i: CSceneNodeAnimatorCameraFPS.cpp.i
@@ -3773,7 +3773,7 @@ CSceneNodeAnimatorCameraFPS.i: CSceneNodeAnimatorCameraFPS.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorCameraFPS.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraFPS.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraFPS.cpp.i
 .PHONY : CSceneNodeAnimatorCameraFPS.cpp.i
 
 CSceneNodeAnimatorCameraFPS.s: CSceneNodeAnimatorCameraFPS.cpp.s
@@ -3781,7 +3781,7 @@ CSceneNodeAnimatorCameraFPS.s: CSceneNodeAnimatorCameraFPS.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorCameraFPS.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraFPS.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraFPS.cpp.s
 .PHONY : CSceneNodeAnimatorCameraFPS.cpp.s
 
 CSceneNodeAnimatorCameraMaya.o: CSceneNodeAnimatorCameraMaya.cpp.o
@@ -3789,7 +3789,7 @@ CSceneNodeAnimatorCameraMaya.o: CSceneNodeAnimatorCameraMaya.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorCameraMaya.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraMaya.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraMaya.cpp.o
 .PHONY : CSceneNodeAnimatorCameraMaya.cpp.o
 
 CSceneNodeAnimatorCameraMaya.i: CSceneNodeAnimatorCameraMaya.cpp.i
@@ -3797,7 +3797,7 @@ CSceneNodeAnimatorCameraMaya.i: CSceneNodeAnimatorCameraMaya.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorCameraMaya.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraMaya.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraMaya.cpp.i
 .PHONY : CSceneNodeAnimatorCameraMaya.cpp.i
 
 CSceneNodeAnimatorCameraMaya.s: CSceneNodeAnimatorCameraMaya.cpp.s
@@ -3805,7 +3805,7 @@ CSceneNodeAnimatorCameraMaya.s: CSceneNodeAnimatorCameraMaya.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorCameraMaya.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraMaya.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCameraMaya.cpp.s
 .PHONY : CSceneNodeAnimatorCameraMaya.cpp.s
 
 CSceneNodeAnimatorCollisionResponse.o: CSceneNodeAnimatorCollisionResponse.cpp.o
@@ -3813,7 +3813,7 @@ CSceneNodeAnimatorCollisionResponse.o: CSceneNodeAnimatorCollisionResponse.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorCollisionResponse.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCollisionResponse.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCollisionResponse.cpp.o
 .PHONY : CSceneNodeAnimatorCollisionResponse.cpp.o
 
 CSceneNodeAnimatorCollisionResponse.i: CSceneNodeAnimatorCollisionResponse.cpp.i
@@ -3821,7 +3821,7 @@ CSceneNodeAnimatorCollisionResponse.i: CSceneNodeAnimatorCollisionResponse.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorCollisionResponse.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCollisionResponse.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCollisionResponse.cpp.i
 .PHONY : CSceneNodeAnimatorCollisionResponse.cpp.i
 
 CSceneNodeAnimatorCollisionResponse.s: CSceneNodeAnimatorCollisionResponse.cpp.s
@@ -3829,7 +3829,7 @@ CSceneNodeAnimatorCollisionResponse.s: CSceneNodeAnimatorCollisionResponse.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorCollisionResponse.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCollisionResponse.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorCollisionResponse.cpp.s
 .PHONY : CSceneNodeAnimatorCollisionResponse.cpp.s
 
 CSceneNodeAnimatorDelete.o: CSceneNodeAnimatorDelete.cpp.o
@@ -3837,7 +3837,7 @@ CSceneNodeAnimatorDelete.o: CSceneNodeAnimatorDelete.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorDelete.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorDelete.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorDelete.cpp.o
 .PHONY : CSceneNodeAnimatorDelete.cpp.o
 
 CSceneNodeAnimatorDelete.i: CSceneNodeAnimatorDelete.cpp.i
@@ -3845,7 +3845,7 @@ CSceneNodeAnimatorDelete.i: CSceneNodeAnimatorDelete.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorDelete.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorDelete.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorDelete.cpp.i
 .PHONY : CSceneNodeAnimatorDelete.cpp.i
 
 CSceneNodeAnimatorDelete.s: CSceneNodeAnimatorDelete.cpp.s
@@ -3853,7 +3853,7 @@ CSceneNodeAnimatorDelete.s: CSceneNodeAnimatorDelete.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorDelete.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorDelete.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorDelete.cpp.s
 .PHONY : CSceneNodeAnimatorDelete.cpp.s
 
 CSceneNodeAnimatorFlyCircle.o: CSceneNodeAnimatorFlyCircle.cpp.o
@@ -3861,7 +3861,7 @@ CSceneNodeAnimatorFlyCircle.o: CSceneNodeAnimatorFlyCircle.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorFlyCircle.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyCircle.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyCircle.cpp.o
 .PHONY : CSceneNodeAnimatorFlyCircle.cpp.o
 
 CSceneNodeAnimatorFlyCircle.i: CSceneNodeAnimatorFlyCircle.cpp.i
@@ -3869,7 +3869,7 @@ CSceneNodeAnimatorFlyCircle.i: CSceneNodeAnimatorFlyCircle.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorFlyCircle.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyCircle.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyCircle.cpp.i
 .PHONY : CSceneNodeAnimatorFlyCircle.cpp.i
 
 CSceneNodeAnimatorFlyCircle.s: CSceneNodeAnimatorFlyCircle.cpp.s
@@ -3877,7 +3877,7 @@ CSceneNodeAnimatorFlyCircle.s: CSceneNodeAnimatorFlyCircle.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorFlyCircle.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyCircle.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyCircle.cpp.s
 .PHONY : CSceneNodeAnimatorFlyCircle.cpp.s
 
 CSceneNodeAnimatorFlyStraight.o: CSceneNodeAnimatorFlyStraight.cpp.o
@@ -3885,7 +3885,7 @@ CSceneNodeAnimatorFlyStraight.o: CSceneNodeAnimatorFlyStraight.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorFlyStraight.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyStraight.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyStraight.cpp.o
 .PHONY : CSceneNodeAnimatorFlyStraight.cpp.o
 
 CSceneNodeAnimatorFlyStraight.i: CSceneNodeAnimatorFlyStraight.cpp.i
@@ -3893,7 +3893,7 @@ CSceneNodeAnimatorFlyStraight.i: CSceneNodeAnimatorFlyStraight.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorFlyStraight.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyStraight.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyStraight.cpp.i
 .PHONY : CSceneNodeAnimatorFlyStraight.cpp.i
 
 CSceneNodeAnimatorFlyStraight.s: CSceneNodeAnimatorFlyStraight.cpp.s
@@ -3901,7 +3901,7 @@ CSceneNodeAnimatorFlyStraight.s: CSceneNodeAnimatorFlyStraight.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorFlyStraight.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyStraight.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFlyStraight.cpp.s
 .PHONY : CSceneNodeAnimatorFlyStraight.cpp.s
 
 CSceneNodeAnimatorFollowSpline.o: CSceneNodeAnimatorFollowSpline.cpp.o
@@ -3909,7 +3909,7 @@ CSceneNodeAnimatorFollowSpline.o: CSceneNodeAnimatorFollowSpline.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorFollowSpline.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFollowSpline.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFollowSpline.cpp.o
 .PHONY : CSceneNodeAnimatorFollowSpline.cpp.o
 
 CSceneNodeAnimatorFollowSpline.i: CSceneNodeAnimatorFollowSpline.cpp.i
@@ -3917,7 +3917,7 @@ CSceneNodeAnimatorFollowSpline.i: CSceneNodeAnimatorFollowSpline.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorFollowSpline.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFollowSpline.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFollowSpline.cpp.i
 .PHONY : CSceneNodeAnimatorFollowSpline.cpp.i
 
 CSceneNodeAnimatorFollowSpline.s: CSceneNodeAnimatorFollowSpline.cpp.s
@@ -3925,7 +3925,7 @@ CSceneNodeAnimatorFollowSpline.s: CSceneNodeAnimatorFollowSpline.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorFollowSpline.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFollowSpline.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorFollowSpline.cpp.s
 .PHONY : CSceneNodeAnimatorFollowSpline.cpp.s
 
 CSceneNodeAnimatorRotation.o: CSceneNodeAnimatorRotation.cpp.o
@@ -3933,7 +3933,7 @@ CSceneNodeAnimatorRotation.o: CSceneNodeAnimatorRotation.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorRotation.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorRotation.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorRotation.cpp.o
 .PHONY : CSceneNodeAnimatorRotation.cpp.o
 
 CSceneNodeAnimatorRotation.i: CSceneNodeAnimatorRotation.cpp.i
@@ -3941,7 +3941,7 @@ CSceneNodeAnimatorRotation.i: CSceneNodeAnimatorRotation.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorRotation.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorRotation.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorRotation.cpp.i
 .PHONY : CSceneNodeAnimatorRotation.cpp.i
 
 CSceneNodeAnimatorRotation.s: CSceneNodeAnimatorRotation.cpp.s
@@ -3949,7 +3949,7 @@ CSceneNodeAnimatorRotation.s: CSceneNodeAnimatorRotation.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorRotation.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorRotation.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorRotation.cpp.s
 .PHONY : CSceneNodeAnimatorRotation.cpp.s
 
 CSceneNodeAnimatorTexture.o: CSceneNodeAnimatorTexture.cpp.o
@@ -3957,7 +3957,7 @@ CSceneNodeAnimatorTexture.o: CSceneNodeAnimatorTexture.cpp.o
 
 # target to build an object file
 CSceneNodeAnimatorTexture.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorTexture.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorTexture.cpp.o
 .PHONY : CSceneNodeAnimatorTexture.cpp.o
 
 CSceneNodeAnimatorTexture.i: CSceneNodeAnimatorTexture.cpp.i
@@ -3965,7 +3965,7 @@ CSceneNodeAnimatorTexture.i: CSceneNodeAnimatorTexture.cpp.i
 
 # target to preprocess a source file
 CSceneNodeAnimatorTexture.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorTexture.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorTexture.cpp.i
 .PHONY : CSceneNodeAnimatorTexture.cpp.i
 
 CSceneNodeAnimatorTexture.s: CSceneNodeAnimatorTexture.cpp.s
@@ -3973,7 +3973,7 @@ CSceneNodeAnimatorTexture.s: CSceneNodeAnimatorTexture.cpp.s
 
 # target to generate assembly for a file
 CSceneNodeAnimatorTexture.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorTexture.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSceneNodeAnimatorTexture.cpp.s
 .PHONY : CSceneNodeAnimatorTexture.cpp.s
 
 CShadowVolumeSceneNode.o: CShadowVolumeSceneNode.cpp.o
@@ -3981,7 +3981,7 @@ CShadowVolumeSceneNode.o: CShadowVolumeSceneNode.cpp.o
 
 # target to build an object file
 CShadowVolumeSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CShadowVolumeSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CShadowVolumeSceneNode.cpp.o
 .PHONY : CShadowVolumeSceneNode.cpp.o
 
 CShadowVolumeSceneNode.i: CShadowVolumeSceneNode.cpp.i
@@ -3989,7 +3989,7 @@ CShadowVolumeSceneNode.i: CShadowVolumeSceneNode.cpp.i
 
 # target to preprocess a source file
 CShadowVolumeSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CShadowVolumeSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CShadowVolumeSceneNode.cpp.i
 .PHONY : CShadowVolumeSceneNode.cpp.i
 
 CShadowVolumeSceneNode.s: CShadowVolumeSceneNode.cpp.s
@@ -3997,7 +3997,7 @@ CShadowVolumeSceneNode.s: CShadowVolumeSceneNode.cpp.s
 
 # target to generate assembly for a file
 CShadowVolumeSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CShadowVolumeSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CShadowVolumeSceneNode.cpp.s
 .PHONY : CShadowVolumeSceneNode.cpp.s
 
 CSkinnedMesh.o: CSkinnedMesh.cpp.o
@@ -4005,7 +4005,7 @@ CSkinnedMesh.o: CSkinnedMesh.cpp.o
 
 # target to build an object file
 CSkinnedMesh.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkinnedMesh.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkinnedMesh.cpp.o
 .PHONY : CSkinnedMesh.cpp.o
 
 CSkinnedMesh.i: CSkinnedMesh.cpp.i
@@ -4013,7 +4013,7 @@ CSkinnedMesh.i: CSkinnedMesh.cpp.i
 
 # target to preprocess a source file
 CSkinnedMesh.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkinnedMesh.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkinnedMesh.cpp.i
 .PHONY : CSkinnedMesh.cpp.i
 
 CSkinnedMesh.s: CSkinnedMesh.cpp.s
@@ -4021,7 +4021,7 @@ CSkinnedMesh.s: CSkinnedMesh.cpp.s
 
 # target to generate assembly for a file
 CSkinnedMesh.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkinnedMesh.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkinnedMesh.cpp.s
 .PHONY : CSkinnedMesh.cpp.s
 
 CSkyBoxSceneNode.o: CSkyBoxSceneNode.cpp.o
@@ -4029,7 +4029,7 @@ CSkyBoxSceneNode.o: CSkyBoxSceneNode.cpp.o
 
 # target to build an object file
 CSkyBoxSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyBoxSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyBoxSceneNode.cpp.o
 .PHONY : CSkyBoxSceneNode.cpp.o
 
 CSkyBoxSceneNode.i: CSkyBoxSceneNode.cpp.i
@@ -4037,7 +4037,7 @@ CSkyBoxSceneNode.i: CSkyBoxSceneNode.cpp.i
 
 # target to preprocess a source file
 CSkyBoxSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyBoxSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyBoxSceneNode.cpp.i
 .PHONY : CSkyBoxSceneNode.cpp.i
 
 CSkyBoxSceneNode.s: CSkyBoxSceneNode.cpp.s
@@ -4045,7 +4045,7 @@ CSkyBoxSceneNode.s: CSkyBoxSceneNode.cpp.s
 
 # target to generate assembly for a file
 CSkyBoxSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyBoxSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyBoxSceneNode.cpp.s
 .PHONY : CSkyBoxSceneNode.cpp.s
 
 CSkyDomeSceneNode.o: CSkyDomeSceneNode.cpp.o
@@ -4053,7 +4053,7 @@ CSkyDomeSceneNode.o: CSkyDomeSceneNode.cpp.o
 
 # target to build an object file
 CSkyDomeSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyDomeSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyDomeSceneNode.cpp.o
 .PHONY : CSkyDomeSceneNode.cpp.o
 
 CSkyDomeSceneNode.i: CSkyDomeSceneNode.cpp.i
@@ -4061,7 +4061,7 @@ CSkyDomeSceneNode.i: CSkyDomeSceneNode.cpp.i
 
 # target to preprocess a source file
 CSkyDomeSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyDomeSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyDomeSceneNode.cpp.i
 .PHONY : CSkyDomeSceneNode.cpp.i
 
 CSkyDomeSceneNode.s: CSkyDomeSceneNode.cpp.s
@@ -4069,7 +4069,7 @@ CSkyDomeSceneNode.s: CSkyDomeSceneNode.cpp.s
 
 # target to generate assembly for a file
 CSkyDomeSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyDomeSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSkyDomeSceneNode.cpp.s
 .PHONY : CSkyDomeSceneNode.cpp.s
 
 CSoftwareDriver.o: CSoftwareDriver.cpp.o
@@ -4077,7 +4077,7 @@ CSoftwareDriver.o: CSoftwareDriver.cpp.o
 
 # target to build an object file
 CSoftwareDriver.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver.cpp.o
 .PHONY : CSoftwareDriver.cpp.o
 
 CSoftwareDriver.i: CSoftwareDriver.cpp.i
@@ -4085,7 +4085,7 @@ CSoftwareDriver.i: CSoftwareDriver.cpp.i
 
 # target to preprocess a source file
 CSoftwareDriver.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver.cpp.i
 .PHONY : CSoftwareDriver.cpp.i
 
 CSoftwareDriver.s: CSoftwareDriver.cpp.s
@@ -4093,7 +4093,7 @@ CSoftwareDriver.s: CSoftwareDriver.cpp.s
 
 # target to generate assembly for a file
 CSoftwareDriver.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver.cpp.s
 .PHONY : CSoftwareDriver.cpp.s
 
 CSoftwareDriver2.o: CSoftwareDriver2.cpp.o
@@ -4101,7 +4101,7 @@ CSoftwareDriver2.o: CSoftwareDriver2.cpp.o
 
 # target to build an object file
 CSoftwareDriver2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver2.cpp.o
 .PHONY : CSoftwareDriver2.cpp.o
 
 CSoftwareDriver2.i: CSoftwareDriver2.cpp.i
@@ -4109,7 +4109,7 @@ CSoftwareDriver2.i: CSoftwareDriver2.cpp.i
 
 # target to preprocess a source file
 CSoftwareDriver2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver2.cpp.i
 .PHONY : CSoftwareDriver2.cpp.i
 
 CSoftwareDriver2.s: CSoftwareDriver2.cpp.s
@@ -4117,7 +4117,7 @@ CSoftwareDriver2.s: CSoftwareDriver2.cpp.s
 
 # target to generate assembly for a file
 CSoftwareDriver2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareDriver2.cpp.s
 .PHONY : CSoftwareDriver2.cpp.s
 
 CSoftwareTexture.o: CSoftwareTexture.cpp.o
@@ -4125,7 +4125,7 @@ CSoftwareTexture.o: CSoftwareTexture.cpp.o
 
 # target to build an object file
 CSoftwareTexture.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture.cpp.o
 .PHONY : CSoftwareTexture.cpp.o
 
 CSoftwareTexture.i: CSoftwareTexture.cpp.i
@@ -4133,7 +4133,7 @@ CSoftwareTexture.i: CSoftwareTexture.cpp.i
 
 # target to preprocess a source file
 CSoftwareTexture.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture.cpp.i
 .PHONY : CSoftwareTexture.cpp.i
 
 CSoftwareTexture.s: CSoftwareTexture.cpp.s
@@ -4141,7 +4141,7 @@ CSoftwareTexture.s: CSoftwareTexture.cpp.s
 
 # target to generate assembly for a file
 CSoftwareTexture.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture.cpp.s
 .PHONY : CSoftwareTexture.cpp.s
 
 CSoftwareTexture2.o: CSoftwareTexture2.cpp.o
@@ -4149,7 +4149,7 @@ CSoftwareTexture2.o: CSoftwareTexture2.cpp.o
 
 # target to build an object file
 CSoftwareTexture2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture2.cpp.o
 .PHONY : CSoftwareTexture2.cpp.o
 
 CSoftwareTexture2.i: CSoftwareTexture2.cpp.i
@@ -4157,7 +4157,7 @@ CSoftwareTexture2.i: CSoftwareTexture2.cpp.i
 
 # target to preprocess a source file
 CSoftwareTexture2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture2.cpp.i
 .PHONY : CSoftwareTexture2.cpp.i
 
 CSoftwareTexture2.s: CSoftwareTexture2.cpp.s
@@ -4165,7 +4165,7 @@ CSoftwareTexture2.s: CSoftwareTexture2.cpp.s
 
 # target to generate assembly for a file
 CSoftwareTexture2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSoftwareTexture2.cpp.s
 .PHONY : CSoftwareTexture2.cpp.s
 
 CSphereSceneNode.o: CSphereSceneNode.cpp.o
@@ -4173,7 +4173,7 @@ CSphereSceneNode.o: CSphereSceneNode.cpp.o
 
 # target to build an object file
 CSphereSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSphereSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSphereSceneNode.cpp.o
 .PHONY : CSphereSceneNode.cpp.o
 
 CSphereSceneNode.i: CSphereSceneNode.cpp.i
@@ -4181,7 +4181,7 @@ CSphereSceneNode.i: CSphereSceneNode.cpp.i
 
 # target to preprocess a source file
 CSphereSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSphereSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSphereSceneNode.cpp.i
 .PHONY : CSphereSceneNode.cpp.i
 
 CSphereSceneNode.s: CSphereSceneNode.cpp.s
@@ -4189,7 +4189,7 @@ CSphereSceneNode.s: CSphereSceneNode.cpp.s
 
 # target to generate assembly for a file
 CSphereSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSphereSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CSphereSceneNode.cpp.s
 .PHONY : CSphereSceneNode.cpp.s
 
 CTRFlat.o: CTRFlat.cpp.o
@@ -4197,7 +4197,7 @@ CTRFlat.o: CTRFlat.cpp.o
 
 # target to build an object file
 CTRFlat.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlat.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlat.cpp.o
 .PHONY : CTRFlat.cpp.o
 
 CTRFlat.i: CTRFlat.cpp.i
@@ -4205,7 +4205,7 @@ CTRFlat.i: CTRFlat.cpp.i
 
 # target to preprocess a source file
 CTRFlat.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlat.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlat.cpp.i
 .PHONY : CTRFlat.cpp.i
 
 CTRFlat.s: CTRFlat.cpp.s
@@ -4213,7 +4213,7 @@ CTRFlat.s: CTRFlat.cpp.s
 
 # target to generate assembly for a file
 CTRFlat.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlat.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlat.cpp.s
 .PHONY : CTRFlat.cpp.s
 
 CTRFlatWire.o: CTRFlatWire.cpp.o
@@ -4221,7 +4221,7 @@ CTRFlatWire.o: CTRFlatWire.cpp.o
 
 # target to build an object file
 CTRFlatWire.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlatWire.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlatWire.cpp.o
 .PHONY : CTRFlatWire.cpp.o
 
 CTRFlatWire.i: CTRFlatWire.cpp.i
@@ -4229,7 +4229,7 @@ CTRFlatWire.i: CTRFlatWire.cpp.i
 
 # target to preprocess a source file
 CTRFlatWire.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlatWire.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlatWire.cpp.i
 .PHONY : CTRFlatWire.cpp.i
 
 CTRFlatWire.s: CTRFlatWire.cpp.s
@@ -4237,7 +4237,7 @@ CTRFlatWire.s: CTRFlatWire.cpp.s
 
 # target to generate assembly for a file
 CTRFlatWire.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlatWire.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRFlatWire.cpp.s
 .PHONY : CTRFlatWire.cpp.s
 
 CTRGouraud.o: CTRGouraud.cpp.o
@@ -4245,7 +4245,7 @@ CTRGouraud.o: CTRGouraud.cpp.o
 
 # target to build an object file
 CTRGouraud.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud.cpp.o
 .PHONY : CTRGouraud.cpp.o
 
 CTRGouraud.i: CTRGouraud.cpp.i
@@ -4253,7 +4253,7 @@ CTRGouraud.i: CTRGouraud.cpp.i
 
 # target to preprocess a source file
 CTRGouraud.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud.cpp.i
 .PHONY : CTRGouraud.cpp.i
 
 CTRGouraud.s: CTRGouraud.cpp.s
@@ -4261,7 +4261,7 @@ CTRGouraud.s: CTRGouraud.cpp.s
 
 # target to generate assembly for a file
 CTRGouraud.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud.cpp.s
 .PHONY : CTRGouraud.cpp.s
 
 CTRGouraud2.o: CTRGouraud2.cpp.o
@@ -4269,7 +4269,7 @@ CTRGouraud2.o: CTRGouraud2.cpp.o
 
 # target to build an object file
 CTRGouraud2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud2.cpp.o
 .PHONY : CTRGouraud2.cpp.o
 
 CTRGouraud2.i: CTRGouraud2.cpp.i
@@ -4277,7 +4277,7 @@ CTRGouraud2.i: CTRGouraud2.cpp.i
 
 # target to preprocess a source file
 CTRGouraud2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud2.cpp.i
 .PHONY : CTRGouraud2.cpp.i
 
 CTRGouraud2.s: CTRGouraud2.cpp.s
@@ -4285,7 +4285,7 @@ CTRGouraud2.s: CTRGouraud2.cpp.s
 
 # target to generate assembly for a file
 CTRGouraud2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraud2.cpp.s
 .PHONY : CTRGouraud2.cpp.s
 
 CTRGouraudAlpha2.o: CTRGouraudAlpha2.cpp.o
@@ -4293,7 +4293,7 @@ CTRGouraudAlpha2.o: CTRGouraudAlpha2.cpp.o
 
 # target to build an object file
 CTRGouraudAlpha2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlpha2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlpha2.cpp.o
 .PHONY : CTRGouraudAlpha2.cpp.o
 
 CTRGouraudAlpha2.i: CTRGouraudAlpha2.cpp.i
@@ -4301,7 +4301,7 @@ CTRGouraudAlpha2.i: CTRGouraudAlpha2.cpp.i
 
 # target to preprocess a source file
 CTRGouraudAlpha2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlpha2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlpha2.cpp.i
 .PHONY : CTRGouraudAlpha2.cpp.i
 
 CTRGouraudAlpha2.s: CTRGouraudAlpha2.cpp.s
@@ -4309,7 +4309,7 @@ CTRGouraudAlpha2.s: CTRGouraudAlpha2.cpp.s
 
 # target to generate assembly for a file
 CTRGouraudAlpha2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlpha2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlpha2.cpp.s
 .PHONY : CTRGouraudAlpha2.cpp.s
 
 CTRGouraudAlphaNoZ2.o: CTRGouraudAlphaNoZ2.cpp.o
@@ -4317,7 +4317,7 @@ CTRGouraudAlphaNoZ2.o: CTRGouraudAlphaNoZ2.cpp.o
 
 # target to build an object file
 CTRGouraudAlphaNoZ2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlphaNoZ2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlphaNoZ2.cpp.o
 .PHONY : CTRGouraudAlphaNoZ2.cpp.o
 
 CTRGouraudAlphaNoZ2.i: CTRGouraudAlphaNoZ2.cpp.i
@@ -4325,7 +4325,7 @@ CTRGouraudAlphaNoZ2.i: CTRGouraudAlphaNoZ2.cpp.i
 
 # target to preprocess a source file
 CTRGouraudAlphaNoZ2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlphaNoZ2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlphaNoZ2.cpp.i
 .PHONY : CTRGouraudAlphaNoZ2.cpp.i
 
 CTRGouraudAlphaNoZ2.s: CTRGouraudAlphaNoZ2.cpp.s
@@ -4333,7 +4333,7 @@ CTRGouraudAlphaNoZ2.s: CTRGouraudAlphaNoZ2.cpp.s
 
 # target to generate assembly for a file
 CTRGouraudAlphaNoZ2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlphaNoZ2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudAlphaNoZ2.cpp.s
 .PHONY : CTRGouraudAlphaNoZ2.cpp.s
 
 CTRGouraudWire.o: CTRGouraudWire.cpp.o
@@ -4341,7 +4341,7 @@ CTRGouraudWire.o: CTRGouraudWire.cpp.o
 
 # target to build an object file
 CTRGouraudWire.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudWire.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudWire.cpp.o
 .PHONY : CTRGouraudWire.cpp.o
 
 CTRGouraudWire.i: CTRGouraudWire.cpp.i
@@ -4349,7 +4349,7 @@ CTRGouraudWire.i: CTRGouraudWire.cpp.i
 
 # target to preprocess a source file
 CTRGouraudWire.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudWire.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudWire.cpp.i
 .PHONY : CTRGouraudWire.cpp.i
 
 CTRGouraudWire.s: CTRGouraudWire.cpp.s
@@ -4357,7 +4357,7 @@ CTRGouraudWire.s: CTRGouraudWire.cpp.s
 
 # target to generate assembly for a file
 CTRGouraudWire.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudWire.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRGouraudWire.cpp.s
 .PHONY : CTRGouraudWire.cpp.s
 
 CTRNormalMap.o: CTRNormalMap.cpp.o
@@ -4365,7 +4365,7 @@ CTRNormalMap.o: CTRNormalMap.cpp.o
 
 # target to build an object file
 CTRNormalMap.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRNormalMap.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRNormalMap.cpp.o
 .PHONY : CTRNormalMap.cpp.o
 
 CTRNormalMap.i: CTRNormalMap.cpp.i
@@ -4373,7 +4373,7 @@ CTRNormalMap.i: CTRNormalMap.cpp.i
 
 # target to preprocess a source file
 CTRNormalMap.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRNormalMap.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRNormalMap.cpp.i
 .PHONY : CTRNormalMap.cpp.i
 
 CTRNormalMap.s: CTRNormalMap.cpp.s
@@ -4381,7 +4381,7 @@ CTRNormalMap.s: CTRNormalMap.cpp.s
 
 # target to generate assembly for a file
 CTRNormalMap.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRNormalMap.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRNormalMap.cpp.s
 .PHONY : CTRNormalMap.cpp.s
 
 CTRStencilShadow.o: CTRStencilShadow.cpp.o
@@ -4389,7 +4389,7 @@ CTRStencilShadow.o: CTRStencilShadow.cpp.o
 
 # target to build an object file
 CTRStencilShadow.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRStencilShadow.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRStencilShadow.cpp.o
 .PHONY : CTRStencilShadow.cpp.o
 
 CTRStencilShadow.i: CTRStencilShadow.cpp.i
@@ -4397,7 +4397,7 @@ CTRStencilShadow.i: CTRStencilShadow.cpp.i
 
 # target to preprocess a source file
 CTRStencilShadow.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRStencilShadow.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRStencilShadow.cpp.i
 .PHONY : CTRStencilShadow.cpp.i
 
 CTRStencilShadow.s: CTRStencilShadow.cpp.s
@@ -4405,7 +4405,7 @@ CTRStencilShadow.s: CTRStencilShadow.cpp.s
 
 # target to generate assembly for a file
 CTRStencilShadow.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRStencilShadow.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRStencilShadow.cpp.s
 .PHONY : CTRStencilShadow.cpp.s
 
 CTRTextureBlend.o: CTRTextureBlend.cpp.o
@@ -4413,7 +4413,7 @@ CTRTextureBlend.o: CTRTextureBlend.cpp.o
 
 # target to build an object file
 CTRTextureBlend.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureBlend.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureBlend.cpp.o
 .PHONY : CTRTextureBlend.cpp.o
 
 CTRTextureBlend.i: CTRTextureBlend.cpp.i
@@ -4421,7 +4421,7 @@ CTRTextureBlend.i: CTRTextureBlend.cpp.i
 
 # target to preprocess a source file
 CTRTextureBlend.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureBlend.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureBlend.cpp.i
 .PHONY : CTRTextureBlend.cpp.i
 
 CTRTextureBlend.s: CTRTextureBlend.cpp.s
@@ -4429,7 +4429,7 @@ CTRTextureBlend.s: CTRTextureBlend.cpp.s
 
 # target to generate assembly for a file
 CTRTextureBlend.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureBlend.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureBlend.cpp.s
 .PHONY : CTRTextureBlend.cpp.s
 
 CTRTextureDetailMap2.o: CTRTextureDetailMap2.cpp.o
@@ -4437,7 +4437,7 @@ CTRTextureDetailMap2.o: CTRTextureDetailMap2.cpp.o
 
 # target to build an object file
 CTRTextureDetailMap2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureDetailMap2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureDetailMap2.cpp.o
 .PHONY : CTRTextureDetailMap2.cpp.o
 
 CTRTextureDetailMap2.i: CTRTextureDetailMap2.cpp.i
@@ -4445,7 +4445,7 @@ CTRTextureDetailMap2.i: CTRTextureDetailMap2.cpp.i
 
 # target to preprocess a source file
 CTRTextureDetailMap2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureDetailMap2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureDetailMap2.cpp.i
 .PHONY : CTRTextureDetailMap2.cpp.i
 
 CTRTextureDetailMap2.s: CTRTextureDetailMap2.cpp.s
@@ -4453,7 +4453,7 @@ CTRTextureDetailMap2.s: CTRTextureDetailMap2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureDetailMap2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureDetailMap2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureDetailMap2.cpp.s
 .PHONY : CTRTextureDetailMap2.cpp.s
 
 CTRTextureFlat.o: CTRTextureFlat.cpp.o
@@ -4461,7 +4461,7 @@ CTRTextureFlat.o: CTRTextureFlat.cpp.o
 
 # target to build an object file
 CTRTextureFlat.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlat.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlat.cpp.o
 .PHONY : CTRTextureFlat.cpp.o
 
 CTRTextureFlat.i: CTRTextureFlat.cpp.i
@@ -4469,7 +4469,7 @@ CTRTextureFlat.i: CTRTextureFlat.cpp.i
 
 # target to preprocess a source file
 CTRTextureFlat.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlat.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlat.cpp.i
 .PHONY : CTRTextureFlat.cpp.i
 
 CTRTextureFlat.s: CTRTextureFlat.cpp.s
@@ -4477,7 +4477,7 @@ CTRTextureFlat.s: CTRTextureFlat.cpp.s
 
 # target to generate assembly for a file
 CTRTextureFlat.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlat.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlat.cpp.s
 .PHONY : CTRTextureFlat.cpp.s
 
 CTRTextureFlatWire.o: CTRTextureFlatWire.cpp.o
@@ -4485,7 +4485,7 @@ CTRTextureFlatWire.o: CTRTextureFlatWire.cpp.o
 
 # target to build an object file
 CTRTextureFlatWire.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlatWire.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlatWire.cpp.o
 .PHONY : CTRTextureFlatWire.cpp.o
 
 CTRTextureFlatWire.i: CTRTextureFlatWire.cpp.i
@@ -4493,7 +4493,7 @@ CTRTextureFlatWire.i: CTRTextureFlatWire.cpp.i
 
 # target to preprocess a source file
 CTRTextureFlatWire.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlatWire.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlatWire.cpp.i
 .PHONY : CTRTextureFlatWire.cpp.i
 
 CTRTextureFlatWire.s: CTRTextureFlatWire.cpp.s
@@ -4501,7 +4501,7 @@ CTRTextureFlatWire.s: CTRTextureFlatWire.cpp.s
 
 # target to generate assembly for a file
 CTRTextureFlatWire.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlatWire.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureFlatWire.cpp.s
 .PHONY : CTRTextureFlatWire.cpp.s
 
 CTRTextureGouraud.o: CTRTextureGouraud.cpp.o
@@ -4509,7 +4509,7 @@ CTRTextureGouraud.o: CTRTextureGouraud.cpp.o
 
 # target to build an object file
 CTRTextureGouraud.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud.cpp.o
 .PHONY : CTRTextureGouraud.cpp.o
 
 CTRTextureGouraud.i: CTRTextureGouraud.cpp.i
@@ -4517,7 +4517,7 @@ CTRTextureGouraud.i: CTRTextureGouraud.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraud.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud.cpp.i
 .PHONY : CTRTextureGouraud.cpp.i
 
 CTRTextureGouraud.s: CTRTextureGouraud.cpp.s
@@ -4525,7 +4525,7 @@ CTRTextureGouraud.s: CTRTextureGouraud.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraud.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud.cpp.s
 .PHONY : CTRTextureGouraud.cpp.s
 
 CTRTextureGouraud2.o: CTRTextureGouraud2.cpp.o
@@ -4533,7 +4533,7 @@ CTRTextureGouraud2.o: CTRTextureGouraud2.cpp.o
 
 # target to build an object file
 CTRTextureGouraud2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud2.cpp.o
 .PHONY : CTRTextureGouraud2.cpp.o
 
 CTRTextureGouraud2.i: CTRTextureGouraud2.cpp.i
@@ -4541,7 +4541,7 @@ CTRTextureGouraud2.i: CTRTextureGouraud2.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraud2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud2.cpp.i
 .PHONY : CTRTextureGouraud2.cpp.i
 
 CTRTextureGouraud2.s: CTRTextureGouraud2.cpp.s
@@ -4549,7 +4549,7 @@ CTRTextureGouraud2.s: CTRTextureGouraud2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraud2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraud2.cpp.s
 .PHONY : CTRTextureGouraud2.cpp.s
 
 CTRTextureGouraudAdd.o: CTRTextureGouraudAdd.cpp.o
@@ -4557,7 +4557,7 @@ CTRTextureGouraudAdd.o: CTRTextureGouraudAdd.cpp.o
 
 # target to build an object file
 CTRTextureGouraudAdd.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd.cpp.o
 .PHONY : CTRTextureGouraudAdd.cpp.o
 
 CTRTextureGouraudAdd.i: CTRTextureGouraudAdd.cpp.i
@@ -4565,7 +4565,7 @@ CTRTextureGouraudAdd.i: CTRTextureGouraudAdd.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudAdd.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd.cpp.i
 .PHONY : CTRTextureGouraudAdd.cpp.i
 
 CTRTextureGouraudAdd.s: CTRTextureGouraudAdd.cpp.s
@@ -4573,7 +4573,7 @@ CTRTextureGouraudAdd.s: CTRTextureGouraudAdd.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudAdd.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd.cpp.s
 .PHONY : CTRTextureGouraudAdd.cpp.s
 
 CTRTextureGouraudAdd2.o: CTRTextureGouraudAdd2.cpp.o
@@ -4581,7 +4581,7 @@ CTRTextureGouraudAdd2.o: CTRTextureGouraudAdd2.cpp.o
 
 # target to build an object file
 CTRTextureGouraudAdd2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd2.cpp.o
 .PHONY : CTRTextureGouraudAdd2.cpp.o
 
 CTRTextureGouraudAdd2.i: CTRTextureGouraudAdd2.cpp.i
@@ -4589,7 +4589,7 @@ CTRTextureGouraudAdd2.i: CTRTextureGouraudAdd2.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudAdd2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd2.cpp.i
 .PHONY : CTRTextureGouraudAdd2.cpp.i
 
 CTRTextureGouraudAdd2.s: CTRTextureGouraudAdd2.cpp.s
@@ -4597,7 +4597,7 @@ CTRTextureGouraudAdd2.s: CTRTextureGouraudAdd2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudAdd2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAdd2.cpp.s
 .PHONY : CTRTextureGouraudAdd2.cpp.s
 
 CTRTextureGouraudAddNoZ2.o: CTRTextureGouraudAddNoZ2.cpp.o
@@ -4605,7 +4605,7 @@ CTRTextureGouraudAddNoZ2.o: CTRTextureGouraudAddNoZ2.cpp.o
 
 # target to build an object file
 CTRTextureGouraudAddNoZ2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAddNoZ2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAddNoZ2.cpp.o
 .PHONY : CTRTextureGouraudAddNoZ2.cpp.o
 
 CTRTextureGouraudAddNoZ2.i: CTRTextureGouraudAddNoZ2.cpp.i
@@ -4613,7 +4613,7 @@ CTRTextureGouraudAddNoZ2.i: CTRTextureGouraudAddNoZ2.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudAddNoZ2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAddNoZ2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAddNoZ2.cpp.i
 .PHONY : CTRTextureGouraudAddNoZ2.cpp.i
 
 CTRTextureGouraudAddNoZ2.s: CTRTextureGouraudAddNoZ2.cpp.s
@@ -4621,7 +4621,7 @@ CTRTextureGouraudAddNoZ2.s: CTRTextureGouraudAddNoZ2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudAddNoZ2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAddNoZ2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAddNoZ2.cpp.s
 .PHONY : CTRTextureGouraudAddNoZ2.cpp.s
 
 CTRTextureGouraudAlpha.o: CTRTextureGouraudAlpha.cpp.o
@@ -4629,7 +4629,7 @@ CTRTextureGouraudAlpha.o: CTRTextureGouraudAlpha.cpp.o
 
 # target to build an object file
 CTRTextureGouraudAlpha.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlpha.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlpha.cpp.o
 .PHONY : CTRTextureGouraudAlpha.cpp.o
 
 CTRTextureGouraudAlpha.i: CTRTextureGouraudAlpha.cpp.i
@@ -4637,7 +4637,7 @@ CTRTextureGouraudAlpha.i: CTRTextureGouraudAlpha.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudAlpha.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlpha.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlpha.cpp.i
 .PHONY : CTRTextureGouraudAlpha.cpp.i
 
 CTRTextureGouraudAlpha.s: CTRTextureGouraudAlpha.cpp.s
@@ -4645,7 +4645,7 @@ CTRTextureGouraudAlpha.s: CTRTextureGouraudAlpha.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudAlpha.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlpha.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlpha.cpp.s
 .PHONY : CTRTextureGouraudAlpha.cpp.s
 
 CTRTextureGouraudAlphaNoZ.o: CTRTextureGouraudAlphaNoZ.cpp.o
@@ -4653,7 +4653,7 @@ CTRTextureGouraudAlphaNoZ.o: CTRTextureGouraudAlphaNoZ.cpp.o
 
 # target to build an object file
 CTRTextureGouraudAlphaNoZ.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlphaNoZ.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlphaNoZ.cpp.o
 .PHONY : CTRTextureGouraudAlphaNoZ.cpp.o
 
 CTRTextureGouraudAlphaNoZ.i: CTRTextureGouraudAlphaNoZ.cpp.i
@@ -4661,7 +4661,7 @@ CTRTextureGouraudAlphaNoZ.i: CTRTextureGouraudAlphaNoZ.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudAlphaNoZ.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlphaNoZ.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlphaNoZ.cpp.i
 .PHONY : CTRTextureGouraudAlphaNoZ.cpp.i
 
 CTRTextureGouraudAlphaNoZ.s: CTRTextureGouraudAlphaNoZ.cpp.s
@@ -4669,7 +4669,7 @@ CTRTextureGouraudAlphaNoZ.s: CTRTextureGouraudAlphaNoZ.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudAlphaNoZ.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlphaNoZ.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudAlphaNoZ.cpp.s
 .PHONY : CTRTextureGouraudAlphaNoZ.cpp.s
 
 CTRTextureGouraudNoZ.o: CTRTextureGouraudNoZ.cpp.o
@@ -4677,7 +4677,7 @@ CTRTextureGouraudNoZ.o: CTRTextureGouraudNoZ.cpp.o
 
 # target to build an object file
 CTRTextureGouraudNoZ.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ.cpp.o
 .PHONY : CTRTextureGouraudNoZ.cpp.o
 
 CTRTextureGouraudNoZ.i: CTRTextureGouraudNoZ.cpp.i
@@ -4685,7 +4685,7 @@ CTRTextureGouraudNoZ.i: CTRTextureGouraudNoZ.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudNoZ.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ.cpp.i
 .PHONY : CTRTextureGouraudNoZ.cpp.i
 
 CTRTextureGouraudNoZ.s: CTRTextureGouraudNoZ.cpp.s
@@ -4693,7 +4693,7 @@ CTRTextureGouraudNoZ.s: CTRTextureGouraudNoZ.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudNoZ.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ.cpp.s
 .PHONY : CTRTextureGouraudNoZ.cpp.s
 
 CTRTextureGouraudNoZ2.o: CTRTextureGouraudNoZ2.cpp.o
@@ -4701,7 +4701,7 @@ CTRTextureGouraudNoZ2.o: CTRTextureGouraudNoZ2.cpp.o
 
 # target to build an object file
 CTRTextureGouraudNoZ2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ2.cpp.o
 .PHONY : CTRTextureGouraudNoZ2.cpp.o
 
 CTRTextureGouraudNoZ2.i: CTRTextureGouraudNoZ2.cpp.i
@@ -4709,7 +4709,7 @@ CTRTextureGouraudNoZ2.i: CTRTextureGouraudNoZ2.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudNoZ2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ2.cpp.i
 .PHONY : CTRTextureGouraudNoZ2.cpp.i
 
 CTRTextureGouraudNoZ2.s: CTRTextureGouraudNoZ2.cpp.s
@@ -4717,7 +4717,7 @@ CTRTextureGouraudNoZ2.s: CTRTextureGouraudNoZ2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudNoZ2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudNoZ2.cpp.s
 .PHONY : CTRTextureGouraudNoZ2.cpp.s
 
 CTRTextureGouraudVertexAlpha2.o: CTRTextureGouraudVertexAlpha2.cpp.o
@@ -4725,7 +4725,7 @@ CTRTextureGouraudVertexAlpha2.o: CTRTextureGouraudVertexAlpha2.cpp.o
 
 # target to build an object file
 CTRTextureGouraudVertexAlpha2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudVertexAlpha2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudVertexAlpha2.cpp.o
 .PHONY : CTRTextureGouraudVertexAlpha2.cpp.o
 
 CTRTextureGouraudVertexAlpha2.i: CTRTextureGouraudVertexAlpha2.cpp.i
@@ -4733,7 +4733,7 @@ CTRTextureGouraudVertexAlpha2.i: CTRTextureGouraudVertexAlpha2.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudVertexAlpha2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudVertexAlpha2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudVertexAlpha2.cpp.i
 .PHONY : CTRTextureGouraudVertexAlpha2.cpp.i
 
 CTRTextureGouraudVertexAlpha2.s: CTRTextureGouraudVertexAlpha2.cpp.s
@@ -4741,7 +4741,7 @@ CTRTextureGouraudVertexAlpha2.s: CTRTextureGouraudVertexAlpha2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudVertexAlpha2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudVertexAlpha2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudVertexAlpha2.cpp.s
 .PHONY : CTRTextureGouraudVertexAlpha2.cpp.s
 
 CTRTextureGouraudWire.o: CTRTextureGouraudWire.cpp.o
@@ -4749,7 +4749,7 @@ CTRTextureGouraudWire.o: CTRTextureGouraudWire.cpp.o
 
 # target to build an object file
 CTRTextureGouraudWire.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudWire.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudWire.cpp.o
 .PHONY : CTRTextureGouraudWire.cpp.o
 
 CTRTextureGouraudWire.i: CTRTextureGouraudWire.cpp.i
@@ -4757,7 +4757,7 @@ CTRTextureGouraudWire.i: CTRTextureGouraudWire.cpp.i
 
 # target to preprocess a source file
 CTRTextureGouraudWire.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudWire.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudWire.cpp.i
 .PHONY : CTRTextureGouraudWire.cpp.i
 
 CTRTextureGouraudWire.s: CTRTextureGouraudWire.cpp.s
@@ -4765,7 +4765,7 @@ CTRTextureGouraudWire.s: CTRTextureGouraudWire.cpp.s
 
 # target to generate assembly for a file
 CTRTextureGouraudWire.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudWire.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureGouraudWire.cpp.s
 .PHONY : CTRTextureGouraudWire.cpp.s
 
 CTRTextureLightMap2_Add.o: CTRTextureLightMap2_Add.cpp.o
@@ -4773,7 +4773,7 @@ CTRTextureLightMap2_Add.o: CTRTextureLightMap2_Add.cpp.o
 
 # target to build an object file
 CTRTextureLightMap2_Add.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_Add.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_Add.cpp.o
 .PHONY : CTRTextureLightMap2_Add.cpp.o
 
 CTRTextureLightMap2_Add.i: CTRTextureLightMap2_Add.cpp.i
@@ -4781,7 +4781,7 @@ CTRTextureLightMap2_Add.i: CTRTextureLightMap2_Add.cpp.i
 
 # target to preprocess a source file
 CTRTextureLightMap2_Add.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_Add.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_Add.cpp.i
 .PHONY : CTRTextureLightMap2_Add.cpp.i
 
 CTRTextureLightMap2_Add.s: CTRTextureLightMap2_Add.cpp.s
@@ -4789,7 +4789,7 @@ CTRTextureLightMap2_Add.s: CTRTextureLightMap2_Add.cpp.s
 
 # target to generate assembly for a file
 CTRTextureLightMap2_Add.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_Add.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_Add.cpp.s
 .PHONY : CTRTextureLightMap2_Add.cpp.s
 
 CTRTextureLightMap2_M1.o: CTRTextureLightMap2_M1.cpp.o
@@ -4797,7 +4797,7 @@ CTRTextureLightMap2_M1.o: CTRTextureLightMap2_M1.cpp.o
 
 # target to build an object file
 CTRTextureLightMap2_M1.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M1.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M1.cpp.o
 .PHONY : CTRTextureLightMap2_M1.cpp.o
 
 CTRTextureLightMap2_M1.i: CTRTextureLightMap2_M1.cpp.i
@@ -4805,7 +4805,7 @@ CTRTextureLightMap2_M1.i: CTRTextureLightMap2_M1.cpp.i
 
 # target to preprocess a source file
 CTRTextureLightMap2_M1.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M1.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M1.cpp.i
 .PHONY : CTRTextureLightMap2_M1.cpp.i
 
 CTRTextureLightMap2_M1.s: CTRTextureLightMap2_M1.cpp.s
@@ -4813,7 +4813,7 @@ CTRTextureLightMap2_M1.s: CTRTextureLightMap2_M1.cpp.s
 
 # target to generate assembly for a file
 CTRTextureLightMap2_M1.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M1.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M1.cpp.s
 .PHONY : CTRTextureLightMap2_M1.cpp.s
 
 CTRTextureLightMap2_M2.o: CTRTextureLightMap2_M2.cpp.o
@@ -4821,7 +4821,7 @@ CTRTextureLightMap2_M2.o: CTRTextureLightMap2_M2.cpp.o
 
 # target to build an object file
 CTRTextureLightMap2_M2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M2.cpp.o
 .PHONY : CTRTextureLightMap2_M2.cpp.o
 
 CTRTextureLightMap2_M2.i: CTRTextureLightMap2_M2.cpp.i
@@ -4829,7 +4829,7 @@ CTRTextureLightMap2_M2.i: CTRTextureLightMap2_M2.cpp.i
 
 # target to preprocess a source file
 CTRTextureLightMap2_M2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M2.cpp.i
 .PHONY : CTRTextureLightMap2_M2.cpp.i
 
 CTRTextureLightMap2_M2.s: CTRTextureLightMap2_M2.cpp.s
@@ -4837,7 +4837,7 @@ CTRTextureLightMap2_M2.s: CTRTextureLightMap2_M2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureLightMap2_M2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M2.cpp.s
 .PHONY : CTRTextureLightMap2_M2.cpp.s
 
 CTRTextureLightMap2_M4.o: CTRTextureLightMap2_M4.cpp.o
@@ -4845,7 +4845,7 @@ CTRTextureLightMap2_M4.o: CTRTextureLightMap2_M4.cpp.o
 
 # target to build an object file
 CTRTextureLightMap2_M4.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M4.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M4.cpp.o
 .PHONY : CTRTextureLightMap2_M4.cpp.o
 
 CTRTextureLightMap2_M4.i: CTRTextureLightMap2_M4.cpp.i
@@ -4853,7 +4853,7 @@ CTRTextureLightMap2_M4.i: CTRTextureLightMap2_M4.cpp.i
 
 # target to preprocess a source file
 CTRTextureLightMap2_M4.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M4.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M4.cpp.i
 .PHONY : CTRTextureLightMap2_M4.cpp.i
 
 CTRTextureLightMap2_M4.s: CTRTextureLightMap2_M4.cpp.s
@@ -4861,7 +4861,7 @@ CTRTextureLightMap2_M4.s: CTRTextureLightMap2_M4.cpp.s
 
 # target to generate assembly for a file
 CTRTextureLightMap2_M4.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M4.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMap2_M4.cpp.s
 .PHONY : CTRTextureLightMap2_M4.cpp.s
 
 CTRTextureLightMapGouraud2_M4.o: CTRTextureLightMapGouraud2_M4.cpp.o
@@ -4869,7 +4869,7 @@ CTRTextureLightMapGouraud2_M4.o: CTRTextureLightMapGouraud2_M4.cpp.o
 
 # target to build an object file
 CTRTextureLightMapGouraud2_M4.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMapGouraud2_M4.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMapGouraud2_M4.cpp.o
 .PHONY : CTRTextureLightMapGouraud2_M4.cpp.o
 
 CTRTextureLightMapGouraud2_M4.i: CTRTextureLightMapGouraud2_M4.cpp.i
@@ -4877,7 +4877,7 @@ CTRTextureLightMapGouraud2_M4.i: CTRTextureLightMapGouraud2_M4.cpp.i
 
 # target to preprocess a source file
 CTRTextureLightMapGouraud2_M4.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMapGouraud2_M4.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMapGouraud2_M4.cpp.i
 .PHONY : CTRTextureLightMapGouraud2_M4.cpp.i
 
 CTRTextureLightMapGouraud2_M4.s: CTRTextureLightMapGouraud2_M4.cpp.s
@@ -4885,7 +4885,7 @@ CTRTextureLightMapGouraud2_M4.s: CTRTextureLightMapGouraud2_M4.cpp.s
 
 # target to generate assembly for a file
 CTRTextureLightMapGouraud2_M4.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMapGouraud2_M4.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureLightMapGouraud2_M4.cpp.s
 .PHONY : CTRTextureLightMapGouraud2_M4.cpp.s
 
 CTRTextureWire2.o: CTRTextureWire2.cpp.o
@@ -4893,7 +4893,7 @@ CTRTextureWire2.o: CTRTextureWire2.cpp.o
 
 # target to build an object file
 CTRTextureWire2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureWire2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureWire2.cpp.o
 .PHONY : CTRTextureWire2.cpp.o
 
 CTRTextureWire2.i: CTRTextureWire2.cpp.i
@@ -4901,7 +4901,7 @@ CTRTextureWire2.i: CTRTextureWire2.cpp.i
 
 # target to preprocess a source file
 CTRTextureWire2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureWire2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureWire2.cpp.i
 .PHONY : CTRTextureWire2.cpp.i
 
 CTRTextureWire2.s: CTRTextureWire2.cpp.s
@@ -4909,7 +4909,7 @@ CTRTextureWire2.s: CTRTextureWire2.cpp.s
 
 # target to generate assembly for a file
 CTRTextureWire2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureWire2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTRTextureWire2.cpp.s
 .PHONY : CTRTextureWire2.cpp.s
 
 CTarReader.o: CTarReader.cpp.o
@@ -4917,7 +4917,7 @@ CTarReader.o: CTarReader.cpp.o
 
 # target to build an object file
 CTarReader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTarReader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTarReader.cpp.o
 .PHONY : CTarReader.cpp.o
 
 CTarReader.i: CTarReader.cpp.i
@@ -4925,7 +4925,7 @@ CTarReader.i: CTarReader.cpp.i
 
 # target to preprocess a source file
 CTarReader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTarReader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTarReader.cpp.i
 .PHONY : CTarReader.cpp.i
 
 CTarReader.s: CTarReader.cpp.s
@@ -4933,7 +4933,7 @@ CTarReader.s: CTarReader.cpp.s
 
 # target to generate assembly for a file
 CTarReader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTarReader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTarReader.cpp.s
 .PHONY : CTarReader.cpp.s
 
 CTerrainSceneNode.o: CTerrainSceneNode.cpp.o
@@ -4941,7 +4941,7 @@ CTerrainSceneNode.o: CTerrainSceneNode.cpp.o
 
 # target to build an object file
 CTerrainSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainSceneNode.cpp.o
 .PHONY : CTerrainSceneNode.cpp.o
 
 CTerrainSceneNode.i: CTerrainSceneNode.cpp.i
@@ -4949,7 +4949,7 @@ CTerrainSceneNode.i: CTerrainSceneNode.cpp.i
 
 # target to preprocess a source file
 CTerrainSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainSceneNode.cpp.i
 .PHONY : CTerrainSceneNode.cpp.i
 
 CTerrainSceneNode.s: CTerrainSceneNode.cpp.s
@@ -4957,7 +4957,7 @@ CTerrainSceneNode.s: CTerrainSceneNode.cpp.s
 
 # target to generate assembly for a file
 CTerrainSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainSceneNode.cpp.s
 .PHONY : CTerrainSceneNode.cpp.s
 
 CTerrainTriangleSelector.o: CTerrainTriangleSelector.cpp.o
@@ -4965,7 +4965,7 @@ CTerrainTriangleSelector.o: CTerrainTriangleSelector.cpp.o
 
 # target to build an object file
 CTerrainTriangleSelector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainTriangleSelector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainTriangleSelector.cpp.o
 .PHONY : CTerrainTriangleSelector.cpp.o
 
 CTerrainTriangleSelector.i: CTerrainTriangleSelector.cpp.i
@@ -4973,7 +4973,7 @@ CTerrainTriangleSelector.i: CTerrainTriangleSelector.cpp.i
 
 # target to preprocess a source file
 CTerrainTriangleSelector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainTriangleSelector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainTriangleSelector.cpp.i
 .PHONY : CTerrainTriangleSelector.cpp.i
 
 CTerrainTriangleSelector.s: CTerrainTriangleSelector.cpp.s
@@ -4981,7 +4981,7 @@ CTerrainTriangleSelector.s: CTerrainTriangleSelector.cpp.s
 
 # target to generate assembly for a file
 CTerrainTriangleSelector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainTriangleSelector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTerrainTriangleSelector.cpp.s
 .PHONY : CTerrainTriangleSelector.cpp.s
 
 CTextSceneNode.o: CTextSceneNode.cpp.o
@@ -4989,7 +4989,7 @@ CTextSceneNode.o: CTextSceneNode.cpp.o
 
 # target to build an object file
 CTextSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTextSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTextSceneNode.cpp.o
 .PHONY : CTextSceneNode.cpp.o
 
 CTextSceneNode.i: CTextSceneNode.cpp.i
@@ -4997,7 +4997,7 @@ CTextSceneNode.i: CTextSceneNode.cpp.i
 
 # target to preprocess a source file
 CTextSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTextSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTextSceneNode.cpp.i
 .PHONY : CTextSceneNode.cpp.i
 
 CTextSceneNode.s: CTextSceneNode.cpp.s
@@ -5005,7 +5005,7 @@ CTextSceneNode.s: CTextSceneNode.cpp.s
 
 # target to generate assembly for a file
 CTextSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTextSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTextSceneNode.cpp.s
 .PHONY : CTextSceneNode.cpp.s
 
 CTriangleBBSelector.o: CTriangleBBSelector.cpp.o
@@ -5013,7 +5013,7 @@ CTriangleBBSelector.o: CTriangleBBSelector.cpp.o
 
 # target to build an object file
 CTriangleBBSelector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleBBSelector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleBBSelector.cpp.o
 .PHONY : CTriangleBBSelector.cpp.o
 
 CTriangleBBSelector.i: CTriangleBBSelector.cpp.i
@@ -5021,7 +5021,7 @@ CTriangleBBSelector.i: CTriangleBBSelector.cpp.i
 
 # target to preprocess a source file
 CTriangleBBSelector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleBBSelector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleBBSelector.cpp.i
 .PHONY : CTriangleBBSelector.cpp.i
 
 CTriangleBBSelector.s: CTriangleBBSelector.cpp.s
@@ -5029,7 +5029,7 @@ CTriangleBBSelector.s: CTriangleBBSelector.cpp.s
 
 # target to generate assembly for a file
 CTriangleBBSelector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleBBSelector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleBBSelector.cpp.s
 .PHONY : CTriangleBBSelector.cpp.s
 
 CTriangleSelector.o: CTriangleSelector.cpp.o
@@ -5037,7 +5037,7 @@ CTriangleSelector.o: CTriangleSelector.cpp.o
 
 # target to build an object file
 CTriangleSelector.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleSelector.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleSelector.cpp.o
 .PHONY : CTriangleSelector.cpp.o
 
 CTriangleSelector.i: CTriangleSelector.cpp.i
@@ -5045,7 +5045,7 @@ CTriangleSelector.i: CTriangleSelector.cpp.i
 
 # target to preprocess a source file
 CTriangleSelector.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleSelector.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleSelector.cpp.i
 .PHONY : CTriangleSelector.cpp.i
 
 CTriangleSelector.s: CTriangleSelector.cpp.s
@@ -5053,7 +5053,7 @@ CTriangleSelector.s: CTriangleSelector.cpp.s
 
 # target to generate assembly for a file
 CTriangleSelector.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleSelector.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CTriangleSelector.cpp.s
 .PHONY : CTriangleSelector.cpp.s
 
 CVideoModeList.o: CVideoModeList.cpp.o
@@ -5061,7 +5061,7 @@ CVideoModeList.o: CVideoModeList.cpp.o
 
 # target to build an object file
 CVideoModeList.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVideoModeList.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVideoModeList.cpp.o
 .PHONY : CVideoModeList.cpp.o
 
 CVideoModeList.i: CVideoModeList.cpp.i
@@ -5069,7 +5069,7 @@ CVideoModeList.i: CVideoModeList.cpp.i
 
 # target to preprocess a source file
 CVideoModeList.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVideoModeList.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVideoModeList.cpp.i
 .PHONY : CVideoModeList.cpp.i
 
 CVideoModeList.s: CVideoModeList.cpp.s
@@ -5077,7 +5077,7 @@ CVideoModeList.s: CVideoModeList.cpp.s
 
 # target to generate assembly for a file
 CVideoModeList.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVideoModeList.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVideoModeList.cpp.s
 .PHONY : CVideoModeList.cpp.s
 
 CVolumeLightSceneNode.o: CVolumeLightSceneNode.cpp.o
@@ -5085,7 +5085,7 @@ CVolumeLightSceneNode.o: CVolumeLightSceneNode.cpp.o
 
 # target to build an object file
 CVolumeLightSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVolumeLightSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVolumeLightSceneNode.cpp.o
 .PHONY : CVolumeLightSceneNode.cpp.o
 
 CVolumeLightSceneNode.i: CVolumeLightSceneNode.cpp.i
@@ -5093,7 +5093,7 @@ CVolumeLightSceneNode.i: CVolumeLightSceneNode.cpp.i
 
 # target to preprocess a source file
 CVolumeLightSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVolumeLightSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVolumeLightSceneNode.cpp.i
 .PHONY : CVolumeLightSceneNode.cpp.i
 
 CVolumeLightSceneNode.s: CVolumeLightSceneNode.cpp.s
@@ -5101,7 +5101,7 @@ CVolumeLightSceneNode.s: CVolumeLightSceneNode.cpp.s
 
 # target to generate assembly for a file
 CVolumeLightSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVolumeLightSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CVolumeLightSceneNode.cpp.s
 .PHONY : CVolumeLightSceneNode.cpp.s
 
 CWADReader.o: CWADReader.cpp.o
@@ -5109,7 +5109,7 @@ CWADReader.o: CWADReader.cpp.o
 
 # target to build an object file
 CWADReader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWADReader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWADReader.cpp.o
 .PHONY : CWADReader.cpp.o
 
 CWADReader.i: CWADReader.cpp.i
@@ -5117,7 +5117,7 @@ CWADReader.i: CWADReader.cpp.i
 
 # target to preprocess a source file
 CWADReader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWADReader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWADReader.cpp.i
 .PHONY : CWADReader.cpp.i
 
 CWADReader.s: CWADReader.cpp.s
@@ -5125,7 +5125,7 @@ CWADReader.s: CWADReader.cpp.s
 
 # target to generate assembly for a file
 CWADReader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWADReader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWADReader.cpp.s
 .PHONY : CWADReader.cpp.s
 
 CWaterSurfaceSceneNode.o: CWaterSurfaceSceneNode.cpp.o
@@ -5133,7 +5133,7 @@ CWaterSurfaceSceneNode.o: CWaterSurfaceSceneNode.cpp.o
 
 # target to build an object file
 CWaterSurfaceSceneNode.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWaterSurfaceSceneNode.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWaterSurfaceSceneNode.cpp.o
 .PHONY : CWaterSurfaceSceneNode.cpp.o
 
 CWaterSurfaceSceneNode.i: CWaterSurfaceSceneNode.cpp.i
@@ -5141,7 +5141,7 @@ CWaterSurfaceSceneNode.i: CWaterSurfaceSceneNode.cpp.i
 
 # target to preprocess a source file
 CWaterSurfaceSceneNode.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWaterSurfaceSceneNode.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWaterSurfaceSceneNode.cpp.i
 .PHONY : CWaterSurfaceSceneNode.cpp.i
 
 CWaterSurfaceSceneNode.s: CWaterSurfaceSceneNode.cpp.s
@@ -5149,7 +5149,7 @@ CWaterSurfaceSceneNode.s: CWaterSurfaceSceneNode.cpp.s
 
 # target to generate assembly for a file
 CWaterSurfaceSceneNode.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWaterSurfaceSceneNode.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWaterSurfaceSceneNode.cpp.s
 .PHONY : CWaterSurfaceSceneNode.cpp.s
 
 CWriteFile.o: CWriteFile.cpp.o
@@ -5157,7 +5157,7 @@ CWriteFile.o: CWriteFile.cpp.o
 
 # target to build an object file
 CWriteFile.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWriteFile.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWriteFile.cpp.o
 .PHONY : CWriteFile.cpp.o
 
 CWriteFile.i: CWriteFile.cpp.i
@@ -5165,7 +5165,7 @@ CWriteFile.i: CWriteFile.cpp.i
 
 # target to preprocess a source file
 CWriteFile.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWriteFile.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWriteFile.cpp.i
 .PHONY : CWriteFile.cpp.i
 
 CWriteFile.s: CWriteFile.cpp.s
@@ -5173,7 +5173,7 @@ CWriteFile.s: CWriteFile.cpp.s
 
 # target to generate assembly for a file
 CWriteFile.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWriteFile.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CWriteFile.cpp.s
 .PHONY : CWriteFile.cpp.s
 
 CXMLReader.o: CXMLReader.cpp.o
@@ -5181,7 +5181,7 @@ CXMLReader.o: CXMLReader.cpp.o
 
 # target to build an object file
 CXMLReader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLReader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLReader.cpp.o
 .PHONY : CXMLReader.cpp.o
 
 CXMLReader.i: CXMLReader.cpp.i
@@ -5189,7 +5189,7 @@ CXMLReader.i: CXMLReader.cpp.i
 
 # target to preprocess a source file
 CXMLReader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLReader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLReader.cpp.i
 .PHONY : CXMLReader.cpp.i
 
 CXMLReader.s: CXMLReader.cpp.s
@@ -5197,7 +5197,7 @@ CXMLReader.s: CXMLReader.cpp.s
 
 # target to generate assembly for a file
 CXMLReader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLReader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLReader.cpp.s
 .PHONY : CXMLReader.cpp.s
 
 CXMLWriter.o: CXMLWriter.cpp.o
@@ -5205,7 +5205,7 @@ CXMLWriter.o: CXMLWriter.cpp.o
 
 # target to build an object file
 CXMLWriter.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLWriter.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLWriter.cpp.o
 .PHONY : CXMLWriter.cpp.o
 
 CXMLWriter.i: CXMLWriter.cpp.i
@@ -5213,7 +5213,7 @@ CXMLWriter.i: CXMLWriter.cpp.i
 
 # target to preprocess a source file
 CXMLWriter.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLWriter.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLWriter.cpp.i
 .PHONY : CXMLWriter.cpp.i
 
 CXMLWriter.s: CXMLWriter.cpp.s
@@ -5221,7 +5221,7 @@ CXMLWriter.s: CXMLWriter.cpp.s
 
 # target to generate assembly for a file
 CXMLWriter.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLWriter.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMLWriter.cpp.s
 .PHONY : CXMLWriter.cpp.s
 
 CXMeshFileLoader.o: CXMeshFileLoader.cpp.o
@@ -5229,7 +5229,7 @@ CXMeshFileLoader.o: CXMeshFileLoader.cpp.o
 
 # target to build an object file
 CXMeshFileLoader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMeshFileLoader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMeshFileLoader.cpp.o
 .PHONY : CXMeshFileLoader.cpp.o
 
 CXMeshFileLoader.i: CXMeshFileLoader.cpp.i
@@ -5237,7 +5237,7 @@ CXMeshFileLoader.i: CXMeshFileLoader.cpp.i
 
 # target to preprocess a source file
 CXMeshFileLoader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMeshFileLoader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMeshFileLoader.cpp.i
 .PHONY : CXMeshFileLoader.cpp.i
 
 CXMeshFileLoader.s: CXMeshFileLoader.cpp.s
@@ -5245,7 +5245,7 @@ CXMeshFileLoader.s: CXMeshFileLoader.cpp.s
 
 # target to generate assembly for a file
 CXMeshFileLoader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMeshFileLoader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CXMeshFileLoader.cpp.s
 .PHONY : CXMeshFileLoader.cpp.s
 
 CZBuffer.o: CZBuffer.cpp.o
@@ -5253,7 +5253,7 @@ CZBuffer.o: CZBuffer.cpp.o
 
 # target to build an object file
 CZBuffer.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZBuffer.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZBuffer.cpp.o
 .PHONY : CZBuffer.cpp.o
 
 CZBuffer.i: CZBuffer.cpp.i
@@ -5261,7 +5261,7 @@ CZBuffer.i: CZBuffer.cpp.i
 
 # target to preprocess a source file
 CZBuffer.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZBuffer.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZBuffer.cpp.i
 .PHONY : CZBuffer.cpp.i
 
 CZBuffer.s: CZBuffer.cpp.s
@@ -5269,7 +5269,7 @@ CZBuffer.s: CZBuffer.cpp.s
 
 # target to generate assembly for a file
 CZBuffer.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZBuffer.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZBuffer.cpp.s
 .PHONY : CZBuffer.cpp.s
 
 CZipReader.o: CZipReader.cpp.o
@@ -5277,7 +5277,7 @@ CZipReader.o: CZipReader.cpp.o
 
 # target to build an object file
 CZipReader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZipReader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZipReader.cpp.o
 .PHONY : CZipReader.cpp.o
 
 CZipReader.i: CZipReader.cpp.i
@@ -5285,7 +5285,7 @@ CZipReader.i: CZipReader.cpp.i
 
 # target to preprocess a source file
 CZipReader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZipReader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZipReader.cpp.i
 .PHONY : CZipReader.cpp.i
 
 CZipReader.s: CZipReader.cpp.s
@@ -5293,7 +5293,7 @@ CZipReader.s: CZipReader.cpp.s
 
 # target to generate assembly for a file
 CZipReader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZipReader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/CZipReader.cpp.s
 .PHONY : CZipReader.cpp.s
 
 IBurningShader.o: IBurningShader.cpp.o
@@ -5301,7 +5301,7 @@ IBurningShader.o: IBurningShader.cpp.o
 
 # target to build an object file
 IBurningShader.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/IBurningShader.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/IBurningShader.cpp.o
 .PHONY : IBurningShader.cpp.o
 
 IBurningShader.i: IBurningShader.cpp.i
@@ -5309,7 +5309,7 @@ IBurningShader.i: IBurningShader.cpp.i
 
 # target to preprocess a source file
 IBurningShader.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/IBurningShader.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/IBurningShader.cpp.i
 .PHONY : IBurningShader.cpp.i
 
 IBurningShader.s: IBurningShader.cpp.s
@@ -5317,7 +5317,7 @@ IBurningShader.s: IBurningShader.cpp.s
 
 # target to generate assembly for a file
 IBurningShader.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/IBurningShader.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/IBurningShader.cpp.s
 .PHONY : IBurningShader.cpp.s
 
 Irrlicht.o: Irrlicht.cpp.o
@@ -5325,7 +5325,7 @@ Irrlicht.o: Irrlicht.cpp.o
 
 # target to build an object file
 Irrlicht.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/Irrlicht.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/Irrlicht.cpp.o
 .PHONY : Irrlicht.cpp.o
 
 Irrlicht.i: Irrlicht.cpp.i
@@ -5333,7 +5333,7 @@ Irrlicht.i: Irrlicht.cpp.i
 
 # target to preprocess a source file
 Irrlicht.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/Irrlicht.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/Irrlicht.cpp.i
 .PHONY : Irrlicht.cpp.i
 
 Irrlicht.s: Irrlicht.cpp.s
@@ -5341,7 +5341,7 @@ Irrlicht.s: Irrlicht.cpp.s
 
 # target to generate assembly for a file
 Irrlicht.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/Irrlicht.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/Irrlicht.cpp.s
 .PHONY : Irrlicht.cpp.s
 
 aesGladman/aescrypt.o: aesGladman/aescrypt.cpp.o
@@ -5349,7 +5349,7 @@ aesGladman/aescrypt.o: aesGladman/aescrypt.cpp.o
 
 # target to build an object file
 aesGladman/aescrypt.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aescrypt.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aescrypt.cpp.o
 .PHONY : aesGladman/aescrypt.cpp.o
 
 aesGladman/aescrypt.i: aesGladman/aescrypt.cpp.i
@@ -5357,7 +5357,7 @@ aesGladman/aescrypt.i: aesGladman/aescrypt.cpp.i
 
 # target to preprocess a source file
 aesGladman/aescrypt.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aescrypt.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aescrypt.cpp.i
 .PHONY : aesGladman/aescrypt.cpp.i
 
 aesGladman/aescrypt.s: aesGladman/aescrypt.cpp.s
@@ -5365,7 +5365,7 @@ aesGladman/aescrypt.s: aesGladman/aescrypt.cpp.s
 
 # target to generate assembly for a file
 aesGladman/aescrypt.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aescrypt.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aescrypt.cpp.s
 .PHONY : aesGladman/aescrypt.cpp.s
 
 aesGladman/aeskey.o: aesGladman/aeskey.cpp.o
@@ -5373,7 +5373,7 @@ aesGladman/aeskey.o: aesGladman/aeskey.cpp.o
 
 # target to build an object file
 aesGladman/aeskey.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aeskey.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aeskey.cpp.o
 .PHONY : aesGladman/aeskey.cpp.o
 
 aesGladman/aeskey.i: aesGladman/aeskey.cpp.i
@@ -5381,7 +5381,7 @@ aesGladman/aeskey.i: aesGladman/aeskey.cpp.i
 
 # target to preprocess a source file
 aesGladman/aeskey.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aeskey.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aeskey.cpp.i
 .PHONY : aesGladman/aeskey.cpp.i
 
 aesGladman/aeskey.s: aesGladman/aeskey.cpp.s
@@ -5389,7 +5389,7 @@ aesGladman/aeskey.s: aesGladman/aeskey.cpp.s
 
 # target to generate assembly for a file
 aesGladman/aeskey.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aeskey.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aeskey.cpp.s
 .PHONY : aesGladman/aeskey.cpp.s
 
 aesGladman/aestab.o: aesGladman/aestab.cpp.o
@@ -5397,7 +5397,7 @@ aesGladman/aestab.o: aesGladman/aestab.cpp.o
 
 # target to build an object file
 aesGladman/aestab.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aestab.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aestab.cpp.o
 .PHONY : aesGladman/aestab.cpp.o
 
 aesGladman/aestab.i: aesGladman/aestab.cpp.i
@@ -5405,7 +5405,7 @@ aesGladman/aestab.i: aesGladman/aestab.cpp.i
 
 # target to preprocess a source file
 aesGladman/aestab.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aestab.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aestab.cpp.i
 .PHONY : aesGladman/aestab.cpp.i
 
 aesGladman/aestab.s: aesGladman/aestab.cpp.s
@@ -5413,7 +5413,7 @@ aesGladman/aestab.s: aesGladman/aestab.cpp.s
 
 # target to generate assembly for a file
 aesGladman/aestab.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aestab.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/aestab.cpp.s
 .PHONY : aesGladman/aestab.cpp.s
 
 aesGladman/fileenc.o: aesGladman/fileenc.cpp.o
@@ -5421,7 +5421,7 @@ aesGladman/fileenc.o: aesGladman/fileenc.cpp.o
 
 # target to build an object file
 aesGladman/fileenc.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/fileenc.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/fileenc.cpp.o
 .PHONY : aesGladman/fileenc.cpp.o
 
 aesGladman/fileenc.i: aesGladman/fileenc.cpp.i
@@ -5429,7 +5429,7 @@ aesGladman/fileenc.i: aesGladman/fileenc.cpp.i
 
 # target to preprocess a source file
 aesGladman/fileenc.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/fileenc.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/fileenc.cpp.i
 .PHONY : aesGladman/fileenc.cpp.i
 
 aesGladman/fileenc.s: aesGladman/fileenc.cpp.s
@@ -5437,7 +5437,7 @@ aesGladman/fileenc.s: aesGladman/fileenc.cpp.s
 
 # target to generate assembly for a file
 aesGladman/fileenc.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/fileenc.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/fileenc.cpp.s
 .PHONY : aesGladman/fileenc.cpp.s
 
 aesGladman/hmac.o: aesGladman/hmac.cpp.o
@@ -5445,7 +5445,7 @@ aesGladman/hmac.o: aesGladman/hmac.cpp.o
 
 # target to build an object file
 aesGladman/hmac.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/hmac.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/hmac.cpp.o
 .PHONY : aesGladman/hmac.cpp.o
 
 aesGladman/hmac.i: aesGladman/hmac.cpp.i
@@ -5453,7 +5453,7 @@ aesGladman/hmac.i: aesGladman/hmac.cpp.i
 
 # target to preprocess a source file
 aesGladman/hmac.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/hmac.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/hmac.cpp.i
 .PHONY : aesGladman/hmac.cpp.i
 
 aesGladman/hmac.s: aesGladman/hmac.cpp.s
@@ -5461,7 +5461,7 @@ aesGladman/hmac.s: aesGladman/hmac.cpp.s
 
 # target to generate assembly for a file
 aesGladman/hmac.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/hmac.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/hmac.cpp.s
 .PHONY : aesGladman/hmac.cpp.s
 
 aesGladman/prng.o: aesGladman/prng.cpp.o
@@ -5469,7 +5469,7 @@ aesGladman/prng.o: aesGladman/prng.cpp.o
 
 # target to build an object file
 aesGladman/prng.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/prng.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/prng.cpp.o
 .PHONY : aesGladman/prng.cpp.o
 
 aesGladman/prng.i: aesGladman/prng.cpp.i
@@ -5477,7 +5477,7 @@ aesGladman/prng.i: aesGladman/prng.cpp.i
 
 # target to preprocess a source file
 aesGladman/prng.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/prng.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/prng.cpp.i
 .PHONY : aesGladman/prng.cpp.i
 
 aesGladman/prng.s: aesGladman/prng.cpp.s
@@ -5485,7 +5485,7 @@ aesGladman/prng.s: aesGladman/prng.cpp.s
 
 # target to generate assembly for a file
 aesGladman/prng.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/prng.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/prng.cpp.s
 .PHONY : aesGladman/prng.cpp.s
 
 aesGladman/pwd2key.o: aesGladman/pwd2key.cpp.o
@@ -5493,7 +5493,7 @@ aesGladman/pwd2key.o: aesGladman/pwd2key.cpp.o
 
 # target to build an object file
 aesGladman/pwd2key.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/pwd2key.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/pwd2key.cpp.o
 .PHONY : aesGladman/pwd2key.cpp.o
 
 aesGladman/pwd2key.i: aesGladman/pwd2key.cpp.i
@@ -5501,7 +5501,7 @@ aesGladman/pwd2key.i: aesGladman/pwd2key.cpp.i
 
 # target to preprocess a source file
 aesGladman/pwd2key.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/pwd2key.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/pwd2key.cpp.i
 .PHONY : aesGladman/pwd2key.cpp.i
 
 aesGladman/pwd2key.s: aesGladman/pwd2key.cpp.s
@@ -5509,7 +5509,7 @@ aesGladman/pwd2key.s: aesGladman/pwd2key.cpp.s
 
 # target to generate assembly for a file
 aesGladman/pwd2key.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/pwd2key.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/pwd2key.cpp.s
 .PHONY : aesGladman/pwd2key.cpp.s
 
 aesGladman/sha1.o: aesGladman/sha1.cpp.o
@@ -5517,7 +5517,7 @@ aesGladman/sha1.o: aesGladman/sha1.cpp.o
 
 # target to build an object file
 aesGladman/sha1.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha1.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha1.cpp.o
 .PHONY : aesGladman/sha1.cpp.o
 
 aesGladman/sha1.i: aesGladman/sha1.cpp.i
@@ -5525,7 +5525,7 @@ aesGladman/sha1.i: aesGladman/sha1.cpp.i
 
 # target to preprocess a source file
 aesGladman/sha1.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha1.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha1.cpp.i
 .PHONY : aesGladman/sha1.cpp.i
 
 aesGladman/sha1.s: aesGladman/sha1.cpp.s
@@ -5533,7 +5533,7 @@ aesGladman/sha1.s: aesGladman/sha1.cpp.s
 
 # target to generate assembly for a file
 aesGladman/sha1.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha1.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha1.cpp.s
 .PHONY : aesGladman/sha1.cpp.s
 
 aesGladman/sha2.o: aesGladman/sha2.cpp.o
@@ -5541,7 +5541,7 @@ aesGladman/sha2.o: aesGladman/sha2.cpp.o
 
 # target to build an object file
 aesGladman/sha2.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha2.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha2.cpp.o
 .PHONY : aesGladman/sha2.cpp.o
 
 aesGladman/sha2.i: aesGladman/sha2.cpp.i
@@ -5549,7 +5549,7 @@ aesGladman/sha2.i: aesGladman/sha2.cpp.i
 
 # target to preprocess a source file
 aesGladman/sha2.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha2.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha2.cpp.i
 .PHONY : aesGladman/sha2.cpp.i
 
 aesGladman/sha2.s: aesGladman/sha2.cpp.s
@@ -5557,7 +5557,7 @@ aesGladman/sha2.s: aesGladman/sha2.cpp.s
 
 # target to generate assembly for a file
 aesGladman/sha2.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha2.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/aesGladman/sha2.cpp.s
 .PHONY : aesGladman/sha2.cpp.s
 
 irrXML.o: irrXML.cpp.o
@@ -5565,7 +5565,7 @@ irrXML.o: irrXML.cpp.o
 
 # target to build an object file
 irrXML.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/irrXML.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/irrXML.cpp.o
 .PHONY : irrXML.cpp.o
 
 irrXML.i: irrXML.cpp.i
@@ -5573,7 +5573,7 @@ irrXML.i: irrXML.cpp.i
 
 # target to preprocess a source file
 irrXML.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/irrXML.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/irrXML.cpp.i
 .PHONY : irrXML.cpp.i
 
 irrXML.s: irrXML.cpp.s
@@ -5581,7 +5581,7 @@ irrXML.s: irrXML.cpp.s
 
 # target to generate assembly for a file
 irrXML.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/irrXML.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/irrXML.cpp.s
 .PHONY : irrXML.cpp.s
 
 libpng/example.o: libpng/example.c.o
@@ -5589,7 +5589,7 @@ libpng/example.o: libpng/example.c.o
 
 # target to build an object file
 libpng/example.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/example.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/example.c.o
 .PHONY : libpng/example.c.o
 
 libpng/example.i: libpng/example.c.i
@@ -5597,7 +5597,7 @@ libpng/example.i: libpng/example.c.i
 
 # target to preprocess a source file
 libpng/example.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/example.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/example.c.i
 .PHONY : libpng/example.c.i
 
 libpng/example.s: libpng/example.c.s
@@ -5605,7 +5605,7 @@ libpng/example.s: libpng/example.c.s
 
 # target to generate assembly for a file
 libpng/example.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/example.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/example.c.s
 .PHONY : libpng/example.c.s
 
 libpng/png.o: libpng/png.c.o
@@ -5613,7 +5613,7 @@ libpng/png.o: libpng/png.c.o
 
 # target to build an object file
 libpng/png.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/png.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/png.c.o
 .PHONY : libpng/png.c.o
 
 libpng/png.i: libpng/png.c.i
@@ -5621,7 +5621,7 @@ libpng/png.i: libpng/png.c.i
 
 # target to preprocess a source file
 libpng/png.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/png.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/png.c.i
 .PHONY : libpng/png.c.i
 
 libpng/png.s: libpng/png.c.s
@@ -5629,7 +5629,7 @@ libpng/png.s: libpng/png.c.s
 
 # target to generate assembly for a file
 libpng/png.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/png.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/png.c.s
 .PHONY : libpng/png.c.s
 
 libpng/pngerror.o: libpng/pngerror.c.o
@@ -5637,7 +5637,7 @@ libpng/pngerror.o: libpng/pngerror.c.o
 
 # target to build an object file
 libpng/pngerror.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngerror.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngerror.c.o
 .PHONY : libpng/pngerror.c.o
 
 libpng/pngerror.i: libpng/pngerror.c.i
@@ -5645,7 +5645,7 @@ libpng/pngerror.i: libpng/pngerror.c.i
 
 # target to preprocess a source file
 libpng/pngerror.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngerror.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngerror.c.i
 .PHONY : libpng/pngerror.c.i
 
 libpng/pngerror.s: libpng/pngerror.c.s
@@ -5653,7 +5653,7 @@ libpng/pngerror.s: libpng/pngerror.c.s
 
 # target to generate assembly for a file
 libpng/pngerror.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngerror.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngerror.c.s
 .PHONY : libpng/pngerror.c.s
 
 libpng/pngget.o: libpng/pngget.c.o
@@ -5661,7 +5661,7 @@ libpng/pngget.o: libpng/pngget.c.o
 
 # target to build an object file
 libpng/pngget.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngget.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngget.c.o
 .PHONY : libpng/pngget.c.o
 
 libpng/pngget.i: libpng/pngget.c.i
@@ -5669,7 +5669,7 @@ libpng/pngget.i: libpng/pngget.c.i
 
 # target to preprocess a source file
 libpng/pngget.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngget.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngget.c.i
 .PHONY : libpng/pngget.c.i
 
 libpng/pngget.s: libpng/pngget.c.s
@@ -5677,7 +5677,7 @@ libpng/pngget.s: libpng/pngget.c.s
 
 # target to generate assembly for a file
 libpng/pngget.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngget.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngget.c.s
 .PHONY : libpng/pngget.c.s
 
 libpng/pngmem.o: libpng/pngmem.c.o
@@ -5685,7 +5685,7 @@ libpng/pngmem.o: libpng/pngmem.c.o
 
 # target to build an object file
 libpng/pngmem.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngmem.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngmem.c.o
 .PHONY : libpng/pngmem.c.o
 
 libpng/pngmem.i: libpng/pngmem.c.i
@@ -5693,7 +5693,7 @@ libpng/pngmem.i: libpng/pngmem.c.i
 
 # target to preprocess a source file
 libpng/pngmem.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngmem.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngmem.c.i
 .PHONY : libpng/pngmem.c.i
 
 libpng/pngmem.s: libpng/pngmem.c.s
@@ -5701,7 +5701,7 @@ libpng/pngmem.s: libpng/pngmem.c.s
 
 # target to generate assembly for a file
 libpng/pngmem.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngmem.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngmem.c.s
 .PHONY : libpng/pngmem.c.s
 
 libpng/pngpread.o: libpng/pngpread.c.o
@@ -5709,7 +5709,7 @@ libpng/pngpread.o: libpng/pngpread.c.o
 
 # target to build an object file
 libpng/pngpread.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngpread.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngpread.c.o
 .PHONY : libpng/pngpread.c.o
 
 libpng/pngpread.i: libpng/pngpread.c.i
@@ -5717,7 +5717,7 @@ libpng/pngpread.i: libpng/pngpread.c.i
 
 # target to preprocess a source file
 libpng/pngpread.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngpread.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngpread.c.i
 .PHONY : libpng/pngpread.c.i
 
 libpng/pngpread.s: libpng/pngpread.c.s
@@ -5725,7 +5725,7 @@ libpng/pngpread.s: libpng/pngpread.c.s
 
 # target to generate assembly for a file
 libpng/pngpread.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngpread.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngpread.c.s
 .PHONY : libpng/pngpread.c.s
 
 libpng/pngread.o: libpng/pngread.c.o
@@ -5733,7 +5733,7 @@ libpng/pngread.o: libpng/pngread.c.o
 
 # target to build an object file
 libpng/pngread.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngread.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngread.c.o
 .PHONY : libpng/pngread.c.o
 
 libpng/pngread.i: libpng/pngread.c.i
@@ -5741,7 +5741,7 @@ libpng/pngread.i: libpng/pngread.c.i
 
 # target to preprocess a source file
 libpng/pngread.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngread.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngread.c.i
 .PHONY : libpng/pngread.c.i
 
 libpng/pngread.s: libpng/pngread.c.s
@@ -5749,7 +5749,7 @@ libpng/pngread.s: libpng/pngread.c.s
 
 # target to generate assembly for a file
 libpng/pngread.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngread.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngread.c.s
 .PHONY : libpng/pngread.c.s
 
 libpng/pngrio.o: libpng/pngrio.c.o
@@ -5757,7 +5757,7 @@ libpng/pngrio.o: libpng/pngrio.c.o
 
 # target to build an object file
 libpng/pngrio.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrio.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrio.c.o
 .PHONY : libpng/pngrio.c.o
 
 libpng/pngrio.i: libpng/pngrio.c.i
@@ -5765,7 +5765,7 @@ libpng/pngrio.i: libpng/pngrio.c.i
 
 # target to preprocess a source file
 libpng/pngrio.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrio.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrio.c.i
 .PHONY : libpng/pngrio.c.i
 
 libpng/pngrio.s: libpng/pngrio.c.s
@@ -5773,7 +5773,7 @@ libpng/pngrio.s: libpng/pngrio.c.s
 
 # target to generate assembly for a file
 libpng/pngrio.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrio.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrio.c.s
 .PHONY : libpng/pngrio.c.s
 
 libpng/pngrtran.o: libpng/pngrtran.c.o
@@ -5781,7 +5781,7 @@ libpng/pngrtran.o: libpng/pngrtran.c.o
 
 # target to build an object file
 libpng/pngrtran.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrtran.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrtran.c.o
 .PHONY : libpng/pngrtran.c.o
 
 libpng/pngrtran.i: libpng/pngrtran.c.i
@@ -5789,7 +5789,7 @@ libpng/pngrtran.i: libpng/pngrtran.c.i
 
 # target to preprocess a source file
 libpng/pngrtran.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrtran.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrtran.c.i
 .PHONY : libpng/pngrtran.c.i
 
 libpng/pngrtran.s: libpng/pngrtran.c.s
@@ -5797,7 +5797,7 @@ libpng/pngrtran.s: libpng/pngrtran.c.s
 
 # target to generate assembly for a file
 libpng/pngrtran.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrtran.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrtran.c.s
 .PHONY : libpng/pngrtran.c.s
 
 libpng/pngrutil.o: libpng/pngrutil.c.o
@@ -5805,7 +5805,7 @@ libpng/pngrutil.o: libpng/pngrutil.c.o
 
 # target to build an object file
 libpng/pngrutil.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrutil.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrutil.c.o
 .PHONY : libpng/pngrutil.c.o
 
 libpng/pngrutil.i: libpng/pngrutil.c.i
@@ -5813,7 +5813,7 @@ libpng/pngrutil.i: libpng/pngrutil.c.i
 
 # target to preprocess a source file
 libpng/pngrutil.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrutil.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrutil.c.i
 .PHONY : libpng/pngrutil.c.i
 
 libpng/pngrutil.s: libpng/pngrutil.c.s
@@ -5821,7 +5821,7 @@ libpng/pngrutil.s: libpng/pngrutil.c.s
 
 # target to generate assembly for a file
 libpng/pngrutil.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrutil.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngrutil.c.s
 .PHONY : libpng/pngrutil.c.s
 
 libpng/pngset.o: libpng/pngset.c.o
@@ -5829,7 +5829,7 @@ libpng/pngset.o: libpng/pngset.c.o
 
 # target to build an object file
 libpng/pngset.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngset.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngset.c.o
 .PHONY : libpng/pngset.c.o
 
 libpng/pngset.i: libpng/pngset.c.i
@@ -5837,7 +5837,7 @@ libpng/pngset.i: libpng/pngset.c.i
 
 # target to preprocess a source file
 libpng/pngset.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngset.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngset.c.i
 .PHONY : libpng/pngset.c.i
 
 libpng/pngset.s: libpng/pngset.c.s
@@ -5845,7 +5845,7 @@ libpng/pngset.s: libpng/pngset.c.s
 
 # target to generate assembly for a file
 libpng/pngset.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngset.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngset.c.s
 .PHONY : libpng/pngset.c.s
 
 libpng/pngtest.o: libpng/pngtest.c.o
@@ -5853,7 +5853,7 @@ libpng/pngtest.o: libpng/pngtest.c.o
 
 # target to build an object file
 libpng/pngtest.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtest.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtest.c.o
 .PHONY : libpng/pngtest.c.o
 
 libpng/pngtest.i: libpng/pngtest.c.i
@@ -5861,7 +5861,7 @@ libpng/pngtest.i: libpng/pngtest.c.i
 
 # target to preprocess a source file
 libpng/pngtest.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtest.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtest.c.i
 .PHONY : libpng/pngtest.c.i
 
 libpng/pngtest.s: libpng/pngtest.c.s
@@ -5869,7 +5869,7 @@ libpng/pngtest.s: libpng/pngtest.c.s
 
 # target to generate assembly for a file
 libpng/pngtest.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtest.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtest.c.s
 .PHONY : libpng/pngtest.c.s
 
 libpng/pngtrans.o: libpng/pngtrans.c.o
@@ -5877,7 +5877,7 @@ libpng/pngtrans.o: libpng/pngtrans.c.o
 
 # target to build an object file
 libpng/pngtrans.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtrans.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtrans.c.o
 .PHONY : libpng/pngtrans.c.o
 
 libpng/pngtrans.i: libpng/pngtrans.c.i
@@ -5885,7 +5885,7 @@ libpng/pngtrans.i: libpng/pngtrans.c.i
 
 # target to preprocess a source file
 libpng/pngtrans.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtrans.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtrans.c.i
 .PHONY : libpng/pngtrans.c.i
 
 libpng/pngtrans.s: libpng/pngtrans.c.s
@@ -5893,7 +5893,7 @@ libpng/pngtrans.s: libpng/pngtrans.c.s
 
 # target to generate assembly for a file
 libpng/pngtrans.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtrans.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngtrans.c.s
 .PHONY : libpng/pngtrans.c.s
 
 libpng/pngwio.o: libpng/pngwio.c.o
@@ -5901,7 +5901,7 @@ libpng/pngwio.o: libpng/pngwio.c.o
 
 # target to build an object file
 libpng/pngwio.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwio.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwio.c.o
 .PHONY : libpng/pngwio.c.o
 
 libpng/pngwio.i: libpng/pngwio.c.i
@@ -5909,7 +5909,7 @@ libpng/pngwio.i: libpng/pngwio.c.i
 
 # target to preprocess a source file
 libpng/pngwio.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwio.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwio.c.i
 .PHONY : libpng/pngwio.c.i
 
 libpng/pngwio.s: libpng/pngwio.c.s
@@ -5917,7 +5917,7 @@ libpng/pngwio.s: libpng/pngwio.c.s
 
 # target to generate assembly for a file
 libpng/pngwio.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwio.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwio.c.s
 .PHONY : libpng/pngwio.c.s
 
 libpng/pngwrite.o: libpng/pngwrite.c.o
@@ -5925,7 +5925,7 @@ libpng/pngwrite.o: libpng/pngwrite.c.o
 
 # target to build an object file
 libpng/pngwrite.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwrite.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwrite.c.o
 .PHONY : libpng/pngwrite.c.o
 
 libpng/pngwrite.i: libpng/pngwrite.c.i
@@ -5933,7 +5933,7 @@ libpng/pngwrite.i: libpng/pngwrite.c.i
 
 # target to preprocess a source file
 libpng/pngwrite.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwrite.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwrite.c.i
 .PHONY : libpng/pngwrite.c.i
 
 libpng/pngwrite.s: libpng/pngwrite.c.s
@@ -5941,7 +5941,7 @@ libpng/pngwrite.s: libpng/pngwrite.c.s
 
 # target to generate assembly for a file
 libpng/pngwrite.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwrite.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwrite.c.s
 .PHONY : libpng/pngwrite.c.s
 
 libpng/pngwtran.o: libpng/pngwtran.c.o
@@ -5949,7 +5949,7 @@ libpng/pngwtran.o: libpng/pngwtran.c.o
 
 # target to build an object file
 libpng/pngwtran.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwtran.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwtran.c.o
 .PHONY : libpng/pngwtran.c.o
 
 libpng/pngwtran.i: libpng/pngwtran.c.i
@@ -5957,7 +5957,7 @@ libpng/pngwtran.i: libpng/pngwtran.c.i
 
 # target to preprocess a source file
 libpng/pngwtran.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwtran.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwtran.c.i
 .PHONY : libpng/pngwtran.c.i
 
 libpng/pngwtran.s: libpng/pngwtran.c.s
@@ -5965,7 +5965,7 @@ libpng/pngwtran.s: libpng/pngwtran.c.s
 
 # target to generate assembly for a file
 libpng/pngwtran.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwtran.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwtran.c.s
 .PHONY : libpng/pngwtran.c.s
 
 libpng/pngwutil.o: libpng/pngwutil.c.o
@@ -5973,7 +5973,7 @@ libpng/pngwutil.o: libpng/pngwutil.c.o
 
 # target to build an object file
 libpng/pngwutil.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwutil.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwutil.c.o
 .PHONY : libpng/pngwutil.c.o
 
 libpng/pngwutil.i: libpng/pngwutil.c.i
@@ -5981,7 +5981,7 @@ libpng/pngwutil.i: libpng/pngwutil.c.i
 
 # target to preprocess a source file
 libpng/pngwutil.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwutil.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwutil.c.i
 .PHONY : libpng/pngwutil.c.i
 
 libpng/pngwutil.s: libpng/pngwutil.c.s
@@ -5989,7 +5989,7 @@ libpng/pngwutil.s: libpng/pngwutil.c.s
 
 # target to generate assembly for a file
 libpng/pngwutil.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwutil.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/libpng/pngwutil.c.s
 .PHONY : libpng/pngwutil.c.s
 
 lzma/LzmaDec.o: lzma/LzmaDec.c.o
@@ -5997,7 +5997,7 @@ lzma/LzmaDec.o: lzma/LzmaDec.c.o
 
 # target to build an object file
 lzma/LzmaDec.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/lzma/LzmaDec.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/lzma/LzmaDec.c.o
 .PHONY : lzma/LzmaDec.c.o
 
 lzma/LzmaDec.i: lzma/LzmaDec.c.i
@@ -6005,7 +6005,7 @@ lzma/LzmaDec.i: lzma/LzmaDec.c.i
 
 # target to preprocess a source file
 lzma/LzmaDec.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/lzma/LzmaDec.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/lzma/LzmaDec.c.i
 .PHONY : lzma/LzmaDec.c.i
 
 lzma/LzmaDec.s: lzma/LzmaDec.c.s
@@ -6013,7 +6013,7 @@ lzma/LzmaDec.s: lzma/LzmaDec.c.s
 
 # target to generate assembly for a file
 lzma/LzmaDec.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/lzma/LzmaDec.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/lzma/LzmaDec.c.s
 .PHONY : lzma/LzmaDec.c.s
 
 os.o: os.cpp.o
@@ -6021,7 +6021,7 @@ os.o: os.cpp.o
 
 # target to build an object file
 os.cpp.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/os.cpp.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/os.cpp.o
 .PHONY : os.cpp.o
 
 os.i: os.cpp.i
@@ -6029,7 +6029,7 @@ os.i: os.cpp.i
 
 # target to preprocess a source file
 os.cpp.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/os.cpp.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/os.cpp.i
 .PHONY : os.cpp.i
 
 os.s: os.cpp.s
@@ -6037,7 +6037,7 @@ os.s: os.cpp.s
 
 # target to generate assembly for a file
 os.cpp.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/os.cpp.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/os.cpp.s
 .PHONY : os.cpp.s
 
 zlib/adler32.o: zlib/adler32.c.o
@@ -6045,7 +6045,7 @@ zlib/adler32.o: zlib/adler32.c.o
 
 # target to build an object file
 zlib/adler32.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/adler32.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/adler32.c.o
 .PHONY : zlib/adler32.c.o
 
 zlib/adler32.i: zlib/adler32.c.i
@@ -6053,7 +6053,7 @@ zlib/adler32.i: zlib/adler32.c.i
 
 # target to preprocess a source file
 zlib/adler32.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/adler32.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/adler32.c.i
 .PHONY : zlib/adler32.c.i
 
 zlib/adler32.s: zlib/adler32.c.s
@@ -6061,7 +6061,7 @@ zlib/adler32.s: zlib/adler32.c.s
 
 # target to generate assembly for a file
 zlib/adler32.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/adler32.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/adler32.c.s
 .PHONY : zlib/adler32.c.s
 
 zlib/compress.o: zlib/compress.c.o
@@ -6069,7 +6069,7 @@ zlib/compress.o: zlib/compress.c.o
 
 # target to build an object file
 zlib/compress.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/compress.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/compress.c.o
 .PHONY : zlib/compress.c.o
 
 zlib/compress.i: zlib/compress.c.i
@@ -6077,7 +6077,7 @@ zlib/compress.i: zlib/compress.c.i
 
 # target to preprocess a source file
 zlib/compress.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/compress.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/compress.c.i
 .PHONY : zlib/compress.c.i
 
 zlib/compress.s: zlib/compress.c.s
@@ -6085,7 +6085,7 @@ zlib/compress.s: zlib/compress.c.s
 
 # target to generate assembly for a file
 zlib/compress.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/compress.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/compress.c.s
 .PHONY : zlib/compress.c.s
 
 zlib/crc32.o: zlib/crc32.c.o
@@ -6093,7 +6093,7 @@ zlib/crc32.o: zlib/crc32.c.o
 
 # target to build an object file
 zlib/crc32.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/crc32.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/crc32.c.o
 .PHONY : zlib/crc32.c.o
 
 zlib/crc32.i: zlib/crc32.c.i
@@ -6101,7 +6101,7 @@ zlib/crc32.i: zlib/crc32.c.i
 
 # target to preprocess a source file
 zlib/crc32.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/crc32.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/crc32.c.i
 .PHONY : zlib/crc32.c.i
 
 zlib/crc32.s: zlib/crc32.c.s
@@ -6109,7 +6109,7 @@ zlib/crc32.s: zlib/crc32.c.s
 
 # target to generate assembly for a file
 zlib/crc32.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/crc32.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/crc32.c.s
 .PHONY : zlib/crc32.c.s
 
 zlib/deflate.o: zlib/deflate.c.o
@@ -6117,7 +6117,7 @@ zlib/deflate.o: zlib/deflate.c.o
 
 # target to build an object file
 zlib/deflate.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/deflate.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/deflate.c.o
 .PHONY : zlib/deflate.c.o
 
 zlib/deflate.i: zlib/deflate.c.i
@@ -6125,7 +6125,7 @@ zlib/deflate.i: zlib/deflate.c.i
 
 # target to preprocess a source file
 zlib/deflate.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/deflate.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/deflate.c.i
 .PHONY : zlib/deflate.c.i
 
 zlib/deflate.s: zlib/deflate.c.s
@@ -6133,7 +6133,7 @@ zlib/deflate.s: zlib/deflate.c.s
 
 # target to generate assembly for a file
 zlib/deflate.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/deflate.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/deflate.c.s
 .PHONY : zlib/deflate.c.s
 
 zlib/gzclose.o: zlib/gzclose.c.o
@@ -6141,7 +6141,7 @@ zlib/gzclose.o: zlib/gzclose.c.o
 
 # target to build an object file
 zlib/gzclose.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzclose.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzclose.c.o
 .PHONY : zlib/gzclose.c.o
 
 zlib/gzclose.i: zlib/gzclose.c.i
@@ -6149,7 +6149,7 @@ zlib/gzclose.i: zlib/gzclose.c.i
 
 # target to preprocess a source file
 zlib/gzclose.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzclose.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzclose.c.i
 .PHONY : zlib/gzclose.c.i
 
 zlib/gzclose.s: zlib/gzclose.c.s
@@ -6157,7 +6157,7 @@ zlib/gzclose.s: zlib/gzclose.c.s
 
 # target to generate assembly for a file
 zlib/gzclose.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzclose.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzclose.c.s
 .PHONY : zlib/gzclose.c.s
 
 zlib/gzlib.o: zlib/gzlib.c.o
@@ -6165,7 +6165,7 @@ zlib/gzlib.o: zlib/gzlib.c.o
 
 # target to build an object file
 zlib/gzlib.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzlib.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzlib.c.o
 .PHONY : zlib/gzlib.c.o
 
 zlib/gzlib.i: zlib/gzlib.c.i
@@ -6173,7 +6173,7 @@ zlib/gzlib.i: zlib/gzlib.c.i
 
 # target to preprocess a source file
 zlib/gzlib.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzlib.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzlib.c.i
 .PHONY : zlib/gzlib.c.i
 
 zlib/gzlib.s: zlib/gzlib.c.s
@@ -6181,7 +6181,7 @@ zlib/gzlib.s: zlib/gzlib.c.s
 
 # target to generate assembly for a file
 zlib/gzlib.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzlib.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzlib.c.s
 .PHONY : zlib/gzlib.c.s
 
 zlib/gzread.o: zlib/gzread.c.o
@@ -6189,7 +6189,7 @@ zlib/gzread.o: zlib/gzread.c.o
 
 # target to build an object file
 zlib/gzread.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzread.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzread.c.o
 .PHONY : zlib/gzread.c.o
 
 zlib/gzread.i: zlib/gzread.c.i
@@ -6197,7 +6197,7 @@ zlib/gzread.i: zlib/gzread.c.i
 
 # target to preprocess a source file
 zlib/gzread.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzread.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzread.c.i
 .PHONY : zlib/gzread.c.i
 
 zlib/gzread.s: zlib/gzread.c.s
@@ -6205,7 +6205,7 @@ zlib/gzread.s: zlib/gzread.c.s
 
 # target to generate assembly for a file
 zlib/gzread.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzread.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzread.c.s
 .PHONY : zlib/gzread.c.s
 
 zlib/gzwrite.o: zlib/gzwrite.c.o
@@ -6213,7 +6213,7 @@ zlib/gzwrite.o: zlib/gzwrite.c.o
 
 # target to build an object file
 zlib/gzwrite.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzwrite.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzwrite.c.o
 .PHONY : zlib/gzwrite.c.o
 
 zlib/gzwrite.i: zlib/gzwrite.c.i
@@ -6221,7 +6221,7 @@ zlib/gzwrite.i: zlib/gzwrite.c.i
 
 # target to preprocess a source file
 zlib/gzwrite.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzwrite.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzwrite.c.i
 .PHONY : zlib/gzwrite.c.i
 
 zlib/gzwrite.s: zlib/gzwrite.c.s
@@ -6229,7 +6229,7 @@ zlib/gzwrite.s: zlib/gzwrite.c.s
 
 # target to generate assembly for a file
 zlib/gzwrite.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzwrite.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/gzwrite.c.s
 .PHONY : zlib/gzwrite.c.s
 
 zlib/infback.o: zlib/infback.c.o
@@ -6237,7 +6237,7 @@ zlib/infback.o: zlib/infback.c.o
 
 # target to build an object file
 zlib/infback.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/infback.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/infback.c.o
 .PHONY : zlib/infback.c.o
 
 zlib/infback.i: zlib/infback.c.i
@@ -6245,7 +6245,7 @@ zlib/infback.i: zlib/infback.c.i
 
 # target to preprocess a source file
 zlib/infback.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/infback.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/infback.c.i
 .PHONY : zlib/infback.c.i
 
 zlib/infback.s: zlib/infback.c.s
@@ -6253,7 +6253,7 @@ zlib/infback.s: zlib/infback.c.s
 
 # target to generate assembly for a file
 zlib/infback.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/infback.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/infback.c.s
 .PHONY : zlib/infback.c.s
 
 zlib/inffast.o: zlib/inffast.c.o
@@ -6261,7 +6261,7 @@ zlib/inffast.o: zlib/inffast.c.o
 
 # target to build an object file
 zlib/inffast.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inffast.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inffast.c.o
 .PHONY : zlib/inffast.c.o
 
 zlib/inffast.i: zlib/inffast.c.i
@@ -6269,7 +6269,7 @@ zlib/inffast.i: zlib/inffast.c.i
 
 # target to preprocess a source file
 zlib/inffast.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inffast.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inffast.c.i
 .PHONY : zlib/inffast.c.i
 
 zlib/inffast.s: zlib/inffast.c.s
@@ -6277,7 +6277,7 @@ zlib/inffast.s: zlib/inffast.c.s
 
 # target to generate assembly for a file
 zlib/inffast.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inffast.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inffast.c.s
 .PHONY : zlib/inffast.c.s
 
 zlib/inflate.o: zlib/inflate.c.o
@@ -6285,7 +6285,7 @@ zlib/inflate.o: zlib/inflate.c.o
 
 # target to build an object file
 zlib/inflate.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inflate.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inflate.c.o
 .PHONY : zlib/inflate.c.o
 
 zlib/inflate.i: zlib/inflate.c.i
@@ -6293,7 +6293,7 @@ zlib/inflate.i: zlib/inflate.c.i
 
 # target to preprocess a source file
 zlib/inflate.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inflate.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inflate.c.i
 .PHONY : zlib/inflate.c.i
 
 zlib/inflate.s: zlib/inflate.c.s
@@ -6301,7 +6301,7 @@ zlib/inflate.s: zlib/inflate.c.s
 
 # target to generate assembly for a file
 zlib/inflate.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inflate.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inflate.c.s
 .PHONY : zlib/inflate.c.s
 
 zlib/inftrees.o: zlib/inftrees.c.o
@@ -6309,7 +6309,7 @@ zlib/inftrees.o: zlib/inftrees.c.o
 
 # target to build an object file
 zlib/inftrees.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inftrees.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inftrees.c.o
 .PHONY : zlib/inftrees.c.o
 
 zlib/inftrees.i: zlib/inftrees.c.i
@@ -6317,7 +6317,7 @@ zlib/inftrees.i: zlib/inftrees.c.i
 
 # target to preprocess a source file
 zlib/inftrees.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inftrees.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inftrees.c.i
 .PHONY : zlib/inftrees.c.i
 
 zlib/inftrees.s: zlib/inftrees.c.s
@@ -6325,7 +6325,7 @@ zlib/inftrees.s: zlib/inftrees.c.s
 
 # target to generate assembly for a file
 zlib/inftrees.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inftrees.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/inftrees.c.s
 .PHONY : zlib/inftrees.c.s
 
 zlib/trees.o: zlib/trees.c.o
@@ -6333,7 +6333,7 @@ zlib/trees.o: zlib/trees.c.o
 
 # target to build an object file
 zlib/trees.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/trees.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/trees.c.o
 .PHONY : zlib/trees.c.o
 
 zlib/trees.i: zlib/trees.c.i
@@ -6341,7 +6341,7 @@ zlib/trees.i: zlib/trees.c.i
 
 # target to preprocess a source file
 zlib/trees.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/trees.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/trees.c.i
 .PHONY : zlib/trees.c.i
 
 zlib/trees.s: zlib/trees.c.s
@@ -6349,7 +6349,7 @@ zlib/trees.s: zlib/trees.c.s
 
 # target to generate assembly for a file
 zlib/trees.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/trees.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/trees.c.s
 .PHONY : zlib/trees.c.s
 
 zlib/uncompr.o: zlib/uncompr.c.o
@@ -6357,7 +6357,7 @@ zlib/uncompr.o: zlib/uncompr.c.o
 
 # target to build an object file
 zlib/uncompr.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/uncompr.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/uncompr.c.o
 .PHONY : zlib/uncompr.c.o
 
 zlib/uncompr.i: zlib/uncompr.c.i
@@ -6365,7 +6365,7 @@ zlib/uncompr.i: zlib/uncompr.c.i
 
 # target to preprocess a source file
 zlib/uncompr.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/uncompr.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/uncompr.c.i
 .PHONY : zlib/uncompr.c.i
 
 zlib/uncompr.s: zlib/uncompr.c.s
@@ -6373,7 +6373,7 @@ zlib/uncompr.s: zlib/uncompr.c.s
 
 # target to generate assembly for a file
 zlib/uncompr.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/uncompr.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/uncompr.c.s
 .PHONY : zlib/uncompr.c.s
 
 zlib/zutil.o: zlib/zutil.c.o
@@ -6381,7 +6381,7 @@ zlib/zutil.o: zlib/zutil.c.o
 
 # target to build an object file
 zlib/zutil.c.o:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/zutil.c.o
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/zutil.c.o
 .PHONY : zlib/zutil.c.o
 
 zlib/zutil.i: zlib/zutil.c.i
@@ -6389,7 +6389,7 @@ zlib/zutil.i: zlib/zutil.c.i
 
 # target to preprocess a source file
 zlib/zutil.c.i:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/zutil.c.i
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/zutil.c.i
 .PHONY : zlib/zutil.c.i
 
 zlib/zutil.s: zlib/zutil.c.s
@@ -6397,7 +6397,7 @@ zlib/zutil.s: zlib/zutil.c.s
 
 # target to generate assembly for a file
 zlib/zutil.c.s:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/zutil.c.s
+	cd /data/intranet/software/avr-bettercopter/simulator && $(MAKE) -f irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/build.make irrlicht/source/Irrlicht/CMakeFiles/irrlicht.dir/zlib/zutil.c.s
 .PHONY : zlib/zutil.c.s
 
 # Help Target
@@ -7206,6 +7206,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /data/intranet/software/avr-fortmax-boards/bettercopter/simulator && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /data/intranet/software/avr-bettercopter/simulator && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
