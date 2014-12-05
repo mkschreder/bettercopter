@@ -38,13 +38,14 @@ LDFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS)
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
-kernel: 
-	make -C $(KERNEL_SOURCE) build
-	
+
 firmware: $(obj-y) $(APPDEPS)
 	make -C $(KERNEL_SOURCE) build
 	$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS)
-	 
+
+kernel: 
+	make -C $(KERNEL_SOURCE) build
+	
 simulator/simulator: $(obj-y) 
 	make -C simulator
 	make -C $(KERNEL_SOURCE) build
