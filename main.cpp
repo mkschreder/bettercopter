@@ -53,6 +53,8 @@ static FlightController fc;
 void sim_init(); 
 void sim_loop(); 
 
+static glm::vec3 ofs; 
+	
 extern "C" void app_init(void){
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
@@ -75,14 +77,19 @@ extern "C" void app_init(void){
 	set_pin(PWM_LEFT, MINCOMMAND); 
 	set_pin(PWM_RIGHT, MINCOMMAND); 
 	
-	glm::vec3 ofs; 
-	for(int c = 0; c < 10; c++){
-		int16_t ax, ay, az; 
+	for(int c = 0; c < 50; c++){
+		float ax, ay, az; 
 		get_accelerometer(&ax, &ay, &az);
-		ofs += glm::vec3((float)ax, (float)ay, 0); 
-		//_delay_ms(5); 
+		ofs += glm::vec3((float)ax, (float)ay, (float)az); 
+		kprintf("ofs: %-4d %-4d %-4d\n", 
+		(int16_t)(ax * 100), (int16_t)(ay* 100),(int16_t)( az*100)); 
+		
+		_delay_ms(10); 
 	}
-	ofs = ofs * 0.1f; 
+	ofs = ofs * 0.02f; ofs.z += 
+	kprintf("AOFS: %-4d %-4d %-4d\n", 
+		(int16_t)(ofs.x), (int16_t)(ofs.y), (int16_t)(ofs.z)); 
+		
 	//imu.setAccelOffset(ofs); 
 	
 	//uart_printf(PSTR("READY!\n")); 
@@ -95,12 +102,11 @@ extern "C" void app_loop(void){
 	//PORTC |= _BV(0); 
 	//DDRC |= _BV(0); 
 	
-	int16_t ax, ay, az; 
-	float gx, gy, gz;  
-	int16_t mx = 1, my = 0, mz = 0; 
+	glm::vec3 acc, gyr, mag(1, 0, 0); 
 	int16_t A = 0, P = 0, T = 0; 
+	
 	//int16_t throttle, yaw, pitch, roll; 
-	uint16_t rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode; 
+	static float rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode; 
 	
 	static timeout_t last_loop = time_get_clock(); 
 	
@@ -108,29 +114,36 @@ extern "C" void app_loop(void){
 	float dt = udt * 0.000001; 
 	last_loop = time_get_clock(); 
 	
-	get_accelerometer(&ax, &ay, &az); 
-	int16_t tmp = az; az = ay; ay = tmp; 
-	get_gyroscope(&gx, &gz, &gy);
+	get_accelerometer(&acc.x, &acc.y, &acc.z); 
+	//acc.x -= ofs.x; acc.y -= ofs.y; 
+	float tmp = acc.z; acc.z = acc.y; acc.y = tmp; 
+	
+	get_gyroscope(&gyr.x, &gyr.z, &gyr.y);
 	//get_magnetometer(&mx, &my, &mz);
 	//get_altitude(&A); 
 	//get_pressure(&P); 
 	//get_temperature(&T); 
 	
+	/*rc_throttle = 0.85f * rc_throttle + 0.15f * get_pin(RC_THROTTLE); 
+	rc_yaw = 0.85f * rc_yaw + 0.15f * get_pin(RC_YAW); 
+	rc_pitch = 0.85f * rc_pitch + 0.15f * get_pin(RC_PITCH); 
+	rc_roll = 0.85f * rc_roll + 0.15f * get_pin(RC_ROLL); */
 	rc_throttle = get_pin(RC_THROTTLE); 
 	rc_yaw = get_pin(RC_YAW); 
 	rc_pitch = get_pin(RC_PITCH); 
 	rc_roll = get_pin(RC_ROLL); 
 	rc_mode = get_pin(RC_MODE); 
-	//uint8_t rc_active = get_rc_commands(&throttle, &yaw, &pitch, &roll); 
 	
-	//imu.update(ax, ay, az, gx, gy, gz, mx, my, mz, A, P, T, dt); 
-	fc.updateSensors(
-		glm::vec3(ax, ay, az), 
-		glm::vec3(gx, gy, gz), 
-		glm::vec3(mx, my, mz), A, P, T); 
+	// prevent small changes when stick is not touched
+	if(abs(rc_pitch - 1500) < 20) rc_pitch = 1500; 
+	if(abs(rc_roll - 1500) < 20) rc_roll = 1500; 
+	if(abs(rc_yaw - 1500) < 20) rc_yaw = 1500; 
+	
+	fc.updateSensors(acc, gyr, mag, A, P, T); 
 	fc.update(rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode, udt);
 	
 	glm::i16vec4 thr = fc.getMotorThrust(); 
+	
 	if(armed && rc_throttle > 1050){ // prevent spin when arming!
 		set_pin(PWM_FRONT, thr[0]); 
 		set_pin(PWM_BACK, thr[1]); 
@@ -143,8 +156,8 @@ extern "C" void app_loop(void){
 		set_pin(PWM_LEFT, MINCOMMAND); 
 	}
 	
-	// check if being armed
-	if(!armed && rc_throttle < 1050 && rc_roll > 1800){
+	// arming sequence 
+	if(!armed && rc_throttle < 1050 && rc_roll > 1700){
 		if(!arm_progress) {
 			arm_timeout = timeout_from_now(1000000); 
 			arm_progress = 1; 
@@ -155,7 +168,7 @@ extern "C" void app_loop(void){
 			armed = 1; 
 			arm_progress = 0; 
 		}
-	} else if(armed && rc_throttle < 1050 && rc_roll < 1050){
+	} else if(armed && rc_throttle < 1050 && rc_roll < 1100){
 		if(!arm_progress) {
 			arm_timeout = timeout_from_now(1000000); 
 			arm_progress = 1; 
@@ -164,6 +177,8 @@ extern "C" void app_loop(void){
 			armed = 0; 
 			arm_progress = 0; 
 		}
+	} else if(timeout_expired(arm_timeout)){
+		arm_progress = 0; 
 	}
 	//PORTC &= ~_BV(0); 
 	
@@ -174,7 +189,7 @@ extern "C" void app_loop(void){
 		ax, 
 		ay, 
 		az);
-		
+	
 	kdebug("Gx100: [%d, %d, %d]\n", 
 		(int16_t)(gx * 100.0f), 
 		(int16_t)(gy * 100.0f), 
@@ -184,20 +199,17 @@ extern "C" void app_loop(void){
 		mx, 
 		my, 
 		mz);
-	kdebug("RC: [%d, %d, %d, %d]\n", 
-		rc_throttle, 
-		rc_yaw, 
-		rc_pitch, 
-		rc_roll, 
-		rc_mode); 
-	kprintf("THR: [%d, %d, %d, %d]\n", 
-		(armed)?thr[0]:MINCOMMAND, 
-		(armed)?thr[1]:MINCOMMAND, 
-		(armed)?thr[2]:MINCOMMAND, 
-		(armed)?thr[3]:MINCOMMAND);
-		
-	
-	
+	kdebug("RC: [%-4d, %-4d, %-4d, %-4d] ", 
+		(uint16_t)rc_throttle, 
+		(uint16_t)rc_yaw, 
+		(uint16_t)rc_pitch, 
+		(uint16_t)rc_roll, 
+		(uint16_t)rc_mode); 
+	kdebug("THR: [%-4d, %-4d, %-4d, %-4d]\n", 
+		(armed)?(uint16_t)thr[0]:MINCOMMAND, 
+		(armed)?(uint16_t)thr[1]:MINCOMMAND, 
+		(armed)?(uint16_t)thr[2]:MINCOMMAND, 
+		(armed)?(uint16_t)thr[3]:MINCOMMAND);
 }
 
 

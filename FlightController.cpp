@@ -6,28 +6,15 @@
 #include "FlightController.hpp"
 
 // Globals
-#define wrap_pi(x) (x < -M_PI ? x+M_PI*2 : (x > M_PI ? x - M_PI*2: x))
+#define STAB_PID_KP 2.1 // change 0 - 50
+#define STAB_PID_KI 0.4
+#define STAB_PID_KD 0.8
+#define STAB_PID_MAX 30.0
 
-long map(long x, long in_min, long in_max, long out_min, long out_max)
-{
-  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
-
-long constrain(long x, long a, long b){
-	if(x < a) return a; 
-	if(x > b) return b; 
-	return x; 
-}
-
-#define STAB_PID_KP 7.5
-#define STAB_PID_KI 0.0
-#define STAB_PID_KD 0.0
-#define STAB_PID_MAX 10.0
-
-#define RATE_PID_KP 1.2
+#define RATE_PID_KP 1.0 // change 
 #define RATE_PID_KI 0.0
 #define RATE_PID_KD 0.0
-#define RATE_PID_MAX 50
+#define RATE_PID_MAX 10.0
 
 FlightController::FlightController() : 
 	mPID({
@@ -58,33 +45,35 @@ void FlightController::update(
 	DDRC |= _BV(2); 
 	PORTC |= _BV(2); 
 	
-	float dt = 0.01f;
+	float dt = udt * 0.000001;
 	
 	glm::vec3 nacc = glm::normalize(mAcc);
 	static float pp = 0, py = 0, pr = 0; 
+	static float ap = 0, ay = 0, ar = 0; 
 	
-	float ap = glm::degrees(atan2(nacc.z , nacc.y )); 
-	float ay = 0.0f; 
-	float ar = glm::degrees(atan2(nacc.x , nacc.y )); 
+	ap = glm::degrees(atan2(nacc.z , nacc.y )); 
+	ay = 0; 
+	ar = glm::degrees(atan2(nacc.x , nacc.y )); 
 	
 	/*float gp = glm::degrees(mGyr.x * 0.01f); 
 	float gy = glm::degrees(mGyr.y * 0.01f); 
 	float gr = glm::degrees(mGyr.z * 0.01f); */
-	float gp = mGyr.x * dt; 
-	float gy = mGyr.y * dt; 
-	float gr = mGyr.z * dt; 
+	static float gp, gy, gr; 
+	gp = mGyr.x * dt; //0.9 * gp + mGyr.x * 0.1; 
+	gy = mGyr.y * dt ; //0.9 * gy + mGyr.y * 0.1; 
+	gr = mGyr.z * dt ; //0.9 * gr + mGyr.z * 0.1; 
 	
-	pp = 0.95 * (pp + gp) + 0.05 * ap; 
-	py = 0.95 * (py + gp) + 0.05 * ay; 
-	pr = 0.95 * (pr + gp) + 0.05 * ar; 
+	pp = 0.98 * (pp + gp) + 0.02 * ap; 
+	py = 0.98 * (py - gy) + 0.02 * ay; 
+	pr = 0.98 * (pr - gr) + 0.02 * ar; 
 	
 	float rcp = -map(rc_pitch, 1000, 2000, -45, 45); //(pitch - 1500.0); 
 	float rcr = -map(rc_roll, 1000, 2000, -45, 45); //(roll - 1500.0); 
-	float rcy = map(rc_yaw, 1000, 2000, -150, 150); //(yaw - 1500.0); 
+	float rcy = -map(rc_yaw, 1000, 2000, -150, 150); //(yaw - 1500.0); 
 	
 	float sp = constrain(mPID[PID_STAB_PITCH].get_pid(rcp - pp, dt), -250, 250); 
 	float sr = constrain(mPID[PID_STAB_ROLL].get_pid(rcr - pr, dt), -250, 250); 
-	float sy = constrain(mPID[PID_STAB_YAW].get_pid(rcy - py, dt), -360, 360); 
+	float sy = constrain(mPID[PID_STAB_YAW].get_pid((rcy)?(rcy):py, dt), -360, 360); 
 	
 	float rp = constrain(mPID[PID_RATE_PITCH].get_pid(sp - gp, dt), -500, 500); 
 	float rr = constrain(mPID[PID_RATE_ROLL].get_pid(sr - gr, dt), -500, 500); 
@@ -99,11 +88,28 @@ void FlightController::update(
 	
 	PORTC &= ~_BV(2); 
 	
-	kdebug("GP: %d, GR: %d, GY: %d\n", 
-		(int16_t)(gp), (int16_t)(gr), (int16_t)(gy)); 
-	kdebug("RP: %d, RR: %d, RY: %d\n", 
+	kdebug("RP: %-4d, RR: %-4d, RY: %-4d ", 
+		(int16_t)(rc_pitch ), (int16_t)(rc_roll ), (int16_t)(rc_yaw )); 
+	kdebug("RCP: %-4d, RCR: %-4d, RCY: %-4d ", 
+		(int16_t)(rcp ), (int16_t)(rcr ), (int16_t)(rcy )); 
+	kdebug("PP: %-4d, PR: %-4d, PY: %-4d ", 
+		(int16_t)(pp * 100), (int16_t)(pr * 100), (int16_t)(py * 100)); 
+	kdebug("AP: %-4d, AR: %-4d, AY: %-4d ", 
+		(int16_t)(ap * 100), (int16_t)(ar * 100), (int16_t)(ay * 100)); 
+	kprintf("A: %-4d, A: %-4d, A: %-4d ", 
+		(int16_t)(mAcc.x * 100), (int16_t)(mAcc.y * 100), (int16_t)(mAcc.z * 100)); 
+	kdebug("GP: %-4d, GR: %-4d, GY: %-4d ", 
+		(int16_t)(gp * 100), (int16_t)(gr * 100), (int16_t)(gy * 100)); 
+	kprintf("SP: %-4d, SR: %-4d, SY: %-4d ", 
+		(int16_t)(sp), (int16_t)(sr), (int16_t)(sy)); 
+	kdebug("RP: %-4d, RR: %-4d, RY: %-4d\n", 
 		(int16_t)(rp), (int16_t)(rr), (int16_t)(ry)); 
-		
+	kprintf("THR: [%-4d, %-4d, %-4d, %-4d]\n", 
+		mThrottle[0], 
+		mThrottle[1], 
+		mThrottle[2], 
+		mThrottle[3]
+	); 
 	/*
 	glm::vec4 dth; 
 	glm::vec3 target(0.0f, 1.0f, 0.0f); 

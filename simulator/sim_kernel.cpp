@@ -1,5 +1,5 @@
 #include "sim_kernel.h"
-#include <arch/soc.h>
+#include <kernel.h>
 
 #define FRONT_PIN PD3
 #define RIGHT_PIN PB1

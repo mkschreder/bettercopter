@@ -19,15 +19,16 @@ obj-y := main.o FlightController.o PID.o
 BUILD_DIR := build
 
 INCLUDES := -I. -I$(KERNEL_SOURCE) -I./$(KERNEL_SOURCE)/include/
-APPDEPS := simulator
+APPDEPS := 
 
 ifeq ($(CONFIG_SIMULATOR), y)
 	INCLUDES += -Isimulator
 	LDFLAGS += simulator/libquadcopter.a simulator/irrlicht/source/Irrlicht/libirrlicht.a -lBulletSoftBody -lBulletDynamics -lBulletCollision -lLinearMath -lm -lGL -lXxf86vm -lXext -lX11 -lpthread -ljpeg -lbz2
-	APPDEPS += simulator
+	APPDEPS += simulator/simulator
 	APPNAME := simulator/simulator
 else 
 	INCLUDES += -Iinclude -Iinclude/c++ 
+	APPDEPS += kernel
 	APPNAME := firmware
 endif
 
@@ -37,16 +38,20 @@ LDFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS)
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
-firmware: simulator/simulator
+kernel: 
+	make -C $(KERNEL_SOURCE) build
+	
+firmware: $(obj-y) $(APPDEPS)
 	make -C $(KERNEL_SOURCE) build
 	$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS)
 	 
-simulator/simulator: simulator/libquadcopter.a $(obj-y) 
+simulator/simulator: $(obj-y) 
+	make -C simulator
 	make -C $(KERNEL_SOURCE) build
 	$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
 
-simulator/libquadcopter.a: 
-	make -C simulator
+#simulator/libquadcopter.a: 
+#	make -C simulator
 	
 flash: $(APPNAME)
 	avr-objcopy -j .text -j .data -O ihex $(APPNAME) $(APPNAME).hex 
