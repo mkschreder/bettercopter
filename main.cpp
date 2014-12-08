@@ -55,12 +55,22 @@ void sim_loop();
 
 static glm::vec3 ofs; 
 	
+extern "C" void Sleep( volatile uint32_t dwMs ) ;
+
 extern "C" void app_init(void){
+	
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
 #endif
 
+	set_pin(LED_PIN, 0); 
 	time_delay(1000000); 
+	
+	set_pin(LED_PIN, 1); 
+	time_delay(500000); 
+	set_pin(LED_PIN, 0); 
+	time_delay(500000); 
+	set_pin(LED_PIN, 1); 
 	
 	srand(0x1234); 
 	/*
@@ -84,9 +94,9 @@ extern "C" void app_init(void){
 		kprintf("ofs: %-4d %-4d %-4d\n", 
 		(int16_t)(ax * 100), (int16_t)(ay* 100),(int16_t)( az*100)); 
 		
-		_delay_ms(10); 
+		time_delay(10000); 
 	}
-	ofs = ofs * 0.02f; ofs.z += 
+	ofs = ofs * 0.02f; ofs.z = 0; 
 	kprintf("AOFS: %-4d %-4d %-4d\n", 
 		(int16_t)(ofs.x), (int16_t)(ofs.y), (int16_t)(ofs.z)); 
 		
@@ -211,5 +221,10 @@ extern "C" void app_loop(void){
 		(armed)?(uint16_t)thr[2]:MINCOMMAND, 
 		(armed)?(uint16_t)thr[3]:MINCOMMAND);
 }
+
+DECLARE_MAIN_MODULE() {
+	.init = app_init,
+	.loop = app_loop
+}; 
 
 

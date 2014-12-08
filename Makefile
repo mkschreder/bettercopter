@@ -7,7 +7,7 @@ MAKEFLAGS += -I$(KERNEL_SOURCE)/
 CFLAGS := -Wstrict-prototypes -Wno-pointer-to-int-cast 
 CXXFLAGS := 
 LD := g++ 
-COMMON_FLAGS := -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive
+COMMON_FLAGS :=  -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive -fno-rtti -fno-exceptions
 
 srctree := $(CURDIR)/$(KERNEL_SOURCE)/
 include $(KERNEL_SOURCE)/arch/Makefile
@@ -27,21 +27,22 @@ ifeq ($(CONFIG_SIMULATOR), y)
 	APPDEPS += simulator/simulator
 	APPNAME := simulator/simulator
 else 
-	INCLUDES += -Iinclude -Iinclude/c++ 
+	INCLUDES += -Iinclude -Imartink/arch/arm/arm-none-eabi/include/ -Imartink/arch/arm/arm-none-eabi/gcc/arm-none-eabi/4.8.3/include/ -Iinclude/c++ 
 	APPDEPS += kernel
 	APPNAME := firmware
 endif
 
-CXXFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -std=c++11 
+CXXFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -fno-rtti -fno-exceptions -std=c++11 
 CFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -std=c99 
-LDFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) 
+LDFLAGS := $(CPU_FLAGS) $(COMMON_FLAGS) $(LDFLAGS) 
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
-
 firmware: $(obj-y) $(APPDEPS)
-	make -C $(KERNEL_SOURCE) build
-	$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS)
+	#make -C $(KERNEL_SOURCE) build
+	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
+	$(KERNEL_SOURCE)/built-in.o $(obj-y) \
+-Wl,--end-group -lm -lgcc
 
 kernel: 
 	make -C $(KERNEL_SOURCE) build
@@ -49,8 +50,13 @@ kernel:
 simulator/simulator: $(obj-y) 
 	make -C simulator
 	make -C $(KERNEL_SOURCE) build
-	$(LD) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
+	$(LDXX) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
 
+install_due: 
+	arm-none-eabi-objcopy -O binary $(APPNAME) $(APPNAME).bin
+	stty -F /dev/ttyACM0 raw ispeed 1200 ospeed 1200 cs8 -cstopb ignpar eol 255 eof 255
+	bossac -U false -e -w -v -b $(APPNAME).bin -R
+	
 #simulator/libquadcopter.a: 
 #	make -C simulator
 	
@@ -62,7 +68,7 @@ flash: $(APPNAME)
 	#sudo avrdude -p ${CPU_AVRDUDE} -b 57600 -c arduino -P /dev/ttyUSB3 -e -U flash:w:${TARGET}.hex
 	
 clean:
-	rm -f $(obj-y)
+	rm -rf build/
 	#make -C simulator clean
 	make -C $(KERNEL_SOURCE) APP=$(PWD) clean
 	
@@ -74,8 +80,10 @@ sim: $(obj-y) simulator/libquadcopter.a
 	make -C simulator
 	$(LD) $(LDFLAGS) -o simulator/quadcopter $(obj-y) 
 
-$(BUILD_DIR)/%.o: %.cpp
+$(BUILD_DIR)/%.o: %.cpp martink/.config
+	mkdir -p `dirname $@`
 	$(CXX) -c $(CXXFLAGS) $< -o $@
 
-$(BUILD_DIR)/%.o: %.c
+$(BUILD_DIR)/%.o: %.c martink/.config
+	mkdir -p `dirname $@`
 	$(CC) -c $(CFLAGS) $< -o $@

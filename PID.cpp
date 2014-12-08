@@ -5,6 +5,8 @@
 
 #include "PID.hpp"
 
+#define M_PI 3.14159265358979323846
+
 float AC_PID::get_p(float error) const
 {
     return (float)error * _kp;

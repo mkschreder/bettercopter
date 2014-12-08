@@ -1,10 +1,6 @@
 namespace std {
 
-#include <avr/io.h>
-
-#include <avr/interrupt.h>
-#include <util/delay.h>
-
+#include <inttypes.h>
 #include <stdint.h>
 
 typedef int8_t int8_t;

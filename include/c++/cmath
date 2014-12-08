@@ -22,6 +22,7 @@
 #ifndef __STD_HEADER_CMATH
 #define __STD_HEADER_CMATH 1
 
+
 #undef abs
 #undef acos
 #undef asin
@@ -45,8 +46,20 @@
 #undef sqrt
 #undef tan
 #undef tanh
+#undef isinf
+#undef isnan
 
 #undef __UCLIBCXX_HAS_LONG_DOUBLE__
+
+inline int isinf(double value)
+{
+	return 0; 
+}
+
+inline int isnan(double value)
+{
+	return 0; 
+}
 
 namespace std {
 	using ::acos;
@@ -69,6 +82,7 @@ namespace std {
 	using ::sin;
 	using ::sinh;
 	using ::sqrt;
+	using ::sqrtf;
 	using ::tan;
 	using ::tanh;
 	using ::isinf;
