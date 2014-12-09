@@ -27,7 +27,7 @@ ifeq ($(CONFIG_SIMULATOR), y)
 	APPDEPS += simulator/simulator
 	APPNAME := simulator/simulator
 else 
-	INCLUDES += -Iinclude -Imartink/arch/arm/arm-none-eabi/include/ -Imartink/arch/arm/arm-none-eabi/gcc/arm-none-eabi/4.8.3/include/ -Iinclude/c++ 
+	INCLUDES += -Iinclude -Iinclude/c++ 
 	APPDEPS += kernel
 	APPNAME := firmware
 endif
@@ -40,9 +40,10 @@ obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
 firmware: $(obj-y) $(APPDEPS)
 	#make -C $(KERNEL_SOURCE) build
-	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
+	$(LDXX) -flto -static -nostartfiles -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
+	-lc -lm -lgcc \
 	$(KERNEL_SOURCE)/built-in.o $(obj-y) \
--Wl,--end-group -lm -lgcc
+-Wl,--end-group 
 
 kernel: 
 	make -C $(KERNEL_SOURCE) build
@@ -53,6 +54,7 @@ simulator/simulator: $(obj-y)
 	$(LDXX) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
 
 install_due: 
+	arm-none-eabi-strip $(APPNAME)
 	arm-none-eabi-objcopy -O binary $(APPNAME) $(APPNAME).bin
 	stty -F /dev/ttyACM0 raw ispeed 1200 ospeed 1200 cs8 -cstopb ignpar eol 255 eof 255
 	bossac -U false -e -w -v -b $(APPNAME).bin -R
