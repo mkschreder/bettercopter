@@ -54,7 +54,7 @@ simulator/simulator: $(obj-y)
 	$(LDXX) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
 
 install_due: 
-	arm-none-eabi-strip $(APPNAME)
+	#arm-none-eabi-strip $(APPNAME)
 	arm-none-eabi-objcopy -O binary $(APPNAME) $(APPNAME).bin
 	stty -F /dev/ttyACM0 raw ispeed 1200 ospeed 1200 cs8 -cstopb ignpar eol 255 eof 255
 	bossac -U false -e -w -v -b $(APPNAME).bin -R
