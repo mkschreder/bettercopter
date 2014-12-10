@@ -22,11 +22,11 @@
 #ifndef __HEADER_CSTDLIB
 #define __HEADER_CSTDLIB 1
 
-extern "C" void uart_puts(const char *s);
+//extern "C" void uart_puts(const char *s);
 
 inline void abort(){
 	// empty
-	uart_puts("ABORT!\n"); 
+	puts("ABORT!\n"); 
 	while(1); 
 }
 

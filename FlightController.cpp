@@ -1,5 +1,29 @@
+/**
+	This file is part of martink project.
+
+	martink firmware project is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	martink firmware is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with martink firmware.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author: Martin K. Schröder
+	Email: info@fortmax.se
+	Github: https://github.com/mkschreder
+*/
 
 #include <stdio.h>
+
+extern "C" {
+#include <math.h>
+}
 
 #include <kernel.h>
 
@@ -19,6 +43,8 @@
 #define RATE_PID_KI 0.0
 #define RATE_PID_KD 0.0
 #define RATE_PID_MAX 10.0
+
+extern "C" double atan2(double x, double y); 
 
 FlightController::FlightController() : 
 	mPID({
@@ -52,9 +78,9 @@ void FlightController::update(
 	static float pp = 0, py = 0, pr = 0; 
 	static float ap = 0, ay = 0, ar = 0; 
 	
-	ap = glm::degrees(atan2(nacc.z , nacc.y )); 
+	ap = glm::degrees(::atan2(nacc.z , nacc.y )); 
 	ay = 0; 
-	ar = glm::degrees(atan2(nacc.x , nacc.y )); 
+	ar = glm::degrees(::atan2(nacc.x , nacc.y )); 
 	
 	/*float gp = glm::degrees(mGyr.x * 0.01f); 
 	float gy = glm::degrees(mGyr.y * 0.01f); 
