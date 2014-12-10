@@ -15,7 +15,6 @@ srctree := $(CURDIR)
 
 obj-y := main.o FlightController.o PID.o
 
-
 BUILD_DIR := build
 
 INCLUDES := -I. -I$(KERNEL_SOURCE) -I./$(KERNEL_SOURCE)/include/
@@ -38,11 +37,12 @@ LDFLAGS := $(CPU_FLAGS) $(COMMON_FLAGS) $(LDFLAGS)
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
-firmware: $(obj-y) $(APPDEPS)
+firmware: check $(obj-y) $(APPDEPS)
 	#make -C $(KERNEL_SOURCE) build
 	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
+	-lm -lgcc -lc \
 	$(KERNEL_SOURCE)/built-in.o $(obj-y) \
--Wl,--end-group -lm -lgcc
+-Wl,--end-group 
 
 kernel: 
 	make -C $(KERNEL_SOURCE) build
@@ -80,6 +80,8 @@ sim: $(obj-y) simulator/libquadcopter.a
 	make -C simulator
 	$(LD) $(LDFLAGS) -o simulator/quadcopter $(obj-y) 
 
+#@which $(CC) > /dev/null
+
 $(BUILD_DIR)/%.o: %.cpp martink/.config
 	mkdir -p `dirname $@`
 	$(CXX) -c $(CXXFLAGS) $< -o $@
@@ -87,3 +89,9 @@ $(BUILD_DIR)/%.o: %.cpp martink/.config
 $(BUILD_DIR)/%.o: %.c martink/.config
 	mkdir -p `dirname $@`
 	$(CC) -c $(CFLAGS) $< -o $@
+
+
+check: 
+ifeq (, $(shell which $(CC) 2>/dev/null))
+	$(error "$(CC) not found! You may need to install it!")
+endif
