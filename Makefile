@@ -39,7 +39,7 @@ obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
 firmware: check $(obj-y) $(APPDEPS)
 	#make -C $(KERNEL_SOURCE) build
-	$(LDXX) -flto -static -nostartfiles -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
+	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
 	-lc -lm -lgcc \
 	$(KERNEL_SOURCE)/built-in.o $(obj-y) \
 -Wl,--end-group 
@@ -54,14 +54,15 @@ simulator/simulator: $(obj-y)
 
 install_due: 
 	#arm-none-eabi-strip $(APPNAME)
+	arm-none-eabi-size $(APPNAME)
 	arm-none-eabi-objcopy -O binary $(APPNAME) $(APPNAME).bin
 	stty -F /dev/ttyACM0 raw ispeed 1200 ospeed 1200 cs8 -cstopb ignpar eol 255 eof 255
-	bossac -U false -e -w -v -b $(APPNAME).bin -R
+	bossac -U false -e -w -b $(APPNAME).bin -R
 	
 #simulator/libquadcopter.a: 
 #	make -C simulator
 	
-flash: $(APPNAME)
+install_mega: $(APPNAME)
 	avr-objcopy -j .text -j .data -O ihex $(APPNAME) $(APPNAME).hex 
 	avr-size -C -x $(APPNAME) 
 	sudo avrdude -p m328p -c usbasp -e -U flash:w:$(APPNAME).hex

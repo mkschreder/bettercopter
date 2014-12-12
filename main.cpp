@@ -57,10 +57,10 @@ void sim_loop();
 
 static glm::vec3 ofs; 
 	
-extern "C" void Sleep( volatile uint32_t dwMs ) ;
+//extern "C" void Sleep( volatile uint32_t dwMs ) ;
 
 extern "C" void app_init(void){
-	
+	kprintf("INIT..\n"); 
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
 #endif
@@ -223,10 +223,4 @@ extern "C" void app_loop(void){
 		(armed)?(uint16_t)thr[2]:MINCOMMAND, 
 		(armed)?(uint16_t)thr[3]:MINCOMMAND);
 }
-
-DECLARE_MAIN_MODULE() {
-	.init = app_init,
-	.loop = app_loop
-}; 
-
 
