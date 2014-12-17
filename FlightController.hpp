@@ -59,46 +59,23 @@ enum {
  
 class FlightController {
 public:
-	FlightController(); 
-	/*FlightController(SensorProvider *imu):FlightController(){
-		mSensors = imu;
-	}*/
-	/*
-	void setSensorProvider(SensorProvider *sensors) {
-		mSensors = sensors;
-	}*/
-	void updateSensors(
-		const glm::vec3 &acc, 
-		const glm::vec3 &gyr, 
-		const glm::vec3 &mag, 
-		float A, float P, float T) {
-		mAcc = acc; mGyr = gyr; mMag = mag; 
-		mAltitude = A; 
-		mPressure = P; 
-		mTemperature = T; 
+	FlightController();
+	void 	SetBoardInterface(struct fc_quad_interface *board){
+		mBoard = board;
 	}
 	
 	void reset(); 
 	
-	inline const glm::i16vec4 &getMotorThrust(){return mThrottle;}
-
-	/// the copter is controlled using commands
-	//virtual void command(RC_Command cmd, ivalue value);
-	virtual void update(
-		int16_t thr, 
-		int16_t yaw, 
-		int16_t pitch, 
-		int16_t roll, 
-		int16_t mode, 
-		timeout_t dt);
+	virtual void update(timestamp_t dt);
 protected:
-
+	struct fc_quad_interface *mBoard;
+	
 	AC_PID mPID[PID_COUNT]; 
 	
 	// outputs
-	glm::i16vec4 mThrottle;
-	glm::vec3 mAcc, mGyr, mMag; 
-	float mAltitude, mPressure, mTemperature; 
+	//glm::i16vec4 mThrottle;
+	//glm::vec3 mAcc, mGyr, mMag; 
+	//float mAltitude, mPressure, mTemperature; 
 	
 	//value mTargetYaw;
 	

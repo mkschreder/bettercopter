@@ -48,48 +48,57 @@
 
 //static struct uart uart;
 
-static uint8_t armed = 0, arm_progress = 0; 
-static timeout_t arm_timeout = 0; 
-//static IMU imu; 
-static FlightController fc; 
 
 void sim_init(); 
 void sim_loop(); 
 
 static glm::vec3 ofs; 
-	
-//extern "C" void Sleep( volatile uint32_t dwMs ) ;
 
-extern "C" void app_init(void){
+class Application {
+public:
+	Application(){}
+	void init();
+	void loop();
+private:
+	struct fc_quad_interface hardware; 
+	uint8_t armed, arm_progress; 
+	timestamp_t arm_timeout; 
+	FlightController fc; 
+};
+
+static Application app;
+
+void Application::init(){
 	kprintf("INIT..\n"); 
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
 #endif
+	mwii_init();
 
-	gpio_clear(LED_PIN); 
-	time_delay(1000000); 
+	hardware = mwii_get_fc_quad_interface();
+	fc.SetBoardInterface(&hardware);
 	
-	gpio_set(LED_PIN); 
-	time_delay(500000); 
-	gpio_clear(LED_PIN); 
-	time_delay(500000); 
-	gpio_set(LED_PIN); 
+	gpio_clear(MWII_LED_PIN); 
+	timestamp_delay_us(1000000L); 
+	
+	gpio_set(MWII_LED_PIN); 
+	timestamp_delay_us(500000L); 
+	gpio_clear(MWII_LED_PIN); 
+	timestamp_delay_us(500000L); 
+	gpio_set(MWII_LED_PIN); 
 	
 	srand(0x1234); 
 	/*
 	kdebug("WAITING...\n"); 
-	timeout_t tim = timeout_from_now(1000000); 
-	while(!timeout_expired(tim)){
+	timestamp_t tim = timestamp_from_now_us(1000000); 
+	while(!timestamp_expired(tim)){
 		kdebug("US: %d %d\n", time_get_clock(), time_clock_to_us(time_clock_since(tim))); 
 	}
 	kdebug("DONE!\n"); */
 	//fc.setSensorProvider(&imu); 
-	
-	set_pin(PWM_FRONT, MINCOMMAND); 
-	set_pin(PWM_BACK, MINCOMMAND); 
-	set_pin(PWM_LEFT, MINCOMMAND); 
-	set_pin(PWM_RIGHT, MINCOMMAND); 
-	
+
+	hardware.write_motors(&hardware, MINCOMMAND, MINCOMMAND, MINCOMMAND, MINCOMMAND); 
+	/*
 	for(int c = 0; c < 50; c++){
 		float ax, ay, az; 
 		get_accelerometer(&ax, &ay, &az);
@@ -97,64 +106,49 @@ extern "C" void app_init(void){
 		kprintf("ofs: %-4d %-4d %-4d\n", 
 		(int16_t)(ax * 100), (int16_t)(ay* 100),(int16_t)( az*100)); 
 		
-		time_delay(10000); 
+		timestamp_delay_us(10000); 
 	}
 	ofs = ofs * 0.02f; ofs.z = 0; 
 	kprintf("AOFS: %-4d %-4d %-4d\n", 
-		(int16_t)(ofs.x), (int16_t)(ofs.y), (int16_t)(ofs.z)); 
-		
-	//imu.setAccelOffset(ofs); 
-	
-	//uart_printf(PSTR("READY!\n")); 
+		(int16_t)(ofs.x), (int16_t)(ofs.y), (int16_t)(ofs.z)); */
 }
 
-extern "C" void app_loop(void){
+void Application::loop(){
 #ifdef CONFIG_SIMULATOR
 	sim_loop(); 
 #endif
-	//PORTC |= _BV(0); 
-	//DDRC |= _BV(0); 
+	mwii_process_events();
 	
-	glm::vec3 acc, gyr, mag(1, 0, 0); 
-	int16_t A = 0, P = 0, T = 0; 
+	static timestamp_t last_loop = timestamp_now(); 
+	uint16_t rc_thr, rc_yaw, rc_pitch, rc_roll, rc_aux0, rc_aux1;
+	hardware.read_receiver(&hardware, &rc_thr, &rc_yaw, &rc_pitch, &rc_roll, &rc_aux0, &rc_aux1);
 	
-	//int16_t throttle, yaw, pitch, roll; 
-	static float rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode; 
-	
-	static timeout_t last_loop = time_get_clock(); 
-	
-	timeout_t udt = time_clock_to_us(time_clock_since(last_loop)); 
+	timestamp_t udt = timestamp_ticks_to_us(timestamp_ticks_since(last_loop)); 
 	float dt = udt * 0.000001; 
-	last_loop = time_get_clock(); 
+	last_loop = timestamp_now(); 
 	
-	get_accelerometer(&acc.x, &acc.y, &acc.z); 
+	//get_accelerometer(&acc.x, &acc.y, &acc.z); 
 	//acc.x -= ofs.x; acc.y -= ofs.y; 
-	float tmp = acc.z; acc.z = acc.y; acc.y = tmp; 
+	//float tmp = acc.z; acc.z = acc.y; acc.y = tmp; 
 	
-	get_gyroscope(&gyr.x, &gyr.z, &gyr.y);
+	//get_gyroscope(&gyr.x, &gyr.z, &gyr.y);
 	//get_magnetometer(&mx, &my, &mz);
 	//get_altitude(&A); 
 	//get_pressure(&P); 
-	//get_temperature(&T); 
-	
-	/*rc_throttle = 0.85f * rc_throttle + 0.15f * get_pin(RC_THROTTLE); 
-	rc_yaw = 0.85f * rc_yaw + 0.15f * get_pin(RC_YAW); 
-	rc_pitch = 0.85f * rc_pitch + 0.15f * get_pin(RC_PITCH); 
-	rc_roll = 0.85f * rc_roll + 0.15f * get_pin(RC_ROLL); */
+	//get_temperature(&T);
+	/*
 	rc_throttle = get_pin(RC_THROTTLE); 
 	rc_yaw = get_pin(RC_YAW); 
 	rc_pitch = get_pin(RC_PITCH); 
 	rc_roll = get_pin(RC_ROLL); 
 	rc_mode = get_pin(RC_MODE); 
+	*/
 	
-	// prevent small changes when stick is not touched
-	if(abs(rc_pitch - 1500) < 20) rc_pitch = 1500; 
-	if(abs(rc_roll - 1500) < 20) rc_roll = 1500; 
-	if(abs(rc_yaw - 1500) < 20) rc_yaw = 1500; 
 	
-	fc.updateSensors(acc, gyr, mag, A, P, T); 
-	fc.update(rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode, udt);
-	
+	//fc.updateSensors(acc, gyr, mag, A, P, T); 
+	//fc.update(rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode, udt);
+	fc.update(udt);
+	/*
 	glm::i16vec4 thr = fc.getMotorThrust(); 
 	
 	if(armed && rc_throttle > 1050){ // prevent spin when arming!
@@ -168,36 +162,37 @@ extern "C" void app_loop(void){
 		set_pin(PWM_RIGHT, MINCOMMAND); 
 		set_pin(PWM_LEFT, MINCOMMAND); 
 	}
+	*/
 	
 	// arming sequence 
-	if(!armed && rc_throttle < 1050 && rc_roll > 1700){
+	if(!armed && rc_thr < 1050 && rc_roll > 1700){
 		if(!arm_progress) {
-			arm_timeout = timeout_from_now(1000000); 
+			arm_timeout = timestamp_from_now_us(1000000); 
 			arm_progress = 1; 
-		} else if(timeout_expired(arm_timeout)){
+		} else if(timestamp_expired(arm_timeout)){
 			kdebug("ARMED!\n"); 
 			fc.reset(); 
-			set_pin(LED_PIN, 1); 
+			gpio_set(MWII_LED_PIN); 
 			armed = 1; 
 			arm_progress = 0; 
 		}
-	} else if(armed && rc_throttle < 1050 && rc_roll < 1100){
+	} else if(armed && rc_thr < 1050 && rc_roll < 1100){
 		if(!arm_progress) {
-			arm_timeout = timeout_from_now(1000000); 
+			arm_timeout = timestamp_from_now_us(1000000); 
 			arm_progress = 1; 
-		} else if(timeout_expired(arm_timeout)){
-			set_pin(LED_PIN, 0); 
+		} else if(timestamp_expired(arm_timeout)){
+			gpio_clear(MWII_LED_PIN); 
 			armed = 0; 
 			arm_progress = 0; 
 		}
-	} else if(timeout_expired(arm_timeout)){
+	} else if(timestamp_expired(arm_timeout)){
 		arm_progress = 0; 
 	}
 	//PORTC &= ~_BV(0); 
 	
 	//get_magnetometer(&mx, &my, &mz);
 	//kprintf("STACK: %d\n", StackCount()); 
-	kdebug("DT: %lu, ", udt); 
+	/*kdebug("DT: %lu, ", udt); 
 	
 	kdebug("A: [%d, %d, %d]\n", 
 		ax, 
@@ -223,6 +218,14 @@ extern "C" void app_loop(void){
 		(armed)?(uint16_t)thr[0]:MINCOMMAND, 
 		(armed)?(uint16_t)thr[1]:MINCOMMAND, 
 		(armed)?(uint16_t)thr[2]:MINCOMMAND, 
-		(armed)?(uint16_t)thr[3]:MINCOMMAND);
+		(armed)?(uint16_t)thr[3]:MINCOMMAND);*/
 }
 
+
+extern "C" void app_init(void){
+	app.init();
+}
+
+extern "C" void app_loop(void){
+	app.loop();
+}
