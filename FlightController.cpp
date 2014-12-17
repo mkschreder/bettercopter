@@ -123,11 +123,11 @@ void FlightController::update(
 		(int16_t)(pp * 100), (int16_t)(pr * 100), (int16_t)(py * 100)); 
 	kdebug("AP: %-4d, AR: %-4d, AY: %-4d ", 
 		(int16_t)(ap * 100), (int16_t)(ar * 100), (int16_t)(ay * 100)); 
-	kprintf("A: %-4d, A: %-4d, A: %-4d ", 
+	kdebug("A: %-4d, A: %-4d, A: %-4d ", 
 		(int16_t)(mAcc.x * 100), (int16_t)(mAcc.y * 100), (int16_t)(mAcc.z * 100)); 
 	kdebug("GP: %-4d, GR: %-4d, GY: %-4d ", 
 		(int16_t)(gp * 100), (int16_t)(gr * 100), (int16_t)(gy * 100)); 
-	kprintf("SP: %-4d, SR: %-4d, SY: %-4d ", 
+	kdebug("SP: %-4d, SR: %-4d, SY: %-4d ", 
 		(int16_t)(sp), (int16_t)(sr), (int16_t)(sy)); 
 	kdebug("RP: %-4d, RR: %-4d, RY: %-4d\n", 
 		(int16_t)(rp), (int16_t)(rr), (int16_t)(ry)); 

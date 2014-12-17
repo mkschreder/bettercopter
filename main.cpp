@@ -27,6 +27,7 @@
 #include <boards/multiwii.h>*/
 
 #include <kernel.h>
+#include <disp/ssd1306.h>
 
 #ifdef CONFIG_SIMULATOR
 #include "simulator/sim_kernel.h"
@@ -65,14 +66,14 @@ extern "C" void app_init(void){
 	sim_init(); 
 #endif
 
-	set_pin(LED_PIN, 0); 
+	gpio_clear(LED_PIN); 
 	time_delay(1000000); 
 	
-	set_pin(LED_PIN, 1); 
+	gpio_set(LED_PIN); 
 	time_delay(500000); 
-	set_pin(LED_PIN, 0); 
+	gpio_clear(LED_PIN); 
 	time_delay(500000); 
-	set_pin(LED_PIN, 1); 
+	gpio_set(LED_PIN); 
 	
 	srand(0x1234); 
 	/*
@@ -195,6 +196,7 @@ extern "C" void app_loop(void){
 	//PORTC &= ~_BV(0); 
 	
 	//get_magnetometer(&mx, &my, &mz);
+	//kprintf("STACK: %d\n", StackCount()); 
 	kdebug("DT: %lu, ", udt); 
 	
 	kdebug("A: [%d, %d, %d]\n", 
@@ -211,7 +213,7 @@ extern "C" void app_loop(void){
 		mx, 
 		my, 
 		mz);
-	kdebug("RC: [%-4d, %-4d, %-4d, %-4d] ", 
+	kprintf("RC: [%-4d, %-4d, %-4d, %-4d] ", 
 		(uint16_t)rc_throttle, 
 		(uint16_t)rc_yaw, 
 		(uint16_t)rc_pitch, 
