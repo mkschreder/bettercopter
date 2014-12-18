@@ -48,7 +48,7 @@ kernel_tree:
 	if [ -d $(KERNEL_SOURCE) ]; \
 	then echo "Found kernel tree."; \
 	else git clone https://github.com/mkschreder/martink.git martink; \
-	echo "PLEASE MAKE SURE FOLLOWING ARE INSTALLED: libncurses5-dev avr-libc avr-gcc";
+	echo "PLEASE MAKE SURE FOLLOWING ARE INSTALLED: libncurses5-dev avr-libc avr-gcc";\
 	fi
 	
 kernel: 
