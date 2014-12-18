@@ -10,7 +10,7 @@ LD := g++
 COMMON_FLAGS :=  -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive -fno-rtti -fno-exceptions
 
 srctree := $(CURDIR)/$(KERNEL_SOURCE)/
-include $(KERNEL_SOURCE)/arch/Makefile
+-include $(KERNEL_SOURCE)/arch/Makefile
 srctree := $(CURDIR)
 
 obj-y := main.o FlightController.o PID.o
@@ -44,6 +44,13 @@ firmware: check $(obj-y) $(APPDEPS)
 	$(KERNEL_SOURCE)/built-in.o $(obj-y) \
 -Wl,--end-group 
 
+kernel_tree: 
+	if [ -d $(KERNEL_SOURCE) ]; \
+	then echo "Found kernel tree."; \
+	else git clone https://github.com/mkschreder/martink.git martink; \
+	echo "PLEASE MAKE SURE FOLLOWING ARE INSTALLED: libncurses5-dev avr-libc avr-gcc";
+	fi
+	
 kernel: 
 	make -C $(KERNEL_SOURCE) build
 	
@@ -74,7 +81,7 @@ clean:
 	#make -C simulator clean
 	make -C $(KERNEL_SOURCE) APP=$(PWD) clean
 	
-menuconfig: 
+menuconfig: kernel_tree
 	cp KConfig.app $(KERNEL_SOURCE)/
 	make -C $(KERNEL_SOURCE) menuconfig
 	
