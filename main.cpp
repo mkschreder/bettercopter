@@ -69,12 +69,12 @@ private:
 static Application app;
 
 void Application::init(){
-	kprintf("INIT..\n"); 
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
 #endif
 	mwii_init();
 
+	kprintf("INIT..\n"); 
 	hardware = mwii_get_fc_quad_interface();
 	fc.SetBoardInterface(&hardware);
 	
@@ -207,13 +207,8 @@ void Application::loop(){
 	kdebug("M: [%d, %d, %d]\n", 
 		mx, 
 		my, 
-		mz);
-	kprintf("RC: [%-4d, %-4d, %-4d, %-4d] ", 
-		(uint16_t)rc_throttle, 
-		(uint16_t)rc_yaw, 
-		(uint16_t)rc_pitch, 
-		(uint16_t)rc_roll, 
-		(uint16_t)rc_mode); 
+		mz);*/
+	/*
 	kdebug("THR: [%-4d, %-4d, %-4d, %-4d]\n", 
 		(armed)?(uint16_t)thr[0]:MINCOMMAND, 
 		(armed)?(uint16_t)thr[1]:MINCOMMAND, 

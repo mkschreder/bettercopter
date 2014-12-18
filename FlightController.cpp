@@ -134,6 +134,12 @@ void FlightController::update(timestamp_t udt){
 		(int16_t)(sp), (int16_t)(sr), (int16_t)(sy)); 
 	kdebug("RP: %-4d, RR: %-4d, RY: %-4d\n", 
 		(int16_t)(rp), (int16_t)(rr), (int16_t)(ry)); 
+	kprintf("RC: [%-4d, %-4d, %-4d, %-4d] ", 
+		(uint16_t)rc_thr, 
+		(uint16_t)rc_yaw, 
+		(uint16_t)rc_pitch, 
+		(uint16_t)rc_roll, 
+		(uint16_t)rc_aux0); 
 	kprintf("THR: [%-4d, %-4d, %-4d, %-4d]\n", 
 		throttle[0], 
 		throttle[1], 
