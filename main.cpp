@@ -124,7 +124,7 @@ void Application::loop(){
 	hardware.read_receiver(&hardware, &rc_thr, &rc_yaw, &rc_pitch, &rc_roll, &rc_aux0, &rc_aux1);
 	
 	timestamp_t udt = timestamp_ticks_to_us(timestamp_ticks_since(last_loop)); 
-	float dt = udt * 0.000001; 
+	//float dt = udt * 0.000001; 
 	last_loop = timestamp_now(); 
 	
 	//get_accelerometer(&acc.x, &acc.y, &acc.z); 
