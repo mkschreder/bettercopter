@@ -76,7 +76,10 @@ void Application::init(){
 
 	kprintf("INIT..\n"); 
 	hardware = mwii_get_fc_quad_interface();
+	
 	fc.SetBoardInterface(&hardware);
+	
+	gpio_configure(MWII_LED_PIN, GP_OUTPUT); 
 	
 	gpio_clear(MWII_LED_PIN); 
 	timestamp_delay_us(1000000L); 
@@ -127,42 +130,7 @@ void Application::loop(){
 	//float dt = udt * 0.000001; 
 	last_loop = timestamp_now(); 
 	
-	//get_accelerometer(&acc.x, &acc.y, &acc.z); 
-	//acc.x -= ofs.x; acc.y -= ofs.y; 
-	//float tmp = acc.z; acc.z = acc.y; acc.y = tmp; 
-	
-	//get_gyroscope(&gyr.x, &gyr.z, &gyr.y);
-	//get_magnetometer(&mx, &my, &mz);
-	//get_altitude(&A); 
-	//get_pressure(&P); 
-	//get_temperature(&T);
-	/*
-	rc_throttle = get_pin(RC_THROTTLE); 
-	rc_yaw = get_pin(RC_YAW); 
-	rc_pitch = get_pin(RC_PITCH); 
-	rc_roll = get_pin(RC_ROLL); 
-	rc_mode = get_pin(RC_MODE); 
-	*/
-	
-	
-	//fc.updateSensors(acc, gyr, mag, A, P, T); 
-	//fc.update(rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode, udt);
 	fc.update(udt);
-	/*
-	glm::i16vec4 thr = fc.getMotorThrust(); 
-	
-	if(armed && rc_throttle > 1050){ // prevent spin when arming!
-		set_pin(PWM_FRONT, thr[0]); 
-		set_pin(PWM_BACK, thr[1]); 
-		set_pin(PWM_RIGHT, thr[2]); 
-		set_pin(PWM_LEFT, thr[3]); 
-	} else {
-		set_pin(PWM_FRONT, MINCOMMAND); 
-		set_pin(PWM_BACK, MINCOMMAND); 
-		set_pin(PWM_RIGHT, MINCOMMAND); 
-		set_pin(PWM_LEFT, MINCOMMAND); 
-	}
-	*/
 	
 	// arming sequence 
 	if(!armed && rc_thr < 1050 && rc_roll > 1700){

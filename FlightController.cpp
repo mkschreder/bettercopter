@@ -68,8 +68,11 @@ void FlightController::update(timestamp_t udt){
 	uint16_t rc_thr, rc_yaw, rc_pitch, rc_roll, rc_aux0, rc_aux1;
 	glm::vec3 acc, gyr, mag;
 	
-	if(!mBoard) return;
-
+	if(!mBoard) {
+		kprintf("No board!\n"); 
+		return;
+	}
+	
 	mBoard->read_receiver(mBoard, &rc_thr, &rc_yaw, &rc_pitch, &rc_roll, &rc_aux0, &rc_aux1);
 	
 	float dt = udt * 0.000001;
@@ -81,9 +84,9 @@ void FlightController::update(timestamp_t udt){
 	static float pp = 0, py = 0, pr = 0; 
 	static float ap = 0, ay = 0, ar = 0; 
 	
-	ap = glm::degrees(::atan2(nacc.z , nacc.y )); 
+	ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
 	ay = 0; 
-	ar = glm::degrees(::atan2(nacc.x , nacc.y )); 
+	ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
 	
 	/*float gp = glm::degrees(gyr.x * 0.01f); 
 	float gy = glm::degrees(gyr.y * 0.01f); 
@@ -126,7 +129,7 @@ void FlightController::update(timestamp_t udt){
 		(int16_t)(pp * 100), (int16_t)(pr * 100), (int16_t)(py * 100)); 
 	kdebug("AP: %-4d, AR: %-4d, AY: %-4d ", 
 		(int16_t)(ap * 100), (int16_t)(ar * 100), (int16_t)(ay * 100)); 
-	kdebug("A: %-4d, A: %-4d, A: %-4d ", 
+	kprintf("A: %-4d, A: %-4d, A: %-4d ", 
 		(int16_t)(acc.x * 100), (int16_t)(acc.y * 100), (int16_t)(acc.z * 100)); 
 	kdebug("GP: %-4d, GR: %-4d, GY: %-4d ", 
 		(int16_t)(gp * 100), (int16_t)(gr * 100), (int16_t)(gy * 100)); 
