@@ -72,20 +72,20 @@ void Application::init(){
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
 #endif
-	mwii_init();
+	fc_init();
 
 	kprintf("INIT..\n"); 
-	hardware = mwii_get_fc_quad_interface();
+	hardware = fc_get_interface();
 	fc.SetBoardInterface(&hardware);
 	
-	gpio_clear(MWII_LED_PIN); 
+	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(1000000L); 
 	
-	gpio_set(MWII_LED_PIN); 
+	gpio_set(FC_LED_PIN); 
 	timestamp_delay_us(500000L); 
-	gpio_clear(MWII_LED_PIN); 
+	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(500000L); 
-	gpio_set(MWII_LED_PIN); 
+	gpio_set(FC_LED_PIN); 
 	
 	srand(0x1234); 
 	/*
@@ -117,7 +117,7 @@ void Application::loop(){
 #ifdef CONFIG_SIMULATOR
 	sim_loop(); 
 #endif
-	mwii_process_events();
+	fc_process_events();
 	
 	static timestamp_t last_loop = timestamp_now(); 
 	uint16_t rc_thr, rc_yaw, rc_pitch, rc_roll, rc_aux0, rc_aux1;
@@ -172,7 +172,7 @@ void Application::loop(){
 		} else if(timestamp_expired(arm_timeout)){
 			kdebug("ARMED!\n"); 
 			fc.reset(); 
-			gpio_set(MWII_LED_PIN); 
+			gpio_set(FC_LED_PIN); 
 			armed = 1; 
 			arm_progress = 0; 
 		}
@@ -181,7 +181,7 @@ void Application::loop(){
 			arm_timeout = timestamp_from_now_us(1000000); 
 			arm_progress = 1; 
 		} else if(timestamp_expired(arm_timeout)){
-			gpio_clear(MWII_LED_PIN); 
+			gpio_clear(FC_LED_PIN); 
 			armed = 0; 
 			arm_progress = 0; 
 		}
