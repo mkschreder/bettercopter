@@ -72,9 +72,9 @@ void Application::init(){
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
 #endif
-	fc_init();
+	//fc_init();
 
-	kprintf("INIT..\n"); 
+	kdebug("APP: starting Flight Control\n"); 
 	hardware = fc_get_interface();
 	fc.SetBoardInterface(&hardware);
 	
