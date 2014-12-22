@@ -85,7 +85,6 @@ void Application::init(){
 	timestamp_delay_us(500000L); 
 	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(500000L); 
-	gpio_set(FC_LED_PIN); 
 	
 	srand(0x1234); 
 	/*
@@ -221,6 +220,6 @@ extern "C" void app_init(void){
 	app.init();
 }
 
-extern "C" void app_loop(void){
+extern "C" void app_process_events(void){
 	app.loop();
 }
