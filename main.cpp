@@ -72,23 +72,19 @@ void Application::init(){
 #ifdef CONFIG_SIMULATOR
 	sim_init(); 
 #endif
-	mwii_init();
+	//fc_init();
 
-	kprintf("INIT..\n"); 
-	hardware = mwii_get_fc_quad_interface();
-	
+	kdebug("APP: starting Flight Control\n"); 
+	hardware = fc_get_interface();
 	fc.SetBoardInterface(&hardware);
 	
-	gpio_configure(MWII_LED_PIN, GP_OUTPUT); 
-	
-	gpio_clear(MWII_LED_PIN); 
+	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(1000000L); 
 	
-	gpio_set(MWII_LED_PIN); 
+	gpio_set(FC_LED_PIN); 
 	timestamp_delay_us(500000L); 
-	gpio_clear(MWII_LED_PIN); 
+	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(500000L); 
-	gpio_set(MWII_LED_PIN); 
 	
 	srand(0x1234); 
 	/*
@@ -120,7 +116,7 @@ void Application::loop(){
 #ifdef CONFIG_SIMULATOR
 	sim_loop(); 
 #endif
-	mwii_process_events();
+	fc_process_events();
 	
 	static timestamp_t last_loop = timestamp_now(); 
 	uint16_t rc_thr, rc_yaw, rc_pitch, rc_roll, rc_aux0, rc_aux1;
@@ -130,7 +126,42 @@ void Application::loop(){
 	//float dt = udt * 0.000001; 
 	last_loop = timestamp_now(); 
 	
+	//get_accelerometer(&acc.x, &acc.y, &acc.z); 
+	//acc.x -= ofs.x; acc.y -= ofs.y; 
+	//float tmp = acc.z; acc.z = acc.y; acc.y = tmp; 
+	
+	//get_gyroscope(&gyr.x, &gyr.z, &gyr.y);
+	//get_magnetometer(&mx, &my, &mz);
+	//get_altitude(&A); 
+	//get_pressure(&P); 
+	//get_temperature(&T);
+	/*
+	rc_throttle = get_pin(RC_THROTTLE); 
+	rc_yaw = get_pin(RC_YAW); 
+	rc_pitch = get_pin(RC_PITCH); 
+	rc_roll = get_pin(RC_ROLL); 
+	rc_mode = get_pin(RC_MODE); 
+	*/
+	
+	
+	//fc.updateSensors(acc, gyr, mag, A, P, T); 
+	//fc.update(rc_throttle, rc_yaw, rc_pitch, rc_roll, rc_mode, udt);
 	fc.update(udt);
+	/*
+	glm::i16vec4 thr = fc.getMotorThrust(); 
+	
+	if(armed && rc_throttle > 1050){ // prevent spin when arming!
+		set_pin(PWM_FRONT, thr[0]); 
+		set_pin(PWM_BACK, thr[1]); 
+		set_pin(PWM_RIGHT, thr[2]); 
+		set_pin(PWM_LEFT, thr[3]); 
+	} else {
+		set_pin(PWM_FRONT, MINCOMMAND); 
+		set_pin(PWM_BACK, MINCOMMAND); 
+		set_pin(PWM_RIGHT, MINCOMMAND); 
+		set_pin(PWM_LEFT, MINCOMMAND); 
+	}
+	*/
 	
 	// arming sequence 
 	if(!armed && rc_thr < 1050 && rc_roll > 1700){
@@ -140,7 +171,7 @@ void Application::loop(){
 		} else if(timestamp_expired(arm_timeout)){
 			kdebug("ARMED!\n"); 
 			fc.reset(); 
-			gpio_set(MWII_LED_PIN); 
+			gpio_set(FC_LED_PIN); 
 			armed = 1; 
 			arm_progress = 0; 
 		}
@@ -149,7 +180,7 @@ void Application::loop(){
 			arm_timeout = timestamp_from_now_us(1000000); 
 			arm_progress = 1; 
 		} else if(timestamp_expired(arm_timeout)){
-			gpio_clear(MWII_LED_PIN); 
+			gpio_clear(FC_LED_PIN); 
 			armed = 0; 
 			arm_progress = 0; 
 		}
@@ -189,6 +220,6 @@ extern "C" void app_init(void){
 	app.init();
 }
 
-extern "C" void app_loop(void){
+extern "C" void app_process_events(void){
 	app.loop();
 }

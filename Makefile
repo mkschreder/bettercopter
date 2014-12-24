@@ -32,6 +32,8 @@ else
 endif
 ifeq ($(CONFIG_AVR), y)
 	INCLUDES += -Iinclude/c++ 
+else
+	INCLUDES += -Iinclude/c++
 endif
 
 CXXFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -fno-rtti -fno-exceptions -std=c++11 
