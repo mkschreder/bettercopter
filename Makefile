@@ -26,9 +26,12 @@ ifeq ($(CONFIG_SIMULATOR), y)
 	APPDEPS += simulator/simulator
 	APPNAME := simulator/simulator
 else 
-	INCLUDES += -Iinclude -Iinclude/c++ 
+	INCLUDES += -Iinclude 
 	APPDEPS += kernel
 	APPNAME := firmware
+endif
+ifeq ($(CONFIG_AVR), y)
+	INCLUDES += -Iinclude/c++ 
 endif
 
 CXXFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -fno-rtti -fno-exceptions -std=c++11 
