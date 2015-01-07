@@ -35,7 +35,7 @@ extern "C" {
 
 // Globals
 #define STAB_PID_KP 2.1 // change 0 - 50
-#define STAB_PID_KI 0.4
+#define STAB_PID_KI 0
 #define STAB_PID_KD 0.8
 #define STAB_PID_MAX 30.0
 
@@ -56,6 +56,8 @@ FlightController::FlightController() :
 		AC_PID(RATE_PID_KP, RATE_PID_KI, RATE_PID_KD, RATE_PID_MAX)
 	}){
 	mBoard = 0; 
+	mArmInProgress = mArmed = false; 
+	mArmTimeout = 0; 
 }
 
 void FlightController::reset(){
@@ -88,15 +90,13 @@ void FlightController::update(timestamp_t udt){
 	ay = 0; 
 	ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
 	
-	/*float gp = glm::degrees(gyr.x * 0.01f); 
-	float gy = glm::degrees(gyr.y * 0.01f); 
-	float gr = glm::degrees(gyr.z * 0.01f); */
 	static float gp, gy, gr; 
 	gp = gyr.x * dt; //0.9 * gp + gyr.x * 0.1; 
-	gy = gyr.y * dt ; //0.9 * gy + gyr.y * 0.1; 
-	gr = gyr.z * dt ; //0.9 * gr + gyr.z * 0.1; 
+	gy = gyr.z * dt; //0.9 * gy + gyr.y * 0.1; 
+	gr = gyr.y * dt; //0.9 * gr + gyr.z * 0.1; 
 	
-	pp = 0.98 * (pp + gp) + 0.02 * ap; 
+	//pp = 0.98 * (pp + gp) + 0.02 * ap; 
+	pp = 0.98 * (pp + gp) + 0.02 * ap; // needs to be + here for our conf front/back/left/right
 	py = 0.98 * (py - gy) + 0.02 * ay; 
 	pr = 0.98 * (pr - gr) + 0.02 * ar; 
 	
@@ -113,14 +113,49 @@ void FlightController::update(timestamp_t udt){
 	float ry = constrain(mPID[PID_RATE_YAW].get_pid(sy - gy, dt), -500, 500); 
 	
 	glm::i16vec4 throttle = glm::i16vec4(
-		constrain(rc_thr					+ rp - ry, PWM_MIN, PWM_MAX), 
+		// front
+		constrain(rc_thr					+ rp - ry, PWM_MIN, PWM_MAX),
+		// back  
 		constrain(rc_thr					- rp - ry, PWM_MIN, PWM_MAX),
-		constrain(rc_thr + rr					 + ry, PWM_MIN, PWM_MAX), 
-		constrain(rc_thr - rr					 + ry, PWM_MIN, PWM_MAX) 
+		// left 
+		constrain(rc_thr - rr					 + ry, PWM_MIN, PWM_MAX),
+		// right
+		constrain(rc_thr + rr					 + ry, PWM_MIN, PWM_MAX)
 	); 
-
-	mBoard->write_motors(mBoard, throttle[0], throttle[1], throttle[2], throttle[3]);
 	
+	if(!mArmed && rc_thr < 1050 && rc_roll > 1700){
+		if(!mArmInProgress) {
+			mArmTimeout = timestamp_from_now_us(1000000); 
+			mArmInProgress = true; 
+		} else if(timestamp_expired(mArmTimeout)){
+			kdebug("ARMED!\n"); 
+			this->reset(); 
+			gpio_set(FC_LED_PIN); 
+			mArmed = true; 
+			mArmInProgress = false; 
+		}
+	} else if(mArmed && rc_thr < 1050 && rc_roll < 1100){
+		if(!mArmInProgress) {
+			mArmTimeout = timestamp_from_now_us(1000000); 
+			mArmInProgress = true; 
+		} else if(timestamp_expired(mArmTimeout)){
+			gpio_clear(FC_LED_PIN); 
+			mArmed = false; 
+			mArmInProgress = false; 
+		}
+	} else if(timestamp_expired(mArmTimeout)){
+		mArmInProgress = false; 
+	}
+	
+	if(!mArmed || !(rc_thr > 1050)){ // prevent spin when arming!
+		for(int c = 0; c < 4; c++){
+			throttle[c] = MINCOMMAND; 
+		}
+	}
+	
+	mBoard->write_motors(mBoard, 
+			throttle[0], throttle[1], throttle[2], throttle[3]);
+			
 	kdebug("RP: %-4d, RR: %-4d, RY: %-4d ", 
 		(int16_t)(rc_pitch ), (int16_t)(rc_roll ), (int16_t)(rc_yaw )); 
 	kdebug("RCP: %-4d, RCR: %-4d, RCY: %-4d ", 
@@ -129,15 +164,15 @@ void FlightController::update(timestamp_t udt){
 		(int16_t)(pp * 100), (int16_t)(pr * 100), (int16_t)(py * 100)); 
 	kdebug("AP: %-4d, AR: %-4d, AY: %-4d ", 
 		(int16_t)(ap * 100), (int16_t)(ar * 100), (int16_t)(ay * 100)); 
-	kprintf("A: %-4d, A: %-4d, A: %-4d ", 
+	kdebug("A: %-4d, A: %-4d, A: %-4d ", 
 		(int16_t)(acc.x * 100), (int16_t)(acc.y * 100), (int16_t)(acc.z * 100)); 
-	kdebug("GP: %-4d, GR: %-4d, GY: %-4d ", 
+	kprintf("GP: %-4d, GR: %-4d, GY: %-4d ", 
 		(int16_t)(gp * 100), (int16_t)(gr * 100), (int16_t)(gy * 100)); 
 	kdebug("SP: %-4d, SR: %-4d, SY: %-4d ", 
 		(int16_t)(sp), (int16_t)(sr), (int16_t)(sy)); 
-	kdebug("RP: %-4d, RR: %-4d, RY: %-4d\n", 
+	kprintf("RP: %-4d, RR: %-4d, RY: %-4d ", 
 		(int16_t)(rp), (int16_t)(rr), (int16_t)(ry)); 
-	kprintf("RC: [%-4d, %-4d, %-4d, %-4d] ", 
+	kdebug("RC: [%-4d, %-4d, %-4d, %-4d] ", 
 		(uint16_t)rc_thr, 
 		(uint16_t)rc_yaw, 
 		(uint16_t)rc_pitch, 

@@ -72,6 +72,9 @@ protected:
 	
 	AC_PID mPID[PID_COUNT]; 
 	
+	bool mArmed, mArmInProgress; 
+	timestamp_t mArmTimeout; 
+	
 	// outputs
 	//glm::i16vec4 mThrottle;
 	//glm::vec3 mAcc, mGyr, mMag; 

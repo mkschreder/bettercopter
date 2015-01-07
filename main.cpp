@@ -164,29 +164,7 @@ void Application::loop(){
 	*/
 	
 	// arming sequence 
-	if(!armed && rc_thr < 1050 && rc_roll > 1700){
-		if(!arm_progress) {
-			arm_timeout = timestamp_from_now_us(1000000); 
-			arm_progress = 1; 
-		} else if(timestamp_expired(arm_timeout)){
-			kdebug("ARMED!\n"); 
-			fc.reset(); 
-			gpio_set(FC_LED_PIN); 
-			armed = 1; 
-			arm_progress = 0; 
-		}
-	} else if(armed && rc_thr < 1050 && rc_roll < 1100){
-		if(!arm_progress) {
-			arm_timeout = timestamp_from_now_us(1000000); 
-			arm_progress = 1; 
-		} else if(timestamp_expired(arm_timeout)){
-			gpio_clear(FC_LED_PIN); 
-			armed = 0; 
-			arm_progress = 0; 
-		}
-	} else if(timestamp_expired(arm_timeout)){
-		arm_progress = 0; 
-	}
+	
 	//PORTC &= ~_BV(0); 
 	
 	//get_magnetometer(&mx, &my, &mz);
