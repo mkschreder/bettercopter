@@ -18,23 +18,127 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/canvasjs.min.js"></script>
 	<script src="app.js"></script>
 </head>
 <body>
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-xs-4">
+				<label>Pick device:</label> 
+			</div>
+			<div class="col-xs-5">
+				<select id="devices" style="width: 100%;">
+				</select>
+			</div>
+			<div class="col-xs-3">
+				<button id="refresh_devices" class="btn btn-default">Refresh</button>
+			</div>
+		</div>
+		
+		<label>Stabilization PID:</label>
+		<div class="row">
+			<div class="col-xs-4 box">
+				<label>Stabilize Yaw:</label>
+				<div class="form-group form-group-lg">
+					<label class="control-label">P:</label>
+					<input type="text" id="stab_pid_yaw_p"/>
+				</div>
+			</div>
+			<div class="col-xs-4 box">
+				<label>Stabilize Pitch:</label>
+				<div class="form-group form-group-lg">
+					<label class="control-label">P:</label>
+					<input type="text" id="stab_pid_pitch_p"/>
+				</div>
+			</div>
+			<div class="col-xs-4 box">
+				<label>Stabilize Roll:</label>
+				<div class="form-group form-group-lg">
+					<label class="control-label">P:</label>
+					<input type="text" id="stab_pid_roll_p"/>
+				</div>
+			</div>
+		</div>
+		
+		<label>Rate PID:</label>
+		<div class="row">
+			<div class="col-xs-4 box">
+				<label>Rate Yaw:</label>
+				<div class="form-group form-group-lg">
+					<label class="control-label">P:</label>
+					<input type="text" id="rate_pid_yaw_p"/><br>
+					<label class="control-label">I:</label>
+					<input type="text" id="rate_pid_yaw_i"/><br>
+					<label class="control-label">D:</label>
+					<input type="text" id="rate_pid_yaw_d"/><br>
+				</div>
+			</div>
+			<div class="col-xs-4 box">
+				<label>Rate Pitch:</label>
+				<div class="form-group form-group-lg">
+					<label class="control-label">P:</label>
+					<input type="text" id="rate_pid_pitch_p"/><br>
+					<label class="control-label">I:</label>
+					<input type="text" id="rate_pid_pitch_i"/><br>
+					<label class="control-label">D:</label>
+					<input type="text" id="rate_pid_pitch_d"/><br>
+				</div>
+			</div>
+			<div class="col-xs-4 box">
+				<label>Rate Roll:</label>
+				<div class="form-group form-group-lg">
+					<label class="control-label">P:</label>
+					<input type="text" id="rate_pid_roll_p"/><br>
+					<label class="control-label">I:</label>
+					<input type="text" id="rate_pid_roll_i"/><br>
+					<label class="control-label">D:</label>
+					<input type="text" id="rate_pid_roll_d"/><br>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-bordered">
+					<tr><th>test</th><th>Value</th>
+					<tr><td></td><td></td>
+				</table>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<div style="height: 300px; width: 100%" id="acc_chart"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12">
+				<div style="height: 300px; width: 100%" id="gyr_chart"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-12">
+				<textarea style="height: 200px;" class="form-control" id="log"></textarea>
+			</div>
+		</div>
+		
+	</div>
 	<embed id="speed" src="img/speed.svg" type="image/svg+xml"
       style="width: 100px; height:100px;"></embed>
-    <embed id="attitude" src="img/attitude.svg" type="image/svg+xml"
-      style="width: 100px; height:100px;"></embed>
-    <embed id="altimeter" src="img/altimeter.svg" type="image/svg+xml"
-      style="width: 100px; height:100px;"></embed>
-    <embed id="temperature" src="img/temperature.svg" type="image/svg+xml"
-      style="width: 100px; height:100px;"></embed>
-    <embed id="compass" src="img/compass.svg" type="image/svg+xml"
-      style="width: 100px; height:100px;"></embed>
-    <embed id="vsi" src="img/vsi.svg" type="image/svg+xml"
-      style="width: 100px; height:100px;"></embed>
-    <h1>Hello, World!</h1>
-    <button class="form-control">list</button>
+	<embed id="attitude" src="img/attitude.svg" type="image/svg+xml"
+		style="width: 100px; height:100px;"></embed>
+	<embed id="altimeter" src="img/altimeter.svg" type="image/svg+xml"
+		style="width: 100px; height:100px;"></embed>
+	<embed id="temperature" src="img/temperature.svg" type="image/svg+xml"
+		style="width: 100px; height:100px;"></embed>
+	<embed id="compass" src="img/compass.svg" type="image/svg+xml"
+		style="width: 100px; height:100px;"></embed>
+	<embed id="vsi" src="img/vsi.svg" type="image/svg+xml"
+		style="width: 100px; height:100px;"></embed>
 </body>
 </html>
 

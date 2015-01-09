@@ -87,6 +87,8 @@ void FlightController::update(timestamp_t udt){
 		return;
 	}
 	
+	frame_log("{\"frame_log\": {"); 
+	
 	// frame time in seconds, prevent zero
 	float dt = udt * 0.000001; if(dt < 0.000001) dt = 0.000001; 
 	
@@ -107,6 +109,8 @@ void FlightController::update(timestamp_t udt){
 	
 	// get altitude and store it into a filtered accumulator
 	float altitude = mBoard->read_altitude(mBoard); 
+	long pressure = mBoard->read_pressure(mBoard); 
+	float temp = mBoard->read_temperature(mBoard); 
 	
 	_CheckArm(rc.throttle, rc.roll, altitude); 
 	
@@ -139,23 +143,25 @@ void FlightController::update(timestamp_t udt){
 	mBoard->write_motors(mBoard, 
 			throttle[0], throttle[1], throttle[2], throttle[3]);
 	
-	kdebug("RP: %-4d, RR: %-4d, RY: %-4d ", 
-		(int16_t)(rc.pitch ), (int16_t)(rc.roll ), (int16_t)(rc.yaw )); 
-	
-	kdebug("A: %-4d, A: %-4d, A: %-4d ", 
+	frame_log("\"raw_acc_x\": %-4d, \"raw_acc_y\": %-4d, \"raw_acc_z\": %-4d, ", 
 		(int16_t)(acc.x * 100), (int16_t)(acc.y * 100), (int16_t)(acc.z * 100)); 
-
-	kdebug("RC: [%-4d, %-4d, %-4d, %-4d] ", 
+	frame_log("\"raw_gyr_x\": %-4d, \"raw_gyr_y\": %-4d, \"raw_gyr_z\": %-4d, ", 
+		(int16_t)(gyr.x * 100), (int16_t)(gyr.y * 100), (int16_t)(gyr.z * 100)); 
+	frame_log("\"raw_temp\": %-4d, \"raw_press\": %ld, \"raw_alt\": %-4d, ", 
+		(int16_t)(temp * 100), pressure, (int16_t)(altitude * 100)); 
+	
+	frame_log("\"rc\": [%-4d, %-4d, %-4d, %-4d], ", 
 		(uint16_t)rc.throttle, 
 		(uint16_t)rc.yaw, 
 		(uint16_t)rc.pitch, 
 		(uint16_t)rc.roll, 
 		(uint16_t)rc.aux0); 
 		
-	kprintf("THR: [%-4d, %-4d, %-4d, %-4d]\n", 
+	frame_log("\"out_thr\": [%-4d, %-4d, %-4d, %-4d],",
 		throttle[0], 
 		throttle[1], 
 		throttle[2], 
 		throttle[3]
 	); 
+	frame_log("\"dummy\": \"\"}}\n"); 
 }

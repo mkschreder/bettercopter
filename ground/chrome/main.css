@@ -1,11 +1,9 @@
 html, body {
-  height: 100%;
+  overflow-y: visible; 
 }
 
 body {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url("../hello_world.png"), -webkit-radial-gradient(center, ellipse cover,#FFFFFF 0%,#FAFAFA 50%,#F5F5F5 60%,#BEBEBE 100%);
+  background-color: #fefefe; 
   margin: 0;
   padding: 0;
 }
@@ -28,4 +26,21 @@ h1 {
 #hour, #min, #sec { stroke-width: 1px; fill: #333; stroke: #555; }
 
 #sec { stroke: #f55; }
+
+fieldset {
+	padding: 10px; 
+}
+
+.box { 
+	background-color: #fafafa; 
+}
+
+.box br {
+	clear: both;
+}
+
+.box input[type="text"] {
+	width: 80%; 
+	float: right; 
+}
 

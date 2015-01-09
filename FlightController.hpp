@@ -1,4 +1,4 @@
-/**
+/*
 	This file is part of martink project.
 
 	martink firmware project is free software: you can redistribute it and/or modify
@@ -38,7 +38,6 @@ typedef glm::i16vec3 ivec3;*/
 #define MAX_IVALUE (MAX_VALUE(ivalue)/2)
 #define MIN_IVALUE (-MAX_IVALUE)
 #define MAX_UIVALUE (MAX_VALUE(uivalue))
-
 
 /**
  * Flight controller that accepts inputs from RC control and calculates

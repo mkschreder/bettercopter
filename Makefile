@@ -13,7 +13,7 @@ srctree := $(CURDIR)/$(KERNEL_SOURCE)/
 -include $(KERNEL_SOURCE)/arch/Makefile
 srctree := $(CURDIR)
 
-obj-y := main.o FlightController.o PID.o ModeAltHold.o ModeStab.o
+obj-y := main.o FlightController.o PID.o ModeAltHold.o ModeStab.o PCLink.o
 
 BUILD_DIR := build
 
