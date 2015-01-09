@@ -22,14 +22,11 @@
 
 #include <math.h>
 
-#define GLM_FORCE_RADIANS
-
-#include <glm/vec3.hpp>
-#include <glm/mat3x3.hpp>
-#include <glm/gtc/quaternion.hpp>
-
+#include "types.hpp"
 #include "SensorProvider.hpp"
 #include "PID.hpp"
+#include "ModeStab.hpp"
+#include "ModeAltHold.hpp"
 
 //typedef unsigned short uint16_t;
 typedef signed short ivalue; 
@@ -42,15 +39,6 @@ typedef glm::i16vec3 ivec3;*/
 #define MIN_IVALUE (-MAX_IVALUE)
 #define MAX_UIVALUE (MAX_VALUE(uivalue))
 
-enum {
-	PID_STAB_PITCH, 
-	PID_STAB_YAW, 
-	PID_STAB_ROLL, 
-	PID_RATE_PITCH, 
-	PID_RATE_YAW, 
-	PID_RATE_ROLL,
-	PID_COUNT
-}; 
 
 /**
  * Flight controller that accepts inputs from RC control and calculates
@@ -59,6 +47,11 @@ enum {
  
 class FlightController {
 public:
+	enum FlightMode {
+		MODE_STABILIZE, 
+		MODE_ALT_HOLD
+	}; 
+	
 	FlightController();
 	void 	SetBoardInterface(struct fc_quad_interface *board){
 		mBoard = board;
@@ -70,20 +63,16 @@ public:
 protected:
 	struct fc_quad_interface *mBoard;
 	
-	AC_PID mPID[PID_COUNT]; 
+	// flight control modules
+	ModeAltHold mAltHoldCtrl; 
+	ModeStab 		mStabCtrl; 
+	FlightMode	mMode; 
 	
 	bool mArmed, mArmInProgress; 
 	timestamp_t mArmTimeout; 
 	
-	// outputs
-	//glm::i16vec4 mThrottle;
-	//glm::vec3 mAcc, mGyr, mMag; 
-	//float mAltitude, mPressure, mTemperature; 
-	
-	//value mTargetYaw;
-	
-	/*float mRCThrottle, mRCPitch, mRCYaw, mRCRoll;
-
-	float mAltErrorInt, mAltPrevError; */
-
+	// acceleration change per second
+	glm::vec3 mAccPrev; 
+protected: 
+	void _CheckArm(const uint16_t &rc_thr, const uint16_t &rc_roll, const float &def_alt); 
 }; 

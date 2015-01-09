@@ -33,103 +33,33 @@ extern "C" {
 
 #include "FlightController.hpp"
 
-// Globals
-#define STAB_PID_KP 2.1 // change 0 - 50
-#define STAB_PID_KI 0
-#define STAB_PID_KD 0.8
-#define STAB_PID_MAX 30.0
-
-#define RATE_PID_KP 1.0 // change 
-#define RATE_PID_KI 0.0
-#define RATE_PID_KD 0.0
-#define RATE_PID_MAX 10.0
+#define ALT_PID_KP 1.8 // altitude 
+#define ALT_PID_KI 0.018
+#define ALT_PID_KD 30.0
+#define ALT_PID_MAX 20.0
 
 extern "C" double atan2(double x, double y); 
 
-FlightController::FlightController() : 
-	mPID({
-		AC_PID(STAB_PID_KP, STAB_PID_KI, STAB_PID_KD, STAB_PID_MAX), 
-		AC_PID(STAB_PID_KP, STAB_PID_KI, STAB_PID_KD, STAB_PID_MAX), 
-		AC_PID(STAB_PID_KP, STAB_PID_KI, STAB_PID_KD, STAB_PID_MAX), 
-		AC_PID(RATE_PID_KP, RATE_PID_KI, RATE_PID_KD, RATE_PID_MAX), 
-		AC_PID(RATE_PID_KP, RATE_PID_KI, RATE_PID_KD, RATE_PID_MAX), 
-		AC_PID(RATE_PID_KP, RATE_PID_KI, RATE_PID_KD, RATE_PID_MAX)
-	}){
+FlightController::FlightController(){
 	mBoard = 0; 
 	mArmInProgress = mArmed = false; 
 	mArmTimeout = 0; 
+	mMode = MODE_STABILIZE; 
 }
 
 void FlightController::reset(){
-	for(int c = 0; c < 4; c++){
-		mPID[c].reset_I(); 
-	}
+	
 }
 
-void FlightController::update(timestamp_t udt){
-	uint16_t rc_thr, rc_yaw, rc_pitch, rc_roll, rc_aux0, rc_aux1;
-	glm::vec3 acc, gyr, mag;
-	
-	if(!mBoard) {
-		kprintf("No board!\n"); 
-		return;
-	}
-	
-	mBoard->read_receiver(mBoard, &rc_thr, &rc_yaw, &rc_pitch, &rc_roll, &rc_aux0, &rc_aux1);
-	
-	float dt = udt * 0.000001;
-
-	mBoard->read_accelerometer(mBoard, &acc.x, &acc.y, &acc.z);
-	mBoard->read_gyroscope(mBoard, &gyr.x, &gyr.y, &gyr.z);
-	
-	glm::vec3 nacc = glm::normalize(acc);
-	static float pp = 0, py = 0, pr = 0; 
-	static float ap = 0, ay = 0, ar = 0; 
-	
-	ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
-	ay = 0; 
-	ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
-	
-	static float gp, gy, gr; 
-	gp = gyr.x * dt; //0.9 * gp + gyr.x * 0.1; 
-	gy = gyr.z * dt; //0.9 * gy + gyr.y * 0.1; 
-	gr = gyr.y * dt; //0.9 * gr + gyr.z * 0.1; 
-	
-	//pp = 0.98 * (pp + gp) + 0.02 * ap; 
-	pp = 0.98 * (pp + gp) + 0.02 * ap; // needs to be + here for our conf front/back/left/right
-	py = 0.98 * (py - gy) + 0.02 * ay; 
-	pr = 0.98 * (pr - gr) + 0.02 * ar; 
-	
-	float rcp = -map(rc_pitch, 1000, 2000, -45, 45); //(pitch - 1500.0); 
-	float rcr = -map(rc_roll, 1000, 2000, -45, 45); //(roll - 1500.0); 
-	float rcy = -map(rc_yaw, 1000, 2000, -150, 150); //(yaw - 1500.0); 
-	
-	float sp = constrain(mPID[PID_STAB_PITCH].get_pid(rcp - pp, dt), -250, 250); 
-	float sr = constrain(mPID[PID_STAB_ROLL].get_pid(rcr - pr, dt), -250, 250); 
-	float sy = constrain(mPID[PID_STAB_YAW].get_pid((rcy)?(rcy):py, dt), -360, 360); 
-	
-	float rp = constrain(mPID[PID_RATE_PITCH].get_pid(sp - gp, dt), -500, 500); 
-	float rr = constrain(mPID[PID_RATE_ROLL].get_pid(sr - gr, dt), -500, 500); 
-	float ry = constrain(mPID[PID_RATE_YAW].get_pid(sy - gy, dt), -500, 500); 
-	
-	glm::i16vec4 throttle = glm::i16vec4(
-		// front
-		constrain(rc_thr					+ rp - ry, PWM_MIN, PWM_MAX),
-		// back  
-		constrain(rc_thr					- rp - ry, PWM_MIN, PWM_MAX),
-		// left 
-		constrain(rc_thr - rr					 + ry, PWM_MIN, PWM_MAX),
-		// right
-		constrain(rc_thr + rr					 + ry, PWM_MIN, PWM_MAX)
-	); 
-	
+void FlightController::_CheckArm(const uint16_t &rc_thr, const uint16_t &rc_roll, const float &raw_altitude){
 	if(!mArmed && rc_thr < 1050 && rc_roll > 1700){
 		if(!mArmInProgress) {
 			mArmTimeout = timestamp_from_now_us(1000000); 
 			mArmInProgress = true; 
 		} else if(timestamp_expired(mArmTimeout)){
 			kdebug("ARMED!\n"); 
-			this->reset(); 
+			mAltHoldCtrl.SetAltitude(raw_altitude); 
+			mStabCtrl.Reset(); 
 			gpio_set(FC_LED_PIN); 
 			mArmed = true; 
 			mArmInProgress = false; 
@@ -146,38 +76,82 @@ void FlightController::update(timestamp_t udt){
 	} else if(timestamp_expired(mArmTimeout)){
 		mArmInProgress = false; 
 	}
+}
+
+void FlightController::update(timestamp_t udt){
+	RCValues rc; 
+	glm::vec3 acc, gyr, mag;
 	
-	if(!mArmed || !(rc_thr > 1050)){ // prevent spin when arming!
-		for(int c = 0; c < 4; c++){
-			throttle[c] = MINCOMMAND; 
+	if(!mBoard) {
+		kprintf("No board!\n"); 
+		return;
+	}
+	
+	// frame time in seconds, prevent zero
+	float dt = udt * 0.000001; if(dt < 0.000001) dt = 0.000001; 
+	
+	mBoard->read_receiver(mBoard, &rc.throttle, &rc.yaw, &rc.pitch, &rc.roll, &rc.aux0, &rc.aux1);
+	
+	mBoard->read_accelerometer(mBoard, &acc.x, &acc.y, &acc.z);
+	mBoard->read_gyroscope(mBoard, &gyr.x, &gyr.y, &gyr.z);
+	
+	uint16_t exp_thr = rc.throttle; 
+	
+	// use log curve for throttle (adjust for values between 1000 to 2000)
+	if(rc.throttle >= 1000 && rc.throttle <= 2000){
+		// map 1000-2000 range into 0-1; 
+		float x = ((float)rc.throttle-1000.0)/1000.0; 
+		// calculate curve and map back to 1000-2000
+		exp_thr = (uint16_t)(2000.0+(log(x)) * 500.0); // 1+log(x)/2
+	}
+	
+	// get altitude and store it into a filtered accumulator
+	float altitude = mBoard->read_altitude(mBoard); 
+	
+	_CheckArm(rc.throttle, rc.roll, altitude); 
+	
+	if(mArmed && rc.throttle > 1050) {
+		if(rc.throttle < 1300){
+			mAltHoldCtrl.AdjustAltitude(-0.1); 
+		} else if(rc.throttle > 1700){
+			mAltHoldCtrl.AdjustAltitude(0.1); 
 		}
+	}
+	
+	ThrottleValues stab = mStabCtrl.ComputeThrottle(dt, rc, acc, gyr); 
+	ThrottleValues althold = mAltHoldCtrl.ComputeThrottle(altitude); 
+	
+	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
+	
+	// compute final motor throttle
+	if(!mArmed || (rc.throttle <= 1050)){ // prevent spin when arming!
+		throttle = ThrottleValues(MINCOMMAND); 
+	} else if(mMode == MODE_ALT_HOLD){
+		throttle = althold + stab; 
+	} else if(mMode == MODE_STABILIZE){
+		throttle = ThrottleValues(exp_thr) + stab; 
+	}
+	
+	for(int c = 0; c < 4; c++){
+		throttle[c] = constrain(throttle[c], PWM_MIN, PWM_MAX); 
 	}
 	
 	mBoard->write_motors(mBoard, 
 			throttle[0], throttle[1], throttle[2], throttle[3]);
-			
+	
 	kdebug("RP: %-4d, RR: %-4d, RY: %-4d ", 
-		(int16_t)(rc_pitch ), (int16_t)(rc_roll ), (int16_t)(rc_yaw )); 
-	kdebug("RCP: %-4d, RCR: %-4d, RCY: %-4d ", 
-		(int16_t)(rcp ), (int16_t)(rcr ), (int16_t)(rcy )); 
-	kdebug("PP: %-4d, PR: %-4d, PY: %-4d ", 
-		(int16_t)(pp * 100), (int16_t)(pr * 100), (int16_t)(py * 100)); 
-	kdebug("AP: %-4d, AR: %-4d, AY: %-4d ", 
-		(int16_t)(ap * 100), (int16_t)(ar * 100), (int16_t)(ay * 100)); 
+		(int16_t)(rc.pitch ), (int16_t)(rc.roll ), (int16_t)(rc.yaw )); 
+	
 	kdebug("A: %-4d, A: %-4d, A: %-4d ", 
 		(int16_t)(acc.x * 100), (int16_t)(acc.y * 100), (int16_t)(acc.z * 100)); 
-	kprintf("GP: %-4d, GR: %-4d, GY: %-4d ", 
-		(int16_t)(gp * 100), (int16_t)(gr * 100), (int16_t)(gy * 100)); 
-	kdebug("SP: %-4d, SR: %-4d, SY: %-4d ", 
-		(int16_t)(sp), (int16_t)(sr), (int16_t)(sy)); 
-	kprintf("RP: %-4d, RR: %-4d, RY: %-4d ", 
-		(int16_t)(rp), (int16_t)(rr), (int16_t)(ry)); 
+
 	kdebug("RC: [%-4d, %-4d, %-4d, %-4d] ", 
-		(uint16_t)rc_thr, 
-		(uint16_t)rc_yaw, 
-		(uint16_t)rc_pitch, 
-		(uint16_t)rc_roll, 
-		(uint16_t)rc_aux0); 
+		(uint16_t)rc.throttle, 
+		(uint16_t)rc.yaw, 
+		(uint16_t)rc.pitch, 
+		(uint16_t)rc.roll, 
+		(uint16_t)rc.aux0); 
+		
 	kprintf("THR: [%-4d, %-4d, %-4d, %-4d]\n", 
 		throttle[0], 
 		throttle[1], 

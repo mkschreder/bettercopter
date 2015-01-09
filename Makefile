@@ -13,7 +13,7 @@ srctree := $(CURDIR)/$(KERNEL_SOURCE)/
 -include $(KERNEL_SOURCE)/arch/Makefile
 srctree := $(CURDIR)
 
-obj-y := main.o FlightController.o PID.o
+obj-y := main.o FlightController.o PID.o ModeAltHold.o ModeStab.o
 
 BUILD_DIR := build
 
@@ -74,7 +74,7 @@ install_due:
 #simulator/libquadcopter.a: 
 #	make -C simulator
 	
-install_mega: $(APPNAME)
+install_mega: 
 	avr-objcopy -j .text -j .data -O ihex $(APPNAME) $(APPNAME).hex 
 	avr-size -C -x $(APPNAME) 
 	sudo avrdude -p m328p -c usbasp -e -U flash:w:$(APPNAME).hex
@@ -104,6 +104,7 @@ $(BUILD_DIR)/%.o: %.c martink/.config
 	mkdir -p `dirname $@`
 	$(CC) -c $(CFLAGS) $< -o $@
 
+-include $(obj-y:%.o=%.d)
 
 check: 
 ifeq (, $(shell which $(CC) 2>/dev/null))
