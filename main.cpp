@@ -45,9 +45,7 @@
 #include "FlightController.hpp"
 //#include "PCLink.hpp"
 
-#include "mavlink/mavlink_types.h"
-#include "mavlink/common/mavlink.h"
-#include "mavlink/minimal/mavlink.h"
+#include "mavlink.h"
 
 #define TXRX_NUM_CHANNELS 10
 #define DEVICE_TWI_ADDRESS 0x88
@@ -124,7 +122,12 @@ void Application::loop(){
 	fc.update(udt);
 	
 	PCLinkProcessEvents(); 
-	PCLinkSendHeartbeat(); 
+	
+	static timestamp_t hb_timeout = timestamp_from_now_us(1000000); 
+	if(timestamp_expired(hb_timeout)){
+		PCLinkSendHeartbeat(); 
+		hb_timeout = timestamp_from_now_us(1000000); 
+	}
 }
 
 void Application::PCLinkSendHeartbeat(){
@@ -147,8 +150,6 @@ void Application::PCLinkSendHeartbeat(){
 	 
 	// Pack the message
 	mavlink_msg_heartbeat_pack(mavlink_system.sysid, mavlink_system.compid, &msg, system_type, autopilot_type, system_mode, custom_mode, system_state);
-	 
-	// Copy the message to the send buffer
 	uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
 	 
 	// Send the message with the standard UART send function

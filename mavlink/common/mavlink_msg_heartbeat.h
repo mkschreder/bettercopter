@@ -19,7 +19,7 @@ typedef struct __mavlink_heartbeat_t
 #define MAVLINK_MSG_ID_0_CRC 50
 
 
-
+/*
 #define MAVLINK_MESSAGE_INFO_HEARTBEAT { \
 	"HEARTBEAT", \
 	6, \
@@ -31,7 +31,7 @@ typedef struct __mavlink_heartbeat_t
          { "mavlink_version", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_heartbeat_t, mavlink_version) }, \
          } \
 }
-
+*/
 
 /**
  * @brief Pack a heartbeat message

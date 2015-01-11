@@ -20,7 +20,7 @@ typedef struct __mavlink_attitude_t
 #define MAVLINK_MSG_ID_30_CRC 39
 
 
-
+/*
 #define MAVLINK_MESSAGE_INFO_ATTITUDE { \
 	"ATTITUDE", \
 	7, \
@@ -33,7 +33,7 @@ typedef struct __mavlink_attitude_t
          { "yawspeed", NULL, MAVLINK_TYPE_FLOAT, 0, 24, offsetof(mavlink_attitude_t, yawspeed) }, \
          } \
 }
-
+*/
 
 /**
  * @brief Pack a attitude message
