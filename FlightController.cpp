@@ -41,61 +41,23 @@ extern "C" {
 extern "C" double atan2(double x, double y); 
 
 FlightController::FlightController(){
-	mBoard = 0; 
-	mArmInProgress = mArmed = false; 
-	mArmTimeout = 0; 
 	mMode = MODE_STABILIZE; 
 }
 
-void FlightController::reset(){
-	
+void FlightController::Reset(){
+	//mAltHoldCtrl.SetAltitude(raw_altitude); 
+	mStabCtrl.Reset(); 
 }
 
-void FlightController::_CheckArm(const uint16_t &rc_thr, const uint16_t &rc_roll, const float &raw_altitude){
-	if(!mArmed && rc_thr < 1050 && rc_roll > 1700){
-		if(!mArmInProgress) {
-			mArmTimeout = timestamp_from_now_us(1000000); 
-			mArmInProgress = true; 
-		} else if(timestamp_expired(mArmTimeout)){
-			kdebug("ARMED!\n"); 
-			mAltHoldCtrl.SetAltitude(raw_altitude); 
-			mStabCtrl.Reset(); 
-			gpio_set(FC_LED_PIN); 
-			mArmed = true; 
-			mArmInProgress = false; 
-		}
-	} else if(mArmed && rc_thr < 1050 && rc_roll < 1100){
-		if(!mArmInProgress) {
-			mArmTimeout = timestamp_from_now_us(1000000); 
-			mArmInProgress = true; 
-		} else if(timestamp_expired(mArmTimeout)){
-			gpio_clear(FC_LED_PIN); 
-			mArmed = false; 
-			mArmInProgress = false; 
-		}
-	} else if(timestamp_expired(mArmTimeout)){
-		mArmInProgress = false; 
-	}
-}
-
-void FlightController::update(timestamp_t udt){
-	RCValues rc; 
-	glm::vec3 acc, gyr, mag;
+ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,  
+		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag,
+		float altitude
+	){
 	
-	if(!mBoard) {
-		kprintf("No board!\n"); 
-		return;
-	}
-	
-	frame_log("{\"frame_log\": {"); 
+	//frame_log("{\"frame_log\": {"); 
 	
 	// frame time in seconds, prevent zero
-	float dt = udt * 0.000001; if(dt < 0.000001) dt = 0.000001; 
-	
-	mBoard->read_receiver(mBoard, &rc.throttle, &rc.yaw, &rc.pitch, &rc.roll, &rc.aux0, &rc.aux1);
-	
-	mBoard->read_accelerometer(mBoard, &acc.x, &acc.y, &acc.z);
-	mBoard->read_gyroscope(mBoard, &gyr.x, &gyr.y, &gyr.z);
+	if(dt < 0.000001) dt = 0.000001; 
 	
 	uint16_t exp_thr = rc.throttle; 
 	
@@ -107,14 +69,7 @@ void FlightController::update(timestamp_t udt){
 		exp_thr = (uint16_t)(2000.0+(log(x)) * 500.0); // 1+log(x)/2
 	}
 	
-	// get altitude and store it into a filtered accumulator
-	float altitude = mBoard->read_altitude(mBoard); 
-	long pressure = mBoard->read_pressure(mBoard); 
-	float temp = mBoard->read_temperature(mBoard); 
-	
-	_CheckArm(rc.throttle, rc.roll, altitude); 
-	
-	if(mArmed && rc.throttle > 1050) {
+	if(rc.throttle > 1050) {
 		if(rc.throttle < 1300){
 			mAltHoldCtrl.AdjustAltitude(-0.1); 
 		} else if(rc.throttle > 1700){
@@ -128,9 +83,7 @@ void FlightController::update(timestamp_t udt){
 	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
 	
 	// compute final motor throttle
-	if(!mArmed || (rc.throttle <= 1050)){ // prevent spin when arming!
-		throttle = ThrottleValues(MINCOMMAND); 
-	} else if(mMode == MODE_ALT_HOLD){
+	if(mMode == MODE_ALT_HOLD){
 		throttle = althold + stab; 
 	} else if(mMode == MODE_STABILIZE){
 		throttle = ThrottleValues(exp_thr) + stab; 
@@ -140,9 +93,8 @@ void FlightController::update(timestamp_t udt){
 		throttle[c] = constrain(throttle[c], PWM_MIN, PWM_MAX); 
 	}
 	
-	mBoard->write_motors(mBoard, 
-			throttle[0], throttle[1], throttle[2], throttle[3]);
-	
+	return throttle; 
+	/*
 	frame_log("\"raw_acc_x\": %-4d, \"raw_acc_y\": %-4d, \"raw_acc_z\": %-4d, ", 
 		(int16_t)(acc.x * 100), (int16_t)(acc.y * 100), (int16_t)(acc.z * 100)); 
 	frame_log("\"raw_gyr_x\": %-4d, \"raw_gyr_y\": %-4d, \"raw_gyr_z\": %-4d, ", 
@@ -164,4 +116,5 @@ void FlightController::update(timestamp_t udt){
 		throttle[3]
 	); 
 	frame_log("\"dummy\": \"\"}}\n"); 
+	*/
 }

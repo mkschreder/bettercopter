@@ -43,7 +43,9 @@
 
 #include "Application.hpp"
 #include "FlightController.hpp"
-//#include "PCLink.hpp"
+#include "PCLink.hpp"
+#include "ArmSwitch.hpp"
+#include "types.hpp"
 
 #include "mavlink.h"
 
@@ -65,18 +67,18 @@ public:
 	void loop();
 	
 public: 
-	bool PCLinkReceiveMessage(mavlink_message_t *msg); 
-	void PCLinkSendHeartbeat(); 
 	void PCLinkProcessEvents(); 
 	
 	void WriteConfig(const AppConfig &conf); 
 	void ReadConfig(AppConfig &conf); 
 private:
-	struct fc_quad_interface hardware; 
+	fc_board_t 		mBoard; 
 	uint8_t armed, arm_progress; 
 	timestamp_t arm_timeout; 
 	FlightController fc; 
-	serial_dev_t mPCSerial; 
+	PCLink				mPCLink; 
+	ArmSwitch 		mArmSwitch; 
+	serial_dev_t 	mPCSerial; 
 };
 
 static Application app;
@@ -88,8 +90,7 @@ void Application::init(){
 	//fc_init();
 
 	kprintf("APP: Bettercopter Flight Control\n"); 
-	hardware = fc_get_interface();
-	fc.SetBoardInterface(&hardware);
+	mBoard = fc_get_interface();
 	
 	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(1000000L); 
@@ -101,7 +102,7 @@ void Application::init(){
 	
 	srand(0x1234); 
 	
-	mPCSerial = hardware.get_pc_link_interface(&hardware); 
+	mPCSerial = fc_get_pc_link_interface(mBoard); 
 	//pc_link.SetSerialInterface(hardware.get_pc_link_interface(&hardware)); 
 }
 
@@ -109,84 +110,59 @@ void Application::loop(){
 #ifdef CONFIG_SIMULATOR
 	sim_loop(); 
 #endif
+	static uint32_t loop_nr = 0; loop_nr++; 
+	RCValues rc; 
+	glm::vec3 acc, gyr, mag; 
+	
 	fc_process_events();
 	
 	static timestamp_t last_loop = timestamp_now(); 
-	uint16_t rc_thr, rc_yaw, rc_pitch, rc_roll, rc_aux0, rc_aux1;
-	hardware.read_receiver(&hardware, &rc_thr, &rc_yaw, &rc_pitch, &rc_roll, &rc_aux0, &rc_aux1);
-	
 	timestamp_t udt = timestamp_ticks_to_us(timestamp_ticks_since(last_loop)); 
-	//float dt = udt * 0.000001; 
 	last_loop = timestamp_now(); 
 	
-	fc.update(udt);
+	float dt = udt * 0.000001; 
+	
+	fc_read_receiver(mBoard, &rc.throttle, &rc.yaw, &rc.pitch, &rc.roll, &rc.aux0, &rc.aux1);
+	fc_read_accelerometer(mBoard, &acc.x, &acc.y, &acc.z);
+	fc_read_gyroscope(mBoard, &gyr.x, &gyr.y, &gyr.z);
+	float altitude = 	fc_read_altitude(mBoard); 
+	//long pressure = 	fc_read_pressure(mBoard); 
+	//float temp = 			fc_read_temperature(mBoard); 
+	
+	if(!mArmSwitch.IsArmed() && mArmSwitch.TryArm(rc)){
+		fc.Reset(); 
+		gpio_set(FC_LED_PIN); 
+	} else if(mArmSwitch.IsArmed() && mArmSwitch.TryDisarm(rc)){
+		gpio_clear(FC_LED_PIN); 
+	}
+	
+	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
+	
+	if(mArmSwitch.IsArmed()){
+		throttle = fc.ComputeThrottle(dt, 
+			rc, acc, gyr, mag, altitude); 
+	}
+	
+	fc_write_motors(mBoard, 
+			throttle[0], throttle[1], throttle[2], throttle[3]);
 	
 	PCLinkProcessEvents(); 
 	
+	mPCLink.SendRawIMU(loop_nr, acc, gyr, mag); 
+	/*mPCLink.SendAttitude(loop_nr, 
+		roll, pitch, yaw, 
+		rate_roll, rate_pitch, rate_yaw); 
+	*/	
 	static timestamp_t hb_timeout = timestamp_from_now_us(1000000); 
 	if(timestamp_expired(hb_timeout)){
-		PCLinkSendHeartbeat(); 
+		mPCLink.SendHeartbeat(); 
 		hb_timeout = timestamp_from_now_us(1000000); 
 	}
 }
 
-void Application::PCLinkSendHeartbeat(){
-	mavlink_system_t mavlink_system;
- 
-	mavlink_system.sysid = 20;                   ///< ID 20 for this airplane
-	mavlink_system.compid = MAV_COMP_ID_IMU;     ///< The component sending the message is the IMU, it could be also a Linux process
-	 
-	// Define the system type, in this case an airplane
-	uint8_t system_type = MAV_TYPE_FIXED_WING;
-	uint8_t autopilot_type = MAV_AUTOPILOT_GENERIC;
-	 
-	uint8_t system_mode = MAV_MODE_PREFLIGHT; ///< Booting up
-	uint32_t custom_mode = 0;                 ///< Custom mode, can be defined by user/adopter
-	uint8_t system_state = MAV_STATE_STANDBY; ///< System ready for flight
-	 
-	// Initialize the required buffers
-	mavlink_message_t msg;
-	uint8_t buf[MAVLINK_MAX_PACKET_LEN];
-	 
-	// Pack the message
-	mavlink_msg_heartbeat_pack(mavlink_system.sysid, mavlink_system.compid, &msg, system_type, autopilot_type, system_mode, custom_mode, system_state);
-	uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
-	 
-	// Send the message with the standard UART send function
-	// uart0_send might be named differently depending on
-	// the individual microcontroller / library in use.
-	serial_putn(mPCSerial, buf, len);
-}
-
-bool Application::PCLinkReceiveMessage(mavlink_message_t *msg){
-	if(!mPCSerial) return false; 
-	
-	// Example variable, by declaring them static they're persistent
-	// and will thus track the system state
-	//static int packet_drops = 0;
-	//static int mode = MAV_MODE_UNINIT; /* Defined in mavlink_types.h, which is included by mavlink.h */
-
-	mavlink_status_t status;
- 
-	// COMMUNICATION THROUGH EwhileXTERNAL UART PORT (XBee serial)
-	
-	uint8_t max_count = 16; 
-	while(serial_waiting(mPCSerial) && (max_count--))
-	{
-		uint8_t c = serial_getc(mPCSerial);
-		// Try to get a new message
-		if(mavlink_parse_char(MAVLINK_COMM_0, c, msg, &status)) {
-			return true; 
-		}
-	}
-	// Update global packet drops counter
-	//packet_drops += status.packet_rx_drop_count;
-	return false; 
-}
-
 void Application::PCLinkProcessEvents(){
 	mavlink_message_t msg; 
-	if(PCLinkReceiveMessage(&msg)){
+	if(mPCLink.ReceiveMessage(&msg)){
 		switch(msg.msgid)
 		{
 			case MAVLINK_MSG_ID_HEARTBEAT:
@@ -325,13 +301,11 @@ int Application::OnPCLinkGetValue(const char *name, char *buffer, uint16_t size)
 }
 */
 void Application::WriteConfig(const AppConfig &conf){
-	struct fc_quad_interface *mBoard = &hardware; 
-	mBoard->write_config(mBoard, (uint8_t*)&conf, sizeof(AppConfig)); 
+	fc_write_config(mBoard, (uint8_t*)&conf, sizeof(AppConfig)); 
 }
 	
-void Application::ReadConfig(AppConfig &conf){
-	struct fc_quad_interface *mBoard = &hardware; 
-	mBoard->read_config(mBoard, (uint8_t*)&conf, sizeof(AppConfig)); 
+void Application::ReadConfig(AppConfig &conf){ 
+	fc_read_config(mBoard, (uint8_t*)&conf, sizeof(AppConfig)); 
 }
 
 extern "C" void app_init(void){

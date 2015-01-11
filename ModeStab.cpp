@@ -72,34 +72,7 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc, const glm
 	float rr = constrain(mPID[PID_RATE_ROLL].get_pid(sr - gr, dt), -500, 500); 
 	float ry = constrain(mPID[PID_RATE_YAW].get_pid(sy - gy, dt), -500, 500); 
 	
-	{
-		mavlink_attitude_t attmsg; 
-		static uint32_t time_boot_ms = 0; time_boot_ms++; 
-		attmsg.time_boot_ms = time_boot_ms; 
-		attmsg.roll = glm::radians(mAccRoll); ///< Roll angle (rad, -pi..+pi)
-		attmsg.pitch = glm::radians(mAccPitch); ///< Pitch angle (rad, -pi..+pi)
-		attmsg.yaw = glm::radians(mAccYaw); ///< Yaw angle (rad, -pi..+pi)
-		attmsg.rollspeed = glm::radians(raw_omega.x); ///< Roll angular speed (rad/s)
-		attmsg.pitchspeed = glm::radians(raw_omega.z); ///< Pitch angular speed (rad/s)
-		attmsg.yawspeed = glm::radians(raw_omega.y); ///< Yaw angular speed
-		
-		mavlink_system_t mavlink_system;
-		mavlink_system.sysid = 20;                   ///< ID 20 for this airplane
-		mavlink_system.compid = MAV_COMP_ID_IMU;     ///< The component sending the message is the IMU, it could be also a Linux process
-		
-		// Initialize the required buffers
-		mavlink_message_t msg;
-		uint8_t buf[100];
-		 
-		// Pack the message
-		mavlink_msg_attitude_encode_chan(20, MAV_COMP_ID_IMU, 0, 
-			&msg, &attmsg); 
-		
-		uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
-		
-		uart0_putn((char*)buf, len);
-	}
-	
+	/*
 	frame_log("\"conv_rc_pitch\": %-4d, \"conv_rc_roll\": %-4d, \"conv_rc_yaw\": %-4d, ", 
 		(int16_t)(rcp ), (int16_t)(rcr ), (int16_t)(rcy )); 
 	frame_log("\"acc_pitch\": %-4d, \"acc_roll\": %-4d, \"acc_yaw\": %-4d,",
@@ -110,6 +83,7 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc, const glm
 		(int16_t)(sp), (int16_t)(sr), (int16_t)(sy)); 
 	frame_log("\"rate_pitch\": %-4d, \"rate_roll\": %-4d, \"rate_yaw\": %-4d, ", 
 		(int16_t)(rp), (int16_t)(rr), (int16_t)(ry)); 
+	*/
 	
 	return glm::i16vec4(
 		// front

@@ -52,26 +52,28 @@ public:
 	}; 
 	
 	FlightController();
-	void 	SetBoardInterface(struct fc_quad_interface *board){
-		mBoard = board;
-	}
 	
-	void reset(); 
+	void Reset(); 
 	
-	virtual void update(timestamp_t dt);
+	ThrottleValues ComputeThrottle(
+		float dt, 
+		const RCValues &rc,  
+		const glm::vec3 &acc, 
+		const glm::vec3 &gyr, 
+		const glm::vec3 &mag,
+		float altitude
+	);
 protected:
-	struct fc_quad_interface *mBoard;
+	//struct fc_quad_interface *mBoard;
 	
 	// flight control modules
 	ModeAltHold mAltHoldCtrl; 
 	ModeStab 		mStabCtrl; 
 	FlightMode	mMode; 
 	
-	bool mArmed, mArmInProgress; 
-	timestamp_t mArmTimeout; 
+	//bool mArmed, mArmInProgress; 
+	//timestamp_t mArmTimeout; 
 	
 	// acceleration change per second
-	glm::vec3 mAccPrev; 
-protected: 
-	void _CheckArm(const uint16_t &rc_thr, const uint16_t &rc_roll, const float &def_alt); 
+	//glm::vec3 mAccPrev; 
 }; 
