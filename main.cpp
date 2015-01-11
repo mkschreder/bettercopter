@@ -43,7 +43,11 @@
 
 #include "Application.hpp"
 #include "FlightController.hpp"
-#include "PCLink.hpp"
+//#include "PCLink.hpp"
+
+#include "mavlink/mavlink_types.h"
+#include "mavlink/common/mavlink.h"
+#include "mavlink/minimal/mavlink.h"
 
 #define TXRX_NUM_CHANNELS 10
 #define DEVICE_TWI_ADDRESS 0x88
@@ -56,15 +60,16 @@ void sim_loop();
 
 static glm::vec3 ofs; 
 
-class Application : PCLinkListener{
+class Application {
 public:
-	Application() : pc_link(this){}
+	Application() {}
 	void init();
 	void loop();
 	
 public: 
-	void OnPCLinkSetValue(const char *name, const char *value) override; 
-	int OnPCLinkGetValue(const char *name, char *buffer, uint16_t size) override;
+	bool PCLinkReceiveMessage(mavlink_message_t *msg); 
+	void PCLinkSendHeartbeat(); 
+	void PCLinkProcessEvents(); 
 	
 	void WriteConfig(const AppConfig &conf); 
 	void ReadConfig(AppConfig &conf); 
@@ -73,7 +78,7 @@ private:
 	uint8_t armed, arm_progress; 
 	timestamp_t arm_timeout; 
 	FlightController fc; 
-	PCLink		pc_link; 
+	serial_dev_t mPCSerial; 
 };
 
 static Application app;
@@ -98,7 +103,8 @@ void Application::init(){
 	
 	srand(0x1234); 
 	
-	pc_link.SetSerialInterface(hardware.get_pc_link_interface(&hardware)); 
+	mPCSerial = hardware.get_pc_link_interface(&hardware); 
+	//pc_link.SetSerialInterface(hardware.get_pc_link_interface(&hardware)); 
 }
 
 void Application::loop(){
@@ -117,9 +123,88 @@ void Application::loop(){
 	
 	fc.update(udt);
 	
-	pc_link.ProcessEvents(); 
+	PCLinkProcessEvents(); 
+	PCLinkSendHeartbeat(); 
 }
 
+void Application::PCLinkSendHeartbeat(){
+	mavlink_system_t mavlink_system;
+ 
+	mavlink_system.sysid = 20;                   ///< ID 20 for this airplane
+	mavlink_system.compid = MAV_COMP_ID_IMU;     ///< The component sending the message is the IMU, it could be also a Linux process
+	 
+	// Define the system type, in this case an airplane
+	uint8_t system_type = MAV_TYPE_FIXED_WING;
+	uint8_t autopilot_type = MAV_AUTOPILOT_GENERIC;
+	 
+	uint8_t system_mode = MAV_MODE_PREFLIGHT; ///< Booting up
+	uint32_t custom_mode = 0;                 ///< Custom mode, can be defined by user/adopter
+	uint8_t system_state = MAV_STATE_STANDBY; ///< System ready for flight
+	 
+	// Initialize the required buffers
+	mavlink_message_t msg;
+	uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+	 
+	// Pack the message
+	mavlink_msg_heartbeat_pack(mavlink_system.sysid, mavlink_system.compid, &msg, system_type, autopilot_type, system_mode, custom_mode, system_state);
+	 
+	// Copy the message to the send buffer
+	uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
+	 
+	// Send the message with the standard UART send function
+	// uart0_send might be named differently depending on
+	// the individual microcontroller / library in use.
+	serial_putn(mPCSerial, buf, len);
+}
+
+bool Application::PCLinkReceiveMessage(mavlink_message_t *msg){
+	if(!mPCSerial) return false; 
+	
+	// Example variable, by declaring them static they're persistent
+	// and will thus track the system state
+	//static int packet_drops = 0;
+	//static int mode = MAV_MODE_UNINIT; /* Defined in mavlink_types.h, which is included by mavlink.h */
+
+	mavlink_status_t status;
+ 
+	// COMMUNICATION THROUGH EwhileXTERNAL UART PORT (XBee serial)
+	
+	uint8_t max_count = 16; 
+	while(serial_waiting(mPCSerial) && (max_count--))
+	{
+		uint8_t c = serial_getc(mPCSerial);
+		// Try to get a new message
+		if(mavlink_parse_char(MAVLINK_COMM_0, c, msg, &status)) {
+			return true; 
+		}
+	}
+	// Update global packet drops counter
+	//packet_drops += status.packet_rx_drop_count;
+	return false; 
+}
+
+void Application::PCLinkProcessEvents(){
+	mavlink_message_t msg; 
+	if(PCLinkReceiveMessage(&msg)){
+		switch(msg.msgid)
+		{
+			case MAVLINK_MSG_ID_HEARTBEAT:
+			{
+				// E.g. read GCS heartbeat and go into
+				// comm lost mode if timer times out
+			}
+			break;
+		case MAVLINK_MSG_ID_COMMAND_LONG:
+			// EXECUTE ACTION
+			break;
+		default:
+			//Do nothing
+			break;
+		}
+	}
+}
+
+/*
 /// horribly inefficient with regards to time, but very nice in terms
 /// of memory usage. WARNING: Relies on the driver to not do redundant
 /// writes. This is how it should be, but keep this in mind! 
@@ -237,7 +322,7 @@ int Application::OnPCLinkGetValue(const char *name, char *buffer, uint16_t size)
 	} 
 	return 0; 
 }
-
+*/
 void Application::WriteConfig(const AppConfig &conf){
 	struct fc_quad_interface *mBoard = &hardware; 
 	mBoard->write_config(mBoard, (uint8_t*)&conf, sizeof(AppConfig)); 
