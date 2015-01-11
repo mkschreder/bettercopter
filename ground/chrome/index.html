@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Application">
 <head>
     <meta charset="utf-8">
     <title>Hello World</title>
@@ -15,90 +15,225 @@
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/jquery.sidr.dark.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/canvasjs.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery.sidr.min.js"></script>
 	<script src="app.js"></script>
 </head>
-<body>
-	<div class="container">
+<body ng-controller="IndexController">
+	<div id="sidr">
+		<ul>
+			<li><a href="#config">Configuration</a></li>
+			<li><a href="#graphs">Graphs</a></li>
+			<li><a href="#help">Help</a></li>
+		</ul>
+	</div>
+	
+	<div class="container" style="padding-top: 70px;">
+		<nav class="navbar navbar-default navbar-fixed-top" >
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>-->
+					<a id="demo" href="#sidr" class="navbar-toggle collapsed pull-left" 
+						style="margin-left: 10px;">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<!--<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+						<li><a href="#"><i class="icon-home"></i>Link</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+								<li class="divider"></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul>
+						</li>
+					</ul>-->
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<label>Pick device:</label> 
+							<select ng-model="currentDevice" 
+								ng-change="doConnect()"
+									class="form-control" >
+								<option ng-repeat="device in devices" value="{{device.value}}">
+									{{device.text}}
+								</option>
+							</select>
+							<button class="btn btn-default" 
+								ng-click="updateDevices()">Refresh</button>
+						</div>
+						<label ng-style="status_style">{{status}}</label>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Link</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								Quick menu <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#cockpit">Pilot</a></li>
+								<li><a href="#pid_config">PID values</a></li>
+								<li><a href="#">Mission plan</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav><!-- top menu bar --> 
 		
-		<div class="row">
-			<div class="col-xs-4">
-				<label>Pick device:</label> 
-			</div>
-			<div class="col-xs-5">
-				<select id="devices" style="width: 100%;">
-				</select>
-			</div>
-			<div class="col-xs-3">
-				<button id="refresh_devices" class="btn btn-default">Refresh</button>
-			</div>
-		</div>
+		<div name="cockpit"></div>
+		<iframe src="map.html" width="640" height="480"></iframe>
+		<embed id="speed" src="img/speed.svg" type="image/svg+xml"
+      style="width: 100px; height:100px;"></embed>
+		<embed id="attitude" src="img/attitude.svg" type="image/svg+xml"
+			style="width: 100px; height:100px;"></embed>
+		<embed id="altimeter" src="img/altimeter.svg" type="image/svg+xml"
+			style="width: 100px; height:100px;"></embed>
+		<embed id="temperature" src="img/temperature.svg" type="image/svg+xml"
+			style="width: 100px; height:100px;"></embed>
+		<embed id="compass" src="img/compass.svg" type="image/svg+xml"
+			style="width: 100px; height:100px;"></embed>
+		<embed id="vsi" src="img/vsi.svg" type="image/svg+xml"
+			style="width: 100px; height:100px;"></embed>
 		
-		<label>Stabilization PID:</label>
-		<div class="row">
-			<div class="col-xs-4 box">
-				<label>Stabilize Yaw:</label>
-				<div class="form-group form-group-lg">
-					<label class="control-label">P:</label>
-					<input type="text" id="stab_pid_yaw_p"/>
+		<div name="pid_config"></div>
+		<form role="form">
+			<h2>Stabilization PID:</h2>
+			<div class="row box">
+				<div class="col-xs-2 ">
+					<label>Stab Yaw:</label>
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" 
+							ng-model="config.pid_stab_yaw.p">
+						</input>
+					</div>
+				</div>
+				<div class="col-xs-2 ">
+					<label>Stab Pitch:</label>
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="config.pid_stab_pitch.p"/>
+					</div>
+				</div>
+				<div class="col-xs-2 ">
+					<label>Stab Roll:</label>
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="config.pid_stab_roll.p"/>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<h4>Explanation</h4>
+					<p>
+						Stabilization pid values determine the rate of the 
+						rotation in degrees/sec that the copter should maintain 
+						right now in order to level horizontally. 
+					</p>
 				</div>
 			</div>
-			<div class="col-xs-4 box">
-				<label>Stabilize Pitch:</label>
-				<div class="form-group form-group-lg">
-					<label class="control-label">P:</label>
-					<input type="text" id="stab_pid_pitch_p"/>
+			
+			<h2>Rate PID:</h2>
+			<div class="row box">
+				<div class="col-xs-2 ">
+					<label>Rate Yaw:</label>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">P:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_yaw.p"/><br>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">I:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_yaw.i"/><br>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">D:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_yaw.d"/><br>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-2 ">
+					<label>Rate Pitch:</label>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">P:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_pitch.p"/><br>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">I:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_pitch.i"/><br>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">D:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_pitch.d"/><br>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-2 ">
+					<label>Rate Roll:</label>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">P:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_roll.p"/><br>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">I:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_roll.i"/><br>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon">D:</span>
+							<input class="form-control" type="text" ng-model="config.pid_rate_roll.d"/><br>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<h4>Explanation</h4>
+					<p>
+						Rate pid determines how much faster the copter should 
+						achieve the desired rate depending on it's already 
+						achieved rate of rotation (ie error = desired rate - 
+						gyro values)
+					</p>
 				</div>
 			</div>
-			<div class="col-xs-4 box">
-				<label>Stabilize Roll:</label>
-				<div class="form-group form-group-lg">
-					<label class="control-label">P:</label>
-					<input type="text" id="stab_pid_roll_p"/>
-				</div>
-			</div>
-		</div>
-		
-		<label>Rate PID:</label>
-		<div class="row">
-			<div class="col-xs-4 box">
-				<label>Rate Yaw:</label>
-				<div class="form-group form-group-lg">
-					<label class="control-label">P:</label>
-					<input type="text" id="rate_pid_yaw_p"/><br>
-					<label class="control-label">I:</label>
-					<input type="text" id="rate_pid_yaw_i"/><br>
-					<label class="control-label">D:</label>
-					<input type="text" id="rate_pid_yaw_d"/><br>
-				</div>
-			</div>
-			<div class="col-xs-4 box">
-				<label>Rate Pitch:</label>
-				<div class="form-group form-group-lg">
-					<label class="control-label">P:</label>
-					<input type="text" id="rate_pid_pitch_p"/><br>
-					<label class="control-label">I:</label>
-					<input type="text" id="rate_pid_pitch_i"/><br>
-					<label class="control-label">D:</label>
-					<input type="text" id="rate_pid_pitch_d"/><br>
-				</div>
-			</div>
-			<div class="col-xs-4 box">
-				<label>Rate Roll:</label>
-				<div class="form-group form-group-lg">
-					<label class="control-label">P:</label>
-					<input type="text" id="rate_pid_roll_p"/><br>
-					<label class="control-label">I:</label>
-					<input type="text" id="rate_pid_roll_i"/><br>
-					<label class="control-label">D:</label>
-					<input type="text" id="rate_pid_roll_d"/><br>
-				</div>
-			</div>
-		</div>
-		
+		</form>
 		<div class="row">
 			<div class="col-xs-12">
 				<table class="table table-bordered">
@@ -108,7 +243,7 @@
 			</div>
 		</div>
 		
-		<div class="row">
+		<div id="graphs" class="row">
 			<div class="col-xs-12">
 				<div style="height: 300px; width: 100%" id="acc_chart"></textarea>
 			</div>
@@ -122,23 +257,12 @@
 		<br>
 		<div class="row">
 			<div class="col-xs-12">
-				<textarea style="height: 200px;" class="form-control" id="log"></textarea>
+				<textarea ng-model="log" style="height: 200px;" class="form-control"></textarea>
 			</div>
 		</div>
 		
 	</div>
-	<embed id="speed" src="img/speed.svg" type="image/svg+xml"
-      style="width: 100px; height:100px;"></embed>
-	<embed id="attitude" src="img/attitude.svg" type="image/svg+xml"
-		style="width: 100px; height:100px;"></embed>
-	<embed id="altimeter" src="img/altimeter.svg" type="image/svg+xml"
-		style="width: 100px; height:100px;"></embed>
-	<embed id="temperature" src="img/temperature.svg" type="image/svg+xml"
-		style="width: 100px; height:100px;"></embed>
-	<embed id="compass" src="img/compass.svg" type="image/svg+xml"
-		style="width: 100px; height:100px;"></embed>
-	<embed id="vsi" src="img/vsi.svg" type="image/svg+xml"
-		style="width: 100px; height:100px;"></embed>
+	
 </body>
 </html>
 

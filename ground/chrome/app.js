@@ -20,10 +20,6 @@ function str2ab(str) {
   return buf;
 }
 
-function log(str){
-	$("#log").append(str+"\n"); 
-}
-
 function processPacket(packet){
 	if("frame_log" in packet){
 		var log = packet["frame_log"]; 
@@ -60,55 +56,14 @@ function writeToDrone(obj){
 	chrome.serial.write(_connection_id, str2ab(JSON.stringify(obj))); 
 }
 
-function connect(port){
-	if(!port) return; 
-	
-	chrome.serial.connect(port, {
-		bitrate: 38400, 
-	}, function(info){
-		if(!info) {
-			log("Could not connect to "+port); 
-			return; 
-		} 
-		
-		log("Connected to "+port); 
-		
-		_connection_id = info.connectionId; 
-		
-		var str_buf = ""; 
-		chrome.serial.onReceive.addListener(function(obj){
-			if(obj.connectionId != info.connectionId) return; 
-			
-			var buf = ab2str(obj.data); 
-			var idx = buf.indexOf("\n"); 
 
-			$.each(buf.split("\n"), function(k, v){
-				if(k == 0){ // first value 
-					str_buf += v; 
-				}
-				
-				if(idx != -1){
-					// try convert to object
-					var packet = null; 
-					try {
-						packet = JSON.parse(str_buf); 
-						str_buf = ""; 
-					} catch(e) {
-						str_log=""; 
-					}
-					if(packet) 
-						processPacket(packet); 
-				}
-				
-				// if not first token then place it in str buf and exit
-				if(k != 0)
-					str_buf = v; 
-			});
-		}); 
-	}); 
-}
 
 $(document).ready(function(){
+	$("#demo").sidr(); 
+	$("#sidr a").click(function(){
+		$("#sidr").sidr("close"); 
+		window.location.href = $(this).attr('href');
+	}); 
 	var embeds = document.querySelectorAll("embed");
 	for(i = 0; e = embeds[i]; i++){
 		e.addEventListener("load",function(){
@@ -127,24 +82,6 @@ $(document).ready(function(){
 			}, 50); 
 		},false);
   }
-	
-	function updateDeviceList(){
-		chrome.serial.getDevices(function(ports){
-			$('#devices').html(""); 
-			$('#devices').append($('<option>', {
-				value: 0,
-				text: " -- select port -- "
-			}));
-			$.each(ports, function(id, port){
-				$('#devices').append($('<option>', {
-					value: port.path,
-					text: port.displayName + " ("+ port.path +")"
-				}));
-			});
-		}); 
-	}
-	
-	updateDeviceList(); 
 	
 	_acc_chart = new CanvasJS.Chart("acc_chart",{
 		title :{
@@ -215,12 +152,105 @@ $(document).ready(function(){
 	_acc_chart.render();
 	_gyr_chart.render();
 
-
-
-	$("#refresh_devices").click(updateDeviceList); 
-	$("#devices").change(function(){
-		connect($(this).val()); 
-	});
-	 
 	//$("h1").first().html("Ready!");
 }); 
+
+var Application = angular.module('Application', []);
+
+Application.controller('IndexController', function ($scope) {
+	$scope.devices = []; 
+	function updateDevices(){
+		chrome.serial.getDevices(function(ports){
+			$scope.devices = []; 
+			$.each(ports, function(id, port){
+				$scope.devices.push({
+					value: port.path,
+					text: port.displayName + " ("+ port.path +")"
+				});
+			});
+			
+			$scope.$apply(); 
+		}); 
+	}
+	$scope.status_success = function(str){
+		$scope.status = str; 
+		$scope.status_style={color: "green"}; 
+		$scope.$apply(); 
+	}
+	$scope.status_error = function(str){
+		$scope.status = str.slice(0, 32); 
+		$scope.status_style={color: "red"}; 
+		$scope.$apply(); 
+	}
+	$scope.updateDevices = function(){updateDevices();}
+	$scope.log = ""; 
+	$scope.status=""; 
+	$scope.status_style={}; 
+	$scope.status_success("Ready"); 
+	// set defaults
+	$scope.config = {
+		pid_stab_yaw: {p: 5, i: 0, d: 0},
+		pid_stab_pitch: {p: 5, i: 0, d: 0}, 
+		pid_stab_roll: {p: 5, i: 0, d: 0}, 
+		pid_rate_yaw: {p: 5, i: 0, d: 0}, 
+		pid_rate_pitch: {p: 5, i: 0, d: 0}, 
+		pid_rate_roll: {p: 5, i: 0, d: 0}
+	}; 
+	
+	$scope.doConnect = function(){
+		var port = $scope.currentDevice; 
+		if(port == undefined || port == "") return; 
+		
+		$scope.log += "Connecting to "+port+"... "
+		
+		chrome.serial.connect(port, {
+			bitrate: 38400, 
+		}, function(info){
+			if(!info) {
+				$scope.log += "failed!\n"; 
+				$scope.$apply(); 
+				$scope.status_error("Error connecting!"); 
+				return; 
+			} 
+			
+			$scope.log += "success!\n"; 
+			$scope.$apply(); 
+			
+			$scope.status_success("Connected!"); 
+			
+			_connection_id = info.connectionId; 
+			
+			var str_buf = ""; 
+			chrome.serial.onReceive.addListener(function(obj){
+				if(obj.connectionId != info.connectionId) return; 
+				
+				var buf = ab2str(obj.data); 
+				var idx = buf.indexOf("\n"); 
+
+				$.each(buf.split("\n"), function(k, v){
+					if(k == 0){ // first value 
+						str_buf += v; 
+					}
+					
+					if(idx != -1){
+						// try convert to object
+						var packet = null; 
+						try {
+							packet = JSON.parse(str_buf); 
+							str_buf = ""; 
+						} catch(e) {
+							str_log=""; 
+						}
+						if(packet) 
+							processPacket(packet); 
+					}
+					
+					// if not first token then place it in str buf and exit
+					if(k != 0)
+						str_buf = v; 
+				});
+			}); 
+		}); 
+	}
+	updateDevices(); 
+});

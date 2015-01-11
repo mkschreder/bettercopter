@@ -1,3 +1,8 @@
+@font-face {
+    font-family: default_font;
+    src: url(fonts/FiraMono-Regular.ttf);
+}
+
 html, body {
   overflow-y: visible; 
 }
@@ -6,6 +11,8 @@ body {
   background-color: #fefefe; 
   margin: 0;
   padding: 0;
+  font-size: 12px; 
+  font-family: "default_font" !important; 
 }
 
 h1 {
@@ -19,8 +26,6 @@ h1 {
   letter-spacing: -0.05em;
 }
 
-
-
 #face { stroke-width: 2px; stroke: #fff; }
 
 #hour, #min, #sec { stroke-width: 1px; fill: #333; stroke: #555; }
@@ -33,14 +38,11 @@ fieldset {
 
 .box { 
 	background-color: #fafafa; 
+	padding-top: 10px; 
+	padding-bottom: 10px; 
 }
 
 .box br {
 	clear: both;
-}
-
-.box input[type="text"] {
-	width: 80%; 
-	float: right; 
 }
 
