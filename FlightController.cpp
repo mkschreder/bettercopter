@@ -42,11 +42,56 @@ extern "C" double atan2(double x, double y);
 
 FlightController::FlightController(){
 	mMode = MODE_STABILIZE; 
+	mAccPitch = mAccYaw = mAccRoll = 0; 
+}
+
+void FlightController::SetPIDValues(
+		const pid_values_t &stab_yaw, 
+		const pid_values_t &stab_pitch, 
+		const pid_values_t &stab_roll, 
+		const pid_values_t &rate_yaw, 
+		const pid_values_t &rate_pitch, 
+		const pid_values_t &rate_roll){
+	
+	mStabCtrl.SetPIDValues(
+		stab_yaw,
+		stab_pitch, 
+		stab_roll, 
+		rate_yaw, 
+		rate_pitch, 
+		rate_roll); 
 }
 
 void FlightController::Reset(){
 	//mAltHoldCtrl.SetAltitude(raw_altitude); 
 	mStabCtrl.Reset(); 
+}
+
+void FlightController::ComputeAngles(
+	float dt, 
+	const glm::vec3 &acc, 
+	const glm::vec3 &gyr, 
+	float *yaw, float *pitch, float *roll, 
+	float *omega_yaw, float *omega_pitch, float *omega_roll
+){
+	glm::vec3 nacc = glm::normalize(acc);
+	
+	float gp = *omega_pitch = gyr.x * dt; //0.9 * gp + gyr.x * 0.1; 
+	float gy = *omega_yaw = gyr.z * dt; //0.9 * gy + gyr.y * 0.1; 
+	float gr = *omega_roll = gyr.y * dt; //0.9 * gr + gyr.z * 0.1; 
+	
+	float ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
+	float ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
+	
+	//fuse accelerometer and gyroscope into ypr using comp filter
+	mAccPitch = 0.98 * (mAccPitch + gp) + 0.02 * ap; // needs to be + here for our conf front/back/left/right
+	// integrate gyro directly, but filter out low level noise
+	mAccYaw 	+= (abs(gyr.z) > 2)?(gy):0; 
+	mAccRoll 	= 0.98 * (mAccRoll 	- gr) + 0.02 * ar; 
+	
+	*yaw = mAccYaw; 
+	*pitch = mAccPitch; 
+	*roll = mAccRoll; 
 }
 
 ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,  
@@ -77,7 +122,14 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 		}
 	}
 	
-	ThrottleValues stab = mStabCtrl.ComputeThrottle(dt, rc, acc, gyr); 
+	float yaw, pitch, roll, ryaw, rpitch, rroll; 
+	ComputeAngles(dt, acc, gyr, 
+		&yaw, &pitch, &roll, 
+		&ryaw, &rpitch, &rroll); 
+	ThrottleValues stab = mStabCtrl.ComputeThrottle(
+		dt, rc, 
+		yaw, pitch, roll, 
+		ryaw, rpitch, rroll); 
 	ThrottleValues althold = mAltHoldCtrl.ComputeThrottle(altitude); 
 	
 	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 

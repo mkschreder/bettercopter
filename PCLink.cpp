@@ -4,8 +4,6 @@
 #include <string.h>
 
 //#include <util/json.h>
-#include "mavlink/common/mavlink.h"
-#include "mavlink/minimal/mavlink.h"
 #include "PCLink.hpp"
 
 #define SYSTEM_ID 20
@@ -22,21 +20,20 @@ void PCLink::SendHeartbeat(){
  
 	mavlink_system.sysid = 20;                   ///< ID 20 for this airplane
 	mavlink_system.compid = MAV_COMP_ID_IMU;     ///< The component sending the message is the IMU, it could be also a Linux process
-	 
-	// Define the system type, in this case an airplane
-	uint8_t system_type = MAV_TYPE_FIXED_WING;
-	uint8_t autopilot_type = MAV_AUTOPILOT_GENERIC;
-	 
-	uint8_t system_mode = MAV_MODE_PREFLIGHT; ///< Booting up
-	uint32_t custom_mode = 0;                 ///< Custom mode, can be defined by user/adopter
-	uint8_t system_state = MAV_STATE_STANDBY; ///< System ready for flight
-	 
+	
 	// Initialize the required buffers
 	mavlink_message_t msg;
-	uint8_t buf[MAVLINK_MAX_PACKET_LEN];
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_HEARTBEAT_LEN];
 	 
 	// Pack the message
-	mavlink_msg_heartbeat_pack(mavlink_system.sysid, mavlink_system.compid, &msg, system_type, autopilot_type, system_mode, custom_mode, system_state);
+	mavlink_msg_heartbeat_pack(mavlink_system.sysid, 
+		mavlink_system.compid, 
+		&msg, 
+		MAV_TYPE_QUADROTOR, 
+		MAV_AUTOPILOT_GENERIC, 
+		MAV_MODE_PREFLIGHT, 
+		0, 
+		MAV_STATE_STANDBY);
 	uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
 	 
 	// Send the message with the standard UART send function
@@ -52,7 +49,7 @@ void PCLink::SendRawIMU(uint64_t usec,
 	
 	// Initialize the required buffers
 	mavlink_message_t msg;
-	uint8_t buf[128];
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_RAW_IMU_LEN];
 	
 	mavlink_msg_raw_imu_pack_chan(
 		SYSTEM_ID, 
@@ -70,9 +67,24 @@ void PCLink::SendRawIMU(uint64_t usec,
 	serial_putn(mSerial, buf, len);
 }
 
+void PCLink::SendParamValueFloat(const char *name, float value, int count, int index){
+	mavlink_message_t msg;
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_PARAM_VALUE_LEN];
+
+	mavlink_msg_param_value_pack(
+		20, MAV_COMP_ID_IMU, &msg,
+		name, value, 
+		MAV_PARAM_TYPE_REAL32,
+		count, // count
+		index+1 // index
+	);
+
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
+}
+
 void PCLink::SendAttitude(uint32_t timestamp, 
-	float roll, float pitch, float yaw, 
-	float rate_roll, float rate_pitch, float rate_yaw
+	float yaw, float pitch, float roll, 
+	float rate_yaw, float rate_pitch, float rate_roll
 ){
 	if(!mSerial) return; 
 	
@@ -101,14 +113,7 @@ void PCLink::SendAttitude(uint32_t timestamp,
 bool PCLink::ReceiveMessage(mavlink_message_t *msg){
 	if(!mSerial) return false; 
 	
-	// Example variable, by declaring them static they're persistent
-	// and will thus track the system state
-	//static int packet_drops = 0;
-	//static int mode = MAV_MODE_UNINIT; /* Defined in mavlink_types.h, which is included by mavlink.h */
-
 	mavlink_status_t status;
- 
-	// COMMUNICATION THROUGH EwhileXTERNAL UART PORT (XBee serial)
 	
 	uint8_t max_count = 16; 
 	while(serial_waiting(mSerial) && (max_count--))

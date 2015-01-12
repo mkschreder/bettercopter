@@ -22,19 +22,11 @@
 #pragma once 
 
 #include <stddef.h>
+#include "types.hpp"
 
-// version of the current configuration. When changing this file, 
-// the version should be incremented by 1 to indicate that older config 
-// in memory is invalid. 
-#define APPCONFIG_VERSION 0x4135
-
-typedef struct {
-	float p, i, d, max_i; 
-} ConfPIDElement; 
-
-typedef struct {
-	ConfPIDElement yaw, pitch, roll; 
-} ConfPID; 
+struct ConfPID {
+	pid_values_t yaw, pitch, roll; 
+}; 
 
 struct AppConfig {
 	uint16_t version; 

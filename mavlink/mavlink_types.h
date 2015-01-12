@@ -17,7 +17,7 @@
 
 #ifndef MAVLINK_MAX_PAYLOAD_LEN
 // it is possible to override this, but be careful!
-#define MAVLINK_MAX_PAYLOAD_LEN 255 ///< Maximum payload length
+#define MAVLINK_MAX_PAYLOAD_LEN 128 ///< Maximum payload length
 #endif
 
 #define MAVLINK_CORE_HEADER_LEN 5 ///< Length of core header (of the comm. layer): message length (1 byte) + message sequence (1 byte) + message system id (1 byte) + message component id (1 byte) + message type id (1 byte)

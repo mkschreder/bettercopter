@@ -28,8 +28,10 @@ public:
 	void SendRawIMU(uint64_t usec, 
 		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag); 
 	void SendAttitude(uint32_t timestamp, 
-		float roll, float pitch, float yaw, 
-		float rate_roll, float rate_pitch, float rate_yaw); 
+		float yaw, float pitch, float roll, 
+		float rate_yaw, float rate_pitch, float rate_roll); 
+	
+	void SendParamValueFloat(const char *name, float val, int count, int index); 
 	
 	void SetSerialInterface(serial_dev_t serial){mSerial = serial;}
 private: 

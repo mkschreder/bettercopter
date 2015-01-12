@@ -13,6 +13,10 @@
 
 typedef glm::i16vec4 ThrottleValues; 
 
+typedef struct {
+	float p, i, d, max_i; 
+} pid_values_t; 
+
 struct RCValues {
 	RCValues():throttle(0), yaw(0), pitch(0), roll(0), aux0(0), aux1(0){}
 	/*RCValues(uint16_t thr, uint16_t yaw, uint16_t pitch, uint16_t roll):

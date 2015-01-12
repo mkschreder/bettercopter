@@ -52,14 +52,28 @@
 #define TXRX_NUM_CHANNELS 10
 #define DEVICE_TWI_ADDRESS 0x88
 
-//static struct uart uart;
-
 
 void sim_init(); 
 void sim_loop(); 
 
-static glm::vec3 ofs; 
+#define CONFIG_VERSION 0x55
 
+const AppConfig default_config PROGMEM = {
+	CONFIG_VERSION, 
+	// pid_stab
+	{
+		{4.5, 0, 0, 30}, // yaw
+		{4.5, 0, 0, 30}, // pitch
+		{4.5, 0, 0, 30} // roll
+	}, 
+	// pid_rate
+	{
+		{0.5, 0.05, 0.04, 500}, // yaw
+		{0.5, 0.05, 0.04, 500}, // pitch
+		{0.5, 0.05, 0.04, 500} // roll
+	}
+};  
+ 
 class Application {
 public:
 	Application() {}
@@ -70,7 +84,8 @@ public:
 	void PCLinkProcessEvents(); 
 	
 	void WriteConfig(const AppConfig &conf); 
-	void ReadConfig(AppConfig &conf); 
+	void ReadConfig(AppConfig *conf); 
+	void ApplyConfig(const AppConfig &conf); 
 private:
 	fc_board_t 		mBoard; 
 	uint8_t armed, arm_progress; 
@@ -89,9 +104,12 @@ void Application::init(){
 #endif
 	//fc_init();
 
-	kprintf("APP: Bettercopter Flight Control\n"); 
+	kprintf("BetterCopter V1.0\n"); 
 	mBoard = fc_get_interface();
-	
+	if(!mBoard) {
+		//kprintf("No board!\n"); 
+		while(1); 
+	}
 	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(1000000L); 
 	
@@ -103,7 +121,7 @@ void Application::init(){
 	srand(0x1234); 
 	
 	mPCSerial = fc_get_pc_link_interface(mBoard); 
-	//pc_link.SetSerialInterface(hardware.get_pc_link_interface(&hardware)); 
+	mPCLink.SetSerialInterface(mPCSerial); 
 }
 
 void Application::loop(){
@@ -149,12 +167,19 @@ void Application::loop(){
 	PCLinkProcessEvents(); 
 	
 	mPCLink.SendRawIMU(loop_nr, acc, gyr, mag); 
-	/*mPCLink.SendAttitude(loop_nr, 
-		roll, pitch, yaw, 
-		rate_roll, rate_pitch, rate_yaw); 
-	*/	
+	
+	float yaw, pitch, roll, rate_yaw, rate_pitch, rate_roll; 
+	fc.ComputeAngles(dt, acc, gyr,
+		&yaw, &pitch, &roll, 
+		&rate_yaw, &rate_pitch, &rate_roll); 
+	
+	mPCLink.SendAttitude(loop_nr, 
+		yaw, pitch, roll, 
+		rate_yaw, rate_pitch, rate_roll); 
+		 
 	static timestamp_t hb_timeout = timestamp_from_now_us(1000000); 
 	if(timestamp_expired(hb_timeout)){
+		mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
 		mPCLink.SendHeartbeat(); 
 		hb_timeout = timestamp_from_now_us(1000000); 
 	}
@@ -174,6 +199,94 @@ void Application::PCLinkProcessEvents(){
 		case MAVLINK_MSG_ID_COMMAND_LONG:
 			// EXECUTE ACTION
 			break;
+		case MAVLINK_MSG_ID_PARAM_REQUEST_LIST: {
+			AppConfig conf; 
+			ReadConfig(&conf); 
+			struct param {
+				const char *name; 
+				float value; 
+			} params [] = {
+				{PSTR("RATE.YAW_P"), conf.pid_rate.yaw.p},
+				{PSTR("RATE.YAW_I"), conf.pid_rate.yaw.i},
+				{PSTR("RATE.YAW_D"), conf.pid_rate.yaw.d},
+				{PSTR("RATE.YAW_MAX_I"), conf.pid_rate.yaw.max_i},
+				{PSTR("RATE.PITCH_P"), conf.pid_rate.pitch.p},
+				{PSTR("RATE.PITCH_I"), conf.pid_rate.pitch.i},
+				{PSTR("RATE.PITCH_D"), conf.pid_rate.pitch.d},
+				{PSTR("RATE.PITCH_MAX_I"), conf.pid_rate.pitch.max_i},
+				{PSTR("RATE.ROLL_P"), conf.pid_rate.roll.p},
+				{PSTR("RATE.ROLL_I"), conf.pid_rate.roll.i},
+				{PSTR("RATE.ROLL_D"), conf.pid_rate.roll.d},
+				{PSTR("RATE.ROLL_MAX_I"), conf.pid_rate.roll.max_i},
+				{PSTR("STAB.YAW_P"), conf.pid_stab.yaw.p},
+				{PSTR("STAB.YAW_I"), conf.pid_stab.yaw.i},
+				{PSTR("STAB.YAW_D"), conf.pid_stab.yaw.d}, 
+				{PSTR("STAB.YAW_MAX_I"), conf.pid_stab.yaw.max_i},
+				{PSTR("STAB.PITCH_P"), conf.pid_stab.pitch.p},
+				{PSTR("STAB.PITCH_I"), conf.pid_stab.pitch.i},
+				{PSTR("STAB.PITCH_D"), conf.pid_stab.pitch.d},
+				{PSTR("STAB.PITCH_MAX_I"), conf.pid_stab.pitch.max_i},
+				{PSTR("STAB.ROLL_P"), conf.pid_stab.roll.p},
+				{PSTR("STAB.ROLL_I"), conf.pid_stab.roll.i},
+				{PSTR("STAB.ROLL_D"), conf.pid_stab.roll.d},
+				{PSTR("STAB.ROLL_MAX_I"), conf.pid_stab.roll.max_i}
+				//{PSTR("MEM_FREE"), 0}
+			};
+			int count = sizeof(params) / sizeof(params[0]); 
+			for(int c = 0; c < count; c++){
+				char name[16]; 
+				strcpy_PF(name, (uint_farptr_t)params[c].name); 
+				mPCLink.SendParamValueFloat(
+					name, params[c].value, 
+					count, c); 
+			}
+			break; 
+		}
+		case MAVLINK_MSG_ID_PARAM_SET: {
+			mavlink_param_set_t param; 
+			mavlink_msg_param_set_decode(&msg, &param); 
+			AppConfig conf; 
+			ReadConfig(&conf); 
+			struct param {
+				const char *name; 
+				float *value; 
+			} params [] = {
+				{PSTR("RATE.YAW_P"), &conf.pid_rate.yaw.p},
+				{PSTR("RATE.YAW_I"), &conf.pid_rate.yaw.i},
+				{PSTR("RATE.YAW_D"), &conf.pid_rate.yaw.d},
+				{PSTR("RATE.YAW_MAX_I"), &conf.pid_rate.yaw.max_i},
+				{PSTR("RATE.PITCH_P"), &conf.pid_rate.pitch.p},
+				{PSTR("RATE.PITCH_I"), &conf.pid_rate.pitch.i},
+				{PSTR("RATE.PITCH_D"), &conf.pid_rate.pitch.d},
+				{PSTR("RATE.PITCH_MAX_I"), &conf.pid_rate.pitch.max_i},
+				{PSTR("RATE.ROLL_P"), &conf.pid_rate.roll.p},
+				{PSTR("RATE.ROLL_I"), &conf.pid_rate.roll.i},
+				{PSTR("RATE.ROLL_D"), &conf.pid_rate.roll.d},
+				{PSTR("RATE.ROLL_MAX_I"), &conf.pid_rate.roll.max_i},
+				{PSTR("STAB.YAW_P"), &conf.pid_stab.yaw.p},
+				{PSTR("STAB.YAW_I"), &conf.pid_stab.yaw.i},
+				{PSTR("STAB.YAW_D"), &conf.pid_stab.yaw.d}, 
+				{PSTR("STAB.YAW_MAX_I"), &conf.pid_stab.yaw.max_i},
+				{PSTR("STAB.PITCH_P"), &conf.pid_stab.pitch.p},
+				{PSTR("STAB.PITCH_I"), &conf.pid_stab.pitch.i},
+				{PSTR("STAB.PITCH_D"), &conf.pid_stab.pitch.d},
+				{PSTR("STAB.PITCH_MAX_I"), &conf.pid_stab.pitch.max_i},
+				{PSTR("STAB.ROLL_P"), &conf.pid_stab.roll.p},
+				{PSTR("STAB.ROLL_I"), &conf.pid_stab.roll.i},
+				{PSTR("STAB.ROLL_D"), &conf.pid_stab.roll.d},
+				{PSTR("STAB.ROLL_MAX_I"), &conf.pid_stab.roll.max_i}
+			};
+			int count = sizeof(params) / sizeof(params[0]); 
+			for(int c = 0; c < count; c++){
+				if(strcmp_PF(param.param_id, (uint_farptr_t)params[c].name) == 0){
+					*(params[c].value) = param.param_value; 
+					mPCLink.SendParamValueFloat(param.param_id, param.param_value, 1, 0); 
+					WriteConfig(conf); 
+					break; 
+				} 
+			}
+			break; 
+		}
 		default:
 			//Do nothing
 			break;
@@ -181,131 +294,27 @@ void Application::PCLinkProcessEvents(){
 	}
 }
 
-/*
-/// horribly inefficient with regards to time, but very nice in terms
-/// of memory usage. WARNING: Relies on the driver to not do redundant
-/// writes. This is how it should be, but keep this in mind! 
-void Application::OnPCLinkSetValue(const char *name, const char *value) {
-	AppConfig conf; 
-	ReadConfig(conf); 
-	
-	if(pgm_streq(name, PSTR("pid_stab_pitch_p"))){
-		sscanf(value, "%f", &conf.pid_stab.pitch.p);
-	} else if(pgm_streq(name, PSTR("pid_stab_pitch_i"))){
-		sscanf(value, "%f", &conf.pid_stab.pitch.i);
-	} else if(pgm_streq(name, PSTR("pid_stab_pitch_d"))){
-		sscanf(value, "%f", &conf.pid_stab.pitch.d);
-	} else if(pgm_streq(name, PSTR("pid_stab_pitch_max_i"))){
-		sscanf(value, "%f", &conf.pid_stab.pitch.max_i);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_p"))){
-		sscanf(value, "%f", &conf.pid_stab.yaw.p);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_i"))){
-		sscanf(value, "%f", &conf.pid_stab.yaw.i);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_d"))){
-		sscanf(value, "%f", &conf.pid_stab.yaw.d);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_max_i"))){
-		sscanf(value, "%f", &conf.pid_stab.yaw.max_i);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_p"))){
-		sscanf(value, "%f", &conf.pid_stab.roll.p);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_i"))){
-		sscanf(value, "%f", &conf.pid_stab.roll.i);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_d"))){
-		sscanf(value, "%f", &conf.pid_stab.roll.d);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_max_i"))){
-		sscanf(value, "%f", &conf.pid_stab.roll.max_i);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_p"))){
-		sscanf(value, "%f", &conf.pid_rate.pitch.p);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_i"))){
-		sscanf(value, "%f", &conf.pid_rate.pitch.i);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_d"))){
-		sscanf(value, "%f", &conf.pid_rate.pitch.d);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_max_i"))){
-		sscanf(value, "%f", &conf.pid_rate.pitch.max_i);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_p"))){
-		sscanf(value, "%f", &conf.pid_rate.yaw.p);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_i"))){
-		sscanf(value, "%f", &conf.pid_rate.yaw.i);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_d"))){
-		sscanf(value, "%f", &conf.pid_rate.yaw.d);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_max_i"))){
-		sscanf(value, "%f", &conf.pid_rate.yaw.max_i);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_p"))){
-		sscanf(value, "%f", &conf.pid_rate.roll.p);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_i"))){
-		sscanf(value, "%f", &conf.pid_rate.roll.i);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_d"))){
-		sscanf(value, "%f", &conf.pid_rate.roll.d);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_max_i"))){
-		sscanf(value, "%f", &conf.pid_rate.roll.max_i);
-	} 
-	
-	WriteConfig(conf); 
-}
-
-int Application::OnPCLinkGetValue(const char *name, char *buffer, uint16_t size) {
-	AppConfig conf; 
-	//ReadConfig(conf); 
-	
-	if(pgm_streq(name, PSTR("ping"))){
-		return pgm_snprintf(buffer, size, PSTR("pong")); 
-	} else if(pgm_streq(name, PSTR("pid_stab_pitch_p"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.pitch.p);
-	} else if(pgm_streq(name, PSTR("pid_stab_pitch_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.pitch.i);
-	} else if(pgm_streq(name, PSTR("pid_stab_pitch_d"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.pitch.d);
-	} else if(pgm_streq(name, PSTR("pid_stab_pitch_max_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.pitch.max_i);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_p"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.yaw.p);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.yaw.i);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_d"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.yaw.d);
-	} else if(pgm_streq(name, PSTR("pid_stab_yaw_max_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.yaw.max_i);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_p"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.roll.p);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.roll.i);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_d"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.roll.d);
-	} else if(pgm_streq(name, PSTR("pid_stab_roll_max_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_stab.roll.max_i);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_p"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.pitch.p);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.pitch.i);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_d"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.pitch.d);
-	} else if(pgm_streq(name, PSTR("pid_rate_pitch_max_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.pitch.max_i);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_p"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.yaw.p);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.yaw.i);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_d"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.yaw.d);
-	} else if(pgm_streq(name, PSTR("pid_rate_yaw_max_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.yaw.max_i);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_p"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.roll.p);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.roll.i);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_d"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.roll.d);
-	} else if(pgm_streq(name, PSTR("pid_rate_roll_max_i"))){
-		return pgm_snprintf(buffer, size, PSTR("%f"), (double)conf.pid_rate.roll.max_i);
-	} 
-	return 0; 
-}
-*/
 void Application::WriteConfig(const AppConfig &conf){
 	fc_write_config(mBoard, (uint8_t*)&conf, sizeof(AppConfig)); 
 }
 	
-void Application::ReadConfig(AppConfig &conf){ 
-	fc_read_config(mBoard, (uint8_t*)&conf, sizeof(AppConfig)); 
+void Application::ReadConfig(AppConfig *conf){ 
+	fc_read_config(mBoard, (uint8_t*)conf, sizeof(AppConfig)); 
+	// make sure to reset the config if data in eeprom is garbage
+	if(conf->version != CONFIG_VERSION){
+		memcpy_PF(conf, (uint_farptr_t)&default_config, sizeof(AppConfig)); 
+		WriteConfig(*conf); 
+	} 
+}
+
+void Application::ApplyConfig(const AppConfig &conf){
+	fc.SetPIDValues(
+		conf.pid_stab.yaw,
+		conf.pid_stab.pitch, 
+		conf.pid_stab.roll, 
+		conf.pid_rate.yaw, 
+		conf.pid_rate.pitch, 
+		conf.pid_rate.roll); 
 }
 
 extern "C" void app_init(void){

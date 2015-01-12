@@ -52,6 +52,8 @@ public:
 	}; 
 	
 	FlightController();
+	//void ComputeAngles(const glm::vec3 &raw_acc, float *yaw, float *pitch, float *roll); 
+	//void ComputeOmega(const glm::vec3 &raw_gyr, float *yaw_rate, float *pitch_rate, float *roll_rate); 
 	
 	void Reset(); 
 	
@@ -63,6 +65,22 @@ public:
 		const glm::vec3 &mag,
 		float altitude
 	);
+	
+	/// angles are in degrees
+	void ComputeAngles(
+		float dt, 
+		const glm::vec3 &acc, 
+		const glm::vec3 &gyr, 
+		float *yaw, float *pitch, float *roll, 
+		float *omega_yaw, float *omega_pitch, float *omega_roll); 
+		
+	void SetPIDValues(
+		const pid_values_t &stab_yaw, 
+		const pid_values_t &stab_pitch, 
+		const pid_values_t &stab_roll, 
+		const pid_values_t &rate_yaw, 
+		const pid_values_t &rate_pitch, 
+		const pid_values_t &rate_roll); 
 protected:
 	//struct fc_quad_interface *mBoard;
 	
@@ -71,6 +89,7 @@ protected:
 	ModeStab 		mStabCtrl; 
 	FlightMode	mMode; 
 	
+	float mAccPitch, mAccYaw, mAccRoll; 
 	//bool mArmed, mArmInProgress; 
 	//timestamp_t mArmTimeout; 
 	
