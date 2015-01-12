@@ -24,13 +24,15 @@ public:
 	PCLink(); 
 	
 	bool ReceiveMessage(mavlink_message_t *msg); 
-	void SendHeartbeat(); 
+	void SendHeartbeat(copter_state_t state); 
 	void SendRawIMU(uint64_t usec, 
 		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag); 
 	void SendAttitude(uint32_t timestamp, 
 		float yaw, float pitch, float roll, 
 		float rate_yaw, float rate_pitch, float rate_roll); 
-	
+	void SendHud(
+		float airspeed, float groundspeed, int16_t heading, 
+		uint16_t throttle, float alt, float climb);
 	void SendParamValueFloat(const char *name, float val, int count, int index); 
 	
 	void SetSerialInterface(serial_dev_t serial){mSerial = serial;}

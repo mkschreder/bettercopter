@@ -11,6 +11,15 @@
 #include <glm/mat3x3.hpp>
 #include <glm/gtc/quaternion.hpp>
 
+typedef enum {
+	COPTER_STATE_BOOT=1, /* System is booting up. | */
+	COPTER_STATE_CALIBRATING=2, /* System is calibrating and not flight-ready. | */
+	COPTER_STATE_STANDBY=3, /* System is grounded and on standby. It can be launched any time. | */
+	COPTER_STATE_ACTIVE=4, /* System is active and might be already airborne. Motors are engaged. | */
+	COPTER_STATE_CRITICAL=5, /* System is in a non-normal flight mode. It can however still navigate. | */
+	COPTER_STATE_EMERGENCY=6
+} copter_state_t; 
+
 typedef glm::i16vec4 ThrottleValues; 
 
 typedef struct {

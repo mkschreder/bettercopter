@@ -13,7 +13,7 @@ PCLink::PCLink(){
 	mSerial = 0; 
 }
 
-void PCLink::SendHeartbeat(){
+void PCLink::SendHeartbeat(copter_state_t state){
 	if(!mSerial) return; 
 	
 	mavlink_system_t mavlink_system;
@@ -31,9 +31,9 @@ void PCLink::SendHeartbeat(){
 		&msg, 
 		MAV_TYPE_QUADROTOR, 
 		MAV_AUTOPILOT_GENERIC, 
-		MAV_MODE_PREFLIGHT, 
+		(state == COPTER_STATE_ACTIVE)?(MAV_MODE_STABILIZE_ARMED):MAV_MODE_PREFLIGHT, 
 		0, 
-		MAV_STATE_STANDBY);
+		(MAV_STATE)state);// TODO: if mavlink changes then this will not work
 	uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
 	 
 	// Send the message with the standard UART send function
@@ -79,6 +79,32 @@ void PCLink::SendParamValueFloat(const char *name, float value, int count, int i
 		index+1 // index
 	);
 
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
+}
+
+void PCLink::SendHud(
+		float airspeed, 
+		float groundspeed, 
+		int16_t heading, 
+		uint16_t throttle, 
+		float alt, 
+		float climb
+){
+	mavlink_message_t msg;
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_VFR_HUD_LEN];
+
+	mavlink_msg_vfr_hud_pack(
+		20, 
+		MAV_COMP_ID_IMU, 
+		&msg,
+		airspeed, 
+		groundspeed, 
+		heading, 
+		throttle, 
+		alt, 
+		climb
+	); 
+	
 	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
 }
 

@@ -76,7 +76,7 @@ const AppConfig default_config PROGMEM = {
  
 class Application {
 public:
-	Application() {}
+	Application():mState(COPTER_STATE_BOOT) {}
 	void init();
 	void loop();
 	
@@ -94,6 +94,7 @@ private:
 	PCLink				mPCLink; 
 	ArmSwitch 		mArmSwitch; 
 	serial_dev_t 	mPCSerial; 
+	copter_state_t mState; 
 };
 
 static Application app;
@@ -122,6 +123,12 @@ void Application::init(){
 	
 	mPCSerial = fc_get_pc_link_interface(mBoard); 
 	mPCLink.SetSerialInterface(mPCSerial); 
+	
+	AppConfig conf; 
+	ReadConfig(&conf); 
+	ApplyConfig(conf); 
+	
+	mState = COPTER_STATE_STANDBY; 
 }
 
 void Application::loop(){
@@ -150,8 +157,10 @@ void Application::loop(){
 	if(!mArmSwitch.IsArmed() && mArmSwitch.TryArm(rc)){
 		fc.Reset(); 
 		gpio_set(FC_LED_PIN); 
+		mState = COPTER_STATE_ACTIVE; 
 	} else if(mArmSwitch.IsArmed() && mArmSwitch.TryDisarm(rc)){
 		gpio_clear(FC_LED_PIN); 
+		mState = COPTER_STATE_STANDBY; 
 	}
 	
 	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
@@ -166,21 +175,32 @@ void Application::loop(){
 	
 	PCLinkProcessEvents(); 
 	
-	mPCLink.SendRawIMU(loop_nr, acc, gyr, mag); 
+	static timestamp_t data_timeout = timestamp_from_now_us(100000); 
+	if(timestamp_expired(data_timeout)){	
+		mPCLink.SendRawIMU(loop_nr, acc, gyr, mag); 
+		
+		float yaw, pitch, roll, rate_yaw, rate_pitch, rate_roll; 
+		fc.ComputeAngles(dt, acc, gyr,
+			&yaw, &pitch, &roll, 
+			&rate_yaw, &rate_pitch, &rate_roll); 
+		
+		mPCLink.SendAttitude(loop_nr, 
+			yaw, pitch, roll, 
+			rate_yaw, rate_pitch, rate_roll); 
+		uint16_t avg_thr = (
+			constrain(
+				(throttle[0] + throttle[1] + throttle[2] + throttle[3]) >> 2, 
+				1000, 2000
+			) - 1000) / 10; 
+		mPCLink.SendHud(0, 0, yaw, avg_thr, altitude, pitch); 
+		
+		data_timeout = timestamp_from_now_us(100000); 
+	}
 	
-	float yaw, pitch, roll, rate_yaw, rate_pitch, rate_roll; 
-	fc.ComputeAngles(dt, acc, gyr,
-		&yaw, &pitch, &roll, 
-		&rate_yaw, &rate_pitch, &rate_roll); 
-	
-	mPCLink.SendAttitude(loop_nr, 
-		yaw, pitch, roll, 
-		rate_yaw, rate_pitch, rate_roll); 
-		 
 	static timestamp_t hb_timeout = timestamp_from_now_us(1000000); 
 	if(timestamp_expired(hb_timeout)){
 		mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
-		mPCLink.SendHeartbeat(); 
+		mPCLink.SendHeartbeat(mState); 
 		hb_timeout = timestamp_from_now_us(1000000); 
 	}
 }
@@ -282,6 +302,7 @@ void Application::PCLinkProcessEvents(){
 					*(params[c].value) = param.param_value; 
 					mPCLink.SendParamValueFloat(param.param_id, param.param_value, 1, 0); 
 					WriteConfig(conf); 
+					ApplyConfig(conf); 
 					break; 
 				} 
 			}

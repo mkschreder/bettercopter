@@ -51,27 +51,6 @@ void ModeStab::Reset(){
 ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc, 
 	float yaw, float pitch, float roll, 
 	float omega_yaw, float omega_pitch, float omega_roll){
-	// get normalized gravity vector
-	/*glm::vec3 nacc = glm::normalize(raw_gravity);
-	//float pp = 0, py = 0, pr = 0; 
-	float ap = 0, ay = 0, ar = 0; 
-	
-	ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
-	ay = 0; 
-	ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
-	
-	float gp, gy, gr; 
-	gp = raw_omega.x * dt; //0.9 * gp + gyr.x * 0.1; 
-	gy = raw_omega.z * dt; //0.9 * gy + gyr.y * 0.1; 
-	gr = raw_omega.y * dt; //0.9 * gr + gyr.z * 0.1; 
-	
-	//fuse accelerometer and gyroscope into ypr using comp filter
-	mAccPitch = 0.98 * (mAccPitch + gp) + 0.02 * ap; // needs to be + here for our conf front/back/left/right
-	//mAccYaw 	= 0.98 * (mAccYaw 	- gy) + ; 
-	// integrate gyro directly, but filter out low level noise
-	mAccYaw 	+= (abs(raw_omega.z) > 2)?(gy):0; 
-	mAccRoll 	= 0.98 * (mAccRoll 	- gr) + 0.02 * ar; 
-	*/
 	
 	float rcp = -map(rc.pitch, 1000, 2000, -25, 25); //(pitch - 1500.0); 
 	float rcr = -map(rc.roll, 1000, 2000, -25, 25); //(roll - 1500.0); 
@@ -83,7 +62,7 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	// calculate desired rotation rate in degrees / sec
 	float sp = constrain(mPID[PID_STAB_PITCH].get_pid(rcp - pitch, dt), -250, 250); 
 	float sr = constrain(mPID[PID_STAB_ROLL].get_pid(rcr 	- roll, dt), -250, 250); 
-	float sy = 0; //constrain(mPID[PID_STAB_YAW].get_pid(gy, dt), -360, 360); 
+	float sy = constrain(mPID[PID_STAB_YAW].get_pid(rcy, dt), -250, 250); 
 	
 	// calculate the actual rate based on current gyro rate
 	float rp = constrain(mPID[PID_RATE_PITCH].get_pid(sp - omega_pitch, dt), -500, 500); 
