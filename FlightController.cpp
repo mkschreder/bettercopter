@@ -84,10 +84,10 @@ void FlightController::ComputeAngles(
 	float ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
 	
 	//fuse accelerometer and gyroscope into ypr using comp filter
-	mAccPitch = 0.98 * (mAccPitch + gp) + 0.02 * ap; // needs to be + here for our conf front/back/left/right
+	mAccPitch = 0.99 * (mAccPitch + gp) + 0.01 * ap; // needs to be + here for our conf front/back/left/right
 	// integrate gyro directly, but filter out low level noise
 	mAccYaw 	+= (abs(gyr.z) > 2)?(gy):0; 
-	mAccRoll 	= 0.98 * (mAccRoll 	- gr) + 0.02 * ar; 
+	mAccRoll 	= 0.99 * (mAccRoll 	- gr) + 0.01 * ar; 
 	
 	*yaw = mAccYaw; 
 	*pitch = mAccPitch; 
@@ -98,21 +98,20 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag,
 		float altitude
 	){
-	
-	//frame_log("{\"frame_log\": {"); 
-	
 	// frame time in seconds, prevent zero
 	if(dt < 0.000001) dt = 0.000001; 
 	
 	uint16_t exp_thr = rc.throttle; 
-	
+	/*
 	// use log curve for throttle (adjust for values between 1000 to 2000)
 	if(rc.throttle >= 1000 && rc.throttle <= 2000){
 		// map 1000-2000 range into 0-1; 
 		float x = ((float)rc.throttle-1000.0)/1000.0; 
 		// calculate curve and map back to 1000-2000
 		exp_thr = (uint16_t)(2000.0+(log(x)) * 500.0); // 1+log(x)/2
-	}
+	}*/
+	
+	exp_thr = map(rc.throttle, 0, 2000, 0, 1700); 
 	
 	if(rc.throttle > 1050) {
 		if(rc.throttle < 1300){
@@ -146,27 +145,4 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 	}
 	
 	return throttle; 
-	/*
-	frame_log("\"raw_acc_x\": %-4d, \"raw_acc_y\": %-4d, \"raw_acc_z\": %-4d, ", 
-		(int16_t)(acc.x * 100), (int16_t)(acc.y * 100), (int16_t)(acc.z * 100)); 
-	frame_log("\"raw_gyr_x\": %-4d, \"raw_gyr_y\": %-4d, \"raw_gyr_z\": %-4d, ", 
-		(int16_t)(gyr.x * 100), (int16_t)(gyr.y * 100), (int16_t)(gyr.z * 100)); 
-	frame_log("\"raw_temp\": %-4d, \"raw_press\": %ld, \"raw_alt\": %-4d, ", 
-		(int16_t)(temp * 100), pressure, (int16_t)(altitude * 100)); 
-	
-	frame_log("\"rc\": [%-4d, %-4d, %-4d, %-4d], ", 
-		(uint16_t)rc.throttle, 
-		(uint16_t)rc.yaw, 
-		(uint16_t)rc.pitch, 
-		(uint16_t)rc.roll, 
-		(uint16_t)rc.aux0); 
-		
-	frame_log("\"out_thr\": [%-4d, %-4d, %-4d, %-4d],",
-		throttle[0], 
-		throttle[1], 
-		throttle[2], 
-		throttle[3]
-	); 
-	frame_log("\"dummy\": \"\"}}\n"); 
-	*/
 }

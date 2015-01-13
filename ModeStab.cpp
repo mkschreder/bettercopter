@@ -4,24 +4,14 @@
 
 // defualts
 
-#define STAB_PID_KP 4.5 // change 0 - 50
-#define STAB_PID_KI 0
-#define STAB_PID_KD 0
-#define STAB_PID_MAX 30.0
-
-#define RATE_PID_KP 0.5 // change 
-#define RATE_PID_KI 0.05
-#define RATE_PID_KD 0.04
-#define RATE_PID_MAX 500.0
-
 ModeStab::ModeStab() : 
 	mPID({
-		AC_PID(STAB_PID_KP, STAB_PID_KI, STAB_PID_KD, STAB_PID_MAX), // pitch
-		AC_PID(10, 0, 10, 30), // yaw
-		AC_PID(STAB_PID_KP, STAB_PID_KI, STAB_PID_KD, STAB_PID_MAX), // roll
-		AC_PID(RATE_PID_KP, RATE_PID_KI, RATE_PID_KD, RATE_PID_MAX), 
-		AC_PID(RATE_PID_KP, RATE_PID_KI, RATE_PID_KD, RATE_PID_MAX), 
-		AC_PID(RATE_PID_KP, RATE_PID_KI, RATE_PID_KD, RATE_PID_MAX),
+		AC_PID(0, 0, 0, 0), // pitch
+		AC_PID(0, 0, 0, 0), // yaw
+		AC_PID(0, 0, 0, 0), // roll
+		AC_PID(0, 0, 0, 0), 
+		AC_PID(0, 0, 0, 0), 
+		AC_PID(0, 0, 0, 0),
 		//AC_PID(ALT_PID_KP, 	ALT_PID_KI,  ALT_PID_KD, 	ALT_PID_MAX)
 	}){
 		
@@ -52,8 +42,8 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	float yaw, float pitch, float roll, 
 	float omega_yaw, float omega_pitch, float omega_roll){
 	
-	float rcp = -map(rc.pitch, 1000, 2000, -25, 25); //(pitch - 1500.0); 
-	float rcr = -map(rc.roll, 1000, 2000, -25, 25); //(roll - 1500.0); 
+	float rcp = -map(rc.pitch, 1000, 2000, -10, 10); //(pitch - 1500.0); 
+	float rcr = -map(rc.roll, 1000, 2000, -10, 10); //(roll - 1500.0); 
 	float rcy = -map(rc.yaw, 1000, 2000, -50, 50); //(yaw - 1500.0); 
 	
 	// control target yaw using control sticks

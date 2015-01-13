@@ -62,15 +62,15 @@ const AppConfig default_config PROGMEM = {
 	CONFIG_VERSION, 
 	// pid_stab
 	{
-		{4.5, 0, 0, 30}, // yaw
-		{4.5, 0, 0, 30}, // pitch
-		{4.5, 0, 0, 30} // roll
+		{0.2, 0, 0, 30}, // yaw
+		{5.0, 0.01, 1.0, 30}, // pitch
+		{5.0, 0.01, 1.0, 30} // roll
 	}, 
 	// pid_rate
 	{
-		{0.5, 0.05, 0.04, 500}, // yaw
-		{0.5, 0.05, 0.04, 500}, // pitch
-		{0.5, 0.05, 0.04, 500} // roll
+		{30, 0.0, 2.0, 500}, // yaw
+		{0.8, 0.01, 0.04, 500}, // pitch
+		{0.8, 0.01, 0.04, 500} // roll
 	}
 };  
  
@@ -165,7 +165,7 @@ void Application::loop(){
 	
 	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
 	
-	if(mArmSwitch.IsArmed()){
+	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
 		throttle = fc.ComputeThrottle(dt, 
 			rc, acc, gyr, mag, altitude); 
 	}
@@ -199,7 +199,7 @@ void Application::loop(){
 	
 	static timestamp_t hb_timeout = timestamp_from_now_us(1000000); 
 	if(timestamp_expired(hb_timeout)){
-		mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
+		//mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
 		mPCLink.SendHeartbeat(mState); 
 		hb_timeout = timestamp_from_now_us(1000000); 
 	}
@@ -219,6 +219,7 @@ void Application::PCLinkProcessEvents(){
 		case MAVLINK_MSG_ID_COMMAND_LONG:
 			// EXECUTE ACTION
 			break;
+		case MAVLINK_MSG_ID_PARAM_REQUEST_READ: 
 		case MAVLINK_MSG_ID_PARAM_REQUEST_LIST: {
 			AppConfig conf; 
 			ReadConfig(&conf); 
@@ -249,16 +250,36 @@ void Application::PCLinkProcessEvents(){
 				{PSTR("STAB.ROLL_P"), conf.pid_stab.roll.p},
 				{PSTR("STAB.ROLL_I"), conf.pid_stab.roll.i},
 				{PSTR("STAB.ROLL_D"), conf.pid_stab.roll.d},
-				{PSTR("STAB.ROLL_MAX_I"), conf.pid_stab.roll.max_i}
-				//{PSTR("MEM_FREE"), 0}
+				{PSTR("STAB.ROLL_MAX_I"), conf.pid_stab.roll.max_i},
+				{PSTR("MEM_FREE"), (float)StackCount()}
 			};
 			int count = sizeof(params) / sizeof(params[0]); 
-			for(int c = 0; c < count; c++){
+			/*for(int c = 0; c < count; c++){
 				char name[16]; 
 				strcpy_PF(name, (uint_farptr_t)params[c].name); 
 				mPCLink.SendParamValueFloat(
 					name, params[c].value, 
 					count, c); 
+			}*/
+				
+			if(msg.msgid == MAVLINK_MSG_ID_PARAM_REQUEST_LIST){
+				for(int c = 0; c < count; c++){
+					char name[16]; 
+					strcpy_PF(name, (uint_farptr_t)params[c].name); 
+					mPCLink.SendParamValueFloat(
+						name, params[c].value, 
+						count, c); 
+				}
+			} else {
+				mavlink_param_request_read_t param; 
+				mavlink_msg_param_request_read_decode(&msg, &param); 
+				if(param.param_index > 0 && param.param_index <= count){
+					char name[16]; 
+					strcpy_PF(name, (uint_farptr_t)params[param.param_index - 1].name); 
+					mPCLink.SendParamValueFloat(
+							name, params[param.param_index - 1].value, 
+							count, param.param_index - 1); 
+				} 
 			}
 			break; 
 		}
@@ -267,6 +288,7 @@ void Application::PCLinkProcessEvents(){
 			mavlink_msg_param_set_decode(&msg, &param); 
 			AppConfig conf; 
 			ReadConfig(&conf); 
+			float dummy; 
 			struct param {
 				const char *name; 
 				float *value; 
@@ -294,7 +316,8 @@ void Application::PCLinkProcessEvents(){
 				{PSTR("STAB.ROLL_P"), &conf.pid_stab.roll.p},
 				{PSTR("STAB.ROLL_I"), &conf.pid_stab.roll.i},
 				{PSTR("STAB.ROLL_D"), &conf.pid_stab.roll.d},
-				{PSTR("STAB.ROLL_MAX_I"), &conf.pid_stab.roll.max_i}
+				{PSTR("STAB.ROLL_MAX_I"), &conf.pid_stab.roll.max_i},
+				{PSTR("MEM_FREE"), &dummy}
 			};
 			int count = sizeof(params) / sizeof(params[0]); 
 			for(int c = 0; c < count; c++){

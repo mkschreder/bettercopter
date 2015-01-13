@@ -16,18 +16,13 @@ PCLink::PCLink(){
 void PCLink::SendHeartbeat(copter_state_t state){
 	if(!mSerial) return; 
 	
-	mavlink_system_t mavlink_system;
- 
-	mavlink_system.sysid = 20;                   ///< ID 20 for this airplane
-	mavlink_system.compid = MAV_COMP_ID_IMU;     ///< The component sending the message is the IMU, it could be also a Linux process
-	
 	// Initialize the required buffers
 	mavlink_message_t msg;
 	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_HEARTBEAT_LEN];
 	 
 	// Pack the message
-	mavlink_msg_heartbeat_pack(mavlink_system.sysid, 
-		mavlink_system.compid, 
+	mavlink_msg_heartbeat_pack(
+		20, MAV_COMP_ID_IMU, 
 		&msg, 
 		MAV_TYPE_QUADROTOR, 
 		MAV_AUTOPILOT_GENERIC, 
@@ -62,12 +57,12 @@ void PCLink::SendRawIMU(uint64_t usec,
 		mag.x, mag.y, mag.z
 	); 
 
-	uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
-	
-	serial_putn(mSerial, buf, len);
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
 }
 
 void PCLink::SendParamValueFloat(const char *name, float value, int count, int index){
+	if(!mSerial) return; 
+	
 	mavlink_message_t msg;
 	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_PARAM_VALUE_LEN];
 
@@ -90,12 +85,13 @@ void PCLink::SendHud(
 		float alt, 
 		float climb
 ){
+	if(!mSerial) return; 
+	
 	mavlink_message_t msg;
 	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_VFR_HUD_LEN];
 
 	mavlink_msg_vfr_hud_pack(
-		20, 
-		MAV_COMP_ID_IMU, 
+		20, MAV_COMP_ID_IMU, 
 		&msg,
 		airspeed, 
 		groundspeed, 
@@ -114,26 +110,24 @@ void PCLink::SendAttitude(uint32_t timestamp,
 ){
 	if(!mSerial) return; 
 	
-	mavlink_attitude_t attmsg; 
-	attmsg.time_boot_ms = timestamp; 
-	attmsg.roll = glm::radians(roll); ///< Roll angle (rad, -pi..+pi)
-	attmsg.pitch = glm::radians(pitch); ///< Pitch angle (rad, -pi..+pi)
-	attmsg.yaw = glm::radians(yaw); ///< Yaw angle (rad, -pi..+pi)
-	attmsg.rollspeed = glm::radians(rate_roll); ///< Roll angular speed (rad/s)
-	attmsg.pitchspeed = glm::radians(rate_pitch); ///< Pitch angular speed (rad/s)
-	attmsg.yawspeed = glm::radians(rate_yaw); ///< Yaw angular speed
-	
 	// Initialize the required buffers
 	mavlink_message_t msg;
-	uint8_t buf[100];
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_ATTITUDE_LEN];
 	 
 	// Pack the message
-	mavlink_msg_attitude_encode_chan(20, MAV_COMP_ID_IMU, 0, 
-		&msg, &attmsg); 
+	mavlink_msg_attitude_pack(
+		20, MAV_COMP_ID_IMU, 
+		&msg, 
+		timestamp,
+		glm::radians(roll),
+		glm::radians(pitch),
+		glm::radians(yaw),
+		glm::radians(rate_roll),
+		glm::radians(rate_pitch),
+		glm::radians(rate_yaw)
+	); 
 	
-	uint16_t len = mavlink_msg_to_send_buffer(buf, &msg);
-	
-	serial_putn(mSerial, buf, len);
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
 }
 
 bool PCLink::ReceiveMessage(mavlink_message_t *msg){
@@ -144,9 +138,9 @@ bool PCLink::ReceiveMessage(mavlink_message_t *msg){
 	uint8_t max_count = 16; 
 	while(serial_waiting(mSerial) && (max_count--))
 	{
-		uint8_t c = serial_getc(mSerial);
+		uint16_t c = serial_getc(mSerial);
 		// Try to get a new message
-		if(mavlink_parse_char(MAVLINK_COMM_0, c, msg, &status)) {
+		if(c != SERIAL_NO_DATA && mavlink_parse_char(MAVLINK_COMM_0, c, msg, &status)) {
 			return true; 
 		}
 	}

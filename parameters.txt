@@ -1,7 +1,7 @@
 # Onboard parameters for system MAV 020
 #
 # MAV ID  COMPONENT ID  PARAM NAME  VALUE (FLOAT)
-20	200	MEM_FREE	                       22	9
+20	200	MEM_FREE	                       16	9
 20	200	RATE.PITCH_D	                     0.04	9
 20	200	RATE.PITCH_I	                     0.01	9
 20	200	RATE.PITCH_MAX_I	                      500	9
@@ -10,10 +10,10 @@
 20	200	RATE.ROLL_I	                     0.01	9
 20	200	RATE.ROLL_MAX_I	                      500	9
 20	200	RATE.ROLL_P	                      0.8	9
-20	200	RATE.YAW_D	                     0.04	9
+20	200	RATE.YAW_D	                        2	9
 20	200	RATE.YAW_I	                        0	9
 20	200	RATE.YAW_MAX_I	                      500	9
-20	200	RATE.YAW_P	                      0.8	9
+20	200	RATE.YAW_P	                       30	9
 20	200	STAB.PITCH_D	                        1	9
 20	200	STAB.PITCH_I	                     0.01	9
 20	200	STAB.PITCH_MAX_I	                       30	9
@@ -25,4 +25,4 @@
 20	200	STAB.YAW_D	                        0	9
 20	200	STAB.YAW_I	                        0	9
 20	200	STAB.YAW_MAX_I	                       30	9
-20	200	STAB.YAW_P	                      4.5	9
+20	200	STAB.YAW_P	                      0.2	9
