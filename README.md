@@ -38,6 +38,7 @@ Currently supported features
 -----------------------
 
 Feature | Description | Status
+--------|-------------|--------
 Stabilized mode | auto level | Supported
 Acrobatic mode | direct control | 90 % done
 Standard 6 chan RX | radio receiver | Supported
@@ -48,6 +49,7 @@ Quadcopter models
 -----------------
 
 Model name | Status
+-----------|--------
 X quad | Supported
 
 Ground control stations
@@ -55,4 +57,5 @@ Ground control stations
 Any ground control station that implements mavlink protocol should be supported out of the box. Communication is done over serial interface. 
 
 Ground Control | Status
+---------------|--------
 QGroundControl | Supported
