@@ -45,6 +45,7 @@
 #include "FlightController.hpp"
 #include "PCLink.hpp"
 #include "ArmSwitch.hpp"
+#include "LedIndicator.hpp"
 #include "types.hpp"
 
 #include "mavlink.h"
@@ -93,6 +94,7 @@ private:
 	FlightController fc; 
 	PCLink				mPCLink; 
 	ArmSwitch 		mArmSwitch; 
+	LedIndicator 	mLED; 
 	serial_dev_t 	mPCSerial; 
 	copter_state_t mState; 
 };
@@ -114,10 +116,12 @@ void Application::init(){
 	gpio_clear(FC_LED_PIN); 
 	timestamp_delay_us(1000000L); 
 	
-	gpio_set(FC_LED_PIN); 
-	timestamp_delay_us(500000L); 
-	gpio_clear(FC_LED_PIN); 
-	timestamp_delay_us(500000L); 
+	for(int c = 0; c < 3; c++){
+		gpio_set(FC_LED_PIN); 
+		timestamp_delay_us(300000L); 
+		gpio_clear(FC_LED_PIN); 
+		timestamp_delay_us(300000L); 
+	}
 	
 	srand(0x1234); 
 	
@@ -139,6 +143,8 @@ void Application::loop(){
 	RCValues rc; 
 	glm::vec3 acc, gyr, mag; 
 	
+	mLED.Update(); 
+	
 	fc_process_events();
 	
 	static timestamp_t last_loop = timestamp_now(); 
@@ -151,15 +157,17 @@ void Application::loop(){
 	fc_read_accelerometer(mBoard, &acc.x, &acc.y, &acc.z);
 	fc_read_gyroscope(mBoard, &gyr.x, &gyr.y, &gyr.z);
 	float altitude = 	fc_read_altitude(mBoard); 
+	float batval = fc_read_battery_monitor(mBoard); 
+	
 	//long pressure = 	fc_read_pressure(mBoard); 
 	//float temp = 			fc_read_temperature(mBoard); 
 	
 	if(!mArmSwitch.IsArmed() && mArmSwitch.TryArm(rc)){
 		fc.Reset(); 
-		gpio_set(FC_LED_PIN); 
+		mLED.On(); 
 		mState = COPTER_STATE_ACTIVE; 
 	} else if(mArmSwitch.IsArmed() && mArmSwitch.TryDisarm(rc)){
-		gpio_clear(FC_LED_PIN); 
+		mLED.Off(); 
 		mState = COPTER_STATE_STANDBY; 
 	}
 	
@@ -177,6 +185,17 @@ void Application::loop(){
 	
 	static timestamp_t data_timeout = timestamp_from_now_us(100000); 
 	if(timestamp_expired(data_timeout)){	
+		// batval is in percentage of board supply voltage, so need to scale
+		float vbat = batval * 15; 
+		if(vbat < 11) {
+			// battery is too low! 
+			mLED.FastBlink(); 
+		} else if(vbat > 5 && vbat < 10){
+			//Disarm(); 
+		}
+		
+		mPCLink.SendPowerStatus(vbat, 4.9); 
+		
 		mPCLink.SendRawIMU(loop_nr, acc, gyr, mag); 
 		
 		float yaw, pitch, roll, rate_yaw, rate_pitch, rate_roll; 
@@ -197,9 +216,9 @@ void Application::loop(){
 		data_timeout = timestamp_from_now_us(100000); 
 	}
 	
-	static timestamp_t hb_timeout = timestamp_from_now_us(1000000); 
+	static timestamp_t hb_timeout = timestamp_from_now_us(5000000L); 
 	if(timestamp_expired(hb_timeout)){
-		//mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
+		mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
 		mPCLink.SendHeartbeat(mState); 
 		hb_timeout = timestamp_from_now_us(1000000); 
 	}

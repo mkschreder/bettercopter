@@ -34,6 +34,7 @@ public:
 		float airspeed, float groundspeed, int16_t heading, 
 		uint16_t throttle, float alt, float climb);
 	void SendParamValueFloat(const char *name, float val, int count, int index); 
+	void SendPowerStatus(float vbat, float vcc); 
 	
 	void SetSerialInterface(serial_dev_t serial){mSerial = serial;}
 private: 

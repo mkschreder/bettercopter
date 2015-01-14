@@ -130,6 +130,48 @@ void PCLink::SendAttitude(uint32_t timestamp,
 	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
 }
 
+void PCLink::SendPowerStatus(float vbat, float vcc){
+	if(!mSerial) return; 
+	
+	if(vcc > 50) vcc = 50; if(vcc < 0) vcc = 0; 
+	if(vbat > 50) vbat = 50; if(vbat < 0) vbat = 0; 
+	
+	// Initialize the required buffers
+	mavlink_message_t msg;
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_SYS_STATUS_LEN];
+	
+	mavlink_msg_sys_status_pack(
+		20, //uint8_t system_id, 
+		MAV_COMP_ID_IMU, //uint8_t component_id, 
+		&msg, //mavlink_message_t* msg,
+		MAV_SYS_STATUS_SENSOR_3D_GYRO | MAV_SYS_STATUS_SENSOR_3D_ACCEL | MAV_SYS_STATUS_SENSOR_3D_MAG | MAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSURE | MAV_SYS_STATUS_SENSOR_RC_RECEIVER, //uint32_t onboard_control_sensors_present, 
+		MAV_SYS_STATUS_SENSOR_3D_GYRO | MAV_SYS_STATUS_SENSOR_3D_ACCEL | MAV_SYS_STATUS_SENSOR_3D_MAG | MAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSURE | MAV_SYS_STATUS_SENSOR_RC_RECEIVER, //uint32_t onboard_control_sensors_enabled, 
+		MAV_SYS_STATUS_SENSOR_3D_GYRO | MAV_SYS_STATUS_SENSOR_3D_ACCEL | MAV_SYS_STATUS_SENSOR_3D_MAG | MAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSURE | MAV_SYS_STATUS_SENSOR_RC_RECEIVER, //uint32_t onboard_control_sensors_health, 
+		3, //uint16_t load, 
+		(uint16_t)(vbat * 1000), //uint16_t voltage_battery, 
+		30, //int16_t current_battery, 
+		45, //int8_t battery_remaining, 
+		5, //uint16_t drop_rate_comm, 
+		6, //uint16_t errors_comm, 
+		7, //uint16_t errors_count1, 
+		8, //uint16_t errors_count2, 
+		9, //uint16_t errors_count3, 
+		10 //uint16_t errors_count4
+	); 
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
+	// Pack the message
+	mavlink_msg_power_status_pack(
+		20, MAV_COMP_ID_IMU, 
+		&msg, 
+		(uint16_t)(vbat * 1000), 
+		(uint16_t)(vcc * 1000),
+		MAV_POWER_STATUS_BRICK_VALID | MAV_POWER_STATUS_SERVO_VALID | 
+			MAV_POWER_STATUS_CHANGED
+	);
+	
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
+}
+
 bool PCLink::ReceiveMessage(mavlink_message_t *msg){
 	if(!mSerial) return false; 
 	
