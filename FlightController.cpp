@@ -67,32 +67,6 @@ void FlightController::Reset(){
 	mStabCtrl.Reset(); 
 }
 
-void FlightController::ComputeAngles(
-	float dt, 
-	const glm::vec3 &acc, 
-	const glm::vec3 &gyr, 
-	float *yaw, float *pitch, float *roll, 
-	float *omega_yaw, float *omega_pitch, float *omega_roll
-){
-	glm::vec3 nacc = glm::normalize(acc);
-	
-	float gp = *omega_pitch = gyr.x * dt; //0.9 * gp + gyr.x * 0.1; 
-	float gy = *omega_yaw = gyr.z * dt; //0.9 * gy + gyr.y * 0.1; 
-	float gr = *omega_roll = gyr.y * dt; //0.9 * gr + gyr.z * 0.1; 
-	
-	float ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
-	float ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
-	
-	//fuse accelerometer and gyroscope into ypr using comp filter
-	mAccPitch = 0.99 * (mAccPitch + gp) + 0.01 * ap; // needs to be + here for our conf front/back/left/right
-	// integrate gyro directly, but filter out low level noise
-	mAccYaw 	+= (abs(gyr.z) > 2)?(gy):0; 
-	mAccRoll 	= 0.99 * (mAccRoll 	- gr) + 0.01 * ar; 
-	
-	*yaw = mAccYaw; 
-	*pitch = mAccPitch; 
-	*roll = mAccRoll; 
-}
 
 ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,  
 		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag,
@@ -121,10 +95,25 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 		}
 	}
 	
-	float yaw, pitch, roll, ryaw, rpitch, rroll; 
-	ComputeAngles(dt, acc, gyr, 
-		&yaw, &pitch, &roll, 
-		&ryaw, &rpitch, &rroll); 
+	glm::vec3 nacc = glm::normalize(acc);
+	
+	float rpitch = gyr.x * dt; //0.9 * gp + gyr.x * 0.1; 
+	float ryaw = gyr.z * dt; //0.9 * gy + gyr.y * 0.1; 
+	float rroll = gyr.y * dt; //0.9 * gr + gyr.z * 0.1; 
+	
+	float ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
+	float ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
+	
+	//fuse accelerometer and gyroscope into ypr using comp filter
+	mAccPitch = 0.99 * (mAccPitch + rpitch) + 0.01 * ap; // needs to be + here for our conf front/back/left/right
+	// integrate gyro directly, but filter out low level noise
+	mAccYaw 	+= (abs(gyr.z) > 2)?(ryaw):0; 
+	mAccRoll 	= 0.99 * (mAccRoll 	- rroll) + 0.01 * ar; 
+	
+	float yaw = glm::degrees(atan2(mag.y, mag.x)); //mAccYaw; 
+	float pitch = mAccPitch; 
+	float roll = mAccRoll; 
+	
 	ThrottleValues stab = mStabCtrl.ComputeThrottle(
 		dt, rc, 
 		yaw, pitch, roll, 

@@ -141,7 +141,7 @@ void Application::loop(){
 #endif
 	static uint32_t loop_nr = 0; loop_nr++; 
 	RCValues rc; 
-	glm::vec3 acc, gyr, mag; 
+	//glm::vec3 acc, gyr, mag; 
 	
 	mLED.Update(); 
 	
@@ -153,12 +153,15 @@ void Application::loop(){
 	
 	float dt = udt * 0.000001; 
 	
+	struct fc_data sensors; 
+	fc_read_sensors(mBoard, &sensors); 
 	fc_read_receiver(mBoard, &rc.throttle, &rc.yaw, &rc.pitch, &rc.roll, &rc.aux0, &rc.aux1);
+	/*
 	fc_read_accelerometer(mBoard, &acc.x, &acc.y, &acc.z);
 	fc_read_gyroscope(mBoard, &gyr.x, &gyr.y, &gyr.z);
 	float altitude = 	fc_read_altitude(mBoard); 
 	float batval = fc_read_battery_monitor(mBoard); 
-	
+	*/
 	//long pressure = 	fc_read_pressure(mBoard); 
 	//float temp = 			fc_read_temperature(mBoard); 
 	
@@ -175,7 +178,11 @@ void Application::loop(){
 	
 	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
 		throttle = fc.ComputeThrottle(dt, 
-			rc, acc, gyr, mag, altitude); 
+			rc, 
+			glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z), 
+			glm::vec3(sensors.gyr_deg.x, sensors.gyr_deg.y, sensors.gyr_deg.z),
+			glm::vec3(sensors.mag.x, sensors.mag.y, sensors.mag.z),
+			sensors.altitude); 
 	}
 	
 	fc_write_motors(mBoard, 
@@ -186,7 +193,7 @@ void Application::loop(){
 	static timestamp_t data_timeout = timestamp_from_now_us(100000); 
 	if(timestamp_expired(data_timeout)){	
 		// batval is in percentage of board supply voltage, so need to scale
-		float vbat = batval * 15; 
+		float vbat = sensors.vbat * 15; 
 		if(vbat < 11) {
 			// battery is too low! 
 			mLED.FastBlink(); 
@@ -196,22 +203,31 @@ void Application::loop(){
 		
 		mPCLink.SendPowerStatus(vbat, 4.9); 
 		
-		mPCLink.SendRawIMU(loop_nr, acc, gyr, mag); 
+		mPCLink.SendRawIMU(loop_nr, 
+			glm::vec3(sensors.raw_acc.x, sensors.raw_acc.y, sensors.raw_acc.z), 
+			glm::vec3(sensors.raw_gyr.x, sensors.raw_gyr.y, sensors.raw_gyr.z),
+			glm::vec3(sensors.raw_mag.x, sensors.raw_mag.y, sensors.raw_mag.z)
+		); 
 		
-		float yaw, pitch, roll, rate_yaw, rate_pitch, rate_roll; 
-		fc.ComputeAngles(dt, acc, gyr,
-			&yaw, &pitch, &roll, 
-			&rate_yaw, &rate_pitch, &rate_roll); 
+		//static float yaw = 0; 
+		
+		glm::vec3 nacc = glm::normalize(glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z)); 
+		float pitch = ::atan2(nacc.y , nacc.z ); 
+		float roll = ::atan2(nacc.x , nacc.z ); 
+		float yaw = ::atan2(sensors.mag.y, sensors.mag.x); 
 		
 		mPCLink.SendAttitude(loop_nr, 
 			yaw, pitch, roll, 
-			rate_yaw, rate_pitch, rate_roll); 
+			glm::radians(sensors.gyr_deg.z), 
+			glm::radians(sensors.gyr_deg.x), 
+			glm::radians(sensors.gyr_deg.y)); 
+			
 		uint16_t avg_thr = (
 			constrain(
 				(throttle[0] + throttle[1] + throttle[2] + throttle[3]) >> 2, 
 				1000, 2000
 			) - 1000) / 10; 
-		mPCLink.SendHud(0, 0, yaw, avg_thr, altitude, pitch); 
+		mPCLink.SendHud(0, 0, yaw, avg_thr, sensors.altitude, pitch); 
 		
 		data_timeout = timestamp_from_now_us(100000); 
 	}

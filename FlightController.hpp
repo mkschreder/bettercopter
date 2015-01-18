@@ -66,14 +66,6 @@ public:
 		float altitude
 	);
 	
-	/// angles are in degrees
-	void ComputeAngles(
-		float dt, 
-		const glm::vec3 &acc, 
-		const glm::vec3 &gyr, 
-		float *yaw, float *pitch, float *roll, 
-		float *omega_yaw, float *omega_pitch, float *omega_roll); 
-		
 	void SetPIDValues(
 		const pid_values_t &stab_yaw, 
 		const pid_values_t &stab_pitch, 

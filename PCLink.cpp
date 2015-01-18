@@ -119,12 +119,12 @@ void PCLink::SendAttitude(uint32_t timestamp,
 		20, MAV_COMP_ID_IMU, 
 		&msg, 
 		timestamp,
-		glm::radians(roll),
-		glm::radians(pitch),
-		glm::radians(yaw),
-		glm::radians(rate_roll),
-		glm::radians(rate_pitch),
-		glm::radians(rate_yaw)
+		roll,
+		pitch,
+		yaw,
+		rate_roll,
+		rate_pitch,
+		rate_yaw
 	); 
 	
 	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
