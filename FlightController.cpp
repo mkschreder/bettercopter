@@ -1,12 +1,13 @@
-/**
-	This file is part of martink project.
+/*
+	This file is part of my quadcopter project.
+	https://github.com/mkschreder/bettercopter
 
-	martink firmware project is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
+	This software is firmware project is free software: you can 
+	redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or (at your option) any later version.
 
-	martink firmware is distributed in the hope that it will be useful,
+	This software is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
@@ -33,16 +34,18 @@ extern "C" {
 
 #include "FlightController.hpp"
 
+/*
 #define ALT_PID_KP 1.8 // altitude 
 #define ALT_PID_KI 0.018
 #define ALT_PID_KD 30.0
 #define ALT_PID_MAX 20.0
+*/
 
 extern "C" double atan2(double x, double y); 
 
 FlightController::FlightController(){
 	mMode = MODE_STABILIZE; 
-	mAccPitch = mAccYaw = mAccRoll = 0; 
+	mAccYaw = 0; 
 }
 
 void FlightController::SetPIDValues(
@@ -102,17 +105,17 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 	float rroll = gyr.y * dt; //0.9 * gr + gyr.z * 0.1; 
 	
 	float ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
-	float ar = glm::degrees(::atan2(nacc.x , nacc.z )); 
+	float ar = -glm::degrees(::atan2(nacc.x , nacc.z )); 
 	
 	//fuse accelerometer and gyroscope into ypr using comp filter
-	mAccPitch = 0.99 * (mAccPitch + rpitch) + 0.01 * ap; // needs to be + here for our conf front/back/left/right
+	//mAccPitch = 0.99 * (mAccPitch + rpitch) + 0.01 * ap; // needs to be + here for our conf front/back/left/right
+	//mAccRoll 	= 0.99 * (mAccRoll 	+ rroll) + 0.01 * ar; 
 	// integrate gyro directly, but filter out low level noise
 	mAccYaw 	+= (abs(gyr.z) > 2)?(ryaw):0; 
-	mAccRoll 	= 0.99 * (mAccRoll 	- rroll) + 0.01 * ar; 
 	
 	float yaw = glm::degrees(atan2(mag.y, mag.x)); //mAccYaw; 
-	float pitch = mAccPitch; 
-	float roll = mAccRoll; 
+	float pitch = mKalmanPitch.UpdateAngle(ap, gyr.x, dt); 
+	float roll = mKalmanRoll.UpdateAngle(ar, gyr.y, dt); 
 	
 	ThrottleValues stab = mStabCtrl.ComputeThrottle(
 		dt, rc, 

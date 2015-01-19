@@ -1,12 +1,13 @@
-/**
-	This file is part of martink project.
+/*
+	This file is part of my quadcopter project.
+	https://github.com/mkschreder/bettercopter
 
-	martink firmware project is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
+	This software is firmware project is free software: you can 
+	redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or (at your option) any later version.
 
-	martink firmware is distributed in the hope that it will be useful,
+	This software is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
@@ -107,7 +108,7 @@ void Application::init(){
 #endif
 	//fc_init();
 
-	kprintf("BetterCopter V1.0\n"); 
+	kdebug("BetterCopter V1.0\n"); 
 	mBoard = fc_get_interface();
 	if(!mBoard) {
 		//kprintf("No board!\n"); 
@@ -156,14 +157,6 @@ void Application::loop(){
 	struct fc_data sensors; 
 	fc_read_sensors(mBoard, &sensors); 
 	fc_read_receiver(mBoard, &rc.throttle, &rc.yaw, &rc.pitch, &rc.roll, &rc.aux0, &rc.aux1);
-	/*
-	fc_read_accelerometer(mBoard, &acc.x, &acc.y, &acc.z);
-	fc_read_gyroscope(mBoard, &gyr.x, &gyr.y, &gyr.z);
-	float altitude = 	fc_read_altitude(mBoard); 
-	float batval = fc_read_battery_monitor(mBoard); 
-	*/
-	//long pressure = 	fc_read_pressure(mBoard); 
-	//float temp = 			fc_read_temperature(mBoard); 
 	
 	if(!mArmSwitch.IsArmed() && mArmSwitch.TryArm(rc)){
 		fc.Reset(); 
@@ -174,19 +167,23 @@ void Application::loop(){
 		mState = COPTER_STATE_STANDBY; 
 	}
 	
-	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
+	float altitude = sensors.sonar_altitude; 
 	
-	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
-		throttle = fc.ComputeThrottle(dt, 
+	ThrottleValues throttle = 
+		fc.ComputeThrottle(dt, 
 			rc, 
 			glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z), 
 			glm::vec3(sensors.gyr_deg.x, sensors.gyr_deg.y, sensors.gyr_deg.z),
 			glm::vec3(sensors.mag.x, sensors.mag.y, sensors.mag.z),
-			sensors.altitude); 
+			altitude); 
+			
+	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
+		fc_write_motors(mBoard, 
+			throttle[0], MINCOMMAND, /*throttle[1],*/ throttle[2], throttle[3]);
+	} else {
+		fc_write_motors(mBoard, 
+			MINCOMMAND, MINCOMMAND, MINCOMMAND, MINCOMMAND);
 	}
-	
-	fc_write_motors(mBoard, 
-			throttle[0], throttle[1], throttle[2], throttle[3]);
 	
 	PCLinkProcessEvents(); 
 	
@@ -212,9 +209,9 @@ void Application::loop(){
 		//static float yaw = 0; 
 		
 		glm::vec3 nacc = glm::normalize(glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z)); 
-		float pitch = ::atan2(nacc.y , nacc.z ); 
-		float roll = ::atan2(nacc.x , nacc.z ); 
-		float yaw = ::atan2(sensors.mag.y, sensors.mag.x); 
+		float pitch = glm::radians(fc.GetPitch()); //::atan2(nacc.y , nacc.z ); 
+		float roll = glm::radians(fc.GetRoll()); //::atan2(nacc.x , nacc.z ); 
+		float yaw = glm::radians(fc.GetYaw()); //::atan2(sensors.mag.y, sensors.mag.x); 
 		
 		mPCLink.SendAttitude(loop_nr, 
 			yaw, pitch, roll, 
@@ -227,14 +224,14 @@ void Application::loop(){
 				(throttle[0] + throttle[1] + throttle[2] + throttle[3]) >> 2, 
 				1000, 2000
 			) - 1000) / 10; 
-		mPCLink.SendHud(0, 0, yaw, avg_thr, sensors.altitude, pitch); 
+		mPCLink.SendHud(0, 0, yaw, avg_thr, altitude, pitch); 
 		
 		data_timeout = timestamp_from_now_us(100000); 
 	}
 	
 	static timestamp_t hb_timeout = timestamp_from_now_us(5000000L); 
 	if(timestamp_expired(hb_timeout)){
-		mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
+		//mPCLink.SendParamValueFloat("MEM_FREE", StackCount(), 1, 0); 
 		mPCLink.SendHeartbeat(mState); 
 		hb_timeout = timestamp_from_now_us(1000000); 
 	}
@@ -308,12 +305,13 @@ void Application::PCLinkProcessEvents(){
 			} else {
 				mavlink_param_request_read_t param; 
 				mavlink_msg_param_request_read_decode(&msg, &param); 
-				if(param.param_index > 0 && param.param_index <= count){
+				int idx = param.param_index - 1; 
+				if(idx >= 0 && idx < count){
 					char name[16]; 
-					strcpy_PF(name, (uint_farptr_t)params[param.param_index - 1].name); 
+					strcpy_PF(name, (uint_farptr_t)params[idx].name); 
 					mPCLink.SendParamValueFloat(
-							name, params[param.param_index - 1].value, 
-							count, param.param_index - 1); 
+							name, params[idx].value, 
+							count, idx); 
 				} 
 			}
 			break; 

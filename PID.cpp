@@ -1,5 +1,24 @@
+/*
+	This file is part of my quadcopter project.
+	https://github.com/mkschreder/bettercopter
 
-/// @file	AC_PID.cpp
+	This software is firmware project is free software: you can 
+	redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or (at your option) any later version.
+
+	This software is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with martink firmware.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author: Arduino team
+*/
+
+/// @file	PID.cpp
 /// @brief	Generic PID algorithm
 #include <math.h>
 
@@ -7,12 +26,12 @@
 
 #define M_PI 3.14159265358979323846
 
-float AC_PID::get_p(float error) const
+float PID::get_p(float error) const
 {
     return (float)error * _kp;
 }
 
-float AC_PID::get_i(float error, float dt)
+float PID::get_i(float error, float dt)
 {
     if((_ki != 0) && (dt != 0)) {
         _integrator += ((float)error * _ki) * dt;
@@ -26,7 +45,7 @@ float AC_PID::get_i(float error, float dt)
     return 0;
 }
 
-float AC_PID::get_d(float input, float dt)
+float PID::get_d(float input, float dt)
 {
     if ((_kd != 0) && (dt != 0)) {
         float derivative;
@@ -54,25 +73,25 @@ float AC_PID::get_d(float input, float dt)
     return 0;
 }
 
-float AC_PID::get_pi(float error, float dt)
+float PID::get_pi(float error, float dt)
 {
     return get_p(error) + get_i(error, dt);
 }
 
 
-float AC_PID::get_pid(float error, float dt)
+float PID::get_pid(float error, float dt)
 {
     return get_p(error) + get_i(error, dt) + get_d(error, dt);
 }
 
-void AC_PID::reset_I()
+void PID::reset_I()
 {
     _integrator = 0;
 	// mark derivative as invalid
     _last_derivative = NAN;
 }
 
-void AC_PID::set_d_lpf_alpha(int16_t cutoff_frequency, float time_step)
+void PID::set_d_lpf_alpha(int16_t cutoff_frequency, float time_step)
 {    
     // calculate alpha
     float rc = 1/(2*M_PI*cutoff_frequency);

@@ -1,3 +1,25 @@
+/*
+	This file is part of my quadcopter project.
+	https://github.com/mkschreder/bettercopter
+
+	This software is firmware project is free software: you can 
+	redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or (at your option) any later version.
+
+	This software is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with martink firmware.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author: Martin K. Schröder
+	Email: info@fortmax.se
+	Github: https://github.com/mkschreder
+*/
+
 #include "ModeStab.hpp"
 #include <kernel.h>
 #include "mavlink.h"
@@ -6,13 +28,13 @@
 
 ModeStab::ModeStab() : 
 	mPID({
-		AC_PID(0, 0, 0, 0), // pitch
-		AC_PID(0, 0, 0, 0), // yaw
-		AC_PID(0, 0, 0, 0), // roll
-		AC_PID(0, 0, 0, 0), 
-		AC_PID(0, 0, 0, 0), 
-		AC_PID(0, 0, 0, 0),
-		//AC_PID(ALT_PID_KP, 	ALT_PID_KI,  ALT_PID_KD, 	ALT_PID_MAX)
+		PID(0, 0, 0, 0), // pitch
+		PID(0, 0, 0, 0), // yaw
+		PID(0, 0, 0, 0), // roll
+		PID(0, 0, 0, 0), 
+		PID(0, 0, 0, 0), 
+		PID(0, 0, 0, 0),
+		//PID(ALT_PID_KP, 	ALT_PID_KI,  ALT_PID_KD, 	ALT_PID_MAX)
 	}){
 		
 }
@@ -24,12 +46,12 @@ void ModeStab::SetPIDValues(
 	const pid_values_t &rate_yaw, 
 	const pid_values_t &rate_pitch, 
 	const pid_values_t &rate_roll){
-	mPID[PID_STAB_YAW] = AC_PID(stab_yaw.p, stab_yaw.i, stab_yaw.d, stab_yaw.max_i); 
-	mPID[PID_STAB_PITCH] = AC_PID(stab_pitch.p, stab_pitch.i, stab_pitch.d, stab_pitch.max_i); 
-	mPID[PID_STAB_ROLL] = AC_PID(stab_roll.p, stab_roll.i, stab_roll.d, stab_roll.max_i); 
-	mPID[PID_RATE_YAW] = AC_PID(rate_yaw.p, rate_yaw.i, rate_yaw.d, rate_yaw.max_i); 
-	mPID[PID_RATE_PITCH] = AC_PID(rate_pitch.p, rate_pitch.i, rate_pitch.d, rate_pitch.max_i); 
-	mPID[PID_RATE_ROLL] = AC_PID(rate_roll.p, rate_roll.i, rate_roll.d, rate_roll.max_i); 
+	mPID[PID_STAB_YAW] 		= PID(stab_yaw.p, stab_yaw.i, stab_yaw.d, stab_yaw.max_i); 
+	mPID[PID_STAB_PITCH] 	= PID(stab_pitch.p, stab_pitch.i, stab_pitch.d, stab_pitch.max_i); 
+	mPID[PID_STAB_ROLL] 	= PID(stab_roll.p, stab_roll.i, stab_roll.d, stab_roll.max_i); 
+	mPID[PID_RATE_YAW] 		= PID(rate_yaw.p, rate_yaw.i, rate_yaw.d, rate_yaw.max_i); 
+	mPID[PID_RATE_PITCH] 	= PID(rate_pitch.p, rate_pitch.i, rate_pitch.d, rate_pitch.max_i); 
+	mPID[PID_RATE_ROLL] 	= PID(rate_roll.p, rate_roll.i, rate_roll.d, rate_roll.max_i); 
 }
 
 void ModeStab::Reset(){
@@ -65,8 +87,8 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 		// back  
 					- rp + ry,
 		// left 
-		- rr			 - ry,
+		+ rr			 - ry,
 		// right
-		+ rr			 - ry
+		- rr			 - ry
 	); 
 }

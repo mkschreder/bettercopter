@@ -1,10 +1,29 @@
-// -*- tab-width: 4; Mode: C++; c-basic-offset: 4; indent-tabs-mode: nil -*-
+/*
+	This file is part of my quadcopter project.
+	https://github.com/mkschreder/bettercopter
 
-/// @file	AC_PID.h
-/// @brief	Generic PID algorithm, with EEPROM-backed storage of constants.
+	This software is firmware project is free software: you can 
+	redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or (at your option) any later version.
 
-#ifndef __AC_PID_H__
-#define __AC_PID_H__
+	This software is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with martink firmware.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author: Arduino Team
+*/
+
+/// @file	PID.h
+/// @brief	Generic PID algorithm
+/// @author based on arduino pid 
+
+#ifndef __PID_H__
+#define __PID_H__
 
 #include <inttypes.h>
 #include <stdlib.h>
@@ -16,11 +35,11 @@
 // f_cut = 20 Hz -> _alpha = 0.556864
 // f_cut = 25 Hz -> _alpha = 0.611015
 // f_cut = 30 Hz -> _alpha = 0.653373
-#define AC_PID_D_TERM_FILTER 0.556864f    // Default 100Hz Filter Rate with 20Hz Cutoff Frequency
+#define PID_D_TERM_FILTER 0.556864f    // Default 100Hz Filter Rate with 20Hz Cutoff Frequency
 
-/// @class	AC_PID
+/// @class	PID
 /// @brief	Object managing one PID control
-class AC_PID {
+class PID {
 public:
 
     /// Constructor for PID that saves its settings to EEPROM
@@ -33,7 +52,7 @@ public:
     /// @param  initial_d       Initial value for the D term.
     /// @param  initial_imax    Initial value for the imax term.4
     ///
-    AC_PID(
+    PID(
         const float &   initial_p = 0.0,
         const float &   initial_i = 0.0,
         const float &   initial_d = 0.0,
@@ -41,7 +60,7 @@ public:
         _integrator(0),
         _last_input(0),
         _last_derivative(0),
-        _d_lpf_alpha(AC_PID_D_TERM_FILTER)
+        _d_lpf_alpha(PID_D_TERM_FILTER)
     {
 		
         _kp = initial_p;
@@ -122,4 +141,4 @@ protected:
     float           _d_lpf_alpha;                               ///< alpha used in D-term LPF
 };
 
-#endif // __AC_PID_H__
+#endif // __PID_H__

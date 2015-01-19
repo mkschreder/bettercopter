@@ -1,12 +1,13 @@
 /*
-	This file is part of martink project.
+	This file is part of my quadcopter project.
+	https://github.com/mkschreder/bettercopter
 
-	martink firmware project is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
+	This software is firmware project is free software: you can 
+	redistribute it and/or modify it under the terms of the GNU General 
+	Public License as published by the Free Software Foundation, either 
+	version 3 of the License, or (at your option) any later version.
 
-	martink firmware is distributed in the hope that it will be useful,
+	This software is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
@@ -23,22 +24,19 @@
 #include <math.h>
 
 #include "types.hpp"
-#include "SensorProvider.hpp"
 #include "PID.hpp"
 #include "ModeStab.hpp"
 #include "ModeAltHold.hpp"
 
-//typedef unsigned short uint16_t;
 typedef signed short ivalue; 
 typedef unsigned short uivalue; 
-/*typedef glm::i16vec4 ivec4;
-typedef glm::i16vec3 ivec3;*/
 
 #define MAX_UVALUE(a) (2^(sizeof(a)*8))
 #define MAX_IVALUE (MAX_VALUE(ivalue)/2)
 #define MIN_IVALUE (-MAX_IVALUE)
 #define MAX_UIVALUE (MAX_VALUE(uivalue))
 
+#include "KalmanFilter.hpp"
 /**
  * Flight controller that accepts inputs from RC control and calculates
  * motor thrust.
@@ -56,6 +54,10 @@ public:
 	//void ComputeOmega(const glm::vec3 &raw_gyr, float *yaw_rate, float *pitch_rate, float *roll_rate); 
 	
 	void Reset(); 
+	
+	float GetPitch(){return mKalmanPitch.GetAngle();}
+	float GetRoll(){return mKalmanRoll.GetAngle();}
+	float GetYaw(){return mAccYaw;}
 	
 	ThrottleValues ComputeThrottle(
 		float dt, 
@@ -80,8 +82,8 @@ protected:
 	ModeAltHold mAltHoldCtrl; 
 	ModeStab 		mStabCtrl; 
 	FlightMode	mMode; 
-	
-	float mAccPitch, mAccYaw, mAccRoll; 
+	float 			mAccYaw; //mAccPitch, , mAccRoll; 
+	KalmanFilter 	mKalmanPitch, mKalmanRoll; 
 	//bool mArmed, mArmInProgress; 
 	//timestamp_t mArmTimeout; 
 	
