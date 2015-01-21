@@ -60,6 +60,25 @@ void sim_loop();
 
 #define CONFIG_VERSION 0x55
 
+/// 2600kv pids
+const AppConfig default_config PROGMEM = {
+	CONFIG_VERSION, 
+	// pid_stab
+	{
+		{0, 0, 0, 30}, // yaw
+		{0, 0.0, 0.0, 30}, // pitch
+		{0, 0.0, 0.0, 30} // roll
+	}, 
+	// pid_rate
+	{
+		{1, 0.0, 2.0, 500}, // yaw
+		{70.0, 0, 0, 100}, // pitch
+		{70.0, 0.1, 15.0, 100} // roll
+	}
+};  
+
+/// 1400kv pids
+/*
 const AppConfig default_config PROGMEM = {
 	CONFIG_VERSION, 
 	// pid_stab
@@ -75,7 +94,7 @@ const AppConfig default_config PROGMEM = {
 		{0.8, 0.01, 0.04, 500} // roll
 	}
 };  
- 
+*/
 class Application {
 public:
 	Application():mState(COPTER_STATE_BOOT) {}
@@ -115,13 +134,12 @@ void Application::init(){
 		while(1); 
 	}
 	gpio_clear(FC_LED_PIN); 
-	timestamp_delay_us(1000000L); 
 	
 	for(int c = 0; c < 3; c++){
 		gpio_set(FC_LED_PIN); 
-		timestamp_delay_us(300000L); 
+		timestamp_delay_us(200000L); 
 		gpio_clear(FC_LED_PIN); 
-		timestamp_delay_us(300000L); 
+		timestamp_delay_us(200000L); 
 	}
 	
 	srand(0x1234); 
@@ -158,6 +176,8 @@ void Application::loop(){
 	fc_read_sensors(mBoard, &sensors); 
 	fc_read_receiver(mBoard, &rc.throttle, &rc.yaw, &rc.pitch, &rc.roll, &rc.aux0, &rc.aux1);
 	
+	float altitude = sensors.sonar_altitude; 
+	
 	if(!mArmSwitch.IsArmed() && mArmSwitch.TryArm(rc)){
 		fc.Reset(); 
 		mLED.On(); 
@@ -166,8 +186,6 @@ void Application::loop(){
 		mLED.Off(); 
 		mState = COPTER_STATE_STANDBY; 
 	}
-	
-	float altitude = sensors.sonar_altitude; 
 	
 	ThrottleValues throttle = 
 		fc.ComputeThrottle(dt, 
@@ -178,34 +196,45 @@ void Application::loop(){
 			altitude); 
 			
 	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
+		//MINCOMMAND, MINCOMMAND); //
 		fc_write_motors(mBoard, 
-			throttle[0], MINCOMMAND, /*throttle[1],*/ throttle[2], throttle[3]);
+			rc.throttle/*throttle[0]*/, throttle[1], MINCOMMAND, MINCOMMAND); //throttle[2], throttle[3]);
 	} else {
 		fc_write_motors(mBoard, 
 			MINCOMMAND, MINCOMMAND, MINCOMMAND, MINCOMMAND);
 	}
-	
+
 	PCLinkProcessEvents(); 
 	
 	static timestamp_t data_timeout = timestamp_from_now_us(100000); 
 	if(timestamp_expired(data_timeout)){	
 		// batval is in percentage of board supply voltage, so need to scale
 		float vbat = sensors.vbat * 15; 
-		if(vbat < 11) {
+		if(vbat < 10) {
 			// battery is too low! 
 			mLED.FastBlink(); 
-		} else if(vbat > 5 && vbat < 10){
+		} else if(vbat > 5 && vbat < 9){
 			//Disarm(); 
+		} else {
+			if(mArmSwitch.IsArmed()) mLED.On(); 
+			else mLED.Off(); 
 		}
 		
 		mPCLink.SendPowerStatus(vbat, 4.9); 
+		
+		mPCLink.SendRCChannels(loop_nr, rc.throttle, rc.yaw, rc.pitch, rc.roll, 0, 0); 
 		
 		mPCLink.SendRawIMU(loop_nr, 
 			glm::vec3(sensors.raw_acc.x, sensors.raw_acc.y, sensors.raw_acc.z), 
 			glm::vec3(sensors.raw_gyr.x, sensors.raw_gyr.y, sensors.raw_gyr.z),
 			glm::vec3(sensors.raw_mag.x, sensors.raw_mag.y, sensors.raw_mag.z)
 		); 
-		
+		/*
+		mPCLink.SendScaledIMU(loop_nr, 
+			glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z), 
+			glm::vec3(sensors.gyr_deg.x, sensors.gyr_deg.y, sensors.gyr_deg.z),
+			glm::vec3(sensors.mag.x, sensors.mag.y, sensors.mag.z)
+		); */
 		//static float yaw = 0; 
 		
 		glm::vec3 nacc = glm::normalize(glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z)); 
@@ -213,6 +242,9 @@ void Application::loop(){
 		float roll = glm::radians(fc.GetRoll()); //::atan2(nacc.x , nacc.z ); 
 		float yaw = glm::radians(fc.GetYaw()); //::atan2(sensors.mag.y, sensors.mag.x); 
 		
+		mPCLink.SendMotorOutput(loop_nr, throttle[0], throttle[1], 
+			throttle[2], throttle[3]); 
+			
 		mPCLink.SendAttitude(loop_nr, 
 			yaw, pitch, roll, 
 			glm::radians(sensors.gyr_deg.z), 
@@ -224,7 +256,7 @@ void Application::loop(){
 				(throttle[0] + throttle[1] + throttle[2] + throttle[3]) >> 2, 
 				1000, 2000
 			) - 1000) / 10; 
-		mPCLink.SendHud(0, 0, yaw, avg_thr, altitude, pitch); 
+		mPCLink.SendHud(dt, 0, yaw, avg_thr, altitude, pitch); 
 		
 		data_timeout = timestamp_from_now_us(100000); 
 	}
@@ -259,30 +291,30 @@ void Application::PCLinkProcessEvents(){
 				const char *name; 
 				float value; 
 			} params [] = {
-				{PSTR("RATE.YAW_P"), conf.pid_rate.yaw.p},
-				{PSTR("RATE.YAW_I"), conf.pid_rate.yaw.i},
-				{PSTR("RATE.YAW_D"), conf.pid_rate.yaw.d},
-				{PSTR("RATE.YAW_MAX_I"), conf.pid_rate.yaw.max_i},
-				{PSTR("RATE.PITCH_P"), conf.pid_rate.pitch.p},
-				{PSTR("RATE.PITCH_I"), conf.pid_rate.pitch.i},
-				{PSTR("RATE.PITCH_D"), conf.pid_rate.pitch.d},
-				{PSTR("RATE.PITCH_MAX_I"), conf.pid_rate.pitch.max_i},
-				{PSTR("RATE.ROLL_P"), conf.pid_rate.roll.p},
-				{PSTR("RATE.ROLL_I"), conf.pid_rate.roll.i},
-				{PSTR("RATE.ROLL_D"), conf.pid_rate.roll.d},
-				{PSTR("RATE.ROLL_MAX_I"), conf.pid_rate.roll.max_i},
-				{PSTR("STAB.YAW_P"), conf.pid_stab.yaw.p},
-				{PSTR("STAB.YAW_I"), conf.pid_stab.yaw.i},
-				{PSTR("STAB.YAW_D"), conf.pid_stab.yaw.d}, 
-				{PSTR("STAB.YAW_MAX_I"), conf.pid_stab.yaw.max_i},
-				{PSTR("STAB.PITCH_P"), conf.pid_stab.pitch.p},
-				{PSTR("STAB.PITCH_I"), conf.pid_stab.pitch.i},
-				{PSTR("STAB.PITCH_D"), conf.pid_stab.pitch.d},
-				{PSTR("STAB.PITCH_MAX_I"), conf.pid_stab.pitch.max_i},
-				{PSTR("STAB.ROLL_P"), conf.pid_stab.roll.p},
-				{PSTR("STAB.ROLL_I"), conf.pid_stab.roll.i},
-				{PSTR("STAB.ROLL_D"), conf.pid_stab.roll.d},
-				{PSTR("STAB.ROLL_MAX_I"), conf.pid_stab.roll.max_i},
+				{PSTR("RATE.Y_P"), conf.pid_rate.yaw.p},
+				{PSTR("RATE.Y_I"), conf.pid_rate.yaw.i},
+				{PSTR("RATE.Y_D"), conf.pid_rate.yaw.d},
+				{PSTR("RATE.Y_MAX_I"), conf.pid_rate.yaw.max_i},
+				{PSTR("RATE.P_P"), conf.pid_rate.pitch.p},
+				{PSTR("RATE.P_I"), conf.pid_rate.pitch.i},
+				{PSTR("RATE.P_D"), conf.pid_rate.pitch.d},
+				{PSTR("RATE.P_MAX_I"), conf.pid_rate.pitch.max_i},
+				{PSTR("RATE.R_P"), conf.pid_rate.roll.p},
+				{PSTR("RATE.R_I"), conf.pid_rate.roll.i},
+				{PSTR("RATE.R_D"), conf.pid_rate.roll.d},
+				{PSTR("RATE.R_MAX_I"), conf.pid_rate.roll.max_i},
+				{PSTR("STAB.Y_P"), conf.pid_stab.yaw.p},
+				{PSTR("STAB.Y_I"), conf.pid_stab.yaw.i},
+				{PSTR("STAB.Y_D"), conf.pid_stab.yaw.d}, 
+				{PSTR("STAB.Y_MAX_I"), conf.pid_stab.yaw.max_i},
+				{PSTR("STAB.P_P"), conf.pid_stab.pitch.p},
+				{PSTR("STAB.P_I"), conf.pid_stab.pitch.i},
+				{PSTR("STAB.P_D"), conf.pid_stab.pitch.d},
+				{PSTR("STAB.P_MAX_I"), conf.pid_stab.pitch.max_i},
+				{PSTR("STAB.R_P"), conf.pid_stab.roll.p},
+				{PSTR("STAB.R_I"), conf.pid_stab.roll.i},
+				{PSTR("STAB.R_D"), conf.pid_stab.roll.d},
+				{PSTR("STAB.R_MAX_I"), conf.pid_stab.roll.max_i},
 				{PSTR("MEM_FREE"), (float)StackCount()}
 			};
 			int count = sizeof(params) / sizeof(params[0]); 
@@ -326,30 +358,30 @@ void Application::PCLinkProcessEvents(){
 				const char *name; 
 				float *value; 
 			} params [] = {
-				{PSTR("RATE.YAW_P"), &conf.pid_rate.yaw.p},
-				{PSTR("RATE.YAW_I"), &conf.pid_rate.yaw.i},
-				{PSTR("RATE.YAW_D"), &conf.pid_rate.yaw.d},
-				{PSTR("RATE.YAW_MAX_I"), &conf.pid_rate.yaw.max_i},
-				{PSTR("RATE.PITCH_P"), &conf.pid_rate.pitch.p},
-				{PSTR("RATE.PITCH_I"), &conf.pid_rate.pitch.i},
-				{PSTR("RATE.PITCH_D"), &conf.pid_rate.pitch.d},
-				{PSTR("RATE.PITCH_MAX_I"), &conf.pid_rate.pitch.max_i},
-				{PSTR("RATE.ROLL_P"), &conf.pid_rate.roll.p},
-				{PSTR("RATE.ROLL_I"), &conf.pid_rate.roll.i},
-				{PSTR("RATE.ROLL_D"), &conf.pid_rate.roll.d},
-				{PSTR("RATE.ROLL_MAX_I"), &conf.pid_rate.roll.max_i},
-				{PSTR("STAB.YAW_P"), &conf.pid_stab.yaw.p},
-				{PSTR("STAB.YAW_I"), &conf.pid_stab.yaw.i},
-				{PSTR("STAB.YAW_D"), &conf.pid_stab.yaw.d}, 
-				{PSTR("STAB.YAW_MAX_I"), &conf.pid_stab.yaw.max_i},
-				{PSTR("STAB.PITCH_P"), &conf.pid_stab.pitch.p},
-				{PSTR("STAB.PITCH_I"), &conf.pid_stab.pitch.i},
-				{PSTR("STAB.PITCH_D"), &conf.pid_stab.pitch.d},
-				{PSTR("STAB.PITCH_MAX_I"), &conf.pid_stab.pitch.max_i},
-				{PSTR("STAB.ROLL_P"), &conf.pid_stab.roll.p},
-				{PSTR("STAB.ROLL_I"), &conf.pid_stab.roll.i},
-				{PSTR("STAB.ROLL_D"), &conf.pid_stab.roll.d},
-				{PSTR("STAB.ROLL_MAX_I"), &conf.pid_stab.roll.max_i},
+				{PSTR("RATE.Y_P"), &conf.pid_rate.yaw.p},
+				{PSTR("RATE.Y_I"), &conf.pid_rate.yaw.i},
+				{PSTR("RATE.Y_D"), &conf.pid_rate.yaw.d},
+				{PSTR("RATE.Y_MAX_I"), &conf.pid_rate.yaw.max_i},
+				{PSTR("RATE.P_P"), &conf.pid_rate.pitch.p},
+				{PSTR("RATE.P_I"), &conf.pid_rate.pitch.i},
+				{PSTR("RATE.P_D"), &conf.pid_rate.pitch.d},
+				{PSTR("RATE.P_MAX_I"), &conf.pid_rate.pitch.max_i},
+				{PSTR("RATE.R_P"), &conf.pid_rate.roll.p},
+				{PSTR("RATE.R_I"), &conf.pid_rate.roll.i},
+				{PSTR("RATE.R_D"), &conf.pid_rate.roll.d},
+				{PSTR("RATE.R_MAX_I"), &conf.pid_rate.roll.max_i},
+				{PSTR("STAB.Y_P"), &conf.pid_stab.yaw.p},
+				{PSTR("STAB.Y_I"), &conf.pid_stab.yaw.i},
+				{PSTR("STAB.Y_D"), &conf.pid_stab.yaw.d}, 
+				{PSTR("STAB.Y_MAX_I"), &conf.pid_stab.yaw.max_i},
+				{PSTR("STAB.P_P"), &conf.pid_stab.pitch.p},
+				{PSTR("STAB.P_I"), &conf.pid_stab.pitch.i},
+				{PSTR("STAB.P_D"), &conf.pid_stab.pitch.d},
+				{PSTR("STAB.P_MAX_I"), &conf.pid_stab.pitch.max_i},
+				{PSTR("STAB.R_P"), &conf.pid_stab.roll.p},
+				{PSTR("STAB.R_I"), &conf.pid_stab.roll.i},
+				{PSTR("STAB.R_D"), &conf.pid_stab.roll.d},
+				{PSTR("STAB.R_MAX_I"), &conf.pid_stab.roll.max_i},
 				{PSTR("MEM_FREE"), &dummy}
 			};
 			int count = sizeof(params) / sizeof(params[0]); 

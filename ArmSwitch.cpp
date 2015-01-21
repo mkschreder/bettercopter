@@ -24,6 +24,8 @@
 #include "ArmSwitch.hpp"
 
 bool ArmSwitch::TryArm(const RCValues &rc){
+	if(!mArmTimeout) mArmTimeout = timestamp_now(); 
+	
 	if(!mArmed && rc.throttle < 1050 && rc.roll > 1700){
 		if(!mArmInProgress) {
 			mArmTimeout = timestamp_from_now_us(1000000); 

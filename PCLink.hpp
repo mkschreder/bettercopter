@@ -49,9 +49,15 @@ public:
 	void SendHeartbeat(copter_state_t state); 
 	void SendRawIMU(uint64_t usec, 
 		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag); 
+	void SendScaledIMU(uint64_t usec, 
+		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag); 
 	void SendAttitude(uint32_t timestamp, 
 		float yaw, float pitch, float roll, 
 		float rate_yaw, float rate_pitch, float rate_roll); 
+	void SendMotorOutput(uint32_t timestamp, 
+		uint16_t front, uint16_t back, uint16_t left, uint16_t right); 
+	void SendRCChannels(uint32_t timestamp, uint16_t chan1, uint16_t chan2, 
+		uint16_t chan3, uint16_t chan4, uint16_t chan5, uint16_t chan6); 
 	void SendHud(
 		float airspeed, float groundspeed, int16_t heading, 
 		uint16_t throttle, float alt, float climb);

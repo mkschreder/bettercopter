@@ -64,31 +64,34 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	float yaw, float pitch, float roll, 
 	float omega_yaw, float omega_pitch, float omega_roll){
 	
-	float rcp = -map(rc.pitch, 1000, 2000, -10, 10); //(pitch - 1500.0); 
-	float rcr = -map(rc.roll, 1000, 2000, -10, 10); //(roll - 1500.0); 
+	float rcp = -map(rc.pitch, 1000, 2000, -25, 25); //(pitch - 1500.0); 
+	float rcr =  map(rc.roll, 1000, 2000, -25, 25); //(roll - 1500.0); 
 	float rcy = -map(rc.yaw, 1000, 2000, -50, 50); //(yaw - 1500.0); 
-	
-	// control target yaw using control sticks
-	mTargetYaw = mTargetYaw + rcy * dt; 
 	
 	// calculate desired rotation rate in degrees / sec
 	float sp = constrain(mPID[PID_STAB_PITCH].get_pid(rcp - pitch, dt), -250, 250); 
-	float sr = constrain(mPID[PID_STAB_ROLL].get_pid(rcr 	- roll, dt), -250, 250); 
-	float sy = constrain(mPID[PID_STAB_YAW].get_pid(rcy, dt), -250, 250); 
+	float sr = constrain(mPID[PID_STAB_ROLL].get_pid(rcr - roll, dt), -250, 250); 
+	float sy = constrain(mPID[PID_STAB_YAW].get_pid(wrap_180(rcy - mTargetYaw), dt), -250, 250); 
 	
-	// calculate the actual rate based on current gyro rate
-	float rp = constrain(mPID[PID_RATE_PITCH].get_pid(sp - omega_pitch, dt), -500, 500); 
-	float rr = constrain(mPID[PID_RATE_ROLL].get_pid(sr - omega_roll, dt), -500, 500); 
-	float ry = constrain(mPID[PID_RATE_YAW].get_pid(sy - omega_yaw, dt), -500, 500); 
+	if(abs(rc.yaw - 1500) > 10){
+		sy = rcy * 0.01;  // this tells us maybe omega should be in degrees per second? 
+		mTargetYaw = yaw; 
+		//mTargetYaw = mTargetYaw + rcy * dt; 
+	} 
+	
+	// calculate the actual rate based on current gyro rate in degrees
+	float rp = constrain(mPID[PID_RATE_PITCH	].get_pid(sp - omega_pitch, dt), -500, 500); 
+	float rr = constrain(mPID[PID_RATE_ROLL		].get_pid(sr - omega_roll, dt), -500, 500); 
+	float ry = constrain(mPID[PID_RATE_YAW		].get_pid(sy - omega_yaw, dt), -500, 500); 
 	
 	return glm::i16vec4(
 		// front
-					+ rp + ry,
+				+ rp + ry,
 		// back  
-					- rp + ry,
+				- rp + ry,
 		// left 
-		+ rr			 - ry,
+				+ rr - ry,
 		// right
-		- rr			 - ry
+				- rr - ry
 	); 
 }

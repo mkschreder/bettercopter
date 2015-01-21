@@ -82,6 +82,61 @@ void PCLink::SendRawIMU(uint64_t usec,
 	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
 }
 
+
+void PCLink::SendScaledIMU(uint64_t usec, 
+		const glm::vec3 &acc, const glm::vec3 &gyr, const glm::vec3 &mag
+){
+	if(!mSerial) return; 
+	
+	// Initialize the required buffers
+	mavlink_message_t msg;
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_SCALED_IMU_LEN];
+	
+	mavlink_msg_scaled_imu_pack_chan(
+		SYSTEM_ID, 
+		DEFAULT_COMPONENT_ID, 
+		MAVLINK_COMM_0,
+		&msg,
+		usec,
+		acc.x * 1000, acc.y * 1000, acc.z * 1000, 
+		gyr.x * 1000, gyr.y * 1000, gyr.z * 1000, 
+		mag.x * 1000, mag.y * 1000, mag.z * 1000
+	); 
+
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
+}
+
+void PCLink::SendMotorOutput(uint32_t timestamp, uint16_t front, uint16_t back, uint16_t left, uint16_t right){
+	if(!mSerial) return; 
+	
+	mavlink_message_t msg;
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_SERVO_OUTPUT_RAW_LEN];
+
+	mavlink_msg_servo_output_raw_pack(
+		20, MAV_COMP_ID_IMU, &msg,
+		timestamp, 0, 
+		front, back, left, right, 
+		0, 0, 0, 0); 
+
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
+}
+
+void PCLink::SendRCChannels(uint32_t timestamp, uint16_t chan1, uint16_t chan2, 
+		uint16_t chan3, uint16_t chan4, uint16_t chan5, uint16_t chan6){
+	if(!mSerial) return; 
+	
+	mavlink_message_t msg;
+	uint8_t buf[MAVLINK_NUM_NON_PAYLOAD_BYTES + MAVLINK_MSG_ID_RC_CHANNELS_RAW_LEN];
+
+	mavlink_msg_rc_channels_raw_pack(
+		20, MAV_COMP_ID_IMU, &msg,
+		timestamp, 0, //timestamp + chan
+		chan1, chan2, chan3, chan4, chan5, chan6, 0, 0, 
+		100 //rssi
+	);
+
+	serial_putn(mSerial, buf, mavlink_msg_to_send_buffer(buf, &msg));
+}
 void PCLink::SendParamValueFloat(const char *name, float value, int count, int index){
 	if(!mSerial) return; 
 	

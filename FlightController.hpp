@@ -57,6 +57,9 @@ public:
 	
 	float GetPitch(){return mKalmanPitch.GetAngle();}
 	float GetRoll(){return mKalmanRoll.GetAngle();}
+	//float GetPitch(){return mAccPitch;}
+	//float GetRoll(){return mAccRoll;}
+	
 	float GetYaw(){return mAccYaw;}
 	
 	ThrottleValues ComputeThrottle(
@@ -82,7 +85,7 @@ protected:
 	ModeAltHold mAltHoldCtrl; 
 	ModeStab 		mStabCtrl; 
 	FlightMode	mMode; 
-	float 			mAccYaw; //mAccPitch, , mAccRoll; 
+	float 			mAccYaw; //mAccPitch , mAccRoll; 
 	KalmanFilter 	mKalmanPitch, mKalmanRoll; 
 	//bool mArmed, mArmInProgress; 
 	//timestamp_t mArmTimeout; 

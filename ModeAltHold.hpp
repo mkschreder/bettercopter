@@ -22,14 +22,14 @@
 #pragma once
 
 #include "types.hpp"
+#include "PID.hpp" 
 
 class ModeAltHold {
 public:
 	ModeAltHold(); 
-	ThrottleValues ComputeThrottle(float raw_altitude); 
-	void 			AdjustAltitude(float units); 
-	void 			SetAltitude(float target); 
+	ThrottleValues ComputeThrottle(float dt, const RCValues &rc, float raw_altitude); 
 private:
-	float mAccAltitude; // accumulated/accelerometer corrected altitude
+	PID 	mAltPID; 
+	float mBaseThrottle; // accumulated/accelerometer corrected altitude
 	float mTargetAltitude; // target altitude
 };

@@ -35,7 +35,7 @@
 // f_cut = 20 Hz -> _alpha = 0.556864
 // f_cut = 25 Hz -> _alpha = 0.611015
 // f_cut = 30 Hz -> _alpha = 0.653373
-#define PID_D_TERM_FILTER 0.556864f    // Default 100Hz Filter Rate with 20Hz Cutoff Frequency
+#define PID_D_TERM_FILTER 0.385869f    // Default 100Hz Filter Rate with 20Hz Cutoff Frequency
 
 /// @class	PID
 /// @brief	Object managing one PID control
@@ -59,17 +59,14 @@ public:
         const int16_t & initial_imax = 0.0):
         _integrator(0),
         _last_input(0),
-        _last_derivative(0),
         _d_lpf_alpha(PID_D_TERM_FILTER)
     {
-		
-        _kp = initial_p;
-        _ki = initial_i;
-        _kd = initial_d;
-        _imax = abs(initial_imax);
+			_kp = initial_p;
+			_ki = initial_i;
+			_kd = initial_d;
+			_imax = abs(initial_imax);
 
-		// derivative is invalid on startup
-		_last_derivative = NAN;
+			_last_derivative = NAN;
     }
 
     /// Iterate the PID, return the new control value

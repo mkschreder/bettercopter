@@ -46,6 +46,8 @@ extern "C" double atan2(double x, double y);
 FlightController::FlightController(){
 	mMode = MODE_STABILIZE; 
 	mAccYaw = 0; 
+	//mAccPitch = 0; 
+	//mAccRoll = 0; 
 }
 
 void FlightController::SetPIDValues(
@@ -90,20 +92,14 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 	
 	exp_thr = map(rc.throttle, 0, 2000, 0, 1700); 
 	
-	if(rc.throttle > 1050) {
-		if(rc.throttle < 1300){
-			mAltHoldCtrl.AdjustAltitude(-0.1); 
-		} else if(rc.throttle > 1700){
-			mAltHoldCtrl.AdjustAltitude(0.1); 
-		}
-	}
-	
 	glm::vec3 nacc = glm::normalize(acc);
 	
-	float rpitch = gyr.x * dt; //0.9 * gp + gyr.x * 0.1; 
-	float ryaw = gyr.z * dt; //0.9 * gy + gyr.y * 0.1; 
-	float rroll = gyr.y * dt; //0.9 * gr + gyr.z * 0.1; 
+	/// maybe this should be rate directly from gyro? 
+	float rpitch = 	(gyr.x ); //0.9 * gp + gyr.x * 0.1; 
+	float ryaw = 		(gyr.z ); //0.9 * gy + gyr.y * 0.1; 
+	float rroll = 	(gyr.y ); //0.9 * gr + gyr.z * 0.1; 
 	
+	// in radians
 	float ap = glm::degrees(::atan2(nacc.y , nacc.z )); 
 	float ar = -glm::degrees(::atan2(nacc.x , nacc.z )); 
 	
@@ -113,21 +109,30 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 	// integrate gyro directly, but filter out low level noise
 	mAccYaw 	+= (abs(gyr.z) > 2)?(ryaw):0; 
 	
-	float yaw = glm::degrees(atan2(mag.y, mag.x)); //mAccYaw; 
+	float yaw = mAccYaw; //glm::degrees(atan2(mag.y, mag.x)); //mAccYaw; 
 	float pitch = mKalmanPitch.UpdateAngle(ap, gyr.x, dt); 
 	float roll = mKalmanRoll.UpdateAngle(ar, gyr.y, dt); 
-	
+	// when we accumulate readings then we SHOULD use sliced gyro data
+	/*float pitch = mAccPitch = 
+		0.99 * (mAccPitch + gyr.x * dt) + 0.01 * ap;
+	float roll = mAccRoll = 
+		0.99 * (mAccRoll 	+ gyr.y * dt) + 0.01 * ar; 
+	*/
 	ThrottleValues stab = mStabCtrl.ComputeThrottle(
 		dt, rc, 
 		yaw, pitch, roll, 
-		ryaw, rpitch, rroll); 
-	ThrottleValues althold = mAltHoldCtrl.ComputeThrottle(altitude); 
+		ryaw, rpitch, rroll
+	); 
+	ThrottleValues althold = mAltHoldCtrl.ComputeThrottle(
+		dt, rc, 
+		altitude
+	); 
 	
 	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
 	
 	// compute final motor throttle
 	if(mMode == MODE_ALT_HOLD){
-		throttle = althold + stab; 
+		throttle = 1000 + althold + stab; 
 	} else if(mMode == MODE_STABILIZE){
 		throttle = ThrottleValues(exp_thr) + stab; 
 	}

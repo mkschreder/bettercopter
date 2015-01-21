@@ -33,20 +33,26 @@ float PID::get_p(float error) const
 
 float PID::get_i(float error, float dt)
 {
-    if((_ki != 0) && (dt != 0)) {
-        _integrator += ((float)error * _ki) * dt;
-        if (_integrator < -_imax) {
-            _integrator = -_imax;
-        } else if (_integrator > _imax) {
-            _integrator = _imax;
-        }
-        return _integrator;
-    }
-    return 0;
+	if((_ki != 0) && (dt != 0)) {
+		/*_integrator += error * dt; */
+		_integrator += ((float)error * _ki) * dt;
+		if (_integrator < -_imax) {
+			_integrator = -_imax;
+		} else if (_integrator > _imax) {
+			_integrator = _imax;
+		}
+		return _integrator;
+	}
+	return 0;
 }
 
 float PID::get_d(float input, float dt)
 {
+	/*if(_kd == 0 || dt == 0) return 0; 
+	double result = ((double)input - (double)_last_input) / dt; 
+	if(_last_input != input) _last_input = input; 
+	return _kd * result; 
+	*/
     if ((_kd != 0) && (dt != 0)) {
         float derivative;
 				if (isnan(_last_derivative)) {
@@ -61,7 +67,9 @@ float PID::get_d(float input, float dt)
 				}
 				// discrete low pass filter, cuts out the
 				// high frequency noise that can drive the controller crazy
-				//derivative = _last_derivative + _d_lpf_alpha * (derivative - _last_derivative);
+				derivative = 
+					_last_derivative + 
+					_d_lpf_alpha * (derivative - _last_derivative);
 
 				// update state
 				_last_input             = input;
@@ -71,6 +79,7 @@ float PID::get_d(float input, float dt)
 				return _kd * derivative;
     }
     return 0;
+    
 }
 
 float PID::get_pi(float error, float dt)
