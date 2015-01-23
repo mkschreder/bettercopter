@@ -28,6 +28,9 @@ public:
 	ArmSwitch():mArmed(false), mArmInProgress(false), mArmTimeout(0){
 		
 	}
+	void On() {mArmed = true; mArmInProgress = false; }
+	void Off() {mArmed = false; mArmInProgress = false; }
+	
 	/// looks at the rc values and returns true only when going from 
 	/// disarmed to armed state. 
 	bool TryArm(const RCValues &rc); 

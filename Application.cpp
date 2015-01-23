@@ -187,6 +187,22 @@ void Application::loop(){
 		mState = COPTER_STATE_STANDBY; 
 	}
 	
+	static int test_throttle = 1400; 
+	static timestamp_t test_timeout = timestamp_from_now_us(5000000L);
+	 
+	if(timestamp_expired(test_timeout)){
+		test_throttle = 999; 	
+	}
+	if(test_throttle <= 1000) {
+		mArmSwitch.Off(); 
+		mState = COPTER_STATE_STANDBY;
+	}
+	else {
+		rc.throttle = test_throttle; 
+		mArmSwitch.On(); 
+		mState = COPTER_STATE_ACTIVE; 
+	}
+	
 	ThrottleValues throttle = 
 		fc.ComputeThrottle(dt, 
 			rc, 
@@ -194,11 +210,11 @@ void Application::loop(){
 			glm::vec3(sensors.gyr_deg.x, sensors.gyr_deg.y, sensors.gyr_deg.z),
 			glm::vec3(sensors.mag.x, sensors.mag.y, sensors.mag.z),
 			altitude); 
-			
+	
 	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
 		//MINCOMMAND, MINCOMMAND); //
 		fc_write_motors(mBoard, 
-			rc.throttle/*throttle[0]*/, throttle[1], MINCOMMAND, MINCOMMAND); //throttle[2], throttle[3]);
+			throttle[0], throttle[1], throttle[2], throttle[3]);
 	} else {
 		fc_write_motors(mBoard, 
 			MINCOMMAND, MINCOMMAND, MINCOMMAND, MINCOMMAND);
@@ -426,10 +442,12 @@ void Application::ApplyConfig(const AppConfig &conf){
 		conf.pid_rate.roll); 
 }
 
-extern "C" void app_init(void){
-	app.init();
+int main(){
+	fc_init(); 
+	app.init(); 
+	while(1){
+		app.loop(); 
+	}
+	return 0; 
 }
 
-extern "C" void app_process_events(void){
-	app.loop();
-}
