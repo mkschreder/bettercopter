@@ -76,7 +76,7 @@ install_due:
 	
 install_mega: 
 	avr-objcopy -j .text -j .data -O ihex $(APPNAME) $(APPNAME).hex 
-	avr-size -C -x $(APPNAME) 
+	avr-size -x $(APPNAME) 
 	sudo avrdude -p m328p -c usbasp -e -U lfuse:w:0xFF:m -U hfuse:w:0xD7:m -U efuse:w:0x05:m -U flash:w:$(APPNAME).hex
 	#sudo avrdude -p m328p -b 115200 -c avrisp -P /dev/ttyUSB3 -e -U flash:w:$(APPNAME).hex
 	#sudo avrdude -p ${CPU_AVRDUDE} -b 57600 -c arduino -P /dev/ttyUSB3 -e -U flash:w:${TARGET}.hex

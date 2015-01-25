@@ -69,9 +69,9 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	float rcy = -map(rc.yaw, 1000, 2000, -50, 50); //(yaw - 1500.0); 
 	
 	// calculate desired rotation rate in degrees / sec
-	float sp = constrain(mPID[PID_STAB_PITCH].get_pid(rcp - pitch, dt), -250, 250); 
-	float sr = constrain(mPID[PID_STAB_ROLL].get_pid(rcr - roll, dt), -250, 250); 
-	float sy = constrain(mPID[PID_STAB_YAW].get_pid(wrap_180(rcy - mTargetYaw), dt), -250, 250); 
+	float sp = mPID[PID_STAB_PITCH].get_pid(rcp - pitch, dt); 
+	float sr = mPID[PID_STAB_ROLL].get_pid(rcr - roll, dt); 
+	float sy = mPID[PID_STAB_YAW].get_pid(wrap_180(rcy - mTargetYaw), dt); 
 	
 	if(abs(rc.yaw - 1500) > 10){
 		sy = rcy * 0.01;  // this tells us maybe omega should be in degrees per second? 
@@ -80,9 +80,9 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	} 
 	
 	// calculate the actual rate based on current gyro rate in degrees
-	float rp = constrain(mPID[PID_RATE_PITCH	].get_pid(sp - omega_pitch, dt), -500, 500); 
-	float rr = constrain(mPID[PID_RATE_ROLL		].get_pid(sr - omega_roll, dt), -500, 500); 
-	float ry = constrain(mPID[PID_RATE_YAW		].get_pid(sy - omega_yaw, dt), -500, 500); 
+	float rp = mPID[PID_RATE_PITCH	].get_pid(sp - omega_pitch, dt); 
+	float rr = mPID[PID_RATE_ROLL		].get_pid(sr - omega_roll, dt); 
+	float ry = mPID[PID_RATE_YAW		].get_pid(sy - omega_yaw, dt); 
 	
 	return glm::i16vec4(
 		// front

@@ -90,7 +90,7 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 		exp_thr = (uint16_t)(2000.0+(log(x)) * 500.0); // 1+log(x)/2
 	}*/
 	
-	exp_thr = map(rc.throttle, 0, 2000, 0, 1700); 
+	exp_thr = rc.throttle; //map(rc.throttle, 1000, 2000, 1000, 2150); 
 	
 	glm::vec3 nacc = glm::normalize(acc);
 	
@@ -138,7 +138,7 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 	}
 	
 	for(int c = 0; c < 4; c++){
-		throttle[c] = constrain(throttle[c], PWM_MIN, PWM_MAX); 
+		throttle[c] = constrain(throttle[c], MINCOMMAND, MAXCOMMAND); 
 	}
 	
 	return throttle; 

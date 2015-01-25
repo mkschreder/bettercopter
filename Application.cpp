@@ -187,21 +187,40 @@ void Application::loop(){
 		mState = COPTER_STATE_STANDBY; 
 	}
 	
-	static int test_throttle = 1400; 
-	static timestamp_t test_timeout = timestamp_from_now_us(5000000L);
-	 
-	if(timestamp_expired(test_timeout)){
-		test_throttle = 999; 	
+	static float step = 0; 
+	static timestamp_t test_timeout = timestamp_now();
+	static timestamp_t next_step_time = -1; 
+	static const float step_increase = 0.06; 
+	static const int32_t test_length = 10000000L; 
+	static const int32_t timeout = 100000L; 
+	static float sign = 1; 
+	static int test_throttle = MINCOMMAND; 
+	if(test_timeout != -1 && timestamp_expired(test_timeout)){
+		float change = sin(step) * 200; 
+		if(step > M_PI) step = 0; 
+		step += step_increase * sign; 
+		if(step > M_PI / 2) {
+			test_timeout = -1; 
+			next_step_time = timestamp_from_now_us(test_length); 
+		} else if(step < 0){
+			step = 0; 
+			sign = -sign; 
+		} else {
+			next_step_time = -1; 
+			test_timeout = timestamp_from_now_us(timeout); 
+			test_throttle = 1050 + change; 
+			if(test_throttle < 1050) test_throttle = 1000; 
+		}
+	} 
+	if(next_step_time != -1 && timestamp_expired(next_step_time)){
+		sign = -sign; 
+		test_timeout = timestamp_from_now_us(timeout); 
+		next_step_time = -1; 
 	}
-	if(test_throttle <= 1000) {
-		mArmSwitch.Off(); 
-		mState = COPTER_STATE_STANDBY;
-	}
-	else {
-		rc.throttle = test_throttle; 
-		mArmSwitch.On(); 
-		mState = COPTER_STATE_ACTIVE; 
-	}
+	rc.throttle = test_throttle; 
+	rc.pitch = rc.roll = rc.yaw = 1500; 
+	mArmSwitch.On(); 
+	mState = COPTER_STATE_ACTIVE; 
 	
 	ThrottleValues throttle = 
 		fc.ComputeThrottle(dt, 
@@ -212,9 +231,9 @@ void Application::loop(){
 			altitude); 
 	
 	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
-		//MINCOMMAND, MINCOMMAND); //
+		//MINCOMMAND, MINCOMMAND); // MINCOMMAND, MINCOMMAND/*
 		fc_write_motors(mBoard, 
-			throttle[0], throttle[1], throttle[2], throttle[3]);
+			MINCOMMAND, MINCOMMAND/*throttle[0], throttle[1]*/, throttle[2], throttle[3]);
 	} else {
 		fc_write_motors(mBoard, 
 			MINCOMMAND, MINCOMMAND, MINCOMMAND, MINCOMMAND);
@@ -226,7 +245,7 @@ void Application::loop(){
 	if(timestamp_expired(data_timeout)){	
 		// batval is in percentage of board supply voltage, so need to scale
 		float vbat = sensors.vbat * 15; 
-		if(vbat < 10) {
+		if(vbat < 10.8) {
 			// battery is too low! 
 			mLED.FastBlink(); 
 		} else if(vbat > 5 && vbat < 9){
