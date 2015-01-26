@@ -1,0 +1,48 @@
+@font-face {
+    font-family: default_font;
+    src: url(fonts/FiraMono-Regular.ttf);
+}
+
+html, body {
+  overflow-y: visible; 
+}
+
+body {
+  background-color: #fefefe; 
+  margin: 0;
+  padding: 0;
+  font-size: 12px; 
+  font-family: "default_font" !important; 
+}
+
+h1 {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+  line-height: 120%;
+  font-family: Arial, sans-serif;
+  color: rgb(66,66,66);
+  letter-spacing: -0.05em;
+}
+
+#face { stroke-width: 2px; stroke: #fff; }
+
+#hour, #min, #sec { stroke-width: 1px; fill: #333; stroke: #555; }
+
+#sec { stroke: #f55; }
+
+fieldset {
+	padding: 10px; 
+}
+
+.box { 
+	background-color: #fafafa; 
+	padding-top: 10px; 
+	padding-bottom: 10px; 
+}
+
+.box br {
+	clear: both;
+}
+

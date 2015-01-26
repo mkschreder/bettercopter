@@ -46,7 +46,7 @@ firmware: check $(obj-y) $(APPDEPS)
 	#make -C $(KERNEL_SOURCE) build
 	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
 	-lc -lm -lgcc \
-	$(KERNEL_SOURCE)/libk.a $(obj-y) \
+	$(KERNEL_SOURCE)/libk-avr-atmega328p.a $(obj-y) \
 -Wl,--end-group 
 
 kernel_tree: 

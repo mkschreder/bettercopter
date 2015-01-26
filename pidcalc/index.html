@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html ng-app="Application">
+<head>
+    <meta charset="utf-8">
+    <title>PID calculator (beta)</title>
+    <link href="main.css" rel="stylesheet">
+    
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.svg.js"></script>
+	<script src="js/jquery.svgdom.js"></script>
+	<script src="js/jquery.svganim.js"></script>
+	
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/jquery.sidr.dark.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/canvasjs.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery.sidr.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="IndexController">
+	<div class="container" style="padding-top: 70px;">
+		<h2>Constraints</h2>
+		<div class="row box">
+			<div class="col-xs-8 ">
+				<label>Total response:</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="total_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<h4>Explanation</h4>
+				<p>
+					This is total response that is achieved at maximum angle ({{max_angle}}), when integrals are at max and at maximum rotational velocity ({{max_rate}} and maximal rotational acceleration. In other words, this gives an overview of the range of output values (in this case the range is -{{total_response}} to {{total_response}}). 
+				</p>
+			</div>
+		</div>
+		<div class="row box">
+			<div class="col-xs-3 ">
+				<label>Rate acc. response at {{max_rate_acc}} deg/s2 angular acceleration (throttle):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_rate_acceleration_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3 ">
+				<label>Rate vel. response at {{max_rate}} deg/s rotational velocity (throttle):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_rate_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2"></div>
+			<div class="col-xs-4">
+				<h4>Explanation</h4>
+				<p>
+					These values give maximal response (in units of motor speed) to fast change in rotation (rate acceleration response) and the maximal rotational velocity response at {{max_rate}} degrees/sec (rate velocity response).
+				</p>
+			</div>
+		</div>
+		<div class="row box">
+			<div class="col-xs-2 ">
+				<label>Max angle response at {{max_angle}} deg (throttle):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_stab_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2 ">
+				<label>Max int. response in output (throttle):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_stab_integral_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3 ">
+				<label>Int. time to reach max value at {{max_angle}} degrees error (sec):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_stab_integral_time" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-1"></div>
+			<div class="col-xs-4">
+				<h4>Explanation</h4>
+				<p>
+					These values give maximal response (in units of motor speed) to angle error at angle {{max_angle}} degrees. The int response gives maximal integral response in output signal when integral is att maximum value of {{desired_stab_integral_response}} units. Int. time gives how long time it takes for integral to reach it's maximal value of {{desired_stab_integral_response}} units given that angle error is {{max_angle}} degrees. 
+				</p>
+			</div>
+		</div>
+		<h2>Rate PID:</h2>
+		<div class="row box">
+			<!--<div class="col-xs-2 ">
+				<label>Rate Yaw:</label>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="rate.yaw.p"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">I:</span>
+						<input class="form-control" type="text" ng-model="rate.yaw.i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">Max I:</span>
+						<input class="form-control" type="text" ng-model="rate.yaw.max_i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">D:</span>
+						<input class="form-control" type="text" ng-model="rate.yaw.d"/><br>
+					</div>
+				</div>
+			</div>-->
+			<!--<div class="col-xs-2 ">-->
+				<!--<label>Rate Pitch:</label>-->
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="rate.pitch.p"/><br>
+					</div>
+				</div>
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">I:</span>
+						<input class="form-control" type="text" ng-model="rate.pitch.i"/><br>
+					</div>
+				</div>
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">Max I:</span>
+						<input class="form-control" type="text" ng-model="rate.pitch.max_i"/><br>
+					</div>
+				</div>
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">D:</span>
+						<input class="form-control" type="text" ng-model="rate.pitch.d"/><br>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<h4>Explanation</h4>
+					<p>
+						Rate pid regulates the rotational velocity and changes in this velocity. 
+					</p>
+				</div>
+			<!--</div>-->
+			<!--<div class="col-xs-2 ">
+				<label>Rate Roll:</label>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="rate.roll.p"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">I:</span>
+						<input class="form-control" type="text" ng-model="rate.roll.i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">Max I:</span>
+						<input class="form-control" type="text" ng-model="rate.roll.max_i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">D:</span>
+						<input class="form-control" type="text" ng-model="rate.roll.d"/><br>
+					</div>
+				</div>
+			</div>-->
+			<!--<div class="col-xs-6">
+				<h4>Explanation</h4>
+				<p>
+					Rate pid determines how much faster the copter should 
+					achieve the desired rate depending on it's already 
+					achieved rate of rotation (ie error = desired rate - 
+					gyro values)
+				</p>
+			</div>-->
+		</div>
+		
+		<h2>Stab PID:</h2>
+		<div class="row box">
+			<!--<div class="col-xs-2 ">
+				<label>Stab Yaw:</label>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="stab.yaw.p"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">I:</span>
+						<input class="form-control" type="text" ng-model="stab.yaw.i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">Max I:</span>
+						<input class="form-control" type="text" ng-model="stab.yaw.max_i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">D:</span>
+						<input class="form-control" type="text" ng-model="stab.yaw.d"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2 ">
+				<label>Stab Pitch:</label>-->
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="stab.pitch.p"/><br>
+					</div>
+				</div>
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">I:</span>
+						<input class="form-control" type="text" ng-model="stab.pitch.i"/><br>
+					</div>
+				</div>
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">Max I:</span>
+						<input class="form-control" type="text" ng-model="stab.pitch.max_i"/><br>
+					</div>
+				</div>
+				<div class="col-xs-2 form-group">
+					<div class="input-group">
+						<span class="input-group-addon">D:</span>
+						<input class="form-control" type="text" ng-model="stab.pitch.d"/><br>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<h4>Explanation</h4>
+					<p>
+						Stab pid regulates inclination of the copter and how it responds to changes in balance. 
+					</p>
+				</div>
+			<!--</div>
+			<div class="col-xs-2 ">
+				<label>Stab Roll:</label>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">P:</span>
+						<input class="form-control" type="text" ng-model="stab.roll.p"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">I:</span>
+						<input class="form-control" type="text" ng-model="stab.roll.i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">Max I:</span>
+						<input class="form-control" type="text" ng-model="stab.roll.max_i"/><br>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">D:</span>
+						<input class="form-control" type="text" ng-model="stab.roll.d"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<h4>Explanation</h4>
+				<p>
+					Stab pid determines how copter responds to both control sticks and tipping angle. The values are however dependent on the rate pid values because stab pid output is connected to rate pid input. So when you decrease rate pid, you need to increase stab pid to get the same stab response as previously. 
+				</p>
+			</div>-->
+		</div>
+	</div>
+	
+</body>
+</html>
+

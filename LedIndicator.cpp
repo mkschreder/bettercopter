@@ -21,6 +21,7 @@
 */
 #include <kernel.h>
 #include "LedIndicator.hpp"
+#include "types.hpp"
 
 void LedIndicator::Update(){
 	if(led_value && blink_low_delay > 0 && 

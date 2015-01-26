@@ -54,7 +54,6 @@
 #define TXRX_NUM_CHANNELS 10
 #define DEVICE_TWI_ADDRESS 0x88
 
-
 void sim_init(); 
 void sim_loop(); 
 
@@ -190,11 +189,13 @@ void Application::loop(){
 	static float step = 0; 
 	static timestamp_t test_timeout = timestamp_now();
 	static timestamp_t next_step_time = -1; 
+	static timestamp_t switch_time = -1; 
 	static const float step_increase = 0.06; 
 	static const int32_t test_length = 10000000L; 
 	static const int32_t timeout = 100000L; 
 	static float sign = 1; 
 	static int test_throttle = MINCOMMAND; 
+	static int roll_offset = 250; 
 	if(test_timeout != -1 && timestamp_expired(test_timeout)){
 		float change = sin(step) * 200; 
 		if(step > M_PI) step = 0; 
@@ -202,6 +203,8 @@ void Application::loop(){
 		if(step > M_PI / 2) {
 			test_timeout = -1; 
 			next_step_time = timestamp_from_now_us(test_length); 
+			switch_time = timestamp_from_now_us(test_length / 3); 
+			roll_offset = 250; 
 		} else if(step < 0){
 			step = 0; 
 			sign = -sign; 
@@ -216,9 +219,16 @@ void Application::loop(){
 		sign = -sign; 
 		test_timeout = timestamp_from_now_us(timeout); 
 		next_step_time = -1; 
+		switch_time = -1; 
+		roll_offset = 0; 
 	}
+	if(switch_time != -1 && timestamp_expired(switch_time)){
+		switch_time = timestamp_from_now_us(test_length / 3); 
+		roll_offset -= 250; 
+	}
+	rc.roll = 1500 + roll_offset; 
 	rc.throttle = test_throttle; 
-	rc.pitch = rc.roll = rc.yaw = 1500; 
+	rc.pitch = rc.yaw = 1500; 
 	mArmSwitch.On(); 
 	mState = COPTER_STATE_ACTIVE; 
 	

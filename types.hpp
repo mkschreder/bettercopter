@@ -32,6 +32,11 @@
 #include <glm/mat3x3.hpp>
 #include <glm/gtc/quaternion.hpp>
 
+#define fc_init() mwii_init()
+#define fc_process_events() mwii_process_events()
+#define fc_get_interface() mwii_get_fc_quad_interface()
+#define FC_LED_PIN MWII_LED_PIN
+
 typedef enum {
 	COPTER_STATE_BOOT=1, /* System is booting up. | */
 	COPTER_STATE_CALIBRATING=2, /* System is calibrating and not flight-ready. | */

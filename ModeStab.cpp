@@ -64,8 +64,8 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	float yaw, float pitch, float roll, 
 	float omega_yaw, float omega_pitch, float omega_roll){
 	
-	float rcp = -map(rc.pitch, 1000, 2000, -25, 25); //(pitch - 1500.0); 
-	float rcr =  map(rc.roll, 1000, 2000, -25, 25); //(roll - 1500.0); 
+	float rcp = -map(rc.pitch, 1000, 2000, -45, 45); //(pitch - 1500.0); 
+	float rcr =  map(rc.roll, 1000, 2000, -45, 45); //(roll - 1500.0); 
 	float rcy = -map(rc.yaw, 1000, 2000, -50, 50); //(yaw - 1500.0); 
 	
 	// calculate desired rotation rate in degrees / sec
