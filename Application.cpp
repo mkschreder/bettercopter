@@ -34,10 +34,6 @@
 #include "simulator/sim_kernel.h"
 #endif
 
-/*
-#include <net/tcpip.h>
-#include <net/rfnet.h>*/
-
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -94,6 +90,7 @@ const AppConfig default_config PROGMEM = {
 	}
 };  
 */
+
 class Application {
 public:
 	Application():mState(COPTER_STATE_BOOT) {}
@@ -127,17 +124,17 @@ void Application::init(){
 	//fc_init();
 
 	kdebug("BetterCopter V1.0\n"); 
-	mBoard = fc_get_interface();
+	mBoard = fc_interface();
 	if(!mBoard) {
 		//kprintf("No board!\n"); 
 		while(1); 
 	}
-	gpio_clear(FC_LED_PIN); 
+	fc_led_off(); 
 	
 	for(int c = 0; c < 3; c++){
-		gpio_set(FC_LED_PIN); 
+		fc_led_on(); 
 		timestamp_delay_us(200000L); 
-		gpio_clear(FC_LED_PIN); 
+		fc_led_off(); 
 		timestamp_delay_us(200000L); 
 	}
 	
@@ -226,7 +223,7 @@ void Application::loop(){
 		switch_time = timestamp_from_now_us(test_length / 3); 
 		roll_offset -= 250; 
 	}
-	rc.roll = 1500 + roll_offset; 
+	rc.roll = 1500;// + roll_offset; 
 	rc.throttle = test_throttle; 
 	rc.pitch = rc.yaw = 1500; 
 	mArmSwitch.On(); 
@@ -479,4 +476,3 @@ int main(){
 	}
 	return 0; 
 }
-

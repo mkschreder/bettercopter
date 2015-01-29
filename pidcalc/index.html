@@ -2,7 +2,7 @@
 <html ng-app="Application">
 <head>
     <meta charset="utf-8">
-    <title>PID calculator (beta)</title>
+    <title>PID calculator (beta) </title>
     <link href="main.css" rel="stylesheet">
     
 	<script src="js/jquery-1.11.2.min.js"></script>
@@ -27,41 +27,46 @@
 </head>
 <body ng-controller="IndexController">
 	<div class="container" style="padding-top: 70px;">
+		<center><h2>PID values calculator for two stage pid controller</h2></center>
+		<center>By Martin K. Schröder</center>
+		<center><a href="https://github.com/mkschreder/bettercopter/tree/master/pidcalc">Github</a> | <a href="mailto:info@fortmax.se">Mail</a></center>
 		<h2>Constraints</h2>
+		
 		<div class="row box">
-			<div class="col-xs-8 ">
-				<label>Total response:</label>
-				<div class="form-group">
-					<div class="input-group">
-						<input class="form-control" type="text" ng-model="total_response" ng-change="calculate()"/><br>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-4">
-				<h4>Explanation</h4>
-				<p>
-					This is total response that is achieved at maximum angle ({{max_angle}}), when integrals are at max and at maximum rotational velocity ({{max_rate}} and maximal rotational acceleration. In other words, this gives an overview of the range of output values (in this case the range is -{{total_response}} to {{total_response}}). 
-				</p>
-			</div>
-		</div>
-		<div class="row box">
-			<div class="col-xs-3 ">
-				<label>Rate acc. response at {{max_rate_acc}} deg/s2 angular acceleration (throttle):</label>
-				<div class="form-group">
-					<div class="input-group">
-						<input class="form-control" type="text" ng-model="desired_rate_acceleration_response" ng-change="calculate()"/><br>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-3 ">
-				<label>Rate vel. response at {{max_rate}} deg/s rotational velocity (throttle):</label>
+			<div class="col-xs-2 ">
+				<label>Rate vel. response at {{max_rate}} deg/s rotational velocity (motor):</label>
 				<div class="form-group">
 					<div class="input-group">
 						<input class="form-control" type="text" ng-model="desired_rate_response" ng-change="calculate()"/><br>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-2"></div>
+			<div class="col-xs-2 ">
+				<label>Rate acc. response at {{max_rate_acc}} deg/s acc. (motor):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_rate_acceleration_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2 ">
+				<label>Rate max int. response at {{max_rate}}deg/s rotation (motor):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_rate_integral_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2 ">
+				<label>Rate integral time (motor):</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="desired_rate_integral_time" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			
+			<!--<div class="col-xs-1"></div>-->
 			<div class="col-xs-4">
 				<h4>Explanation</h4>
 				<p>
@@ -71,7 +76,7 @@
 		</div>
 		<div class="row box">
 			<div class="col-xs-2 ">
-				<label>Max angle response at {{max_angle}} deg (throttle):</label>
+				<label>Max angle response at {{max_angle}} deg (motor):</label>
 				<div class="form-group">
 					<div class="input-group">
 						<input class="form-control" type="text" ng-model="desired_stab_response" ng-change="calculate()"/><br>
@@ -79,7 +84,7 @@
 				</div>
 			</div>
 			<div class="col-xs-2 ">
-				<label>Max int. response in output (throttle):</label>
+				<label>Max int. response in output (motor):</label>
 				<div class="form-group">
 					<div class="input-group">
 						<input class="form-control" type="text" ng-model="desired_stab_integral_response" ng-change="calculate()"/><br>
@@ -94,11 +99,27 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-1"></div>
-			<div class="col-xs-4">
+			<!--<div class="col-xs-1"></div>-->
+			<div class="col-xs-5">
 				<h4>Explanation</h4>
 				<p>
 					These values give maximal response (in units of motor speed) to angle error at angle {{max_angle}} degrees. The int response gives maximal integral response in output signal when integral is att maximum value of {{desired_stab_integral_response}} units. Int. time gives how long time it takes for integral to reach it's maximal value of {{desired_stab_integral_response}} units given that angle error is {{max_angle}} degrees. 
+				</p>
+			</div>
+		</div>
+		<div class="row box">
+			<div class="col-xs-7 ">
+				<label>Total response:</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="total_response" ng-change="calculate()"/><br>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-5">
+				<h4>Explanation</h4>
+				<p>
+					This is total response that is achieved at maximum angle ({{max_angle}}), when integrals are at max and at maximum rotational velocity ({{max_rate}} and maximal rotational acceleration. In other words, this gives an overview of the range of output values (in this case the range is -{{total_response}} to {{total_response}}). 
 				</p>
 			</div>
 		</div>

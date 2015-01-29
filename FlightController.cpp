@@ -132,7 +132,7 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 	
 	// compute final motor throttle
 	if(mMode == MODE_ALT_HOLD){
-		throttle = 1000 + althold + stab; 
+		throttle = glm::i16vec4(1000) + althold + stab; 
 	} else if(mMode == MODE_STABILIZE){
 		throttle = ThrottleValues(exp_thr) + stab; 
 	}

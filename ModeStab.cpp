@@ -74,9 +74,8 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	float sy = mPID[PID_STAB_YAW].get_pid(wrap_180(rcy - mTargetYaw), dt); 
 	
 	if(abs(rc.yaw - 1500) > 10){
-		sy = rcy * 0.01;  // this tells us maybe omega should be in degrees per second? 
+		sy = rcy;  
 		mTargetYaw = yaw; 
-		//mTargetYaw = mTargetYaw + rcy * dt; 
 	} 
 	
 	// calculate the actual rate based on current gyro rate in degrees
@@ -84,6 +83,18 @@ ThrottleValues ModeStab::ComputeThrottle(float dt, const RCValues &rc,
 	float rr = mPID[PID_RATE_ROLL		].get_pid(sr - omega_roll, dt); 
 	float ry = mPID[PID_RATE_YAW		].get_pid(sy - omega_yaw, dt); 
 	
+	// H-copter control test
+	/*
+	return glm::i16vec4(
+		// front left
+				- rr - rp + ry,
+		// back right
+				+ rr + rp - ry,
+		// back left 
+				- rr + rp - ry,
+		// front right
+				+ rr - rp + ry);
+	*/
 	return glm::i16vec4(
 		// front
 				+ rp + ry,

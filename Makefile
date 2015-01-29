@@ -1,13 +1,19 @@
 KERNEL_SOURCE = martink
 
--include $(KERNEL_SOURCE)/.config
+ifdef BUILD
+	include $(KERNEL_SOURCE)/configs/$(BUILD).config
+else
+	include $(KERNEL_SOURCE)/.config
+endif
+
+-include Makefile.config
 
 MAKEFLAGS += -I$(KERNEL_SOURCE)/
 
 CFLAGS := -Wstrict-prototypes -Wno-pointer-to-int-cast 
 CXXFLAGS := 
 LD := g++ 
-COMMON_FLAGS :=  -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive -fno-rtti -fno-exceptions
+COMMON_FLAGS := -DBUILD_$(subst -,_,$(BUILD)) -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive -fno-rtti -fno-exceptions
 
 srctree := $(CURDIR)/$(KERNEL_SOURCE)/
 -include $(KERNEL_SOURCE)/arch/Makefile
@@ -28,7 +34,7 @@ ifeq ($(CONFIG_SIMULATOR), y)
 else 
 	INCLUDES += -Iinclude 
 	APPDEPS += kernel
-	APPNAME := firmware
+	APPNAME := firmware-$(BUILD)
 endif
 ifeq ($(CONFIG_AVR), y)
 	INCLUDES += -Iinclude/c++ 
@@ -42,11 +48,13 @@ LDFLAGS := $(CPU_FLAGS) $(COMMON_FLAGS) $(LDFLAGS)
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
+all: kernel firmware;
+
 firmware: check $(obj-y) $(APPDEPS)
 	#make -C $(KERNEL_SOURCE) build
 	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
 	-lc -lm -lgcc \
-	$(KERNEL_SOURCE)/libk-avr-atmega328p.a $(obj-y) \
+	$(KERNEL_SOURCE)/libk-$(ARCH).a $(obj-y) \
 -Wl,--end-group 
 
 kernel_tree: 
@@ -57,7 +65,7 @@ kernel_tree:
 	fi
 	
 kernel: 
-	make -C $(KERNEL_SOURCE) build
+	make -C $(KERNEL_SOURCE) BUILD=$(BUILD) build
 	
 simulator/simulator: $(obj-y) 
 	make -C simulator
@@ -74,12 +82,18 @@ install_due:
 #simulator/libquadcopter.a: 
 #	make -C simulator
 	
-install_mega: 
+install: install-$(BUILD)
+
+install-avr-atmega328p:
 	avr-objcopy -j .text -j .data -O ihex $(APPNAME) $(APPNAME).hex 
 	avr-size -x $(APPNAME) 
 	sudo avrdude -p m328p -c usbasp -e -U lfuse:w:0xFF:m -U hfuse:w:0xD7:m -U efuse:w:0x05:m -U flash:w:$(APPNAME).hex
 	#sudo avrdude -p m328p -b 115200 -c avrisp -P /dev/ttyUSB3 -e -U flash:w:$(APPNAME).hex
 	#sudo avrdude -p ${CPU_AVRDUDE} -b 57600 -c arduino -P /dev/ttyUSB3 -e -U flash:w:${TARGET}.hex
+
+install-arm-stm32f103: 
+	make -C stm32flash
+	sudo stm32flash/stm32flash -w ${TARGET}.bin -v -g 0x0 /dev/ttyUSB0
 	
 clean:
 	rm -rf build/
@@ -98,11 +112,11 @@ sim: $(obj-y) simulator/libquadcopter.a
 
 $(BUILD_DIR)/%.o: %.cpp martink/.config
 	mkdir -p `dirname $@`
-	$(CXX) -c $(CXXFLAGS) $< -o $@
+	$(CXX) -c -DBUILD=$(BUILD) $(CXXFLAGS) $< -o $@
 
 $(BUILD_DIR)/%.o: %.c martink/.config
 	mkdir -p `dirname $@`
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c -DBUILD=$(BUILD) $(CFLAGS) $< -o $@
 
 -include $(obj-y:%.o=%.d)
 
