@@ -1,10 +1,15 @@
 KERNEL_SOURCE = martink
+ARCH = $(firstword $(subst -, ,$(BUILD)))
+CPU = $(word 2,$(subst -, ,$(BUILD)))
+CONFIG = $(KERNEL_SOURCE)/configs/$(BUILD).config
 
-ifdef BUILD
-	include $(KERNEL_SOURCE)/configs/$(BUILD).config
-else
-	include $(KERNEL_SOURCE)/.config
-endif
+-include $(CONFIG)
+
+#ifdef BUILD
+#	include $(KERNEL_SOURCE)/configs/$(BUILD).config
+#else
+#	include $(KERNEL_SOURCE)/.config
+#endif
 
 -include Makefile.config
 
@@ -48,13 +53,13 @@ LDFLAGS := $(CPU_FLAGS) $(COMMON_FLAGS) $(LDFLAGS)
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
-all: kernel firmware;
+all: check kernel firmware;
 
-firmware: check $(obj-y) $(APPDEPS)
+firmware: check $(obj-y) $(APPDEPS) 
 	#make -C $(KERNEL_SOURCE) build
 	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
 	-lc -lm -lgcc \
-	$(KERNEL_SOURCE)/libk-$(ARCH).a $(obj-y) \
+	$(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a $(obj-y) \
 -Wl,--end-group 
 
 kernel_tree: 
@@ -72,16 +77,6 @@ simulator/simulator: $(obj-y)
 	make -C $(KERNEL_SOURCE) build
 	$(LDXX) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
 
-install_due: 
-	#arm-none-eabi-strip $(APPNAME)
-	arm-none-eabi-size $(APPNAME)
-	arm-none-eabi-objcopy -O binary $(APPNAME) $(APPNAME).bin
-	stty -F /dev/ttyACM0 raw ispeed 1200 ospeed 1200 cs8 -cstopb ignpar eol 255 eof 255
-	bossac -U false -e -w -b $(APPNAME).bin -R
-	
-#simulator/libquadcopter.a: 
-#	make -C simulator
-	
 install: install-$(BUILD)
 
 install-avr-atmega328p:
@@ -94,7 +89,14 @@ install-avr-atmega328p:
 install-arm-stm32f103: 
 	make -C stm32flash
 	sudo stm32flash/stm32flash -w ${TARGET}.bin -v -g 0x0 /dev/ttyUSB0
-	
+
+install-at91sam3: 
+	#arm-none-eabi-strip $(APPNAME)
+	arm-none-eabi-size $(APPNAME)
+	arm-none-eabi-objcopy -O binary $(APPNAME) $(APPNAME).bin
+	stty -F /dev/ttyACM0 raw ispeed 1200 ospeed 1200 cs8 -cstopb ignpar eol 255 eof 255
+	bossac -U false -e -w -b $(APPNAME).bin -R
+
 clean:
 	rm -rf build/
 	#make -C simulator clean
@@ -124,3 +126,4 @@ check:
 ifeq (, $(shell which $(CC) 2>/dev/null))
 	$(error "$(CC) not found! You may need to install it!")
 endif
+	if [ -e $(CONFIG) ]; then echo "Using $(CONFIG)"; else make -C $(KERNEL_SOURCE) BUILD=$(BUILD) menuconfig; fi; 
