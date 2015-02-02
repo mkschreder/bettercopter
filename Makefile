@@ -18,7 +18,7 @@ MAKEFLAGS += -I$(KERNEL_SOURCE)/
 CFLAGS := -Wstrict-prototypes -Wno-pointer-to-int-cast 
 CXXFLAGS := 
 LD := g++ 
-COMMON_FLAGS := -DBUILD_$(subst -,_,$(BUILD)) -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive -fno-rtti -fno-exceptions
+COMMON_FLAGS := -DBUILD_$(subst -,_,$(BUILD)) -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive 
 
 srctree := $(CURDIR)/$(KERNEL_SOURCE)/
 -include $(KERNEL_SOURCE)/arch/Makefile
@@ -47,9 +47,10 @@ else
 	INCLUDES += -Iinclude/c++
 endif
 
-CXXFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -fno-rtti -fno-exceptions -std=c++11 
+CXXFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -std=c++11 -fno-exceptions -fno-rtti
 CFLAGS += $(CPU_FLAGS) $(COMMON_FLAGS) $(INCLUDES) -std=c99 
-LDFLAGS := $(CPU_FLAGS) $(COMMON_FLAGS) $(LDFLAGS) 
+#LDFLAGS := $(CPU_FLAGS) $(COMMON_FLAGS) $(LDFLAGS) -ffreestanding
+LDFLAGS := -Wl,-Map=$(APPNAME).map $(CPU_FLAGS) $(COMMON_FLAGS) $(LDFLAGS)
 
 obj-y := $(patsubst %, $(BUILD_DIR)/%, $(obj-y))
 
@@ -57,11 +58,8 @@ all: check kernel firmware;
 
 firmware: check $(obj-y) $(APPDEPS) 
 	#make -C $(KERNEL_SOURCE) build
-	$(LDXX) -o $(APPNAME) $(LDFLAGS) -Wl,--start-group \
-	-lc -lm -lgcc \
-	$(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a $(obj-y) \
--Wl,--end-group 
-
+	$(LDXX) -o $(APPNAME) $(LDFLAGS) $(obj-y) -lc -lm -lgcc $(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a  
+	
 kernel_tree: 
 	if [ -d $(KERNEL_SOURCE) ]; \
 	then echo "Found kernel tree."; \
@@ -80,15 +78,19 @@ simulator/simulator: $(obj-y)
 install: install-$(BUILD)
 
 install-avr-atmega328p:
+	avr-nm -a --demangle --print-size --size-sort -t d $(APPNAME) > $(APPNAME).info
+	avr-objdump -d $(APPNAME) > $(APPNAME).asm
 	avr-objcopy -j .text -j .data -O ihex $(APPNAME) $(APPNAME).hex 
-	avr-size -x $(APPNAME) 
+	avr-size $(APPNAME) 
 	sudo avrdude -p m328p -c usbasp -e -U lfuse:w:0xFF:m -U hfuse:w:0xD7:m -U efuse:w:0x05:m -U flash:w:$(APPNAME).hex
 	#sudo avrdude -p m328p -b 115200 -c avrisp -P /dev/ttyUSB3 -e -U flash:w:$(APPNAME).hex
 	#sudo avrdude -p ${CPU_AVRDUDE} -b 57600 -c arduino -P /dev/ttyUSB3 -e -U flash:w:${TARGET}.hex
 
 install-arm-stm32f103: 
-	make -C stm32flash
-	sudo stm32flash/stm32flash -w ${TARGET}.bin -v -g 0x0 /dev/ttyUSB0
+	make -C martink/scripts/stm32flash
+	arm-none-eabi-size $(APPNAME)
+	arm-none-eabi-objcopy -j .text $(APPNAME) $(APPNAME).bin -O binary
+	sudo martink/scripts/stm32flash/stm32flash -w $(APPNAME).bin -v -g 0x0 /dev/ttyUSB0
 
 install-at91sam3: 
 	#arm-none-eabi-strip $(APPNAME)

@@ -33,8 +33,13 @@
 #include <glm/mat3x3.hpp>
 #include <glm/gtc/quaternion.hpp>
 
+#ifdef BUILD_arm_stm32f103
 #include <boards/flight_control/openpilot_cc3d.h>
-//#include <boards/flight_control/multiwii.h>
+#elif BUILD_avr_atmega328p
+#include <boards/flight_control/multiwii.h>
+#else
+#error "No supported architecture specified!"
+#endif 
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846

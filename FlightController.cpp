@@ -123,16 +123,16 @@ ThrottleValues FlightController::ComputeThrottle(float dt, const RCValues &rc,
 		yaw, pitch, roll, 
 		ryaw, rpitch, rroll
 	); 
-	ThrottleValues althold = mAltHoldCtrl.ComputeThrottle(
+	ThrottleValues althold;/* = mAltHoldCtrl.ComputeThrottle(
 		dt, rc, 
 		altitude
 	); 
-	
+	*/
 	ThrottleValues throttle = ThrottleValues(MINCOMMAND); 
 	
 	// compute final motor throttle
 	if(mMode == MODE_ALT_HOLD){
-		throttle = glm::i16vec4(1000) + althold + stab; 
+		//throttle = glm::i16vec4(1000) + althold + stab; 
 	} else if(mMode == MODE_STABILIZE){
 		throttle = ThrottleValues(exp_thr) + stab; 
 	}

@@ -143,6 +143,8 @@ void Application::init(){
 	mPCSerial = fc_get_pc_link_interface(mBoard); 
 	mPCLink.SetSerialInterface(mPCSerial); 
 	
+	//fc_calibrate_escs(); 
+	
 	AppConfig conf; 
 	ReadConfig(&conf); 
 	ApplyConfig(conf); 
@@ -194,7 +196,7 @@ void Application::loop(){
 	static int test_throttle = MINCOMMAND; 
 	static int roll_offset = 250; 
 	if(test_timeout != -1 && timestamp_expired(test_timeout)){
-		float change = sin(step) * 200; 
+		float change = sin(step) * 350; 
 		if(step > M_PI) step = 0; 
 		step += step_increase * sign; 
 		if(step > M_PI / 2) {
@@ -240,7 +242,8 @@ void Application::loop(){
 	if(rc.throttle > 1050 && mArmSwitch.IsArmed()){
 		//MINCOMMAND, MINCOMMAND); // MINCOMMAND, MINCOMMAND/*
 		fc_write_motors(mBoard, 
-			MINCOMMAND, MINCOMMAND/*throttle[0], throttle[1]*/, throttle[2], throttle[3]);
+			//test_throttle, MINCOMMAND, MINCOMMAND, MINCOMMAND); //
+			throttle[0], throttle[1], throttle[2], throttle[3]);
 	} else {
 		fc_write_motors(mBoard, 
 			MINCOMMAND, MINCOMMAND, MINCOMMAND, MINCOMMAND);
@@ -271,12 +274,12 @@ void Application::loop(){
 			glm::vec3(sensors.raw_gyr.x, sensors.raw_gyr.y, sensors.raw_gyr.z),
 			glm::vec3(sensors.raw_mag.x, sensors.raw_mag.y, sensors.raw_mag.z)
 		); 
-		/*
+		
 		mPCLink.SendScaledIMU(loop_nr, 
 			glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z), 
 			glm::vec3(sensors.gyr_deg.x, sensors.gyr_deg.y, sensors.gyr_deg.z),
 			glm::vec3(sensors.mag.x, sensors.mag.y, sensors.mag.z)
-		); */
+		); 
 		//static float yaw = 0; 
 		
 		glm::vec3 nacc = glm::normalize(glm::vec3(sensors.acc_g.x, sensors.acc_g.y, sensors.acc_g.z)); 
@@ -286,13 +289,13 @@ void Application::loop(){
 		
 		mPCLink.SendMotorOutput(loop_nr, throttle[0], throttle[1], 
 			throttle[2], throttle[3]); 
-			
+		
 		mPCLink.SendAttitude(loop_nr, 
 			yaw, pitch, roll, 
 			glm::radians(sensors.gyr_deg.z), 
 			glm::radians(sensors.gyr_deg.x), 
 			glm::radians(sensors.gyr_deg.y)); 
-			
+		
 		uint16_t avg_thr = (
 			constrain(
 				(throttle[0] + throttle[1] + throttle[2] + throttle[3]) >> 2, 
@@ -357,7 +360,7 @@ void Application::PCLinkProcessEvents(){
 				{PSTR("STAB.R_I"), conf.pid_stab.roll.i},
 				{PSTR("STAB.R_D"), conf.pid_stab.roll.d},
 				{PSTR("STAB.R_MAX_I"), conf.pid_stab.roll.max_i},
-				{PSTR("MEM_FREE"), (float)StackCount()}
+				//{PSTR("MEM_FREE"), (float)StackCount()}
 			};
 			int count = sizeof(params) / sizeof(params[0]); 
 			/*for(int c = 0; c < count; c++){
@@ -424,7 +427,7 @@ void Application::PCLinkProcessEvents(){
 				{PSTR("STAB.R_I"), &conf.pid_stab.roll.i},
 				{PSTR("STAB.R_D"), &conf.pid_stab.roll.d},
 				{PSTR("STAB.R_MAX_I"), &conf.pid_stab.roll.max_i},
-				{PSTR("MEM_FREE"), &dummy}
+				//{PSTR("MEM_FREE"), &dummy}
 			};
 			int count = sizeof(params) / sizeof(params[0]); 
 			for(int c = 0; c < count; c++){
