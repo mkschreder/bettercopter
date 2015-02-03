@@ -89,13 +89,14 @@ install-avr-atmega328p:
 install-arm-stm32f103: 
 	make -C martink/scripts/stm32flash
 	arm-none-eabi-size $(APPNAME)
-	arm-none-eabi-objcopy -j .text $(APPNAME) $(APPNAME).bin -O binary
+	arm-none-eabi-objcopy -j .text -j .data $(APPNAME) $(APPNAME).bin -O binary
+	arm-none-eabi-objdump -d $(APPNAME) > $(APPNAME).asm
 	sudo martink/scripts/stm32flash/stm32flash -w $(APPNAME).bin -v -g 0x0 /dev/ttyUSB0
 
 install-at91sam3: 
 	#arm-none-eabi-strip $(APPNAME)
 	arm-none-eabi-size $(APPNAME)
-	arm-none-eabi-objcopy -O binary $(APPNAME) $(APPNAME).bin
+	arm-none-eabi-objcopy -j .text -j .data $(APPNAME) $(APPNAME).bin -O binary
 	stty -F /dev/ttyACM0 raw ispeed 1200 ospeed 1200 cs8 -cstopb ignpar eol 255 eof 255
 	bossac -U false -e -w -b $(APPNAME).bin -R
 
