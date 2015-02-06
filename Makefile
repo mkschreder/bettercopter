@@ -58,7 +58,7 @@ all: check kernel firmware;
 
 firmware: check $(obj-y) $(APPDEPS) 
 	#make -C $(KERNEL_SOURCE) build
-	$(LDXX) -o $(APPNAME) $(LDFLAGS) -nostartfiles -nostdlib $(obj-y) -Wl,--start-group $(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a -lm -lc -lgcc -Wl,--end-group
+	$(LDXX) -o $(APPNAME) $(LDFLAGS) $(obj-y) -Wl,--start-group $(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a -lm -lc -lgcc -Wl,--end-group
 	
 kernel_tree: 
 	if [ -d $(KERNEL_SOURCE) ]; \
