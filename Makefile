@@ -18,7 +18,7 @@ MAKEFLAGS += -I$(KERNEL_SOURCE)/
 CFLAGS := -Wstrict-prototypes -Wno-pointer-to-int-cast 
 CXXFLAGS := 
 LD := g++ 
-COMMON_FLAGS := -DBUILD_$(subst -,_,$(BUILD)) -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--relax,--gc-sections -fpermissive 
+COMMON_FLAGS := -DBUILD_$(subst -,_,$(BUILD)) -MD -ffunction-sections -Wall -Wno-int-to-pointer-cast -fdata-sections -Os -Wl,--gc-sections -fpermissive 
 
 srctree := $(CURDIR)/$(KERNEL_SOURCE)/
 -include $(KERNEL_SOURCE)/arch/Makefile
@@ -58,7 +58,7 @@ all: check kernel firmware;
 
 firmware: check $(obj-y) $(APPDEPS) 
 	#make -C $(KERNEL_SOURCE) build
-	$(LDXX) -o $(APPNAME) $(LDFLAGS) $(obj-y) -lc -lm -lgcc $(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a  
+	$(LDXX) -o $(APPNAME) $(LDFLAGS) -nostartfiles -nostdlib $(obj-y) -Wl,--start-group $(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a -lm -lc -lgcc -Wl,--end-group
 	
 kernel_tree: 
 	if [ -d $(KERNEL_SOURCE) ]; \
