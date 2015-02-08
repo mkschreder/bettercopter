@@ -28,7 +28,7 @@ obj-y := Application.o FlightController.o PID.o GPS.o LedIndicator.o ModeAltHold
 
 BUILD_DIR := build
 
-INCLUDES := -I. -I$(KERNEL_SOURCE) -I./$(KERNEL_SOURCE)/include/
+INCLUDES := -I. -I$(KERNEL_SOURCE) -I./$(KERNEL_SOURCE)/include/ 
 APPDEPS := 
 
 ifeq ($(CONFIG_SIMULATOR), y)
