@@ -128,6 +128,6 @@ $(BUILD_DIR)/%.o: %.c martink/.config
 
 check: 
 ifeq (, $(shell which $(CC) 2>/dev/null))
-	$(error "$(CC) not found! You may need to install it!")
+	$(error "$(CC) not found! You may need to install it! (along with libc for target architecture!)")
 endif
 	if [ -e $(CONFIG) ]; then echo "Using $(CONFIG)"; else make -C $(KERNEL_SOURCE) BUILD=$(BUILD) menuconfig; fi; 
