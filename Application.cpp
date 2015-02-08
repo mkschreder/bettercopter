@@ -138,7 +138,7 @@ void Application::init(){
 		timestamp_delay_us(200000L); 
 	}
 	
-	srand(0x1234); 
+	//srand(0x1234); 
 	
 	mPCSerial = fc_get_pc_link_interface(mBoard); 
 	mPCLink.SetSerialInterface(mPCSerial); 
@@ -316,6 +316,37 @@ void Application::loop(){
 
 void Application::PCLinkProcessEvents(){
 	mavlink_message_t msg; 
+	static AppConfig conf; 
+	static struct param {
+		const char *name; 
+		float *value; 
+	} params [] = {
+		{PSTR("RATE.Y_P"), &conf.pid_rate.yaw.p},
+		{PSTR("RATE.Y_I"), &conf.pid_rate.yaw.i},
+		{PSTR("RATE.Y_D"), &conf.pid_rate.yaw.d},
+		{PSTR("RATE.Y_MAX_I"), &conf.pid_rate.yaw.max_i},
+		{PSTR("RATE.P_P"), &conf.pid_rate.pitch.p},
+		{PSTR("RATE.P_I"), &conf.pid_rate.pitch.i},
+		{PSTR("RATE.P_D"), &conf.pid_rate.pitch.d},
+		{PSTR("RATE.P_MAX_I"), &conf.pid_rate.pitch.max_i},
+		{PSTR("RATE.R_P"), &conf.pid_rate.roll.p},
+		{PSTR("RATE.R_I"), &conf.pid_rate.roll.i},
+		{PSTR("RATE.R_D"), &conf.pid_rate.roll.d},
+		{PSTR("RATE.R_MAX_I"), &conf.pid_rate.roll.max_i},
+		{PSTR("STAB.Y_P"), &conf.pid_stab.yaw.p},
+		{PSTR("STAB.Y_I"), &conf.pid_stab.yaw.i},
+		{PSTR("STAB.Y_D"), &conf.pid_stab.yaw.d}, 
+		{PSTR("STAB.Y_MAX_I"), &conf.pid_stab.yaw.max_i},
+		{PSTR("STAB.P_P"), &conf.pid_stab.pitch.p},
+		{PSTR("STAB.P_I"), &conf.pid_stab.pitch.i},
+		{PSTR("STAB.P_D"), &conf.pid_stab.pitch.d},
+		{PSTR("STAB.P_MAX_I"), &conf.pid_stab.pitch.max_i},
+		{PSTR("STAB.R_P"), &conf.pid_stab.roll.p},
+		{PSTR("STAB.R_I"), &conf.pid_stab.roll.i},
+		{PSTR("STAB.R_D"), &conf.pid_stab.roll.d},
+		{PSTR("STAB.R_MAX_I"), &conf.pid_stab.roll.max_i},
+		//{PSTR("MEM_FREE"), (float)StackCount()}
+	};
 	if(mPCLink.ReceiveMessage(&msg)){
 		switch(msg.msgid)
 		{
@@ -330,53 +361,16 @@ void Application::PCLinkProcessEvents(){
 			break;
 		case MAVLINK_MSG_ID_PARAM_REQUEST_READ: 
 		case MAVLINK_MSG_ID_PARAM_REQUEST_LIST: {
-			AppConfig conf; 
 			ReadConfig(&conf); 
-			struct param {
-				const char *name; 
-				float value; 
-			} params [] = {
-				{PSTR("RATE.Y_P"), conf.pid_rate.yaw.p},
-				{PSTR("RATE.Y_I"), conf.pid_rate.yaw.i},
-				{PSTR("RATE.Y_D"), conf.pid_rate.yaw.d},
-				{PSTR("RATE.Y_MAX_I"), conf.pid_rate.yaw.max_i},
-				{PSTR("RATE.P_P"), conf.pid_rate.pitch.p},
-				{PSTR("RATE.P_I"), conf.pid_rate.pitch.i},
-				{PSTR("RATE.P_D"), conf.pid_rate.pitch.d},
-				{PSTR("RATE.P_MAX_I"), conf.pid_rate.pitch.max_i},
-				{PSTR("RATE.R_P"), conf.pid_rate.roll.p},
-				{PSTR("RATE.R_I"), conf.pid_rate.roll.i},
-				{PSTR("RATE.R_D"), conf.pid_rate.roll.d},
-				{PSTR("RATE.R_MAX_I"), conf.pid_rate.roll.max_i},
-				{PSTR("STAB.Y_P"), conf.pid_stab.yaw.p},
-				{PSTR("STAB.Y_I"), conf.pid_stab.yaw.i},
-				{PSTR("STAB.Y_D"), conf.pid_stab.yaw.d}, 
-				{PSTR("STAB.Y_MAX_I"), conf.pid_stab.yaw.max_i},
-				{PSTR("STAB.P_P"), conf.pid_stab.pitch.p},
-				{PSTR("STAB.P_I"), conf.pid_stab.pitch.i},
-				{PSTR("STAB.P_D"), conf.pid_stab.pitch.d},
-				{PSTR("STAB.P_MAX_I"), conf.pid_stab.pitch.max_i},
-				{PSTR("STAB.R_P"), conf.pid_stab.roll.p},
-				{PSTR("STAB.R_I"), conf.pid_stab.roll.i},
-				{PSTR("STAB.R_D"), conf.pid_stab.roll.d},
-				{PSTR("STAB.R_MAX_I"), conf.pid_stab.roll.max_i},
-				//{PSTR("MEM_FREE"), (float)StackCount()}
-			};
+			
 			int count = sizeof(params) / sizeof(params[0]); 
-			/*for(int c = 0; c < count; c++){
-				char name[16]; 
-				strcpy_PF(name, (uint_farptr_t)params[c].name); 
-				mPCLink.SendParamValueFloat(
-					name, params[c].value, 
-					count, c); 
-			}*/
-				
+			
 			if(msg.msgid == MAVLINK_MSG_ID_PARAM_REQUEST_LIST){
 				for(int c = 0; c < count; c++){
 					char name[16]; 
 					strcpy_PF(name, (uint_farptr_t)params[c].name); 
 					mPCLink.SendParamValueFloat(
-						name, params[c].value, 
+						name, *params[c].value, 
 						count, c); 
 				}
 			} else {
@@ -387,7 +381,7 @@ void Application::PCLinkProcessEvents(){
 					char name[16]; 
 					strcpy_PF(name, (uint_farptr_t)params[idx].name); 
 					mPCLink.SendParamValueFloat(
-							name, params[idx].value, 
+							name, *params[idx].value, 
 							count, idx); 
 				} 
 			}
@@ -396,39 +390,8 @@ void Application::PCLinkProcessEvents(){
 		case MAVLINK_MSG_ID_PARAM_SET: {
 			mavlink_param_set_t param; 
 			mavlink_msg_param_set_decode(&msg, &param); 
-			AppConfig conf; 
 			ReadConfig(&conf); 
-			float dummy; 
-			struct param {
-				const char *name; 
-				float *value; 
-			} params [] = {
-				{PSTR("RATE.Y_P"), &conf.pid_rate.yaw.p},
-				{PSTR("RATE.Y_I"), &conf.pid_rate.yaw.i},
-				{PSTR("RATE.Y_D"), &conf.pid_rate.yaw.d},
-				{PSTR("RATE.Y_MAX_I"), &conf.pid_rate.yaw.max_i},
-				{PSTR("RATE.P_P"), &conf.pid_rate.pitch.p},
-				{PSTR("RATE.P_I"), &conf.pid_rate.pitch.i},
-				{PSTR("RATE.P_D"), &conf.pid_rate.pitch.d},
-				{PSTR("RATE.P_MAX_I"), &conf.pid_rate.pitch.max_i},
-				{PSTR("RATE.R_P"), &conf.pid_rate.roll.p},
-				{PSTR("RATE.R_I"), &conf.pid_rate.roll.i},
-				{PSTR("RATE.R_D"), &conf.pid_rate.roll.d},
-				{PSTR("RATE.R_MAX_I"), &conf.pid_rate.roll.max_i},
-				{PSTR("STAB.Y_P"), &conf.pid_stab.yaw.p},
-				{PSTR("STAB.Y_I"), &conf.pid_stab.yaw.i},
-				{PSTR("STAB.Y_D"), &conf.pid_stab.yaw.d}, 
-				{PSTR("STAB.Y_MAX_I"), &conf.pid_stab.yaw.max_i},
-				{PSTR("STAB.P_P"), &conf.pid_stab.pitch.p},
-				{PSTR("STAB.P_I"), &conf.pid_stab.pitch.i},
-				{PSTR("STAB.P_D"), &conf.pid_stab.pitch.d},
-				{PSTR("STAB.P_MAX_I"), &conf.pid_stab.pitch.max_i},
-				{PSTR("STAB.R_P"), &conf.pid_stab.roll.p},
-				{PSTR("STAB.R_I"), &conf.pid_stab.roll.i},
-				{PSTR("STAB.R_D"), &conf.pid_stab.roll.d},
-				{PSTR("STAB.R_MAX_I"), &conf.pid_stab.roll.max_i},
-				//{PSTR("MEM_FREE"), &dummy}
-			};
+			
 			int count = sizeof(params) / sizeof(params[0]); 
 			for(int c = 0; c < count; c++){
 				if(strcmp_PF(param.param_id, (uint_farptr_t)params[c].name) == 0){

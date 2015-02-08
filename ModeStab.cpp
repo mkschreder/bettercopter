@@ -26,16 +26,7 @@
 
 // defualts
 
-ModeStab::ModeStab() : 
-	mPID({
-		PID(0, 0, 0, 0), // pitch
-		PID(0, 0, 0, 0), // yaw
-		PID(0, 0, 0, 0), // roll
-		PID(0, 0, 0, 0), 
-		PID(0, 0, 0, 0), 
-		PID(0, 0, 0, 0),
-		//PID(ALT_PID_KP, 	ALT_PID_KI,  ALT_PID_KD, 	ALT_PID_MAX)
-	}){
+ModeStab::ModeStab(){
 		
 }
 
@@ -46,12 +37,30 @@ void ModeStab::SetPIDValues(
 	const pid_values_t &rate_yaw, 
 	const pid_values_t &rate_pitch, 
 	const pid_values_t &rate_roll){
-	mPID[PID_STAB_YAW] 		= PID(stab_yaw.p, stab_yaw.i, stab_yaw.d, stab_yaw.max_i); 
-	mPID[PID_STAB_PITCH] 	= PID(stab_pitch.p, stab_pitch.i, stab_pitch.d, stab_pitch.max_i); 
-	mPID[PID_STAB_ROLL] 	= PID(stab_roll.p, stab_roll.i, stab_roll.d, stab_roll.max_i); 
-	mPID[PID_RATE_YAW] 		= PID(rate_yaw.p, rate_yaw.i, rate_yaw.d, rate_yaw.max_i); 
-	mPID[PID_RATE_PITCH] 	= PID(rate_pitch.p, rate_pitch.i, rate_pitch.d, rate_pitch.max_i); 
-	mPID[PID_RATE_ROLL] 	= PID(rate_roll.p, rate_roll.i, rate_roll.d, rate_roll.max_i); 
+	mPID[PID_STAB_YAW].kP(stab_yaw.p); 
+	mPID[PID_STAB_YAW].kI(stab_yaw.i); 
+	mPID[PID_STAB_YAW].kD(stab_yaw.d);
+	mPID[PID_STAB_YAW].imax(stab_yaw.max_i); 
+	mPID[PID_STAB_PITCH].kP(stab_pitch.p); 
+	mPID[PID_STAB_PITCH].kI(stab_pitch.i); 
+	mPID[PID_STAB_PITCH].kD(stab_pitch.d); 
+	mPID[PID_STAB_PITCH].imax(stab_pitch.max_i); 
+	mPID[PID_STAB_ROLL].kP(stab_roll.p); 
+	mPID[PID_STAB_ROLL].kI(stab_roll.i); 
+	mPID[PID_STAB_ROLL].kD(stab_roll.d); 
+	mPID[PID_STAB_ROLL].imax(stab_roll.max_i); 
+	mPID[PID_RATE_YAW].kP(rate_yaw.p); 
+	mPID[PID_RATE_YAW].kI(rate_yaw.i); 
+	mPID[PID_RATE_YAW].kD(rate_yaw.d); 
+	mPID[PID_RATE_YAW].imax(rate_yaw.max_i); 
+	mPID[PID_RATE_PITCH].kP(rate_pitch.p); 
+	mPID[PID_RATE_PITCH].kI(rate_pitch.i); 
+	mPID[PID_RATE_PITCH].kD(rate_pitch.d); 
+	mPID[PID_RATE_PITCH].imax(rate_pitch.max_i); 
+	mPID[PID_RATE_ROLL].kP(rate_roll.p); 
+	mPID[PID_RATE_ROLL].kI(rate_roll.i); 
+	mPID[PID_RATE_ROLL].kD(rate_roll.d); 
+	mPID[PID_RATE_ROLL].imax(rate_roll.max_i); 
 }
 
 void ModeStab::Reset(){

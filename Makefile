@@ -59,6 +59,7 @@ all: check kernel firmware;
 firmware: check $(obj-y) $(APPDEPS) 
 	#make -C $(KERNEL_SOURCE) build
 	$(LDXX) -o $(APPNAME) $(LDFLAGS) $(obj-y) -Wl,--start-group $(KERNEL_SOURCE)/libk-$(ARCH)-$(CPU).a -lm -lc -lgcc -Wl,--end-group
+	#avr-strip -s -R .comment -R .gnu.version --strip-unneeded $(APPNAME)
 	
 kernel_tree: 
 	if [ -d $(KERNEL_SOURCE) ]; \
@@ -74,7 +75,7 @@ simulator/simulator: $(obj-y)
 	make -C simulator
 	make -C $(KERNEL_SOURCE) build
 	$(LDXX) -o $(APPNAME)  $(obj-y) $(KERNEL_SOURCE)/built-in.o $(LDFLAGS) 
-
+	
 install: install-$(BUILD)
 
 install-avr-atmega328p:
