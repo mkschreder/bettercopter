@@ -254,12 +254,12 @@ bool PCLink::ReceiveMessage(mavlink_message_t *msg){
 	
 	mavlink_status_t status;
 	
-	uint8_t max_count = 16; 
-	while(serial_waiting(mSerial) && (max_count--))
+	uint16_t ch = 0; 
+	uint8_t max_count = 32; 
+	while(((ch = serial_getc(mSerial)) != SERIAL_NO_DATA) && (max_count--))
 	{
-		uint16_t c = serial_getc(mSerial);
 		// Try to get a new message
-		if(c != SERIAL_NO_DATA && mavlink_parse_char(MAVLINK_COMM_0, c, msg, &status)) {
+		if(mavlink_parse_char(MAVLINK_COMM_0, (char)ch, msg, &status)) {
 			return true; 
 		}
 	}

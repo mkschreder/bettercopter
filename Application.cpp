@@ -347,6 +347,7 @@ void Application::PCLinkProcessEvents(){
 		{PSTR("STAB.R_MAX_I"), &conf.pid_stab.roll.max_i},
 		//{PSTR("MEM_FREE"), (float)StackCount()}
 	};
+	
 	if(mPCLink.ReceiveMessage(&msg)){
 		switch(msg.msgid)
 		{
