@@ -26,7 +26,7 @@ srctree := $(CURDIR)
 
 obj-y := Application.o FlightController.o PID.o GPS.o LedIndicator.o ModeAltHold.o ModeStab.o PCLink.o ArmSwitch.o
 
-BUILD_DIR := build
+BUILD_DIR := build/$(BUILD)
 
 INCLUDES := -I. -I$(KERNEL_SOURCE) -I./$(KERNEL_SOURCE)/include/ 
 APPDEPS := 
