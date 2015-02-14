@@ -35,6 +35,13 @@
 
 #ifdef BUILD_arm_stm32f103
 #include <boards/flight_control/openpilot_cc3d.h>
+
+#define fc_init() cc3d_init()
+#define fc_process_events() cc3d_process_events()
+#define fc_interface() cc3d_get_fc_quad_interface()
+#define fc_led_on() gpio_set(CC3D_LED_PIN)
+#define fc_led_off() gpio_clear(CC3D_LED_PIN)
+
 #elif BUILD_avr_atmega328p
 #include <boards/flight_control/multiwii.h>
 

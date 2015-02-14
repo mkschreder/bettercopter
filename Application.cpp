@@ -368,7 +368,6 @@ void Application::PCLinkProcessEvents(){
 			break;
 		case MAVLINK_MSG_ID_PARAM_REQUEST_READ: 
 		case MAVLINK_MSG_ID_PARAM_REQUEST_LIST: {
-			mwii_led_on(); 
 			ReadConfig(&conf); 
 			
 			int count = sizeof(params) / sizeof(params[0]); 
