@@ -254,8 +254,8 @@ MAVLINK_HELPER uint8_t mavlink_parse_char(uint8_t chan, uint8_t c, mavlink_messa
 	*/
 #if MAVLINK_CRC_EXTRA
 #ifndef MAVLINK_MESSAGE_CRC
-	static const uint8_t mavlink_message_crcs[256] = MAVLINK_MESSAGE_CRCS;
-#define MAVLINK_MESSAGE_CRC(msgid) mavlink_message_crcs[msgid]
+	static const uint8_t mavlink_message_crcs[256] PROGMEM = MAVLINK_MESSAGE_CRCS;
+#define MAVLINK_MESSAGE_CRC(msgid) pgm_read_byte(&mavlink_message_crcs[msgid])
 #endif
 #endif
 
@@ -267,8 +267,8 @@ MAVLINK_HELPER uint8_t mavlink_parse_char(uint8_t chan, uint8_t c, mavlink_messa
 */
 #ifdef MAVLINK_CHECK_MESSAGE_LENGTH
 #ifndef MAVLINK_MESSAGE_LENGTH
-	static const uint8_t mavlink_message_lengths[256] = MAVLINK_MESSAGE_LENGTHS;
-#define MAVLINK_MESSAGE_LENGTH(msgid) mavlink_message_lengths[msgid]
+	static const uint8_t mavlink_message_lengths[256] PROGMEM = MAVLINK_MESSAGE_LENGTHS;
+#define MAVLINK_MESSAGE_LENGTH(msgid) pgm_read_byte(&mavlink_message_lengths[msgid])
 #endif
 #endif
 

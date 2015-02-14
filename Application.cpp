@@ -122,13 +122,19 @@ void Application::init(){
 	sim_init(); 
 #endif
 	//fc_init();
-
-	kdebug("BetterCopter V1.0\n"); 
+	
+	
+	kdebug("BetterCopter V1.0\n");
+	 
 	mBoard = fc_interface();
 	if(!mBoard) {
 		//kprintf("No board!\n"); 
 		while(1); 
 	}
+	
+	mPCSerial = fc_get_pc_link_interface(mBoard); 
+
+	mPCLink.SetSerialInterface(mPCSerial); 
 	fc_led_off(); 
 	
 	for(int c = 0; c < 3; c++){
@@ -139,9 +145,6 @@ void Application::init(){
 	}
 	
 	//srand(0x1234); 
-	
-	mPCSerial = fc_get_pc_link_interface(mBoard); 
-	mPCLink.SetSerialInterface(mPCSerial); 
 	
 	//fc_calibrate_escs(); 
 	
@@ -185,6 +188,7 @@ void Application::loop(){
 		mState = COPTER_STATE_STANDBY; 
 	}
 	
+	/*
 	static float step = 0; 
 	static timestamp_t test_timeout = timestamp_now();
 	static timestamp_t next_step_time = -1; 
@@ -230,7 +234,7 @@ void Application::loop(){
 	rc.pitch = rc.yaw = 1500; 
 	mArmSwitch.On(); 
 	mState = COPTER_STATE_ACTIVE; 
-	
+	*/
 	ThrottleValues throttle = 
 		fc.ComputeThrottle(dt, 
 			rc, 
@@ -248,7 +252,7 @@ void Application::loop(){
 		fc_write_motors(mBoard, 
 			MINCOMMAND, MINCOMMAND, MINCOMMAND, MINCOMMAND);
 	}
-
+	
 	PCLinkProcessEvents(); 
 	
 	static timestamp_t data_timeout = timestamp_from_now_us(100000); 
@@ -312,12 +316,14 @@ void Application::loop(){
 		mPCLink.SendHeartbeat(mState); 
 		hb_timeout = timestamp_from_now_us(1000000); 
 	}
+	
+	//printf("Stack: %u\n", StackCount()); 
 }
 
 void Application::PCLinkProcessEvents(){
 	mavlink_message_t msg; 
-	static AppConfig conf; 
-	static struct param {
+	AppConfig conf; 
+	struct param {
 		const char *name; 
 		float *value; 
 	} params [] = {
@@ -362,6 +368,7 @@ void Application::PCLinkProcessEvents(){
 			break;
 		case MAVLINK_MSG_ID_PARAM_REQUEST_READ: 
 		case MAVLINK_MSG_ID_PARAM_REQUEST_LIST: {
+			mwii_led_on(); 
 			ReadConfig(&conf); 
 			
 			int count = sizeof(params) / sizeof(params[0]); 
