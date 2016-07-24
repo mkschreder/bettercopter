@@ -1,17 +1,37 @@
+/*
+	Copyright (c) 2016 Martin Schröder <mkschreder.uk@gmail.com>
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 #include <btBulletCollisionCommon.h>
 #include <btBulletDynamicsCommon.h>
 
 #include "Application.h"
-#include "kernel.h"
 
 static int paused = 0; 
-Application::Application(){
+Application::Application():sock(true){
 	//int16_t mRCYaw = mRCPitch = mRCRoll = 0; 
 	mRCThrottle = 1250; 
 	mRCPitch = 1500; 
 	mRCYaw = 1500; 
 	mRCRoll = 1500; 
+	
+	mRCThrottle = 2000; 
+	mRCPitch = 1000; 
+	mRCYaw = 1000; 
+	mRCRoll = 1000; 
 	
 	irrDevice = createDevice(video::EDT_OPENGL, dimension2d<u32>(640, 480), 32, false, false, false, this);
 	irrGUI = irrDevice->getGUIEnvironment();
@@ -37,34 +57,32 @@ Application::Application(){
 	Dispatcher = new btCollisionDispatcher(CollisionConfiguration);
 	Solver = new btSequentialImpulseConstraintSolver();
 	World = new btDiscreteDynamicsWorld(Dispatcher, BroadPhase, Solver, CollisionConfiguration);
+	World->setGravity(btVector3(0, -9.82, 0)); 
 
 	// Add camera
 	ICameraSceneNode *Camera = irrScene->addCameraSceneNodeFPS(0, 100, 0.01);
 	//ICameraSceneNode *Camera = irrScene->addCameraSceneNode();
 	Camera->setPosition(vector3df(0, 0, 0));
 	Camera->setRotation(vector3df(45, -30, 0)); 
-	//Camera->setTarget(vector3df(0, -1, 1));
+	//Camera->setUpVector(vector3df(0, 0, 1.0)); 
+	//Camera->setTarget(vector3df(1, 0, 0));
 	
 	// Preload textures
 	irrDriver->getTexture("ice0.jpg");
 	irrDriver->getTexture("rust0.jpg");
 
-	// Create text
-	//IGUISkin *Skin = irrGUI->getSkin();
-	//Skin->setColor(EGDC_BUTTON_TEXT, SColor(255, 255, 255, 255));
-	//irrStatusText = irrGUI->addStaticText(L"Hit 1 to create a box\nHit 2 to create a sphere\nHit x to reset", rect<s32>(0, 0, 200, 100), true);
-
 	// Create the initial scene
 	irrScene->addLightSceneNode(0, core::vector3df(2, 5, -2), SColorf(4, 4, 4, 1));
+	irrScene->addLightSceneNode(0, core::vector3df(2, -5, -2), SColorf(4, 4, 4, 1));
 	CreateStartScene();
 
 	// Main loop
 	TimeStamp = irrTimer->getTime(), DeltaTime = 0;
 
-	CopterEntity *view = new CopterEntity(this);
+	Copter *view = new Copter(this);
 	activeQuad = view;
-	
-	//view->attachCamera(Camera); 
+
+	sock.bind("127.0.0.1", 9002); 
 }
 
 Application::~Application(){
@@ -81,12 +99,15 @@ Application::~Application(){
 void Application::run(){
 	DeltaTime = irrTimer->getTime() - TimeStamp;
 	TimeStamp = irrTimer->getTime();
-	
+
+	printf("%f\n", (float)DeltaTime); 
 	if(!paused){
-		UpdatePhysics(DeltaTime);
-		activeQuad->update(mRCThrottle, mRCYaw, mRCPitch, mRCRoll, 0, DeltaTime);
+		UpdatePhysics(6);
+		activeQuad->update(DeltaTime);
 	}
 	
+	updateNetwork(); 
+
 	irrDriver->beginScene(true, true, SColor(255, 20, 0, 0));
 	
 	irrScene->drawAll();
@@ -101,7 +122,6 @@ void Application::run(){
 
 
 bool Application::OnEvent(const SEvent &TEvent) {
-	static int th = 2220;
 	static int ph = 0; 
 	
 	if(TEvent.EventType == EET_KEY_INPUT_EVENT && !TEvent.KeyInput.PressedDown) {
@@ -149,12 +169,6 @@ bool Application::OnEvent(const SEvent &TEvent) {
 			break;
 		}
 		
-		set_pin(RC_THROTTLE, mRCThrottle); 
-		set_pin(RC_ROLL, mRCRoll); 
-		set_pin(RC_PITCH, mRCPitch); 
-		set_pin(RC_YAW, mRCYaw); 
-		set_pin(RC_MODE, 10); 
-		
 		return true;
 	}
 
@@ -169,7 +183,6 @@ void Application::UpdatePhysics(u32 TDeltaTime) {
 
 	// Relay the object's orientation to irrlicht
 	for(list<btRigidBody *>::Iterator Iterator = Objects.begin(); Iterator != Objects.end(); ++Iterator) {
-
 		UpdateRender(*Iterator);
 	}	
 }
@@ -231,6 +244,58 @@ void Application::UpdateRender(btRigidBody *TObject) {
 	q.toEuler(Euler);
 	Euler *= RADTODEG;
 	Node->setRotation(Euler);
+}
+
+struct servo_packet {
+	int16_t servo[8]; 
+}; 
+
+struct state_packet {
+	double timestamp; 
+	double gyro[3]; 
+	double accel[3]; 
+	double rcin[8]; 
+}; 
+
+void Application::updateNetwork(){
+	struct servo_packet pkt; 
+	if(sock.recv(&pkt, sizeof(pkt), 0) == sizeof(pkt)){
+		printf("servo: %d %d %d %d\n", pkt.servo[0], pkt.servo[1], pkt.servo[2], pkt.servo[3]); 
+		for(unsigned c = 0; c < 8; c++){
+			activeQuad->setServo(c, pkt.servo[c]); 
+		}
+	
+	struct state_packet state; 
+	memset(&state, 0, sizeof(state)); 
+
+	// create a 3d world to ned frame rotation
+	glm::quat r1(sin(glm::radians(90.0 / 2)), 0, 0, cos(glm::radians(90.0 / 2))); 
+	glm::quat r2(0, sin(glm::radians(90.0 / 2)), 0, cos(glm::radians(90.0 / 2))); 
+	glm::quat r2ef = r1 * r2; 
+	
+	glm::vec3 gyro(0, 0, 0); 
+
+	if(!paused)
+		gyro = activeQuad->getGyro(); 
+	
+	glm::vec3 accel = -activeQuad->getAccel(); 
+
+	state.gyro[0] = -gyro.z; state.gyro[1] = gyro.x; state.gyro[2] = -gyro.y; 
+	state.accel[0] = accel.x; state.accel[1] = accel.y; state.accel[2] = accel.z; 
+	//state.accel[0] = (mRCPitch - 1000.0) / 100.0; 
+	//state.accel[1] = (mRCRoll - 1000.0) / 100.0; 
+	//state.accel[2] = (mRCThrottle - 1000.0) / 100.0; 
+	state.rcin[0] = (mRCPitch - 1000.0) / 1000.0; 
+	state.rcin[1] = (mRCRoll - 1000.0) / 1000.0; 
+	state.rcin[2] = (mRCThrottle - 1000.0) / 1000.0; 
+	state.rcin[3] = (mRCYaw - 1000.0) / 1000.0; 
+	printf("sending: acc(%f %f %f) gyr(%f %f %f) rc(%f %f %f %f)\n", 
+		state.accel[0], state.accel[1], state.accel[2],
+		gyro.x, gyro.y, gyro.z,
+		state.rcin[0], state.rcin[1], state.rcin[2], state.rcin[3]); 
+	sock.sendto(&state, sizeof(state), "127.0.0.1", 9003); 
+
+	}
 }
 
 // Removes all objects from the world
